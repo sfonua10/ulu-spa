@@ -9,13 +9,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "default", size = "md", ...props }, ref) => {
-    const baseClasses = "inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+    const baseClasses = "inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
     
     const variants = {
-      default: "bg-gold-500 text-white hover:bg-gold-600 shadow-luxury hover:shadow-luxury-lg",
-      outline: "border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white",
-      ghost: "text-gold-600 hover:bg-gold-50 hover:text-gold-700",
-      luxury: "bg-luxury-gradient text-white hover:shadow-gold relative overflow-hidden"
+      default: "bg-amber-500 text-white hover:bg-amber-600 shadow-soft hover:shadow-soft font-medium",
+      outline: "border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white font-medium",
+      ghost: "text-amber-600 hover:bg-amber-50 hover:text-amber-700 font-medium",
+      luxury: "bg-gradient-to-br from-amber-500 to-amber-600 text-white hover:from-amber-600 hover:to-amber-700 hover:shadow-lg relative overflow-hidden font-semibold"
     }
     
     const sizes = {

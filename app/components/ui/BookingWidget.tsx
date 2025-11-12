@@ -95,15 +95,15 @@ export default function BookingWidget({
         return (
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-2">
+              <h3 className="text-xl font-display font-bold text-emerald-800 mb-2">
                 Personal Information
               </h3>
-              <p className="text-spa-stone-600">Tell us a bit about yourself</p>
+              <p className="text-stone-600">Tell us a bit about yourself</p>
             </div>
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-spa-sage-800 mb-2">
+                <label className="block text-sm font-medium text-emerald-800 mb-2">
                   <UserIcon className="h-4 w-4 inline mr-2" />
                   Full Name *
                 </label>
@@ -111,13 +111,13 @@ export default function BookingWidget({
                   type="text"
                   value={booking.clientName}
                   onChange={(e) => handleInputChange('clientName', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
                   placeholder="Enter your full name"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-spa-sage-800 mb-2">
+                <label className="block text-sm font-medium text-emerald-800 mb-2">
                   <EnvelopeIcon className="h-4 w-4 inline mr-2" />
                   Email Address *
                 </label>
@@ -125,13 +125,13 @@ export default function BookingWidget({
                   type="email"
                   value={booking.clientEmail}
                   onChange={(e) => handleInputChange('clientEmail', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
                   placeholder="your.email@example.com"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-spa-sage-800 mb-2">
+                <label className="block text-sm font-medium text-emerald-800 mb-2">
                   <PhoneIcon className="h-4 w-4 inline mr-2" />
                   Phone Number
                 </label>
@@ -139,7 +139,7 @@ export default function BookingWidget({
                   type="tel"
                   value={booking.clientPhone}
                   onChange={(e) => handleInputChange('clientPhone', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
                   placeholder="(555) 123-4567"
                 />
               </div>
@@ -151,15 +151,15 @@ export default function BookingWidget({
         return (
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-2">
+              <h3 className="text-xl font-display font-bold text-emerald-800 mb-2">
                 Select Date & Time
               </h3>
-              <p className="text-spa-stone-600">Choose your preferred appointment time</p>
+              <p className="text-stone-600">Choose your preferred appointment time</p>
             </div>
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-spa-sage-800 mb-2">
+                <label className="block text-sm font-medium text-emerald-800 mb-2">
                   <CalendarDaysIcon className="h-4 w-4 inline mr-2" />
                   Preferred Date *
                 </label>
@@ -168,19 +168,19 @@ export default function BookingWidget({
                   value={booking.date}
                   onChange={(e) => handleDateChange(e.target.value)}
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
                 />
               </div>
               
               {booking.date && (
                 <div>
-                  <label className="block text-sm font-medium text-spa-sage-800 mb-2">
+                  <label className="block text-sm font-medium text-emerald-800 mb-2">
                     <ClockIcon className="h-4 w-4 inline mr-2" />
                     Available Times *
                   </label>
                   {loading ? (
                     <div className="text-center py-4">
-                      <div className="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-spa-sage-600"></div>
+                      <div className="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-emerald-600"></div>
                     </div>
                   ) : (
                     <div className="grid grid-cols-2 gap-2">
@@ -190,8 +190,8 @@ export default function BookingWidget({
                           onClick={() => handleInputChange('time', slot)}
                           className={`p-3 text-sm font-medium rounded-lg border transition-all duration-200 ${
                             booking.time === slot
-                              ? 'bg-spa-sage-600 text-white border-spa-sage-600'
-                              : 'bg-white text-spa-sage-700 border-spa-sage-200 hover:border-spa-sage-400'
+                              ? 'bg-emerald-600 text-white border-emerald-600'
+                              : 'bg-white text-emerald-700 border-emerald-200 hover:border-emerald-400'
                           }`}
                         >
                           {slot}
@@ -209,44 +209,44 @@ export default function BookingWidget({
         return (
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-2">
+              <h3 className="text-xl font-display font-bold text-emerald-800 mb-2">
                 Confirm Booking
               </h3>
-              <p className="text-spa-stone-600">Review your appointment details</p>
+              <p className="text-stone-600">Review your appointment details</p>
             </div>
             
-            <div className="bg-spa-sage-50 rounded-2xl p-6 space-y-4">
+            <div className="bg-emerald-50 rounded-2xl p-6 space-y-4">
               <div className="flex justify-between">
-                <span className="font-medium text-spa-sage-800">Service:</span>
-                <span className="text-spa-stone-700">{serviceName}</span>
+                <span className="font-medium text-emerald-800">Service:</span>
+                <span className="text-stone-700">{serviceName}</span>
               </div>
               <div className="flex justify-between">
-                <span className="font-medium text-spa-sage-800">Date:</span>
-                <span className="text-spa-stone-700">{mangoMintUtils.formatDate(booking.date)}</span>
+                <span className="font-medium text-emerald-800">Date:</span>
+                <span className="text-stone-700">{mangoMintUtils.formatDate(booking.date)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="font-medium text-spa-sage-800">Time:</span>
-                <span className="text-spa-stone-700">{booking.time}</span>
+                <span className="font-medium text-emerald-800">Time:</span>
+                <span className="text-stone-700">{booking.time}</span>
               </div>
               <div className="flex justify-between">
-                <span className="font-medium text-spa-sage-800">Client:</span>
-                <span className="text-spa-stone-700">{booking.clientName}</span>
+                <span className="font-medium text-emerald-800">Client:</span>
+                <span className="text-stone-700">{booking.clientName}</span>
               </div>
               <div className="flex justify-between">
-                <span className="font-medium text-spa-sage-800">Email:</span>
-                <span className="text-spa-stone-700">{booking.clientEmail}</span>
+                <span className="font-medium text-emerald-800">Email:</span>
+                <span className="text-stone-700">{booking.clientEmail}</span>
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-spa-sage-800 mb-2">
+              <label className="block text-sm font-medium text-emerald-800 mb-2">
                 Special Requests (Optional)
               </label>
               <textarea
                 value={booking.notes}
                 onChange={(e) => handleInputChange('notes', e.target.value)}
                 rows={3}
-                className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200 resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 resize-none"
                 placeholder="Any special requests or notes for your appointment..."
               />
             </div>
@@ -257,20 +257,20 @@ export default function BookingWidget({
         return (
           <div className="text-center space-y-6">
             <div className="flex justify-center">
-              <CheckCircleIcon className="h-16 w-16 text-spa-sage-600" />
+              <CheckCircleIcon className="h-16 w-16 text-emerald-600" />
             </div>
             <div>
-              <h3 className="text-2xl font-display font-bold text-spa-sage-800 mb-2">
+              <h3 className="text-2xl font-display font-bold text-emerald-800 mb-2">
                 Booking Confirmed!
               </h3>
-              <p className="text-spa-stone-600 mb-4">
+              <p className="text-stone-600 mb-4">
                 Your appointment has been successfully booked.
               </p>
-              <div className="bg-spa-sage-50 rounded-2xl p-6 text-left">
-                <p className="text-sm text-spa-stone-600 mb-2">
+              <div className="bg-emerald-50 rounded-2xl p-6 text-left">
+                <p className="text-sm text-stone-600 mb-2">
                   <strong>Confirmation ID:</strong> {confirmationData?.appointmentId}
                 </p>
-                <p className="text-sm text-spa-stone-600">
+                <p className="text-sm text-stone-600">
                   We've sent a confirmation email to <strong>{booking.clientEmail}</strong> with your appointment details and preparation instructions.
                 </p>
               </div>
@@ -284,34 +284,27 @@ export default function BookingWidget({
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`bg-white rounded-3xl shadow-soft border border-spa-sage-100 p-8 max-w-md mx-auto ${className}`}
+    <div
+      className={`bg-white rounded-3xl shadow-soft border border-emerald-100 p-8 max-w-md mx-auto animate-in animate-fade-in animate-slide-up ${className}`}
     >
       {/* Progress Bar */}
       <div className="mb-8">
-        <div className="flex justify-between text-xs text-spa-stone-600 mb-2">
+        <div className="flex justify-between text-xs text-stone-600 mb-2">
           <span>Step {step} of 4</span>
           <span>{Math.round((step / 4) * 100)}%</span>
         </div>
-        <div className="w-full bg-spa-sage-100 rounded-full h-2">
-          <motion.div
-            className="bg-gradient-to-r from-spa-sage-600 to-spa-sage-500 h-2 rounded-full"
-            initial={{ width: '25%' }}
-            animate={{ width: `${(step / 4) * 100}%` }}
-            transition={{ duration: 0.3 }}
+        <div className="w-full bg-emerald-100 rounded-full h-2">
+          <div
+            className="bg-gradient-to-r from-emerald-600 to-emerald-500 h-2 rounded-full transition-all duration-300"
+            style={{ width: `${(step / 4) * 100}%` }}
           />
         </div>
       </div>
 
       {/* Errors */}
       {errors.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl"
+        <div
+          className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl animate-in animate-fade-in animate-slide-down"
         >
           <div className="flex items-start space-x-2">
             <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
@@ -323,7 +316,7 @@ export default function BookingWidget({
               </ul>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
 
       {/* Step Content */}
@@ -396,10 +389,10 @@ export default function BookingWidget({
 
       {/* MangomMint Integration Note */}
       <div className="mt-6 text-center">
-        <p className="text-xs text-spa-stone-500">
+        <p className="text-xs text-stone-500">
           🥭 Powered by MangomMint Integration
         </p>
       </div>
-    </motion.div>
+    </div>
   )
 }

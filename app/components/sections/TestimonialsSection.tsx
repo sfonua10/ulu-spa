@@ -115,7 +115,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
       className="block h-full group cursor-pointer"
       aria-label={`Read ${testimonial.name}'s review on Google`}
     >
-      <div className="card-inner bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-spa-sage-100/50 transition-all duration-300 h-full relative overflow-hidden">
+      <div className="card-inner bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-emerald-100/50 transition-all duration-300 h-full relative overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-3">
@@ -133,10 +133,10 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
               )}
             </div>
             <div>
-              <div className="font-semibold text-spa-sage-800 text-base group-hover:text-spa-sage-900 transition-colors">
+              <div className="font-semibold text-emerald-800 text-base group-hover:text-emerald-900 transition-colors">
                 {testimonial.name}
               </div>
-              <div className="text-spa-stone-500 text-xs space-y-0.5">
+              <div className="text-stone-500 text-xs space-y-0.5">
                 {testimonial.reviewCount && (
                   <div>{testimonial.reviewCount} reviews</div>
                 )}
@@ -145,10 +145,10 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <div className="text-xs text-spa-stone-500 font-medium bg-spa-sage-50 px-3 py-1 rounded-full">
+            <div className="text-xs text-stone-500 font-medium bg-emerald-50 px-3 py-1 rounded-full">
               Google
             </div>
-            <svg className="w-4 h-4 text-spa-stone-400 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-stone-400 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </div>
@@ -162,12 +162,12 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
         </div>
 
         {/* Content */}
-        <p className="text-spa-stone-700 leading-relaxed text-sm line-clamp-4">
+        <p className="text-stone-700 leading-relaxed text-sm line-clamp-4">
           {testimonial.content}
         </p>
 
         {/* Hover Effect Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-spa-gold-50/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-amber-50/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
       </div>
     </a>
   </div>
@@ -175,20 +175,20 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-spa-sage-50 via-white to-spa-cream-50 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-emerald-50 via-white to-amber-50 relative overflow-hidden">
       {/* Section Header */}
       <div className="max-w-4xl mx-auto text-center mb-16 px-6">
-        <div className="inline-flex items-center px-4 py-2 rounded-full bg-spa-gold-100 text-spa-gold-800 text-sm font-medium mb-6">
+        <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-100 text-amber-800 text-sm font-medium mb-6">
           ⭐ Client Testimonials ⭐
         </div>
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800 mb-6">
           What Our Clients
           <br />
-          <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
             Are Saying
           </span>
         </h2>
-        <p className="text-xl text-spa-stone-600 leading-relaxed">
+        <p className="text-xl text-stone-600 leading-relaxed">
           Real experiences from real people who have discovered their sanctuary at Ulu Spa.
         </p>
       </div>
@@ -218,29 +218,29 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Gradient Overlays for Seamless Effect */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-spa-sage-50 via-spa-sage-50/50 to-transparent pointer-events-none z-10"></div>
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-spa-cream-50 via-spa-cream-50/50 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-emerald-50 via-emerald-50/50 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-amber-50 via-amber-50/50 to-transparent pointer-events-none z-10"></div>
       </div>
 
       {/* Stats Section */}
       <div className="max-w-6xl mx-auto px-6 mt-20">
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-soft border border-spa-sage-100/50">
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-soft border border-emerald-100/50">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-spa-sage-800 mb-2">5.0★</div>
-              <div className="text-spa-stone-600 text-sm font-medium">Google Rating</div>
+              <div className="text-3xl md:text-4xl font-bold text-emerald-800 mb-2">5.0★</div>
+              <div className="text-stone-600 text-sm font-medium">Google Rating</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-spa-sage-800 mb-2">62+</div>
-              <div className="text-spa-stone-600 text-sm font-medium">Google Reviews</div>
+              <div className="text-3xl md:text-4xl font-bold text-emerald-800 mb-2">62+</div>
+              <div className="text-stone-600 text-sm font-medium">Google Reviews</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-spa-sage-800 mb-2">94%</div>
-              <div className="text-spa-stone-600 text-sm font-medium">Return Clients</div>
+              <div className="text-3xl md:text-4xl font-bold text-emerald-800 mb-2">94%</div>
+              <div className="text-stone-600 text-sm font-medium">Return Clients</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-spa-sage-800 mb-2">100%</div>
-              <div className="text-spa-stone-600 text-sm font-medium">5-Star Reviews</div>
+              <div className="text-3xl md:text-4xl font-bold text-emerald-800 mb-2">100%</div>
+              <div className="text-stone-600 text-sm font-medium">5-Star Reviews</div>
             </div>
           </div>
         </div>

@@ -23,6 +23,14 @@ export default function Header() {
   const whiteBackgroundPages = ['/services', '/memberships', '/group-bookings', '/about', '/contact', '/book']
   const isWhiteBackgroundPage = whiteBackgroundPages.includes(pathname)
 
+  // Helper function to check if a navigation link is active
+  const isActiveLink = (href: string) => {
+    if (href === '/') {
+      return pathname === '/'
+    }
+    return pathname.startsWith(href)
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
@@ -77,20 +85,29 @@ export default function Header() {
 
         <div className="hidden lg:flex lg:justify-center justify-self-center">
           <div className="flex gap-x-8 xl:gap-x-10">
-          {navigation.map((item) => (
+          {navigation.map((item) => {
+            const isActive = isActiveLink(item.href)
+            return (
             <div key={item.name}>
               <Link
                 href={item.href}
-                className={`relative text-sm xl:text-base font-medium leading-6 whitespace-nowrap transition-all duration-300 after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gold-300 hover:after:w-full after:transition-all after:duration-300 ${
-                  useDarkStyling 
-                    ? 'text-dark/90 hover:text-gold-600' 
-                    : 'text-white/90 hover:text-gold-300'
+                className={`relative text-sm xl:text-base leading-6 whitespace-nowrap transition-all duration-300 after:absolute after:bottom-[-5px] after:left-0 after:h-0.5 after:bg-gold-300 after:transition-all after:duration-300 ${
+                  isActive 
+                    ? `after:w-full font-semibold ${
+                        useDarkStyling ? 'text-gold-600' : 'text-gold-300'
+                      }`
+                    : `after:w-0 hover:after:w-full font-medium ${
+                        useDarkStyling 
+                          ? 'text-dark/90 hover:text-gold-600' 
+                          : 'text-white/90 hover:text-gold-300'
+                      }`
                 }`}
               >
                 {item.name}
               </Link>
             </div>
-          ))}
+            )
+          })}
           </div>
         </div>
 
@@ -144,20 +161,27 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gold-200">
               <div className="space-y-1 py-6">
-                {navigation.map((item, index) => (
+                {navigation.map((item, index) => {
+                  const isActive = isActiveLink(item.href)
+                  return (
                   <div
                     key={item.name}
                     className={`animate-in animate-slide-right animate-delay-${Math.min(index + 1, 5)}00`}
                   >
                     <Link
                       href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-3 text-base font-medium leading-7 text-dark hover:bg-cream-50 hover:text-gold-500 transition-colors duration-200 min-h-[44px] flex items-center"
+                      className={`-mx-3 block rounded-lg px-3 py-3 text-base leading-7 transition-colors duration-200 min-h-[44px] flex items-center ${
+                        isActive
+                          ? 'bg-gold-50 text-gold-600 font-semibold border-l-4 border-gold-500'
+                          : 'font-medium text-dark hover:bg-cream-50 hover:text-gold-500'
+                      }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
                     </Link>
                   </div>
-                ))}
+                  )
+                })}
               </div>
               <div className="py-6">
                 <Link href="/book">

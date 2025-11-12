@@ -50,15 +50,15 @@ export default function ServicesPreview() {
         <div
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-spa-sage-100 text-spa-sage-800 text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-100 text-emerald-800 text-sm font-medium mb-6">
             Our Signature Services
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800 mb-6">
             Tailored Experiences for 
             <br />
             Your Perfect Sanctuary
           </h2>
-          <p className="text-xl text-spa-stone-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
             Each service is carefully designed to address your unique needs, 
             whether you&apos;re seeking stress relief, hair growth support, or simply a moment of pure tranquility.
           </p>
@@ -72,20 +72,20 @@ export default function ServicesPreview() {
               className="group"
             >
               <GlassCard 
-                className="p-8 h-full bg-white/95 hover:bg-white/100 border-spa-sage-100 hover:border-spa-sage-200 transition-all duration-300"
+                className="p-8 h-full bg-white/95 border-emerald-100 hover:border-emerald-200 transition-colors duration-300"
                 blur="sm"
                 opacity={0.95}
               >
                 {/* Icon */}
-                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-spa-sage-500 to-spa-sage-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                   <service.icon className="h-8 w-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-display font-bold text-spa-sage-800 mb-4">
+                <h3 className="text-2xl font-display font-bold text-emerald-800 mb-4">
                   {service.name}
                 </h3>
-                <p className="text-spa-stone-600 leading-relaxed mb-6">
+                <p className="text-stone-600 leading-relaxed mb-6">
                   {service.description}
                 </p>
 
@@ -94,7 +94,7 @@ export default function ServicesPreview() {
                   {service.benefits.map((benefit) => (
                     <span
                       key={benefit}
-                      className="px-3 py-1 text-xs font-medium bg-spa-sage-50 text-spa-sage-700 rounded-full"
+                      className="px-3 py-1 text-xs font-medium bg-emerald-50 text-emerald-700 rounded-full"
                     >
                       {benefit}
                     </span>
@@ -102,12 +102,12 @@ export default function ServicesPreview() {
                 </div>
 
                 {/* Duration and Price */}
-                <div className="flex items-center justify-between text-sm text-spa-stone-600 mb-6">
+                <div className="flex items-center justify-between text-sm text-stone-600 mb-6">
                   <div className="flex items-center space-x-2">
                     <ClockIcon className="h-4 w-4" />
                     <span>{service.duration}</span>
                   </div>
-                  <div className="text-2xl font-bold text-spa-sage-800">
+                  <div className="text-2xl font-bold text-emerald-800">
                     {service.price}
                   </div>
                 </div>
@@ -115,7 +115,7 @@ export default function ServicesPreview() {
                 {/* CTA */}
                 <Button 
                   variant="outline" 
-                  className="w-full border-spa-sage-500 text-spa-sage-700 hover:bg-spa-sage-600 hover:text-white hover:border-spa-sage-600 group-hover:bg-spa-sage-600 group-hover:text-white group-hover:border-spa-sage-600 transition-all duration-300"
+                  className="w-full border-emerald-500 text-emerald-700 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all duration-300"
                 >
                   Book This Service
                 </Button>

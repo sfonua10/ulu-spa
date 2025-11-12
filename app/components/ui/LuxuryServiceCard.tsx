@@ -50,20 +50,20 @@ export default function LuxuryServiceCard({
       }}
     >
       {/* Main Card */}
-      <div className="relative h-full bg-white/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden transition-all duration-700 hover:shadow-4xl hover:border-spa-gold-200/40 perspective-1000">
+      <div className="relative h-full bg-white/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden transition-all duration-700 hover:shadow-4xl hover:border-amber-200/40 perspective-1000">
         
         {/* Glass Morphism Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/40 to-white/20 backdrop-blur-xl" />
         
         {/* Hover Glow Effect */}
-        <div className={`absolute inset-0 bg-gradient-to-br from-spa-gold-400/20 via-transparent to-spa-sage-400/20 transition-opacity duration-500 ${
+        <div className={`absolute inset-0 bg-gradient-to-br from-amber-400/20 via-transparent to-emerald-400/20 transition-opacity duration-500 ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`} />
 
         {/* Popular Badge */}
         {service.popular && (
           <div className="absolute top-6 right-6 z-20">
-            <div className="bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg animate-pulse">
+            <div className="bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg animate-pulse">
               ⭐ Most Popular
             </div>
           </div>
@@ -76,28 +76,28 @@ export default function LuxuryServiceCard({
           
           {/* Icon */}
           <div className="relative mb-6">
-            <div className={`w-18 h-18 bg-gradient-to-br from-spa-sage-500 to-spa-sage-600 rounded-2xl flex items-center justify-center shadow-xl transition-all duration-500 ${
-              isHovered ? 'scale-110 rotate-6 shadow-2xl' : ''
+            <div className={`w-18 h-18 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl flex items-center justify-center shadow-xl border-2 border-white/20 transition-all duration-500 ${
+              isHovered ? 'scale-110 rotate-6 shadow-2xl border-white/30' : ''
             }`}>
-              <service.icon className="h-10 w-10 text-white" />
+              <service.icon className="h-10 w-10 text-white drop-shadow-lg" />
             </div>
             
             {/* Floating sparkles */}
             <div className={`absolute -top-2 -right-2 transition-all duration-500 ${
               isHovered ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
             }`}>
-              <div className="w-6 h-6 bg-spa-gold-400 rounded-full animate-ping" />
-              <StarIcon className="h-4 w-4 text-spa-gold-500 absolute top-1 left-1" />
+              <div className="w-6 h-6 bg-amber-400 rounded-full animate-ping" />
+              <StarIcon className="h-4 w-4 text-white absolute top-1 left-1 drop-shadow-sm" />
             </div>
           </div>
 
           {/* Title & Description */}
           <div className="flex-1">
-            <h3 className="text-2xl font-display font-bold text-spa-sage-800 mb-3 group-hover:text-spa-sage-900 transition-colors">
+            <h3 className="text-2xl font-display font-bold text-emerald-800 mb-3 group-hover:text-emerald-900 transition-colors">
               {service.name}
             </h3>
             
-            <p className={`text-spa-stone-600 leading-relaxed mb-6 transition-all duration-300 ${
+            <p className={`text-stone-600 leading-relaxed mb-6 transition-all duration-300 ${
               showDetails ? 'opacity-70' : ''
             }`}>
               {showDetails ? service.fullDesc : service.shortDesc}
@@ -110,7 +110,7 @@ export default function LuxuryServiceCard({
               {service.benefits.slice(0, 3).map((benefit, index) => (
                 <span
                   key={benefit}
-                  className={`px-3 py-1 text-xs font-medium bg-gradient-to-r from-spa-sage-50 to-spa-sage-100 text-spa-sage-700 rounded-full border border-spa-sage-200/50 transition-all duration-300 ${
+                  className={`px-3 py-1 text-xs font-medium bg-gradient-to-r from-emerald-200 to-emerald-300 text-emerald-800 rounded-full border border-emerald-400 shadow-sm transition-all duration-300 ${
                     isHovered ? `animate-bounce animate-delay-${index * 100}` : ''
                   }`}
                 >
@@ -122,11 +122,11 @@ export default function LuxuryServiceCard({
             {/* Includes (shown on hover) */}
             {isHovered && (
               <div className="mb-6 animate-in slide-down">
-                <h4 className="text-sm font-semibold text-spa-sage-700 mb-2">Includes:</h4>
+                <h4 className="text-sm font-semibold text-emerald-700 mb-2">Includes:</h4>
                 <ul className="space-y-1">
                   {service.includes.slice(0, 3).map((item) => (
-                    <li key={item} className="flex items-center text-xs text-spa-stone-600">
-                      <CheckIcon className="h-3 w-3 text-spa-sage-500 mr-2" />
+                    <li key={item} className="flex items-center text-xs text-stone-600">
+                      <CheckIcon className="h-3 w-3 text-emerald-500 mr-2" />
                       {item}
                     </li>
                   ))}
@@ -139,17 +139,17 @@ export default function LuxuryServiceCard({
           <div className={`flex items-center justify-between mb-6 transition-all duration-300 ${
             isHovered ? 'transform scale-105' : ''
           }`}>
-            <div className="flex items-center space-x-2 text-spa-stone-600">
+            <div className="flex items-center space-x-2 text-stone-600">
               <ClockIcon className="h-5 w-5" />
               <span className="font-medium">{service.duration}</span>
             </div>
             
             <div className="text-right">
-              <div className="text-3xl font-bold text-spa-sage-800 leading-none">
+              <div className="text-3xl font-bold text-emerald-800 leading-none">
                 ${service.price}
               </div>
               {service.priceRange && (
-                <div className="text-xs text-spa-stone-500 mt-1">
+                <div className="text-xs text-stone-500 mt-1">
                   Range: {service.priceRange}
                 </div>
               )}
@@ -157,13 +157,11 @@ export default function LuxuryServiceCard({
           </div>
 
           {/* Action Buttons */}
-          <div className={`grid grid-cols-2 gap-3 transition-all duration-500 ${
-            isHovered ? 'transform translate-y-0 opacity-100' : 'transform translate-y-2 opacity-90'
-          }`}>
+          <div className="grid grid-cols-2 gap-3 transition-all duration-300">
             <Button 
               variant="outline" 
               size="sm" 
-              className="bg-white/50 backdrop-blur-sm border-spa-sage-200 hover:bg-spa-sage-50 hover:border-spa-sage-300 transition-all duration-300"
+              className="bg-white/80 backdrop-blur-sm border-emerald-300 text-emerald-800 hover:bg-emerald-100 hover:border-emerald-400 hover:text-emerald-900 transition-all duration-300 font-medium"
               onClick={() => {
                 setShowDetails(!showDetails)
                 onLearnMore?.()
@@ -175,7 +173,7 @@ export default function LuxuryServiceCard({
             <Button 
               variant="luxury" 
               size="sm" 
-              className="bg-gradient-to-r from-spa-sage-600 to-spa-sage-700 hover:from-spa-sage-700 hover:to-spa-sage-800 shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
+              className="bg-amber-700 hover:bg-amber-800 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group/btn border border-amber-800"
               onClick={onBookNow}
             >
               Book Now
@@ -191,7 +189,7 @@ export default function LuxuryServiceCard({
       </div>
 
       {/* 3D Shadow */}
-      <div className={`absolute inset-0 bg-spa-sage-900/20 rounded-3xl transition-all duration-700 -z-10 ${
+      <div className={`absolute inset-0 bg-emerald-900/20 rounded-3xl transition-all duration-700 -z-10 ${
         isHovered ? 'transform translate-y-2 translate-x-2 scale-105 blur-xl' : 'transform translate-y-1 translate-x-1 blur-md'
       }`} />
     </div>

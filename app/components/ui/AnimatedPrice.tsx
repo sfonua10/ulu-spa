@@ -51,8 +51,8 @@ export default function AnimatedPrice({
 
   return (
     <div ref={ref} className={`text-right ${className}`}>
-      <div className={`text-3xl font-bold text-spa-sage-800 leading-none transition-all duration-300 ${
-        isAnimating ? 'scale-110 text-spa-gold-600' : ''
+      <div className={`text-3xl font-bold text-emerald-800 leading-none transition-all duration-300 ${
+        isAnimating ? 'scale-110 text-amber-600' : ''
       }`}>
         <span className="inline-block">$</span>
         <span className={`inline-block tabular-nums ${
@@ -63,7 +63,7 @@ export default function AnimatedPrice({
       </div>
       
       {priceRange && (
-        <div className={`text-xs text-spa-stone-500 mt-1 transition-all duration-500 ${
+        <div className={`text-xs text-stone-500 mt-1 transition-all duration-500 ${
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
         }`}>
           Range: {priceRange}
@@ -71,7 +71,7 @@ export default function AnimatedPrice({
       )}
       
       {/* Price highlight effect */}
-      <div className={`absolute inset-0 bg-gradient-to-r from-spa-gold-400/20 via-spa-gold-300/30 to-spa-gold-400/20 rounded-lg transition-all duration-300 -z-10 ${
+      <div className={`absolute inset-0 bg-gradient-to-r from-amber-400/20 via-amber-300/30 to-amber-400/20 rounded-lg transition-all duration-300 -z-10 ${
         isAnimating ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
       }`} />
     </div>

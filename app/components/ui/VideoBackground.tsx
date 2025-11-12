@@ -73,12 +73,9 @@ export default function VideoBackground({
     <div className={`relative w-full h-full overflow-hidden ${className}`}>
       {/* Video Background */}
       {shouldShowVideo && (
-        <motion.video
+        <video
           ref={videoRef}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isVideoLoaded ? 1 : 0 }}
-          transition={{ duration: 1 }}
-          className="absolute top-0 left-0 w-full h-full min-w-full min-h-full object-cover z-0"
+          className={`absolute top-0 left-0 w-full h-full min-w-full min-h-full object-cover z-0 transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
           autoPlay={autoPlay}
           muted={muted}
           loop={loop}
@@ -101,17 +98,12 @@ export default function VideoBackground({
         >
           <source src={videoSrc} type="video/mp4" />
           Your browser does not support the video tag.
-        </motion.video>
+        </video>
       )}
 
       {/* Fallback Image */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ 
-          opacity: (!shouldShowVideo || !isVideoLoaded) ? 1 : 0 
-        }}
-        transition={{ duration: 1 }}
-        className="absolute top-0 left-0 w-full h-full min-w-full min-h-full bg-cover bg-center bg-no-repeat z-0"
+      <div
+        className={`absolute top-0 left-0 w-full h-full min-w-full min-h-full bg-cover bg-center bg-no-repeat z-0 transition-opacity duration-1000 ${(!shouldShowVideo || !isVideoLoaded) ? 'opacity-100' : 'opacity-0'}`}
         style={{ backgroundImage: `url(${fallbackImage})` }}
         role="img"
         aria-label="Luxury spa environment"

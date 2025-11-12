@@ -54,7 +54,7 @@ export default function LuxuryVideoHero({
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
         
         {/* Subtle Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-spa-sage-600/20 to-transparent" />
+        <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-emerald-600/20 to-transparent" />
       </div>
 
       {/* Content */}
@@ -124,9 +124,9 @@ export default function LuxuryVideoHero({
 
       {/* Loading State */}
       {!isLoaded && (
-        <div className="absolute inset-0 z-20 bg-spa-sage-900 flex items-center justify-center">
+        <div className="absolute inset-0 z-20 bg-emerald-900 flex items-center justify-center">
           <div className="text-center text-white">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-spa-gold-500 mx-auto mb-4" />
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mx-auto mb-4" />
             <p className="text-lg">Loading experience...</p>
           </div>
         </div>

@@ -37,7 +37,7 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
           {/* Book Appointment */}
           <Button
             variant="luxury"
-            className="bg-white/95 backdrop-blur-xl text-spa-sage-800 border border-white/20 shadow-xl hover:bg-white hover:shadow-2xl transition-all duration-300 px-6 py-3 rounded-full group"
+            className="bg-white/95 backdrop-blur-xl text-emerald-800 border border-white/20 shadow-xl hover:bg-white hover:shadow-2xl transition-all duration-300 px-6 py-3 rounded-full group"
             onClick={() => {
               // Handle booking action
               console.log('Book appointment clicked')
@@ -50,7 +50,7 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
           {/* Call Now */}
           <Button
             variant="outline"
-            className="bg-white/95 backdrop-blur-xl border-spa-sage-200 text-spa-sage-800 shadow-xl hover:bg-spa-sage-50 hover:shadow-2xl transition-all duration-300 px-6 py-3 rounded-full group"
+            className="bg-white/95 backdrop-blur-xl border-emerald-200 text-emerald-800 shadow-xl hover:bg-emerald-50 hover:shadow-2xl transition-all duration-300 px-6 py-3 rounded-full group"
             onClick={() => {
               window.open('tel:(801)528-7368', '_self')
             }}
@@ -64,15 +64,15 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
       {/* Main Floating Button */}
       <div className="relative">
         {/* Pulsing glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-spa-gold-400 to-spa-sage-500 rounded-full animate-ping opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-emerald-500 rounded-full animate-ping opacity-20" />
         
         {/* Main button */}
         <Button
           variant="luxury"
           size="lg"
           className={`
-            relative bg-gradient-to-r from-spa-sage-600 to-spa-sage-700 text-white shadow-2xl 
-            hover:from-spa-sage-700 hover:to-spa-sage-800 hover:shadow-4xl
+            relative bg-gradient-to-r from-emerald-600 to-emerald-700 text-white shadow-2xl 
+            hover:from-emerald-700 hover:to-emerald-800 hover:shadow-4xl
             transition-all duration-500 rounded-full p-4
             ${isExpanded ? 'rotate-45' : 'hover:rotate-6 hover:scale-110'}
           `}
@@ -94,7 +94,7 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
             {[...Array(4)].map((_, i) => (
               <div
                 key={i}
-                className={`absolute w-1 h-1 bg-spa-gold-300 rounded-full animate-ping`}
+                className={`absolute w-1 h-1 bg-amber-300 rounded-full animate-ping`}
                 style={{
                   left: `${50 + Math.cos(i * 90 * Math.PI / 180) * 25}%`,
                   top: `${50 + Math.sin(i * 90 * Math.PI / 180) * 25}%`,
@@ -109,9 +109,9 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
         {/* Tooltip */}
         {!isExpanded && (
           <div className="absolute bottom-full right-0 mb-2 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-            <div className="bg-spa-sage-800 text-white text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
+            <div className="bg-emerald-800 text-white text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
               Quick booking & contact
-              <div className="absolute top-full right-4 border-l-4 border-r-4 border-t-4 border-transparent border-t-spa-sage-800" />
+              <div className="absolute top-full right-4 border-l-4 border-r-4 border-t-4 border-transparent border-t-emerald-800" />
             </div>
           </div>
         )}

@@ -57,6 +57,26 @@ export default {
           900: '#7e541d',
         },
       },
+      boxShadow: {
+        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+        'soft-lg': '0 4px 20px -3px rgba(0, 0, 0, 0.1), 0 15px 25px -2px rgba(0, 0, 0, 0.06)',
+        'luxury': '0 10px 30px rgba(0, 0, 0, 0.1)',
+        'luxury-lg': '0 20px 40px rgba(0, 0, 0, 0.15)',
+        'gold': '0 10px 20px rgba(212, 175, 55, 0.3)',
+        'gold-lg': '0 20px 40px rgba(212, 175, 55, 0.4)',
+        'glow': '0 0 20px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.3)'
+      },
+      backgroundImage: {
+        'luxury-gradient': 'linear-gradient(135deg, #D4AF37 0%, #B8941F 100%)',
+        'cream-gradient': 'linear-gradient(180deg, #ffffff 0%, #FFF8E7 100%)',
+        'gold-shimmer': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+        'hero-pattern': 'repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 1px, transparent 15px)'
+      },
+      fontFamily: {
+        'display': ['var(--font-playfair)', 'serif'],
+        'script': ['var(--font-dancing)', 'cursive'],
+        'body': ['var(--font-montserrat)', 'system-ui', 'sans-serif']
+      }
     },
   },
   plugins: [],

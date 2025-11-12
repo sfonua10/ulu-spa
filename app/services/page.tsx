@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Button } from '../components/ui/Button'
 import { useInView, useStaggeredInView } from '../hooks/useInView'
-import SpaBubbles from '../components/ui/SpaBubbles'
 import LuxuryVideoHero from '../components/ui/LuxuryVideoHero'
 import LuxuryServiceCard from '../components/ui/LuxuryServiceCard'
 import LuxuryCategoryFilter from '../components/ui/LuxuryCategoryFilter'
@@ -531,7 +530,6 @@ export default function ServicesPage() {
   return (
     <div className="relative">
       {/* Background Bubbles */}
-      <SpaBubbles bubbleCount={25} className="opacity-40" />
       
       {/* Video Hero Section */}
       <LuxuryVideoHero
@@ -584,20 +582,20 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-spa-sage-50 to-spa-cream-50">
+      <section className="py-20 bg-gradient-to-br from-emerald-50 to-amber-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div
             ref={ctaRef}
             className={`space-y-8 ${ctaInView ? 'animate-in animate-slide-up animate-slow' : 'opacity-0'}`}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800">
               Ready to Begin Your
               <br />
-              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
                 Wellness Journey?
               </span>
             </h2>
-            <p className="text-xl text-spa-stone-600 leading-relaxed">
+            <p className="text-xl text-stone-600 leading-relaxed">
               Book your personalized consultation today and let our experts 
               recommend the perfect service for your unique needs.
             </p>
