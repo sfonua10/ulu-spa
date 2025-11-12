@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Playfair_Display, Montserrat, Dancing_Script } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -42,6 +43,20 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${geistMono.variable} ${playfairDisplay.variable} ${dancingScript.variable} antialiased`}
       >
+        {/* MangoMint Online Booking Script */}
+        <Script
+          id="mangomint-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.Mangomint = window.Mangomint || {}; window.Mangomint.CompanyId = 904811;`
+          }}
+        />
+        <Script
+          src="https://booking.mangomint.com/app.js"
+          strategy="afterInteractive"
+          id="mangomint-booking-script"
+          async
+        />
         <Header />
         <main>{children}</main>
         <Footer />

@@ -11,7 +11,7 @@ export function LeafDecoration({ className = '', size = 100 }: { className?: str
         <path
           d="M50 10 Q30 30 25 50 T35 80 Q50 70 50 50 Q50 70 65 80 T75 50 Q70 30 50 10"
           fill="currentColor"
-          className="text-gold-500 opacity-20"
+          className="text-spa-gold-500 opacity-20"
         />
       </svg>
     </div>
@@ -51,7 +51,7 @@ export function HeroPattern() {
 export function RotatingElement({ className = '' }: { className?: string }) {
   return (
     <div className={`absolute pointer-events-none ${className} rotate-slow`}>
-      <div className="w-96 h-96 rounded-full bg-gradient-radial from-gold-200/20 to-transparent blur-3xl" />
+      <div className="w-96 h-96 rounded-full bg-gradient-radial from-spa-gold-200/20 to-transparent blur-3xl" />
     </div>
   )
 }
@@ -60,7 +60,7 @@ export function RotatingElement({ className = '' }: { className?: string }) {
 export function PageLoader() {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-white animate-in animate-fade-in">
-      <div className="w-24 h-24 border-4 border-gold-200 border-t-gold-500 rounded-full loading-spinner" />
+      <div className="w-24 h-24 border-4 border-spa-gold-200 border-t-spa-gold-500 rounded-full loading-spinner" />
     </div>
   )
 }

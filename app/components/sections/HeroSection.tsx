@@ -1,12 +1,19 @@
 'use client'
 
+import Link from 'next/link'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import { HeroPattern, LeafDecoration, RotatingElement } from '../ui/DecorativeElements'
 import AnimatedCounter from '../ui/AnimatedCounter'
 import { useInView } from '@/app/hooks/useInView'
+import { useState, useRef, useEffect } from 'react'
 
 export default function HeroSection() {
   const { ref: heroRef, isInView } = useInView({ threshold: 0.2 })
+  const [videoError, setVideoError] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const [isClient, setIsClient] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   const scrollToServices = () => {
     const element = document.getElementById('services-preview')
@@ -15,28 +22,94 @@ export default function HeroSection() {
     }
   }
 
+  const handleVideoError = () => {
+    console.log('Video failed to load, showing fallback background')
+    setVideoError(true)
+  }
+
+  const handleVideoLoad = () => {
+    console.log('Video loaded successfully')
+    setVideoLoaded(true)
+  }
+
+  useEffect(() => {
+    // Set client flag for hydration
+    setIsClient(true)
+    
+    // Check mobile screen size
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    // Initial check
+    checkMobile()
+    
+    // Add resize listener
+    const handleResize = () => checkMobile()
+    window.addEventListener('resize', handleResize)
+    
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion && videoRef.current) {
+      videoRef.current.pause()
+    }
+    
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  // Get the appropriate video source
+  const getVideoSource = () => {
+    if (!isClient) return '/videos/ulu-facial-site.mp4' // SSR fallback
+    return isMobile ? '/videos/ulu-facial-site-mobile.mov' : '/videos/ulu-facial-site.mp4'
+  }
+
   return (
     <section 
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-16"
     >
-      {/* Direct Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        onLoadStart={() => console.log('Video loading started')}
-        onCanPlay={() => console.log('Video can play')}
-        onError={(e) => console.log('Video error:', e)}
-      >
-        <source src="/videos/ulu-facial-site.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {/* Responsive Video Background */}
+      {!videoError && isClient && (
+        <video
+          ref={videoRef}
+          key={getVideoSource()} // Force re-render when source changes
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          src={getVideoSource()}
+          className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${
+            videoLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoadStart={() => {
+            console.log(`Video loading started: ${getVideoSource()}`)
+            setVideoLoaded(false)
+          }}
+          onCanPlay={handleVideoLoad}
+          onError={handleVideoError}
+        >
+          Your browser does not support the video tag.
+        </video>
+      )}
+
+      {/* Fallback Background Image */}
+      {(videoError || !videoLoaded) && (
+        <div 
+          className="absolute inset-0 w-full h-full bg-gradient-to-br from-spa-dark via-spa-primary to-spa-accent opacity-90 z-0"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3e%3cg fill="none" fill-rule="evenodd"%3e%3cg fill="%23ffffff" fill-opacity="0.1"%3e%3cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")'
+          }}
+        />
+      )}
       
       {/* Video Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
+      
+      {/* Subtle bottom gradient to indicate scroll on mobile */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/30 to-transparent z-10 md:hidden"></div>
       
       {/* Elegant Background Elements */}
       <div className="absolute inset-0 opacity-20 z-10">
@@ -80,29 +153,35 @@ export default function HeroSection() {
           </p>
 
           {/* CTA Buttons */}
-          <div className={`flex flex-col sm:flex-row justify-center items-center gap-6 pt-8 ${
+          <div className={`flex flex-col sm:flex-row justify-center items-center gap-6 pt-8 pb-12 md:pb-8 ${
             isInView ? 'animate-in animate-slide-up animate-delay-900' : 'opacity-0'
           }`}>
-            <div className="group relative overflow-hidden bg-transparent hover:bg-custom-gold/10 text-custom-gold px-12 py-6 rounded-full font-bold text-xl transition-all duration-500 cursor-pointer shadow-2xl hover:shadow-custom-gold/30 transform hover:scale-105 border-2 border-custom-gold hover:border-custom-gold backdrop-blur-sm">
+            <a 
+              href={process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'}
+              className="mangomint-booking-button group relative overflow-hidden bg-transparent hover:bg-custom-gold/10 text-custom-gold px-12 py-6 rounded-full font-bold text-xl transition-all duration-500 cursor-pointer shadow-2xl hover:shadow-custom-gold/30 transform hover:scale-105 border-2 border-custom-gold hover:border-custom-gold backdrop-blur-sm inline-block"
+            >
               <div className="absolute inset-0 bg-custom-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="relative z-10 flex items-center justify-center">
                 Book Now
               </span>
-            </div>
+            </a>
             
-            <button className="group border-2 border-custom-gold/60 text-white/95 hover:bg-custom-gold/15 hover:border-custom-gold backdrop-blur-sm px-10 py-5 rounded-full font-medium text-lg transition-all duration-500 shadow-xl hover:shadow-custom-gold/20 transform hover:scale-105">
+            <Link 
+              href="/services"
+              className="group border-2 border-custom-gold/60 text-white/95 hover:bg-custom-gold/15 hover:border-custom-gold backdrop-blur-sm px-10 py-5 rounded-full font-medium text-lg transition-all duration-500 shadow-xl hover:shadow-custom-gold/20 transform hover:scale-105 inline-block"
+            >
               <span className="flex items-center justify-center">
                 View Services
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
+      {/* Enhanced Scroll Indicator - Hidden on mobile */}
       <button
         onClick={scrollToServices}
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 group ${
+        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 group hidden md:block ${
           isInView ? 'animate-in animate-fade-in animate-delay-1200' : 'opacity-0'
         }`}
       >

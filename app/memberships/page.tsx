@@ -154,18 +154,18 @@ export default function MembershipsPage() {
   return (
     <div className="pt-24 pb-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-amber-50 via-white to-emerald-50">
+      <section className="py-20 bg-gradient-to-br from-spa-gold-50 via-white to-spa-sage-50">
         <div className="max-w-7xl mx-auto px-6">
           <div
             className="text-center animate-in animate-fade-in animate-slide-up animate-slow"
           >
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-100 text-amber-800 text-sm font-medium mb-6">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-spa-gold-100 text-spa-gold-800 text-sm font-medium mb-6">
               💎 Exclusive Membership Benefits 💎
             </div>
-            <h1 className="text-5xl md:text-6xl font-display font-bold text-emerald-800 mb-6">
+            <h1 className="text-5xl md:text-6xl font-display font-bold text-spa-sage-800 mb-6">
               Invest in Your
               <br />
-              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Wellness Journey
               </span>
             </h1>
@@ -176,14 +176,14 @@ export default function MembershipsPage() {
 
             {/* Billing Toggle */}
             <div
-              className="inline-flex items-center bg-white rounded-full p-1 shadow-soft border border-emerald-100 animate-in animate-scale-in animate-delay-200"
+              className="inline-flex items-center bg-white rounded-full p-1 shadow-soft border border-spa-sage-100 animate-in animate-scale-in animate-delay-200"
             >
               <button
                 onClick={() => setBillingCycle('monthly')}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   billingCycle === 'monthly'
-                    ? 'bg-emerald-600 text-white shadow-soft'
-                    : 'text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800'
+                    ? 'bg-spa-sage-600 text-white shadow-soft'
+                    : 'text-spa-sage-700 hover:bg-spa-sage-50 hover:text-spa-sage-800'
                 }`}
               >
                 Monthly
@@ -192,12 +192,12 @@ export default function MembershipsPage() {
                 onClick={() => setBillingCycle('annually')}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 relative ${
                   billingCycle === 'annually'
-                    ? 'bg-emerald-600 text-white shadow-soft'
-                    : 'text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800'
+                    ? 'bg-spa-sage-600 text-white shadow-soft'
+                    : 'text-spa-sage-700 hover:bg-spa-sage-50 hover:text-spa-sage-800'
                 }`}
               >
                 Annually
-                <span className="absolute -top-3 -right-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-gold border-2 border-white transform rotate-12">
+                <span className="absolute -top-3 -right-3 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-gold border-2 border-white transform rotate-12">
                   Save 20%
                 </span>
               </button>
@@ -218,15 +218,15 @@ export default function MembershipsPage() {
               >
                 <div className={`bg-white rounded-3xl shadow-soft hover:shadow-soft-lg transition-all duration-300 p-8 h-full relative overflow-hidden ${
                   membership.popular 
-                    ? 'ring-2 ring-amber-400 border-amber-200' 
-                    : 'border border-emerald-100 hover:border-emerald-200'
+                    ? 'ring-2 ring-spa-gold-400 border-spa-gold-200' 
+                    : 'border border-spa-sage-100 hover:border-spa-sage-200'
                 }`}>
                   {/* Popular Badge */}
                   {membership.popular && (
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                      <div className="bg-gradient-to-r from-amber-500 to-amber-600 text-white text-sm font-bold px-6 py-2.5 rounded-full shadow-glow border-2 border-white relative">
+                      <div className="bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-sm font-bold px-6 py-2.5 rounded-full shadow-glow border-2 border-white relative">
                         <span className="relative z-10 drop-shadow-sm">Most Popular</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-700 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                     </div>
                   )}
@@ -235,14 +235,14 @@ export default function MembershipsPage() {
                   <div className="text-center mb-8">
                     <div className={`flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${
                       membership.color === 'gold' 
-                        ? 'from-amber-500 to-amber-600' 
+                        ? 'from-spa-gold-500 to-spa-gold-600' 
                         : membership.color === 'cream'
-                        ? 'from-amber-500 to-amber-600'
-                        : 'from-emerald-500 to-emerald-600'
+                        ? 'from-spa-gold-500 to-spa-gold-600'
+                        : 'from-spa-sage-500 to-spa-sage-600'
                     }`}>
                       <membership.icon className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-display font-bold text-emerald-800 mb-2">
+                    <h3 className="text-2xl font-display font-bold text-spa-sage-800 mb-2">
                       {membership.name}
                     </h3>
                     <p className="text-stone-600">
@@ -252,7 +252,7 @@ export default function MembershipsPage() {
 
                   {/* Pricing */}
                   <div className="text-center mb-8">
-                    <div className="text-5xl font-bold text-emerald-800 mb-2">
+                    <div className="text-5xl font-bold text-spa-sage-800 mb-2">
                       ${billingCycle === 'monthly' ? membership.price.monthly : Math.floor(membership.price.annually / 12)}
                       <span className="text-lg font-normal text-stone-600">/month</span>
                     </div>
@@ -261,7 +261,7 @@ export default function MembershipsPage() {
                         ${membership.price.annually} billed annually
                       </div>
                     )}
-                    <div className="text-amber-600 font-medium mt-2">
+                    <div className="text-spa-gold-600 font-medium mt-2">
                       {membership.sessions} sessions included
                     </div>
                   </div>
@@ -270,7 +270,7 @@ export default function MembershipsPage() {
                   <div className="space-y-4 mb-8">
                     {membership.features.map((feature) => (
                       <div key={feature} className="flex items-start space-x-3">
-                        <CheckIcon className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                        <CheckIcon className="h-5 w-5 text-spa-sage-600 flex-shrink-0 mt-0.5" />
                         <span className="text-stone-700 text-sm">{feature}</span>
                       </div>
                     ))}
@@ -298,15 +298,15 @@ export default function MembershipsPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-spa-sage-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
           <div
             className="text-center mb-16 scroll-animate"
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               Why Choose
               <br />
-              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Membership?
               </span>
             </h2>
@@ -324,7 +324,7 @@ export default function MembershipsPage() {
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
                 <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold text-emerald-800 mb-3">
+                <h3 className="text-xl font-semibold text-spa-sage-800 mb-3">
                   {benefit.title}
                 </h3>
                 <p className="text-stone-600 leading-relaxed">
@@ -342,10 +342,10 @@ export default function MembershipsPage() {
           <div
             className="text-center mb-16 scroll-animate"
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               Frequently Asked
               <br />
-              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Questions
               </span>
             </h2>
@@ -355,16 +355,16 @@ export default function MembershipsPage() {
             className="space-y-6 scroll-animate"
             style={{ transitionDelay: '0.2s' }}
           >
-            <div className="bg-emerald-50 rounded-2xl p-6">
-              <h3 className="font-semibold text-emerald-800 mb-2">Can I change my membership plan?</h3>
+            <div className="bg-spa-sage-50 rounded-2xl p-6">
+              <h3 className="font-semibold text-spa-sage-800 mb-2">Can I change my membership plan?</h3>
               <p className="text-stone-600">Yes, you can upgrade or downgrade your membership at any time. Changes will be reflected in your next billing cycle.</p>
             </div>
-            <div className="bg-emerald-50 rounded-2xl p-6">
-              <h3 className="font-semibold text-emerald-800 mb-2">What happens to unused sessions?</h3>
+            <div className="bg-spa-sage-50 rounded-2xl p-6">
+              <h3 className="font-semibold text-spa-sage-800 mb-2">What happens to unused sessions?</h3>
               <p className="text-stone-600">Premium and Luxury members can roll over unused sessions. Essential members sessions expire monthly, but we offer flexible rescheduling.</p>
             </div>
-            <div className="bg-emerald-50 rounded-2xl p-6">
-              <h3 className="font-semibold text-emerald-800 mb-2">Can I cancel my membership?</h3>
+            <div className="bg-spa-sage-50 rounded-2xl p-6">
+              <h3 className="font-semibold text-spa-sage-800 mb-2">Can I cancel my membership?</h3>
               <p className="text-stone-600">Yes, you can cancel anytime with 30 days notice. Annual members receive a prorated refund for unused months.</p>
             </div>
           </div>
@@ -372,7 +372,7 @@ export default function MembershipsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-800 to-stone-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-spa-sage-800 to-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div
             className="space-y-8 scroll-animate"
@@ -380,11 +380,11 @@ export default function MembershipsPage() {
             <h2 className="text-4xl md:text-5xl font-display font-bold">
               Ready to Transform
               <br />
-              <span className="bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-400 to-spa-gold-300 bg-clip-text text-transparent">
                 Your Wellness?
               </span>
             </h2>
-            <p className="text-xl text-emerald-200 leading-relaxed">
+            <p className="text-xl text-spa-sage-200 leading-relaxed">
               Start your membership today and take the first step toward lasting wellness. 
               Your future self will thank you.
             </p>

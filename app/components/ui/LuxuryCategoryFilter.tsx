@@ -58,7 +58,7 @@ export default function LuxuryCategoryFilter({
       >
         {/* Simplified Indicator */}
         <div
-          className="absolute top-2 bottom-2 bg-emerald-800 rounded-full shadow-md transition-all duration-300 ease-out z-5"
+          className="absolute top-2 bottom-2 bg-spa-sage-800 rounded-full shadow-md transition-all duration-300 ease-out z-5"
           style={{
             left: indicatorStyle.left,
             width: indicatorStyle.width,
@@ -80,7 +80,7 @@ export default function LuxuryCategoryFilter({
                   relative px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 min-w-fit
                   ${isActive 
                     ? 'text-white font-medium' 
-                    : 'text-emerald-700 hover:text-emerald-900 hover:bg-white/40'
+                    : 'text-spa-sage-700 hover:text-spa-sage-900 hover:bg-white/40'
                   }
                   hover:scale-105 active:scale-95
                 `}
@@ -96,7 +96,7 @@ export default function LuxuryCategoryFilter({
                     <span className={`px-2 py-0.5 rounded-full text-xs ${
                       isActive 
                         ? 'bg-white/20 text-white' 
-                        : 'bg-emerald-100 text-emerald-600'
+                        : 'bg-spa-sage-100 text-spa-sage-600'
                     }`}>
                       {category.count}
                     </span>

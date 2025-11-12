@@ -7,6 +7,7 @@ import LuxuryVideoHero from '../components/ui/LuxuryVideoHero'
 import LuxuryServiceCard from '../components/ui/LuxuryServiceCard'
 import LuxuryCategoryFilter from '../components/ui/LuxuryCategoryFilter'
 import FloatingBookingButton from '../components/ui/FloatingBookingButton'
+import { getMangoMintServiceUrl } from '../utils/mangomint-urls'
 import { 
   SparklesIcon, 
   HeartIcon, 
@@ -567,8 +568,8 @@ export default function ServicesPage() {
                 <LuxuryServiceCard
                   service={service}
                   onBookNow={() => {
-                    // Handle booking
-                    console.log('Book service:', service.name)
+                    const serviceUrl = getMangoMintServiceUrl(service.name)
+                    window.location.href = serviceUrl
                   }}
                   onLearnMore={() => {
                     setSelectedService(service)
@@ -582,16 +583,16 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-amber-50">
+      <section className="py-20 bg-gradient-to-br from-spa-sage-50 to-spa-gold-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div
             ref={ctaRef}
             className={`space-y-8 ${ctaInView ? 'animate-in animate-slide-up animate-slow' : 'opacity-0'}`}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800">
               Ready to Begin Your
               <br />
-              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Wellness Journey?
               </span>
             </h2>
@@ -600,9 +601,14 @@ export default function ServicesPage() {
               recommend the perfect service for your unique needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="luxury" size="lg" className="px-12">
-                Book Consultation
-              </Button>
+              <a
+                href={process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'}
+                className="mangomint-booking-button inline-block"
+              >
+                <Button variant="luxury" size="lg" className="px-12 w-full">
+                  Book Consultation
+                </Button>
+              </a>
               <Button variant="outline" size="lg" className="px-12">
                 Call (801) 528-7368
               </Button>

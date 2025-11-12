@@ -13,10 +13,39 @@
   --color-gold-800: #7d6315;
   --color-gold-900: #664f12;
   
+  /* Spa-Gold color palette (spa-prefixed) */
+  --color-spa-gold-50: #fefdf9;
+  --color-spa-gold-100: #fdfaf0;
+  --color-spa-gold-200: #faf5e0;
+  --color-spa-gold-300: #f5ebc2;
+  --color-spa-gold-400: #eddc8a;
+  --color-spa-gold-500: #D4AF37;
+  --color-spa-gold-600: #B8941F;
+  --color-spa-gold-700: #9a7a1a;
+  --color-spa-gold-800: #7d6315;
+  --color-spa-gold-900: #664f12;
+  
   /* Additional gold variations */
   --color-gold-light: #E8D284;
   --color-gold-dark: #B8941F;
   --color-custom-gold: #DCC96E;
+  
+  /* Luxury spa color palette inspired by hero section */
+  --color-luxury-warm-50: #faf8f5;
+  --color-luxury-warm-100: #f4f1eb;
+  --color-luxury-warm-200: #e8e1d5;
+  --color-luxury-warm-300: #d9cdb8;
+  --color-luxury-warm-400: #c7b494;
+  --color-luxury-warm-500: #b39b73;
+  --color-luxury-warm-600: #9d845a;
+  --color-luxury-warm-700: #826a47;
+  --color-luxury-warm-800: #6b553b;
+  --color-luxury-warm-900: #584631;
+  
+  /* Elegant overlay colors */
+  --color-luxury-overlay-light: rgba(0, 0, 0, 0.25);
+  --color-luxury-overlay-medium: rgba(0, 0, 0, 0.4);
+  --color-luxury-overlay-dark: rgba(0, 0, 0, 0.6);
   
   /* Cream color palette */
   --color-cream-50: #FFF8E7;
@@ -30,9 +59,33 @@
   --color-cream-800: #9a651e;
   --color-cream-900: #7e541d;
   
+  /* Spa-Cream color palette (spa-prefixed) */
+  --color-spa-cream-50: #FFF8E7;
+  --color-spa-cream-100: #fef6dc;
+  --color-spa-cream-200: #fdeab8;
+  --color-spa-cream-300: #fbda8a;
+  --color-spa-cream-400: #f8c55a;
+  --color-spa-cream-500: #f5b239;
+  --color-spa-cream-600: #e69b1f;
+  --color-spa-cream-700: #bf7f1c;
+  --color-spa-cream-800: #9a651e;
+  --color-spa-cream-900: #7e541d;
+  
   /* Basic colors */
   --color-dark: #1a1a1a;
   --color-light: #f8f5f0;
+  
+  /* Sage color palette */
+  --color-spa-sage-50: #f6f7f4;
+  --color-spa-sage-100: #eef0e8;
+  --color-spa-sage-200: #dde1d3;
+  --color-spa-sage-300: #c3cab4;
+  --color-spa-sage-400: #a5b091;
+  --color-spa-sage-500: #8a9674;
+  --color-spa-sage-600: #6f7a5a;
+  --color-spa-sage-700: #5a6248;
+  --color-spa-sage-800: #4a503d;
+  --color-spa-sage-900: #3e4435;
   
   /* Stone color palette */
   --color-stone-50: #fafaf9;
@@ -45,6 +98,18 @@
   --color-stone-700: #44403c;
   --color-stone-800: #292524;
   --color-stone-900: #1c1917;
+  
+  /* Spa-Stone color palette (spa-prefixed) */
+  --color-spa-stone-50: #fafaf9;
+  --color-spa-stone-100: #f4f4f3;
+  --color-spa-stone-200: #e7e5e4;
+  --color-spa-stone-300: #d6d3d1;
+  --color-spa-stone-400: #a8a29e;
+  --color-spa-stone-500: #78716c;
+  --color-spa-stone-600: #57534e;
+  --color-spa-stone-700: #44403c;
+  --color-spa-stone-800: #292524;
+  --color-spa-stone-900: #1c1917;
   
   /* Theme colors */
   --color-foreground: #1a1a1a;

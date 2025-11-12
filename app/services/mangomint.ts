@@ -1,5 +1,17 @@
-// MangomMint Integration Service
-// This will be connected to the actual MangomMint API later
+// MangoMint Integration Service
+// 
+// INTEGRATION APPROACH:
+// MangoMint uses an embed/overlay integration method rather than direct API calls.
+// This service file provides types and utility functions, while actual bookings
+// happen through MangoMint's embedded script and booking overlay.
+//
+// SETUP:
+// 1. Add MangoMint script tag to Next.js layout (already done)
+// 2. Configure NEXT_PUBLIC_MANGOMINT_BOOKING_URL environment variable
+// 3. Use booking URL to trigger MangoMint's overlay widget
+//
+// The interfaces below can be used for displaying service information
+// on the website, while actual booking data is managed by MangoMint.
 
 export interface MangoMintService {
   id: string
@@ -31,7 +43,9 @@ export interface MangoMintClient {
   preferences?: string[]
 }
 
-// Placeholder API functions - to be replaced with actual MangomMint integration
+// MangoMint Integration Helpers
+// Note: Actual booking happens through MangoMint's overlay widget
+// These functions can be used for displaying service information on your website
 export class MangoMintAPI {
   private static baseURL = process.env.NEXT_PUBLIC_MANGOMINT_API_URL || 'https://api.mangomint.com/v1'
   private static apiKey = process.env.MANGOMINT_API_KEY || 'demo-key'
@@ -60,35 +74,22 @@ export class MangoMintAPI {
     ]
   }
 
-  // Appointments
+  // Note: Actual appointment booking is handled by MangoMint overlay widget
+  // This function is kept for backward compatibility but not used in the new integration
   static async bookAppointment(appointment: MangoMintAppointment): Promise<{ success: boolean; appointmentId?: string; error?: string }> {
-    // TODO: Implement actual MangomMint booking API call
-    console.log('🥭 MangomMint: Booking appointment...', appointment)
+    console.warn('🥭 MangoMint: Direct booking API not used - appointments are handled by MangoMint overlay')
     
-    // Simulate API call
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          success: true,
-          appointmentId: `mm-${Date.now()}`,
-        })
-      }, 1000)
-    })
+    return {
+      success: false,
+      error: 'Direct booking not supported. Please use MangoMint overlay widget.'
+    }
   }
 
+  // Note: Availability checking is handled by MangoMint overlay widget
+  // This function is kept for backward compatibility
   static async getAvailability(serviceId: string, date: string): Promise<string[]> {
-    // TODO: Implement actual MangomMint availability API call
-    console.log('🥭 MangomMint: Checking availability for', serviceId, 'on', date)
-    
-    // Mock available time slots
-    return [
-      '9:00 AM',
-      '10:30 AM',
-      '12:00 PM',
-      '1:30 PM',
-      '3:00 PM',
-      '4:30 PM'
-    ]
+    console.warn('🥭 MangoMint: Direct availability API not used - handled by MangoMint overlay')
+    return []
   }
 
   // Clients

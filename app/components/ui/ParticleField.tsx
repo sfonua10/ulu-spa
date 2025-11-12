@@ -25,7 +25,7 @@ export default function ParticleField({ particleCount = 50, className = '' }: Pa
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute rounded-full bg-gradient-to-r from-emerald-300/30 to-amber-300/30 bubble-float"
+          className="absolute rounded-full bg-gradient-to-r from-spa-sage-300/30 to-spa-gold-300/30 bubble-float"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,

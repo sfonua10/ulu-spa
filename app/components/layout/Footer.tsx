@@ -138,7 +138,7 @@ export default function Footer() {
         }`}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-spa-sage-300">
-              © 2024 Ulu Spa. All rights reserved.
+              © 2025 Ulu Spa. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm text-spa-sage-300">
               {footerLinks.support.slice(2).map((link) => (

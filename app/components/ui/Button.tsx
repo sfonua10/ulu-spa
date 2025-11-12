@@ -9,13 +9,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "default", size = "md", ...props }, ref) => {
-    const baseClasses = "inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+    const baseClasses = "inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
     
     const variants = {
-      default: "bg-amber-500 text-white hover:bg-amber-600 shadow-soft hover:shadow-soft font-medium",
-      outline: "border-2 border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white font-medium",
-      ghost: "text-amber-600 hover:bg-amber-50 hover:text-amber-700 font-medium",
-      luxury: "bg-gradient-to-br from-amber-500 to-amber-600 text-white hover:from-amber-600 hover:to-amber-700 hover:shadow-lg relative overflow-hidden font-semibold"
+      default: "bg-spa-gold-500 text-white hover:bg-spa-gold-600 shadow-soft hover:shadow-soft font-medium",
+      outline: "border-2 border-spa-gold-500 text-spa-gold-600 hover:bg-spa-gold-500 hover:text-white font-medium",
+      ghost: "text-spa-gold-600 hover:bg-spa-gold-50 hover:text-spa-gold-700 font-medium",
+      luxury: "bg-gradient-to-br from-spa-gold-500 to-spa-gold-600 text-white hover:from-spa-gold-600 hover:to-spa-gold-700 hover:shadow-lg relative overflow-hidden font-semibold"
     }
     
     const sizes = {

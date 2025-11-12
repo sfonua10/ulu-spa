@@ -121,16 +121,16 @@ export default function GroupBookingsPage() {
   return (
     <div className="pt-24 pb-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-amber-50 via-white to-emerald-50">
+      <section className="py-20 bg-gradient-to-br from-spa-gold-50 via-white to-spa-sage-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-100 text-emerald-800 text-sm font-medium mb-6">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-spa-sage-100 text-spa-sage-800 text-sm font-medium mb-6">
               👥 Group Bookings 👥
             </div>
-            <h1 className="text-5xl md:text-6xl font-display font-bold text-emerald-800 mb-6">
+            <h1 className="text-5xl md:text-6xl font-display font-bold text-spa-sage-800 mb-6">
               ULU Group Room
               <br />
-              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Experience
               </span>
             </h1>
@@ -138,7 +138,7 @@ export default function GroupBookingsPage() {
               Accommodates up to 4 guests in one tranquil space. Can be divided into two semi-private lounge suites. 
               3 additional private VIP treatment rooms available for a total capacity of 7 guests.
             </p>
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-amber-600 to-amber-500 text-white text-lg font-medium">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 text-white text-lg font-medium">
               Relax side by side. Reset deeply. Leave glowing.
             </div>
           </div>
@@ -149,10 +149,10 @@ export default function GroupBookingsPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               Group Room
               <br />
-              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Features
               </span>
             </h2>
@@ -163,59 +163,59 @@ export default function GroupBookingsPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div>
-              <h3 className="text-3xl font-display font-bold text-emerald-800 mb-6">
+              <h3 className="text-3xl font-display font-bold text-spa-sage-800 mb-6">
                 Flexible Group Space
               </h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-emerald-100 p-3 rounded-full">
-                    <UsersIcon className="h-6 w-6 text-emerald-600" />
+                  <div className="bg-spa-sage-100 p-3 rounded-full">
+                    <UsersIcon className="h-6 w-6 text-spa-sage-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-emerald-800 mb-2">Main Group Room</h4>
+                    <h4 className="font-semibold text-spa-sage-800 mb-2">Main Group Room</h4>
                     <p className="text-stone-600">Accommodates up to 4 guests in one tranquil space for shared relaxation</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="bg-emerald-100 p-3 rounded-full">
-                    <SparklesIcon className="h-6 w-6 text-emerald-600" />
+                  <div className="bg-spa-sage-100 p-3 rounded-full">
+                    <SparklesIcon className="h-6 w-6 text-spa-sage-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-emerald-800 mb-2">Semi-Private Suites</h4>
+                    <h4 className="font-semibold text-spa-sage-800 mb-2">Semi-Private Suites</h4>
                     <p className="text-stone-600">Can be divided into two semi-private lounge suites for more intimate experiences</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="bg-emerald-100 p-3 rounded-full">
-                    <GiftIcon className="h-6 w-6 text-emerald-600" />
+                  <div className="bg-spa-sage-100 p-3 rounded-full">
+                    <GiftIcon className="h-6 w-6 text-spa-sage-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-emerald-800 mb-2">Private VIP Rooms</h4>
+                    <h4 className="font-semibold text-spa-sage-800 mb-2">Private VIP Rooms</h4>
                     <p className="text-stone-600">3 additional private VIP treatment rooms for individual attention</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="bg-amber-100 p-3 rounded-full">
-                    <CheckIcon className="h-6 w-6 text-amber-600" />
+                  <div className="bg-spa-gold-100 p-3 rounded-full">
+                    <CheckIcon className="h-6 w-6 text-spa-gold-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-emerald-800 mb-2">Total Capacity</h4>
+                    <h4 className="font-semibold text-spa-sage-800 mb-2">Total Capacity</h4>
                     <p className="text-stone-600">Maximum of 7 guests accommodated across all spaces</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-emerald-50 to-amber-50 p-8 rounded-3xl">
-              <h4 className="text-xl font-display font-bold text-emerald-800 mb-6 text-center">
+            <div className="bg-gradient-to-br from-spa-sage-50 to-spa-gold-50 p-8 rounded-3xl">
+              <h4 className="text-xl font-display font-bold text-spa-sage-800 mb-6 text-center">
                 Group Booking Guidelines
               </h4>
               <div className="space-y-4">
                 <div className="bg-white p-4 rounded-2xl">
-                  <h5 className="font-semibold text-emerald-800 mb-2">For 8+ Guests</h5>
+                  <h5 className="font-semibold text-spa-sage-800 mb-2">For 8+ Guests</h5>
                   <p className="text-sm text-stone-600">Experience will be split into two waves to ensure optimal comfort and service quality</p>
                 </div>
                 <div className="bg-white p-4 rounded-2xl">
-                  <h5 className="font-semibold text-emerald-800 mb-2">Guest List Required</h5>
+                  <h5 className="font-semibold text-spa-sage-800 mb-2">Guest List Required</h5>
                   <p className="text-sm text-stone-600">Please specify who wants group room treatment and who prefers private room service</p>
                 </div>
               </div>
@@ -225,13 +225,13 @@ export default function GroupBookingsPage() {
       </section>
 
       {/* Ideal Group Types */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-spa-sage-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               Ideal for
               <br />
-              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Every Group
               </span>
             </h2>
@@ -244,11 +244,11 @@ export default function GroupBookingsPage() {
             {idealGroupTypes.map((type) => (
               <div
                 key={type.id}
-                className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 border border-emerald-100 hover:border-amber-200"
+                className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 border border-spa-sage-100 hover:border-spa-gold-200"
               >
                 <div className="text-center">
                   <div className="text-4xl mb-4">{type.icon}</div>
-                  <h3 className="text-lg font-display font-bold text-emerald-800 mb-3">
+                  <h3 className="text-lg font-display font-bold text-spa-sage-800 mb-3">
                     {type.name}
                   </h3>
                   <p className="text-stone-600 mb-4 text-sm leading-relaxed">
@@ -258,7 +258,7 @@ export default function GroupBookingsPage() {
                     {type.features.map((feature) => (
                       <span
                         key={feature}
-                        className="px-2 py-1 text-xs font-medium bg-emerald-100 text-emerald-800 rounded-full"
+                        className="px-2 py-1 text-xs font-medium bg-spa-sage-100 text-spa-sage-800 rounded-full"
                       >
                         {feature}
                       </span>
@@ -272,13 +272,13 @@ export default function GroupBookingsPage() {
       </section>
 
       {/* Special Events */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-spa-sage-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               Highlighted Group
               <br />
-              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Experience Options
               </span>
             </h2>
@@ -291,11 +291,11 @@ export default function GroupBookingsPage() {
             {specialEvents.map((event, index) => (
               <div
                 key={event.title}
-                className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 border border-emerald-100 hover:border-amber-200"
+                className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 border border-spa-sage-100 hover:border-spa-gold-200"
               >
                 <div className="text-center">
                   <div className="text-4xl mb-4">{event.icon}</div>
-                  <h3 className="text-lg font-display font-bold text-emerald-800 mb-3">
+                  <h3 className="text-lg font-display font-bold text-spa-sage-800 mb-3">
                     {event.title}
                   </h3>
                   <p className="text-stone-600 mb-4 text-sm leading-relaxed">
@@ -305,7 +305,7 @@ export default function GroupBookingsPage() {
                     {event.features.map((feature) => (
                       <span
                         key={feature}
-                        className="px-2 py-1 text-xs font-medium bg-emerald-100 text-emerald-800 rounded-full"
+                        className="px-2 py-1 text-xs font-medium bg-spa-sage-100 text-spa-sage-800 rounded-full"
                       >
                         {feature}
                       </span>
@@ -322,10 +322,10 @@ export default function GroupBookingsPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               Contact &
               <br />
-              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Visit Us
               </span>
             </h2>
@@ -335,11 +335,11 @@ export default function GroupBookingsPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-emerald-50 to-amber-50 rounded-3xl p-8 text-center">
-              <div className="bg-emerald-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <CalendarDaysIcon className="h-8 w-8 text-emerald-600" />
+            <div className="bg-gradient-to-br from-spa-sage-50 to-spa-gold-50 rounded-3xl p-8 text-center">
+              <div className="bg-spa-sage-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <CalendarDaysIcon className="h-8 w-8 text-spa-sage-600" />
               </div>
-              <h3 className="text-xl font-display font-bold text-emerald-800 mb-3">
+              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-3">
                 Business Hours
               </h3>
               <p className="text-stone-600 leading-relaxed">
@@ -348,37 +348,37 @@ export default function GroupBookingsPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-emerald-50 to-amber-50 rounded-3xl p-8 text-center">
-              <div className="bg-emerald-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <ClockIcon className="h-8 w-8 text-emerald-600" />
+            <div className="bg-gradient-to-br from-spa-sage-50 to-spa-gold-50 rounded-3xl p-8 text-center">
+              <div className="bg-spa-sage-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <ClockIcon className="h-8 w-8 text-spa-sage-600" />
               </div>
-              <h3 className="text-xl font-display font-bold text-emerald-800 mb-3">
+              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-3">
                 Phone
               </h3>
               <p className="text-stone-600 leading-relaxed">
-                <a href="tel:801-528-7368" className="hover:text-emerald-800 transition-colors">
+                <a href="tel:801-528-7368" className="hover:text-spa-sage-800 transition-colors">
                   801-528-7368
                 </a>
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-emerald-50 to-amber-50 rounded-3xl p-8 text-center">
-              <div className="bg-emerald-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <UserGroupIcon className="h-8 w-8 text-emerald-600" />
+            <div className="bg-gradient-to-br from-spa-sage-50 to-spa-gold-50 rounded-3xl p-8 text-center">
+              <div className="bg-spa-sage-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <UserGroupIcon className="h-8 w-8 text-spa-sage-600" />
               </div>
-              <h3 className="text-xl font-display font-bold text-emerald-800 mb-3">
+              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-3">
                 Email
               </h3>
               <p className="text-stone-600 leading-relaxed">
-                <a href="mailto:uluspaofficial@gmail.com" className="hover:text-emerald-800 transition-colors">
+                <a href="mailto:uluspaofficial@gmail.com" className="hover:text-spa-sage-800 transition-colors">
                   uluspaofficial@gmail.com
                 </a>
               </p>
             </div>
           </div>
 
-          <div className="mt-12 bg-gradient-to-br from-amber-50 to-emerald-50 rounded-3xl p-8 text-center">
-            <h3 className="text-2xl font-display font-bold text-emerald-800 mb-4">
+          <div className="mt-12 bg-gradient-to-br from-spa-gold-50 to-spa-sage-50 rounded-3xl p-8 text-center">
+            <h3 className="text-2xl font-display font-bold text-spa-sage-800 mb-4">
               Visit Our Location
             </h3>
             <p className="text-lg text-stone-600 leading-relaxed">
@@ -390,15 +390,15 @@ export default function GroupBookingsPage() {
       </section>
 
       {/* Booking Form */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-spa-sage-50 to-white">
         <div className="max-w-4xl mx-auto px-6">
           <div
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-emerald-800 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               Book Your Group
               <br />
-              <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Experience
               </span>
             </h2>
@@ -407,11 +407,11 @@ export default function GroupBookingsPage() {
             </p>
             </div>
 
-          <div className="bg-gradient-to-br from-emerald-50 to-amber-50 rounded-3xl p-8 shadow-soft">
+          <div className="bg-gradient-to-br from-spa-sage-50 to-spa-gold-50 rounded-3xl p-8 shadow-soft">
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-emerald-800 mb-2">
+                  <label className="block text-sm font-medium text-spa-sage-800 mb-2">
                     Contact Name *
                   </label>
                   <input
@@ -419,12 +419,12 @@ export default function GroupBookingsPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-emerald-800 mb-2">
+                  <label className="block text-sm font-medium text-spa-sage-800 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -432,7 +432,7 @@ export default function GroupBookingsPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
                     required
                   />
                 </div>
@@ -440,7 +440,7 @@ export default function GroupBookingsPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-emerald-800 mb-2">
+                  <label className="block text-sm font-medium text-spa-sage-800 mb-2">
                     Phone Number
                   </label>
                   <input
@@ -448,18 +448,18 @@ export default function GroupBookingsPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-emerald-800 mb-2">
+                  <label className="block text-sm font-medium text-spa-sage-800 mb-2">
                     Group Size *
                   </label>
                   <select
                     name="groupSize"
                     value={formData.groupSize}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
                     required
                   >
                     <option value="">Select group size</option>
@@ -474,7 +474,7 @@ export default function GroupBookingsPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-emerald-800 mb-2">
+                  <label className="block text-sm font-medium text-spa-sage-800 mb-2">
                     Preferred Date
                   </label>
                   <input
@@ -482,18 +482,18 @@ export default function GroupBookingsPage() {
                     name="preferredDate"
                     value={formData.preferredDate}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-emerald-800 mb-2">
+                  <label className="block text-sm font-medium text-spa-sage-800 mb-2">
                     Preferred Time
                   </label>
                   <select
                     name="preferredTime"
                     value={formData.preferredTime}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value="">Select time preference</option>
                     <option value="morning">Morning (10AM - 12PM)</option>
@@ -505,14 +505,14 @@ export default function GroupBookingsPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-emerald-800 mb-2">
+                  <label className="block text-sm font-medium text-spa-sage-800 mb-2">
                     Group Type *
                   </label>
                   <select
                     name="groupType"
                     value={formData.groupType}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
                     required
                   >
                     <option value="">Select group type</option>
@@ -525,14 +525,14 @@ export default function GroupBookingsPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-emerald-800 mb-2">
+                  <label className="block text-sm font-medium text-spa-sage-800 mb-2">
                     Room Preference
                   </label>
                   <select
                     name="roomPreference"
                     value={formData.roomPreference}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value="">Select room preference</option>
                     <option value="group-room">Main Group Room (up to 4 guests)</option>
@@ -544,7 +544,7 @@ export default function GroupBookingsPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-emerald-800 mb-2">
+                <label className="block text-sm font-medium text-spa-sage-800 mb-2">
                   Guest List & Room Preferences
                 </label>
                 <textarea
@@ -553,12 +553,12 @@ export default function GroupBookingsPage() {
                   onChange={handleInputChange}
                   rows={4}
                   placeholder="Please specify who wants group room treatment vs. private room service (required for groups of 4+)..."
-                  className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200 resize-none"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-emerald-800 mb-2">
+                <label className="block text-sm font-medium text-spa-sage-800 mb-2">
                   Special Requests or Occasions
                 </label>
                 <textarea
@@ -567,7 +567,7 @@ export default function GroupBookingsPage() {
                   onChange={handleInputChange}
                   rows={3}
                   placeholder="Let us know if you're celebrating something special or have any specific requests..."
-                  className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200 resize-none"
                 />
               </div>
 
