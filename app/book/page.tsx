@@ -4,10 +4,10 @@ import { useInView, useStaggeredInView } from '../hooks/useInView'
 import BookingWidget from '../components/ui/BookingWidget'
 
 export default function BookPage() {
-  const { ref: heroRef, isInView: heroInView } = useInView({ threshold: 0.2 })
-  const { ref: expectRef, isInView: expectInView } = useInView({ threshold: 0.2 })
-  const { ref: stepsRef, visibleItems } = useStaggeredInView(3, 100)
-  const { ref: prepRef, isInView: prepInView } = useInView({ threshold: 0.2 })
+  const { ref: heroRef, isInView: heroInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
+  const { ref: expectRef, isInView: expectInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
+  const { ref: stepsRef, visibleItems } = useStaggeredInView<HTMLDivElement>(3, 100)
+  const { ref: prepRef, isInView: prepInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
 
   return (
     <div className="pt-24 pb-16">

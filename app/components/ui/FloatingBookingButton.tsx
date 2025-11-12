@@ -39,10 +39,10 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
           {/* Book Appointment */}
           <a
             href={bookingUrl}
-            className="mangomint-booking-button bg-white/95 backdrop-blur-xl text-spa-sage-800 border border-white/20 shadow-xl hover:bg-white hover:shadow-2xl transition-all duration-300 px-6 py-3 rounded-full group flex items-center"
+            className="mangomint-booking-button bg-white/95 backdrop-blur-xl text-spa-sage-800 border border-white/20 shadow-xl hover:bg-white hover:shadow-2xl transition-all duration-300 px-6 py-3 rounded-full group flex items-center cursor-pointer"
             onClick={() => setIsExpanded(false)}
           >
-            <CalendarIcon className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+            <CalendarIcon className="h-6 w-6 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform stroke-2" />
             Book Appointment
           </a>
 
@@ -54,7 +54,7 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
               window.open('tel:(801)528-7368', '_self')
             }}
           >
-            <PhoneIcon className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
+            <PhoneIcon className="h-6 w-6 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform stroke-2" />
             Call (801) 528-7368
           </Button>
         </div>
@@ -78,10 +78,10 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
           onClick={() => setIsExpanded(!isExpanded)}
         >
           {isExpanded ? (
-            <XMarkIcon className="h-6 w-6" />
+            <XMarkIcon className="h-6 w-6 stroke-2" />
           ) : (
             <>
-              <SparklesIcon className="h-6 w-6 mr-2" />
+              <SparklesIcon className="h-6 w-6 mr-2 stroke-2" />
               <span className="font-semibold">Book Now</span>
             </>
           )}

@@ -65,7 +65,7 @@ export default function BookingWidget({
         {/* Booking Button */}
         <a
           href={bookingUrl}
-          className="mangomint-booking-button w-full text-lg py-4 bg-gradient-to-r from-spa-sage-600 to-spa-sage-700 hover:from-spa-sage-700 hover:to-spa-sage-800 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+          className="mangomint-booking-button w-full text-base py-4 bg-gradient-to-r from-spa-sage-600 to-spa-sage-700 hover:from-spa-sage-700 hover:to-spa-sage-800 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center cursor-pointer"
         >
           <CalendarDaysIcon className="h-5 w-5 mr-2" />
           Book Your Appointment
@@ -78,7 +78,7 @@ export default function BookingWidget({
           </p>
           <a 
             href="tel:+1234567890" 
-            className="text-sm text-spa-sage-600 hover:text-spa-sage-700 transition-colors"
+            className="text-sm text-spa-sage-600 hover:text-spa-sage-700 transition-colors cursor-pointer"
           >
             Call us at (123) 456-7890
           </a>

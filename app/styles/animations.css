@@ -269,15 +269,26 @@
 
 /* Infinite Scroll Testimonials */
 .testimonials-scroll-left {
-  animation: scrollLeft 40s linear infinite;
+  animation: scrollLeft 60s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
 }
 
 .testimonials-scroll-right {
-  animation: scrollRight 45s linear infinite;
+  animation: scrollRight 65s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
+}
+
+/* Desktop-specific slower animations */
+@media (min-width: 768px) {
+  .testimonials-scroll-left {
+    animation: scrollLeft 90s linear infinite;
+  }
+
+  .testimonials-scroll-right {
+    animation: scrollRight 100s linear infinite;
+  }
 }
 
 /* Pause animation on row hover */
@@ -297,13 +308,13 @@
     transform: translate3d(0, 0, 0); 
   }
   100% { 
-    transform: translate3d(-33.333%, 0, 0); 
+    transform: translate3d(-50%, 0, 0); 
   }
 }
 
 @keyframes scrollRight {
   0% { 
-    transform: translate3d(-33.333%, 0, 0); 
+    transform: translate3d(-50%, 0, 0); 
   }
   100% { 
     transform: translate3d(0, 0, 0); 
@@ -548,6 +559,68 @@
   50% {
     transform: translateY(-15px) rotate(5deg);
   }
+}
+
+/* Luxury Testimonial Animations */
+.star-breathing {
+  animation: starBreathe 3s ease-in-out infinite;
+  animation-delay: calc(var(--star-index) * 0.2s);
+}
+
+@keyframes starBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+.testimonial-luxury-hover {
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.testimonial-luxury-hover:hover {
+  transform: translate3d(0, -8px, 0) scale(1.02);
+}
+
+.luxury-shadow-transition {
+  transition: box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+              border-color 0.6s ease,
+              backdrop-filter 0.4s ease;
+}
+
+.luxury-shadow-transition:hover {
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(212, 175, 55, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-color: rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(25px);
+}
+
+.golden-accent-line {
+  position: relative;
+}
+
+.golden-accent-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(212, 175, 55, 0.8), 
+    rgba(212, 175, 55, 0.4), 
+    transparent);
+  transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.golden-accent-line:hover::after {
+  width: 100%;
 }
 
 /* Reduced Motion Support */

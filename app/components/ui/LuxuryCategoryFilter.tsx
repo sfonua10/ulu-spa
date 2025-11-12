@@ -77,7 +77,7 @@ export default function LuxuryCategoryFilter({
                 ref={setButtonRef(category.id)}
                 onClick={() => onCategoryChange(category.id)}
                 className={`
-                  relative px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 min-w-fit
+                  relative px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 min-w-fit cursor-pointer
                   ${isActive 
                     ? 'text-white font-medium' 
                     : 'text-spa-sage-700 hover:text-spa-sage-900 hover:bg-white/40'

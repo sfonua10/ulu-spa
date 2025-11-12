@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useInView } from '../hooks/useInView'
+import { useInView } from '@/app/hooks/useInView'
 
 interface AnimatedPriceProps {
   price: number
@@ -18,7 +18,7 @@ export default function AnimatedPrice({
 }: AnimatedPriceProps) {
   const [displayPrice, setDisplayPrice] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
-  const { ref, isInView } = useInView({ threshold: 0.5 })
+  const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.5 })
 
   useEffect(() => {
     if (!isInView) return

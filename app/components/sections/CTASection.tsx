@@ -1,12 +1,13 @@
 'use client'
 
+import Link from 'next/link'
 import { Button } from '../ui/Button'
 import { useInView } from '@/app/hooks/useInView'
 import { CalendarDaysIcon, GiftIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 export default function CTASection() {
-  const { ref: leftRef, isInView: leftInView } = useInView({ threshold: 0.2 })
-  const { ref: rightRef, isInView: rightInView } = useInView({ threshold: 0.2 })
+  const { ref: leftRef, isInView: leftInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
+  const { ref: rightRef, isInView: rightInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
 
   return (
     <section className="py-24 bg-gradient-to-br from-luxury-warm-100 via-luxury-warm-50 to-spa-cream-50 text-spa-stone-600 relative overflow-hidden">
@@ -18,7 +19,7 @@ export default function CTASection() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           {/* Left Content */}
           <div
             ref={leftRef}
@@ -43,51 +44,65 @@ export default function CTASection() {
               experience today and discover why thousands trust us with their wellness journey.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="ghost" size="lg" className="text-spa-sage-700 border-spa-sage-300 hover:bg-spa-sage-50 hover:border-spa-sage-400 px-8 hover-scale shadow-lg backdrop-blur-sm transform hover:-translate-y-1 transition-all duration-300">
+            <div className="flex flex-col sm:flex-row gap-6">
+              <a 
+                href="https://booking.mangomint.com/904811"
+                className="mangomint-booking-button inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 bg-gradient-to-br from-spa-gold-500 to-spa-gold-600 text-white hover:from-spa-gold-600 hover:to-spa-gold-700 hover:shadow-lg relative overflow-hidden h-14 px-8 text-base px-10 transform hover:-translate-y-1 shadow-xl hover:shadow-2xl min-h-[60px] sm:min-h-0"
+              >
                 <CalendarDaysIcon className="h-5 w-5 mr-2" />
                 Book Your Experience
-              </Button>
-              <Button variant="ghost" size="lg" className="text-spa-sage-700 border-spa-sage-300 hover:bg-spa-sage-50 hover:border-spa-sage-400 px-8 hover-scale shadow-lg backdrop-blur-sm transform hover:-translate-y-1 transition-all duration-300">
+              </a>
+              <a 
+                href="tel:+18015287368"
+                className="inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 text-spa-stone-600 hover:bg-spa-stone-50 hover:text-spa-stone-700 border border-spa-stone-300 hover:border-spa-stone-400 h-14 px-8 text-base px-8 transform hover:-translate-y-0.5 shadow-md backdrop-blur-sm min-h-[60px] sm:min-h-0"
+              >
                 <PhoneIcon className="h-5 w-5 mr-2" />
                 Call (801) 528-7368
-              </Button>
+              </a>
             </div>
           </div>
 
           {/* Right Content - Quick Actions */}
           <div
             ref={rightRef}
-            className={`space-y-6 ${rightInView ? 'animate-in animate-slide-left animate-slow animate-delay-200' : 'opacity-0'}`}
+            className={`space-y-8 ${rightInView ? 'animate-in animate-slide-left animate-slow animate-delay-200' : 'opacity-0'}`}
           >
             {/* Gift Cards */}
             <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-spa-sage-200 hover:border-spa-gold-400 transition-all duration-300 hover-lift shadow-lg hover:shadow-xl">
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-4 sm:space-x-6">
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-spa-gold-700 to-spa-gold-800 rounded-xl flex items-center justify-center">
                   <GiftIcon className="h-6 w-6 text-white" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-spa-sage-800 mb-2">Gift Cards Available</h3>
                   <p className="text-stone-600 mb-4">Share the gift of tranquility with loved ones.</p>
-                  <Button variant="ghost" size="sm" className="text-spa-gold-700 border-spa-gold-600 hover:bg-spa-gold-600 hover:text-white">
+                  <a 
+                    href="https://clients.mangomint.com/gift-cards/uluspa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 text-spa-gold-700 hover:bg-spa-gold-50 hover:text-spa-gold-700 border border-spa-gold-500/60 hover:bg-spa-gold-500 hover:text-white hover:border-spa-gold-500 h-9 px-4 text-sm"
+                  >
                     Purchase Gift Card
-                  </Button>
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* Memberships */}
             <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-spa-sage-200 hover:border-spa-sage-400 transition-all duration-300 hover-lift shadow-lg hover:shadow-xl">
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-4 sm:space-x-6">
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-spa-sage-500 to-spa-sage-600 rounded-xl flex items-center justify-center text-white font-bold">
                   %
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-spa-sage-800 mb-2">Membership Benefits</h3>
                   <p className="text-stone-600 mb-4">Save up to 25% with our wellness memberships.</p>
-                  <Button variant="ghost" size="sm" className="text-spa-sage-700 border-spa-sage-600 hover:bg-spa-sage-600 hover:text-white">
+                  <Link 
+                    href="/memberships"
+                    className="inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 text-spa-sage-700 hover:bg-spa-sage-50 hover:text-spa-sage-700 border border-spa-sage-500/60 hover:bg-spa-sage-500 hover:text-white hover:border-spa-sage-500 h-9 px-4 text-sm"
+                  >
                     View Memberships
-                  </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -100,7 +115,7 @@ export default function CTASection() {
                 </div>
                 <h3 className="text-xl font-semibold text-spa-sage-800 mb-2">20% Off Your First Session</h3>
                 <p className="text-stone-600 text-sm mb-4">New clients receive 20% off any signature service</p>
-                <Button variant="luxury" size="sm" className="px-6">
+                <Button variant="luxury" size="sm" className="px-8 transform hover:-translate-y-0.5 transition-all duration-300">
                   Claim Offer
                 </Button>
               </div>

@@ -517,12 +517,12 @@ const categories = [
 
 export default function ServicesPage() {
   const [selectedCategory, setSelectedCategory] = useState('all')
-  const [selectedService, setSelectedService] = useState(null)
+  const [selectedService, setSelectedService] = useState<any>(null)
 
-  const { ref: heroRef, isInView: heroInView } = useInView({ threshold: 0.2 })
-  const { ref: filterRef, isInView: filterInView } = useInView({ threshold: 0.2 })
-  const { ref: servicesRef, visibleItems } = useStaggeredInView(6, 100)
-  const { ref: ctaRef, isInView: ctaInView } = useInView({ threshold: 0.2 })
+  const { ref: heroRef, isInView: heroInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
+  const { ref: filterRef, isInView: filterInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
+  const { ref: servicesRef, visibleItems } = useStaggeredInView<HTMLDivElement>(6, 100)
+  const { ref: ctaRef, isInView: ctaInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
 
   const filteredServices = selectedCategory === 'all' 
     ? services 

@@ -99,7 +99,7 @@ export default function Header() {
             onClick={openMobileMenu}
             aria-label="Open main menu"
           >
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Bars3Icon className="h-7 w-7 md:h-6 md:w-6 stroke-2" aria-hidden="true" />
           </button>
         </div>
 
@@ -157,7 +157,7 @@ export default function Header() {
             mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
           onClick={(e) => e.stopPropagation()}
-          style={{ height: '100vh', height: '100dvh' }}
+          style={{ height: '100dvh' }}
         >
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
@@ -178,10 +178,10 @@ export default function Header() {
               onClick={closeMobileMenu}
               aria-label="Close menu"
             >
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon className="h-7 w-7 md:h-6 md:w-6 stroke-2" aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-6 flow-root">
+          <div className="mt-6 flow-root pb-24">
             <div className="-my-6 divide-y divide-gold-200">
               <div className="space-y-1 py-6">
                 {navigation.map((item, index) => {
@@ -206,18 +206,20 @@ export default function Header() {
                   )
                 })}
               </div>
-              <div className="py-6">
-                <a
-                  href={process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'}
-                  className="mangomint-booking-button w-full bg-gold-500 hover:bg-gold-600 text-black px-6 py-4 rounded-full font-bold text-center transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 border-2 border-gold-400 hover:border-gold-300 inline-block"
-                  onClick={closeMobileMenu}
-                >
-                  <span>
-                    Book Now
-                  </span>
-                </a>
-              </div>
             </div>
+          </div>
+          
+          {/* Fixed Bottom Book Now Button */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent" style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}>
+            <a
+              href={process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'}
+              className="mangomint-booking-button w-full bg-gold-500 hover:bg-gold-600 text-black px-6 py-4 rounded-full font-bold text-center transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 border-2 border-gold-400 hover:border-gold-300 inline-block"
+              onClick={closeMobileMenu}
+            >
+              <span>
+                Book Now
+              </span>
+            </a>
           </div>
         </div>
       </div>

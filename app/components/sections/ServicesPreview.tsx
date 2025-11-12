@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useInView, useStaggeredInView } from '@/app/hooks/useInView'
 import { Button } from '../ui/Button'
 import { GlassCard } from '../ui/GlassCard'
@@ -139,9 +140,11 @@ export default function ServicesPreview() {
         <div
           className="text-center mt-20 relative"
         >
-          <Button variant="luxury" size="lg" className="px-12 shadow-luxury hover:shadow-luxury-lg">
-            View All Services
-          </Button>
+          <Link href="/services">
+            <Button variant="luxury" size="lg" className="px-12 shadow-luxury hover:shadow-luxury-lg">
+              View All Services
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

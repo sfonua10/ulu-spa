@@ -19,7 +19,7 @@ const footerLinks = {
   company: [
     { name: 'About Us', href: '/about' },
     { name: 'Memberships', href: '/memberships' },
-    { name: 'Gift Cards', href: '/gift-cards' },
+    { name: 'Gift Cards', href: 'https://clients.mangomint.com/gift-cards/uluspa' },
     { name: 'Contact', href: '/contact' },
   ],
   support: [
@@ -41,7 +41,7 @@ const contactInfo = {
 }
 
 export default function Footer() {
-  const { ref: footerRef, visibleItems } = useStaggeredInView(5, 100)
+  const { ref: footerRef, visibleItems } = useStaggeredInView<HTMLDivElement>(5, 100)
 
   return (
     <footer className="bg-spa-sage-900 text-spa-sage-50 relative">
@@ -92,12 +92,23 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link 
-                    href={link.href}
-                    className="text-spa-sage-200 hover:text-white transition-colors duration-200"
-                  >
-                    {link.name}
-                  </Link>
+                  {link.href.startsWith('http') ? (
+                    <a 
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-spa-sage-200 hover:text-white transition-colors duration-200"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link 
+                      href={link.href}
+                      className="text-spa-sage-200 hover:text-white transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

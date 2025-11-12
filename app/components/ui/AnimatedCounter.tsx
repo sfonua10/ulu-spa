@@ -20,10 +20,10 @@ export default function AnimatedCounter({
   prefix = '',
   className = ''
 }: AnimatedCounterProps) {
-  const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true })
+  const { ref, isInView } = useInView<HTMLSpanElement>({ threshold: 0.1, triggerOnce: true })
   const [displayValue, setDisplayValue] = useState(from)
-  const frameRef = useRef<number>()
-  const startTimeRef = useRef<number>()
+  const frameRef = useRef<number | undefined>(undefined)
+  const startTimeRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     if (isInView && from !== to) {

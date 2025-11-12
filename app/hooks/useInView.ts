@@ -6,7 +6,7 @@ interface UseInViewOptions {
   triggerOnce?: boolean
 }
 
-export function useInView(options: UseInViewOptions = {}) {
+export function useInView<T extends HTMLElement = HTMLElement>(options: UseInViewOptions = {}) {
   const {
     threshold = 0.1,
     rootMargin = '0px',
@@ -15,7 +15,7 @@ export function useInView(options: UseInViewOptions = {}) {
 
   const [isInView, setIsInView] = useState(false)
   const [hasTriggered, setHasTriggered] = useState(false)
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<T>(null)
 
   useEffect(() => {
     const element = ref.current
@@ -51,9 +51,9 @@ export function useInView(options: UseInViewOptions = {}) {
 }
 
 // Hook for multiple elements with staggered animations
-export function useStaggeredInView(count: number, delay: number = 100) {
+export function useStaggeredInView<T extends HTMLElement = HTMLElement>(count: number, delay: number = 100) {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set())
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<T>(null)
 
   useEffect(() => {
     const element = ref.current
