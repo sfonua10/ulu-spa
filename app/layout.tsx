@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import ChatWidgetController from "./components/ui/ChatWidgetController";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -57,6 +58,7 @@ export default function RootLayout({
           id="mangomint-booking-script"
           async
         />
+        <ChatWidgetController />
         <Header />
         <main>{children}</main>
         <Footer />

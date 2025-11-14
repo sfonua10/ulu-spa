@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import { HeroPattern, LeafDecoration, RotatingElement } from '../ui/DecorativeElements'
-import AnimatedCounter from '../ui/AnimatedCounter'
 import { useInView } from '@/app/hooks/useInView'
 import { useState, useRef, useEffect } from 'react'
 
@@ -32,19 +31,13 @@ export default function HeroSection() {
     setVideoLoaded(true)
   }
 
-  useEffect(() => {
-    // Set client flag for hydration
-    setIsClient(true)
-    
-    // Check mobile screen size
+  useEffect(() => { 
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
     
-    // Initial check
     checkMobile()
     
-    // Add resize listener
     const handleResize = () => checkMobile()
     window.addEventListener('resize', handleResize)
     

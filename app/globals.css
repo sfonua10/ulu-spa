@@ -206,3 +206,36 @@ video {
     display: none !important;
   }
 }
+
+/* MangoMint Chat Widget Positioning */
+/* Target MangoMint's injected chat widget iframe and container */
+#mm-chat-widget,
+iframe[src*="mangomint"],
+div[class*="mangomint-chat"],
+.mangomint-widget-container {
+  position: fixed !important;
+  bottom: 8px !important;
+  right: 8px !important;
+  z-index: 40 !important; /* Below FloatingBookingButton (z-50) */
+  max-width: 400px !important;
+}
+
+/* Ensure chat widget is responsive on mobile */
+@media (max-width: 768px) {
+  #mm-chat-widget,
+  iframe[src*="mangomint"],
+  div[class*="mangomint-chat"],
+  .mangomint-widget-container {
+    bottom: 8px !important;
+    right: 8px !important;
+    max-width: 80vw !important;
+  }
+}
+
+/* Hide MangoMint chat on booking page */
+body[data-hide-chat="true"] #mm-chat-widget,
+body[data-hide-chat="true"] iframe[src*="mangomint"],
+body[data-hide-chat="true"] div[class*="mangomint-chat"],
+body[data-hide-chat="true"] .mangomint-widget-container {
+  display: none !important;
+}

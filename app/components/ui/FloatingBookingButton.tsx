@@ -32,7 +32,7 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
   const bookingUrl = process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'
 
   return (
-    <div className={`fixed bottom-8 right-8 z-50 ${className}`}>
+    <div className={`fixed bottom-24 right-8 z-50 ${className}`}>
       {/* Expanded Menu */}
       {isExpanded && (
         <div className="absolute bottom-20 right-0 mb-4 space-y-3 animate-in slide-up">

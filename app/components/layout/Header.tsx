@@ -40,7 +40,7 @@ export default function Header() {
   }
   
   // Pages that have white backgrounds and need dark navigation by default
-  const whiteBackgroundPages = ['/services', '/memberships', '/group-bookings', '/about', '/contact', '/book']
+  const whiteBackgroundPages = ['/memberships', '/group-bookings', '/about', '/contact', '/book']
   const isWhiteBackgroundPage = whiteBackgroundPages.includes(pathname)
 
   // Helper function to check if a navigation link is active
@@ -193,7 +193,7 @@ export default function Header() {
                   >
                     <Link
                       href={item.href}
-                      className={`-mx-3 block rounded-lg px-3 py-3 text-base leading-7 transition-colors duration-200 min-h-[44px] flex items-center ${
+                      className={`-mx-3 flex rounded-lg px-3 py-3 text-base leading-7 transition-colors duration-200 min-h-[44px] items-center ${
                         isActive
                           ? 'bg-gold-50 text-gold-600 font-semibold border-l-4 border-gold-500'
                           : 'font-medium text-dark hover:bg-cream-50 hover:text-gold-500'
