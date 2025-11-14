@@ -4,15 +4,10 @@ import Link from 'next/link'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import { HeroPattern, LeafDecoration, RotatingElement } from '../ui/DecorativeElements'
 import { useInView } from '@/app/hooks/useInView'
-import { useState, useRef, useEffect } from 'react'
+import VideoBackground from '../ui/VideoBackground'
 
 export default function HeroSection() {
   const { ref: heroRef, isInView } = useInView({ threshold: 0.2 })
-  const [videoError, setVideoError] = useState(false)
-  const [videoLoaded, setVideoLoaded] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-  const [isClient, setIsClient] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
 
   const scrollToServices = () => {
     const element = document.getElementById('services-preview')
@@ -21,100 +16,31 @@ export default function HeroSection() {
     }
   }
 
-  const handleVideoError = () => {
-    console.log('Video failed to load, showing fallback background')
-    setVideoError(true)
-  }
-
-  const handleVideoLoad = () => {
-    console.log('Video loaded successfully')
-    setVideoLoaded(true)
-  }
-
-  useEffect(() => { 
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    
-    const handleResize = () => checkMobile()
-    window.addEventListener('resize', handleResize)
-    
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion && videoRef.current) {
-      videoRef.current.pause()
-    }
-    
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
-  // Get the appropriate video source
-  const getVideoSource = () => {
-    if (!isClient) return '/videos/ulu-facial-site.mp4' // SSR fallback
-    return isMobile ? '/videos/ulu-facial-site-mobile.mov' : '/videos/ulu-facial-site.mp4'
-  }
-
   return (
-    <section 
-      ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-16"
+    <VideoBackground
+      videoSrc="/videos/ulu-facial-site-optimized.mp4"
+      fallbackImage="/images/hero-poster.jpg"
+      className="min-h-screen"
+      overlayOpacity={0.4}
     >
-      {/* Responsive Video Background */}
-      {!videoError && isClient && (
-        <video
-          ref={videoRef}
-          key={getVideoSource()} // Force re-render when source changes
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          src={getVideoSource()}
-          className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${
-            videoLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoadStart={() => {
-            console.log(`Video loading started: ${getVideoSource()}`)
-            setVideoLoaded(false)
-          }}
-          onCanPlay={handleVideoLoad}
-          onError={handleVideoError}
-        >
-          Your browser does not support the video tag.
-        </video>
-      )}
+      <section
+        ref={heroRef}
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-16"
+      >
+        {/* Subtle bottom gradient to indicate scroll on mobile */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/30 to-transparent z-10 md:hidden"></div>
 
-      {/* Fallback Background Image */}
-      {(videoError || !videoLoaded) && (
-        <div 
-          className="absolute inset-0 w-full h-full bg-gradient-to-br from-spa-dark via-spa-primary to-spa-accent opacity-90 z-0"
-          style={{
-            backgroundImage: 'url("data:image/svg+xml,%3csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3e%3cg fill="none" fill-rule="evenodd"%3e%3cg fill="%23ffffff" fill-opacity="0.1"%3e%3cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")'
-          }}
-        />
-      )}
-      
-      {/* Video Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
-      
-      {/* Subtle bottom gradient to indicate scroll on mobile */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/30 to-transparent z-10 md:hidden"></div>
-      
-      {/* Elegant Background Elements */}
-      <div className="absolute inset-0 opacity-20 z-10">
-        <HeroPattern />
-        <LeafDecoration className="top-[10%] left-[5%]" size={100} />
-        <LeafDecoration className="bottom-[10%] right-[5%]" size={120} />
-        
-        <RotatingElement className="-top-48 -left-48" />
-        <RotatingElement className="-bottom-48 -right-48" />
-      </div>
+        {/* Elegant Background Elements */}
+        <div className="absolute inset-0 opacity-20 z-10">
+          <HeroPattern />
+          <LeafDecoration className="top-[10%] left-[5%]" size={100} />
+          <LeafDecoration className="bottom-[10%] right-[5%]" size={120} />
 
-      <div className="relative z-20 max-w-6xl mx-auto px-6 sm:px-8 text-center">
+          <RotatingElement className="-top-48 -left-48" />
+          <RotatingElement className="-bottom-48 -right-48" />
+        </div>
+
+        <div className="relative z-20 max-w-6xl mx-auto px-6 sm:px-8 text-center">
         {/* Main Content */}
         <div className={`space-y-12 ${isInView ? 'animate-in animate-fade-in animate-slow' : 'opacity-0'}`}>
           {/* Script Subtitle */}
@@ -183,6 +109,7 @@ export default function HeroSection() {
           <ChevronDownIcon className="h-5 w-5 drop-shadow-sm group-hover:translate-y-0.5 transition-transform duration-300" />
         </div>
       </button>
-    </section>
+      </section>
+    </VideoBackground>
   )
 }

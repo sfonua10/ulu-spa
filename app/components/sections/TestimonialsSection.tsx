@@ -3,121 +3,12 @@
 import React from 'react'
 import Image from 'next/image'
 import { StarIcon } from '@heroicons/react/24/solid'
+import { testimonials, type Testimonial } from '@/app/data/testimonials'
 
-interface Testimonial {
-  id: number
-  name: string
-  content: string
-  rating: number
-  initials: string
-  timeAgo: string
-  avatarColor: string
-  avatarImage?: string
-  googleUrl: string
-  reviewCount?: number
-}
-
-const testimonials = [
-  {
-    id: 1,
-    name: 'Tia Joaquin',
-    content: 'Ulu Spa was amazing. The hair treatment was very relaxing and the service was top notch. The space is beautiful and peaceful. Definitely going back and telling friends and family.',
-    rating: 5,
-    initials: 'TJ',
-    timeAgo: 'a day ago',
-    avatarColor: 'from-pink-400 to-pink-500',
-    googleUrl: 'https://www.google.com/maps/contrib/104690577743039956370/reviews/@40.3569403,-111.7624964,17z/data=!3m1!4b1!4m3!8m2!3m1!1e1?hl=en-US&entry=ttu&g_ep=EgoyMDI1MTEwOS4wIKXMDSoASAFQAw%3D%3D'
-  },
-  {
-    id: 2,
-    name: 'Tai Nuusa',
-    content: 'Loved ulu spa so much! I brought my SIL with me to experience this for the first time and it was soooo good! The owners were so nice and took great care of us!',
-    rating: 5,
-    initials: 'TN',
-    timeAgo: '2 days ago',
-    avatarColor: 'from-blue-400 to-blue-500',
-    avatarImage: '/images/avatars/tai-nuusa-image.png',
-    googleUrl: 'https://www.google.com/maps/contrib/115414944323774604826/reviews/@36.6979441,-110.0423541,5z/data=!3m1!4b1!4m3!8m2!3m1!1e1?hl=en-US&entry=ttu&g_ep=EgoyMDI1MTEwOS4wIKXMDSoASAFQAw%3D%3D',
-    reviewCount: 6
-  },
-  {
-    id: 3,
-    name: 'Jackie Wright',
-    content: 'Amazing!!! Indulgent & worth the self care!! Loved, loved, loved this!!!! Great price and incredible experience.',
-    rating: 5,
-    initials: 'JW',
-    timeAgo: '4 days ago',
-    avatarColor: 'from-purple-400 to-purple-500',
-    googleUrl: 'https://www.google.com/maps/contrib/116909416203419356592/reviews?hl=en-US'
-  },
-  {
-    id: 4,
-    name: 'Taylen Bloomfield',
-    content: 'This place was AMAZING! My boyfriend and I went and we are forever hooked. The owners were so kind and welcoming — you can tell they really care. The vibe was this perfect mix of tropical relaxation and luxury spa.',
-    rating: 5,
-    initials: 'TB',
-    timeAgo: '6 days ago',
-    avatarColor: 'from-green-400 to-green-500',
-    avatarImage: '/images/avatars/taylen-bloomfield.png',
-    googleUrl: 'https://www.google.com/maps/contrib/111298757679635485738/reviews?hl=en-US'
-  },
-  {
-    id: 5,
-    name: 'Katie Bates',
-    content: 'Amazing relaxing head spa experience and my hair was silky soft afterwards. My only recommendation to them is to heat the room a little more because even with a blanket it was kind of chilly.',
-    rating: 5,
-    initials: 'KB',
-    timeAgo: '2 weeks ago',
-    avatarColor: 'from-indigo-400 to-indigo-500',
-    avatarImage: '/images/avatars/katie-bates.png',
-    googleUrl: 'https://www.google.com/maps/contrib/117333832981530617738/reviews?hl=en-US'
-  },
-  {
-    id: 6,
-    name: 'Kacey Thorne',
-    content: 'This was the most relaxing spa experience I have ever had. I am going to be signing up for a membership and get my girlfriends to go too. It was incredible.',
-    rating: 5,
-    initials: 'KT',
-    timeAgo: '2 weeks ago',
-    avatarColor: 'from-orange-400 to-orange-500',
-    googleUrl: 'https://www.google.com/maps/contrib/114717175870844772954/reviews?hl=en-US'
-  },
-  {
-    id: 7,
-    name: 'Mmarie Enoch',
-    content: 'My daughter and I went for a 30 min express and it was soooo nice! Very peaceful, relaxing, and just a nice way to start the weekend. I will be going back for a longer session next time. The staff was very pleasant and welcoming.',
-    rating: 5,
-    initials: 'ME',
-    timeAgo: '2 weeks ago',
-    avatarColor: 'from-teal-400 to-teal-500',
-    avatarImage: '/images/avatars/Mmarie-enoch.png',
-    googleUrl: 'https://www.google.com/search?q=ulu+spa&oq=ulu+spa&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIQCAEQLhivARjHARiABBiOBTIHCAIQABiABDINCAMQLhivARjHARiABDIJCAQQABgKGIAEMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg90gEIMTE0N2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8&zx=1762927519387&no_sw_cr=1#lrd=0x874d83b2170bde21:0xb22d53820eb1c0c4,1,,,,'
-  },
-  {
-    id: 8,
-    name: 'Abigail Danielson',
-    content: 'What an amazing experience from start to finish. The staff were so friendly and professional. The head spa part was phenomenal; so relaxing and calming! 10/10 will always recommend!!!',
-    rating: 5,
-    initials: 'AD',
-    timeAgo: '3 weeks ago',
-    avatarColor: 'from-red-400 to-red-500',
-    googleUrl: 'https://www.google.com/search?q=ulu+spa&oq=ulu+spa&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIQCAEQLhivARjHARiABBiOBTIHCAIQABiABDINCAMQLhivARjHARiABDIJCAQQABgKGIAEMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg90gEIMTE0N2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8&zx=1762927519387&no_sw_cr=1#lrd=0x874d83b2170bde21:0xb22d53820eb1c0c4,1,,,,'
-  },
-  {
-    id: 9,
-    name: 'Noemi Castillo',
-    content: 'Will be back for sure! Great service, quality attention and such a genuine experience.',
-    rating: 5,
-    initials: 'NC',
-    timeAgo: '3 weeks ago',
-    avatarColor: 'from-cyan-400 to-cyan-500',
-    googleUrl: 'https://www.google.com/search?q=ulu+spa&oq=ulu+spa&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIQCAEQLhivARjHARiABBiOBTIHCAIQABiABDINCAMQLhivARjHARiABDIJCAQQABgKGIAEMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg90gEIMTE0N2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8&zx=1762927519387&no_sw_cr=1#lrd=0x874d83b2170bde21:0xb22d53820eb1c0c4,1,,,,'
-  }
-]
-
-// Create balanced arrays for the two rows (5 testimonials each)
-const firstRowTestimonials = testimonials.slice(0, 5) // First 5 testimonials
-const secondRowTestimonials = testimonials.slice(4, 9) // Overlapping 5 testimonials starting from index 4
+// Create balanced arrays for the two rows with more variety
+// Using a larger selection to avoid visible repetition
+const firstRowTestimonials = testimonials.slice(0, 12) // First 12 testimonials
+const secondRowTestimonials = testimonials.slice(10, 22) // Different 12 testimonials with slight overlap
 
 // Testimonial Card Component  
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (

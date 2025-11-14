@@ -369,7 +369,7 @@ export default function GroupBookingsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {specialEvents.map((event, index) => (
+            {specialEvents.map((event) => (
               <div
                 key={event.title}
                 className="group luxury-hover bg-white rounded-3xl overflow-hidden shadow-soft border border-spa-sage-100 hover:border-spa-gold-200"
@@ -486,7 +486,7 @@ export default function GroupBookingsPage() {
                     className="w-full px-4 py-3 rounded-xl border border-spa-sage-200 focus:ring-2 focus:ring-spa-sage-500 focus:border-transparent transition-all duration-200"
                     required
                   >
-                    <option value="" disabled selected>Select group size</option>
+                    <option value="" disabled>Select group size</option>
                     <option value="2">2 people</option>
                     <option value="3-4">3-4 people</option>
                     <option value="5-6">5-6 people</option>

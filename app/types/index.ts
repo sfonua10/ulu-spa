@@ -1,11 +1,17 @@
 export interface Service {
-  id: string
+  id: number
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
   name: string
-  description: string
-  duration: number
+  shortDesc: string
+  fullDesc: string
+  duration: string
   price: number
+  priceRange?: string
+  imageUrl?: string
   benefits: string[]
-  image?: string
+  includes: string[]
+  popular: boolean
+  category: string
 }
 
 export interface Membership {
@@ -15,8 +21,15 @@ export interface Membership {
   price: number
   features: string[]
   popular?: boolean
-  sessions?: number
-  validity?: string
+  bestValue?: boolean
+  sessionCount: number
+  sessionDuration: number
+  sessionTypes: string[]
+  monthlyCredit?: number
+  statedValue: number
+  annualSavings: number
+  retailDiscount?: number
+  bundleDiscount?: number
 }
 
 export interface Testimonial {

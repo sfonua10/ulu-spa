@@ -1,8 +1,7 @@
 'use client'
 
-import { Button } from './Button'
-import { 
-  CalendarDaysIcon, 
+import {
+  CalendarDaysIcon,
   SparklesIcon
 } from '@heroicons/react/24/outline'
 
@@ -12,12 +11,11 @@ interface BookingWidgetProps {
   className?: string
 }
 
-export default function BookingWidget({ 
-  serviceId = 'signature-scalp-massage', 
+export default function BookingWidget({
+  serviceId: _serviceId = 'signature-scalp-massage',
   serviceName = 'Signature Scalp Massage',
   className = ''
 }: BookingWidgetProps) {
-
   const bookingUrl = process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'
 
   return (

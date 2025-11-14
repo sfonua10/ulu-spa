@@ -1,12 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Button } from './Button'
-import { 
-  ClockIcon, 
+import {
+  ClockIcon,
   CheckIcon,
-  StarIcon,
-  ArrowRightIcon 
+  ArrowRightIcon
 } from '@heroicons/react/24/outline'
 
 interface Service {
@@ -30,13 +30,15 @@ interface LuxuryServiceCardProps {
   onBookNow?: () => void
   onLearnMore?: () => void
   className?: string
+  priority?: boolean
 }
 
 export default function LuxuryServiceCard({
   service,
   onBookNow,
   onLearnMore,
-  className = ''
+  className = '',
+  priority = false
 }: LuxuryServiceCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [showDetails, setShowDetails] = useState(false)
@@ -75,14 +77,19 @@ export default function LuxuryServiceCard({
         {service.imageUrl && (
           <div className="relative h-48 overflow-hidden bg-gradient-to-br from-spa-sage-100 to-spa-gold-50">
             {/* Image */}
-            <img
+            <Image
               src={service.imageUrl}
               alt={service.name}
-              className={`w-full h-full object-cover transition-all duration-700 ${
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className={`object-cover transition-all duration-700 ${
                 isHovered ? 'scale-110' : 'scale-100'
               } ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
               onLoad={() => setImageLoaded(true)}
-              loading="lazy"
+              priority={priority}
+              quality={85}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx0fHRsdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/2wBDARUXFx0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AlTZjw3YDUZ9Kk8W0JcBuXOAOpJ4AxRRQFSlGzFZhH/9k="
             />
 
             {/* Shimmer overlay on hover */}
@@ -114,23 +121,6 @@ export default function LuxuryServiceCard({
           isHovered ? 'transform translate-z-4 rotate-x-2' : ''
         }`}>
 
-          {/* Icon - smaller since we have image now */}
-          <div className="relative mb-4">
-            <div className={`w-18 h-18 bg-gradient-to-br from-spa-sage-600 to-spa-sage-700 rounded-2xl flex items-center justify-center shadow-xl border-2 border-white/20 transition-all duration-500 ${
-              isHovered ? 'scale-110 rotate-6 shadow-2xl border-white/30' : ''
-            }`}>
-              <service.icon className="h-10 w-10 text-white drop-shadow-lg" />
-            </div>
-            
-            {/* Floating sparkles */}
-            <div className={`absolute -top-2 -right-2 transition-all duration-500 ${
-              isHovered ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-            }`}>
-              <div className="w-6 h-6 bg-spa-gold-400 rounded-full animate-ping" />
-              <StarIcon className="h-4 w-4 text-white absolute top-1 left-1 drop-shadow-sm" />
-            </div>
-          </div>
-
           {/* Title & Description */}
           <div className="flex-1">
             <h3 className="text-2xl font-display font-bold text-spa-sage-900 mb-2 leading-tight group-hover:text-spa-gold-700 transition-colors duration-300">
@@ -150,29 +140,30 @@ export default function LuxuryServiceCard({
               {service.benefits.slice(0, 3).map((benefit, index) => (
                 <span
                   key={benefit}
-                  className={`px-3 py-1 text-xs font-medium bg-gradient-to-r from-spa-sage-200 to-spa-sage-300 text-spa-sage-800 rounded-full border border-spa-sage-400 shadow-sm transition-all duration-300 ${
-                    isHovered ? `animate-bounce animate-delay-${index * 100}` : ''
+                  className={`px-3 py-1 text-xs font-medium bg-gradient-to-r from-spa-sage-200 to-spa-sage-300 text-spa-sage-800 rounded-full border border-spa-sage-400 shadow-sm transition-all duration-500 ${
+                    isHovered ? `opacity-100 scale-102 brightness-105 animate-delay-${index * 100}` : 'opacity-90 scale-100'
                   }`}
+                  style={{
+                    transitionDelay: isHovered ? `${index * 100}ms` : '0ms'
+                  }}
                 >
                   {benefit}
                 </span>
               ))}
             </div>
 
-            {/* Includes (shown on hover) */}
-            {isHovered && (
-              <div className="mb-6 animate-in slide-down">
-                <h4 className="text-sm font-semibold text-spa-sage-700 mb-2">Includes:</h4>
-                <ul className="space-y-1">
-                  {service.includes.slice(0, 3).map((item) => (
-                    <li key={item} className="flex items-center text-xs text-stone-600">
-                      <CheckIcon className="h-3 w-3 text-spa-sage-500 mr-2" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            {/* Includes (always visible) */}
+            <div className="mb-6">
+              <h4 className="text-sm font-semibold text-spa-sage-700 mb-2">Includes:</h4>
+              <ul className="space-y-1">
+                {service.includes.map((item) => (
+                  <li key={item} className="flex items-center text-xs text-stone-600">
+                    <CheckIcon className="h-3 w-3 text-spa-sage-500 mr-2 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Duration & Price */}

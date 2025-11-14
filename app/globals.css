@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  /* Custom scale values for subtle animations */
+  --scale-102: 1.02;
+
   /* Gold color palette */
   --color-gold-50: #fefdf9;
   --color-gold-100: #fdfaf0;

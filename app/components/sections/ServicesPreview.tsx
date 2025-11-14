@@ -1,14 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { useInView, useStaggeredInView } from '@/app/hooks/useInView'
 import { Button } from '../ui/Button'
 import { GlassCard } from '../ui/GlassCard'
 import { getMangoMintServiceUrl } from '@/app/utils/mangomint-urls'
-import { 
-  SparklesIcon, 
-  HeartIcon, 
-  UserGroupIcon,
+import {
+  SparklesIcon,
   ClockIcon,
   StarIcon
 } from '@heroicons/react/24/outline'
@@ -74,7 +71,7 @@ export default function ServicesPreview() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {popularServices.map((service, index) => (
+          {popularServices.map((service) => (
             <div
               key={service.id}
               className="group"

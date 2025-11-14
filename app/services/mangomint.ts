@@ -76,9 +76,9 @@ export class MangoMintAPI {
 
   // Note: Actual appointment booking is handled by MangoMint overlay widget
   // This function is kept for backward compatibility but not used in the new integration
-  static async bookAppointment(appointment: MangoMintAppointment): Promise<{ success: boolean; appointmentId?: string; error?: string }> {
+  static async bookAppointment(_appointment: MangoMintAppointment): Promise<{ success: boolean; appointmentId?: string; error?: string }> {
     console.warn('🥭 MangoMint: Direct booking API not used - appointments are handled by MangoMint overlay')
-    
+
     return {
       success: false,
       error: 'Direct booking not supported. Please use MangoMint overlay widget.'
@@ -87,7 +87,7 @@ export class MangoMintAPI {
 
   // Note: Availability checking is handled by MangoMint overlay widget
   // This function is kept for backward compatibility
-  static async getAvailability(serviceId: string, date: string): Promise<string[]> {
+  static async getAvailability(_serviceId: string, _date: string): Promise<string[]> {
     console.warn('🥭 MangoMint: Direct availability API not used - handled by MangoMint overlay')
     return []
   }
@@ -130,7 +130,7 @@ export class MangoMintAPI {
     ]
   }
 
-  static async createMembership(membership: any): Promise<{ success: boolean; membershipId?: string; error?: string }> {
+  static async createMembership(membership: { name: string; price: number }): Promise<{ success: boolean; membershipId?: string; error?: string }> {
     // TODO: Implement actual MangomMint membership creation API call
     console.log('🥭 MangomMint: Creating membership...', membership)
     

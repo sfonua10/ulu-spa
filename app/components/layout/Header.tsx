@@ -12,6 +12,7 @@ const navigation = [
   { name: 'Group Bookings', href: '/group-bookings' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
+  { name: 'FAQ', href: '/faq' },
 ]
 
 export default function Header() {
@@ -40,8 +41,16 @@ export default function Header() {
   }
   
   // Pages that have white backgrounds and need dark navigation by default
-  const whiteBackgroundPages = ['/memberships', '/group-bookings', '/about', '/contact', '/book']
+  const whiteBackgroundPages: string[] = []
   const isWhiteBackgroundPage = whiteBackgroundPages.includes(pathname)
+
+  // Pages that need dark text but should keep transparent header until scrolled
+  const darkTextTransparentPages = ['/faq', '/memberships', '/group-bookings', '/contact']
+  const isDarkTextTransparentPage = darkTextTransparentPages.includes(pathname)
+
+  // Pages that should use stone/cream text in default mode (not scrolled)
+  const stoneTextPages = ['/memberships', '/group-bookings']
+  const isStoneTextPage = stoneTextPages.includes(pathname)
 
   // Helper function to check if a navigation link is active
   const isActiveLink = (href: string) => {
@@ -60,8 +69,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Determine if we should use dark styling (either scrolled on homepage or on white background pages)
+  // Determine if we should use dark styling for header background (scrolled or white background pages)
   const useDarkStyling = scrolled || isWhiteBackgroundPage
+
+  // Determine if we should use dark text (scrolled, white background pages, or dark text transparent pages)
+  const useDarkText = scrolled || isWhiteBackgroundPage || isDarkTextTransparentPage
 
   return (
     <header
@@ -92,9 +104,9 @@ export default function Header() {
           <button
             type="button"
             className={`-m-2.5 inline-flex items-center justify-center rounded-md p-3 min-h-[44px] min-w-[44px] transition-colors duration-300 ${
-              useDarkStyling 
-                ? 'text-dark hover:text-gold-600' 
-                : 'text-white hover:text-gold-300'
+              useDarkText
+                ? 'text-dark hover:text-gold-600'
+                : (isStoneTextPage ? 'text-stone-100 hover:text-gold-200' : 'text-white hover:text-gold-300')
             }`}
             onClick={openMobileMenu}
             aria-label="Open main menu"
@@ -112,14 +124,14 @@ export default function Header() {
               <Link
                 href={item.href}
                 className={`relative text-sm xl:text-base leading-6 whitespace-nowrap transition-all duration-300 after:absolute after:bottom-[-5px] after:left-0 after:h-0.5 after:bg-gold-300 after:transition-all after:duration-300 ${
-                  isActive 
+                  isActive
                     ? `after:w-full font-semibold ${
-                        useDarkStyling ? 'text-gold-600' : 'text-gold-300'
+                        useDarkText ? 'text-gold-600' : (isStoneTextPage ? 'text-gold-400' : 'text-gold-300')
                       }`
                     : `after:w-0 hover:after:w-full font-medium ${
-                        useDarkStyling 
-                          ? 'text-dark/90 hover:text-gold-600' 
-                          : 'text-white/90 hover:text-gold-300'
+                        useDarkText
+                          ? 'text-dark/90 hover:text-gold-600'
+                          : (isStoneTextPage ? 'text-stone-100 hover:text-gold-200' : 'text-white/90 hover:text-gold-300')
                       }`
                 }`}
               >

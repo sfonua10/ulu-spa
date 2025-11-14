@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Button } from './Button'
-import { 
-  CalendarIcon, 
-  PhoneIcon, 
+import {
+  CalendarIcon,
+  PhoneIcon,
   XMarkIcon,
-  SparklesIcon 
+  SparklesIcon
 } from '@heroicons/react/24/outline'
 
 interface FloatingBookingButtonProps {
@@ -16,6 +16,7 @@ interface FloatingBookingButtonProps {
 export default function FloatingBookingButton({ className = '' }: FloatingBookingButtonProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,36 +28,52 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsExpanded(false)
+      }
+    }
+
+    if (isExpanded) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isExpanded])
+
   if (!isVisible) return null
 
   const bookingUrl = process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'
 
   return (
-    <div className={`fixed bottom-24 right-8 z-50 ${className}`}>
+    <div ref={containerRef} className={`fixed bottom-24 right-8 z-50 ${className}`}>
       {/* Expanded Menu */}
       {isExpanded && (
-        <div className="absolute bottom-20 right-0 mb-4 space-y-3 animate-in slide-up">
+        <div className="absolute bottom-20 right-0 mb-4 space-y-3 animate-in slide-up min-w-[240px]">
           {/* Book Appointment */}
           <a
             href={bookingUrl}
-            className="mangomint-booking-button bg-white/95 backdrop-blur-xl text-spa-sage-800 border border-white/20 shadow-xl hover:bg-white hover:shadow-2xl transition-all duration-300 px-6 py-3 rounded-full group flex items-center cursor-pointer"
+            className="mangomint-booking-button bg-white/95 backdrop-blur-xl text-spa-sage-800 border border-white/20 shadow-xl hover:bg-white hover:shadow-2xl transition-all duration-300 px-6 py-4 rounded-full group flex items-center justify-center cursor-pointer font-medium text-base"
             onClick={() => setIsExpanded(false)}
           >
-            <CalendarIcon className="h-6 w-6 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform stroke-2" />
+            <CalendarIcon className="h-6 w-6 mr-3 group-hover:scale-110 transition-transform stroke-2" />
             Book Appointment
           </a>
 
           {/* Call Now */}
-          <Button
-            variant="outline"
-            className="bg-white/95 backdrop-blur-xl border-spa-sage-200 text-spa-sage-800 shadow-xl hover:bg-spa-sage-50 hover:shadow-2xl transition-all duration-300 px-6 py-3 rounded-full group"
+          <button
+            className="w-full bg-white/95 backdrop-blur-xl border border-spa-sage-200 text-spa-sage-800 shadow-xl hover:bg-spa-sage-50 hover:shadow-2xl transition-all duration-300 px-6 py-4 rounded-full group flex items-center justify-center font-medium text-base"
             onClick={() => {
+              setIsExpanded(false)
               window.open('tel:(801)528-7368', '_self')
             }}
           >
-            <PhoneIcon className="h-6 w-6 md:h-5 md:w-5 mr-2 group-hover:scale-110 transition-transform stroke-2" />
+            <PhoneIcon className="h-6 w-6 mr-3 group-hover:scale-110 transition-transform stroke-2" />
             Call (801) 528-7368
-          </Button>
+          </button>
         </div>
       )}
 
