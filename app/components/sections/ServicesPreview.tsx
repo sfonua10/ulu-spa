@@ -1,12 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '../ui/Button'
-import { GlassCard } from '../ui/GlassCard'
+import LuxuryServiceCard from '../ui/LuxuryServiceCard'
+import ServiceDetailModal from '../ui/ServiceDetailModal'
 import { getMangoMintServiceUrl } from '@/app/utils/mangomint-urls'
 import {
   SparklesIcon,
-  ClockIcon,
   StarIcon
 } from '@heroicons/react/24/outline'
 
@@ -16,32 +17,74 @@ const popularServices = [
     id: 4,
     icon: SparklesIcon,
     name: 'Royal Escape',
-    description: 'Our signature 90-minute royal treatment offering the ultimate in scalp massage luxury and relaxation.',
+    shortDesc: 'Ultimate 90-minute royal treatment',
+    fullDesc: 'Our signature 90-minute royal treatment offering the ultimate in scalp massage luxury and relaxation. Experience the pinnacle of our head spa services with comprehensive scalp care and therapeutic massage.',
     duration: '90 min',
-    price: '$202',
-    benefits: ['Ultimate Relaxation', 'Premium Experience', 'Complete Wellness']
+    price: 202,
+    imageUrl: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop',
+    benefits: ['Ultimate Relaxation', 'Premium Experience', 'Complete Wellness'],
+    includes: [
+      'Extended 90-minute treatment',
+      'Comprehensive scalp analysis',
+      'Deep tissue scalp massage',
+      'Aromatherapy experience',
+      'Hot towel treatment',
+      'Scalp detox and cleanse',
+      'Moisturizing mask',
+      'Light blow dry'
+    ],
+    popular: true,
+    category: 'head-scalp'
   },
   {
     id: 10,
     icon: StarIcon,
     name: 'Island Renewal',
-    description: 'A full hour facial treatment focused on skin renewal and rejuvenation with island-inspired techniques.',
+    shortDesc: 'Rejuvenating facial treatment',
+    fullDesc: 'A full hour facial treatment focused on skin renewal and rejuvenation with island-inspired techniques. Our expert aestheticians combine traditional island wisdom with modern skincare science.',
     duration: '60 min',
-    price: '$130',
-    benefits: ['Skin Renewal', 'Deep Cleansing', 'Rejuvenation']
+    price: 130,
+    imageUrl: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop',
+    benefits: ['Skin Renewal', 'Deep Cleansing', 'Rejuvenation'],
+    includes: [
+      'Deep facial cleansing',
+      'Exfoliation treatment',
+      'Custom facial mask',
+      'Face and neck massage',
+      'Moisturizing treatment',
+      'Eye treatment',
+      'Décolleté care'
+    ],
+    popular: true,
+    category: 'facial'
   },
   {
     id: 13,
     icon: SparklesIcon,
     name: 'ULU Glow – Beauty & Radiance',
-    description: 'Specialized IV therapy designed to enhance beauty and promote radiant, healthy skin from within.',
+    shortDesc: 'Beauty-enhancing IV therapy',
+    fullDesc: 'Specialized IV therapy designed to enhance beauty and promote radiant, healthy skin from within. This powerful infusion delivers essential vitamins and nutrients directly to your bloodstream for maximum absorption and immediate results.',
     duration: '45 min',
-    price: '$195',
-    benefits: ['Skin Radiance', 'Beauty Enhancement', 'Hydration']
+    price: 195,
+    imageUrl: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&h=600&fit=crop',
+    benefits: ['Skin Radiance', 'Beauty Enhancement', 'Hydration'],
+    includes: [
+      'Vitamin C infusion',
+      'Biotin complex',
+      'Glutathione boost',
+      'Hydration therapy',
+      'Antioxidant blend',
+      'Mineral replenishment',
+      'Consultation with specialist'
+    ],
+    popular: true,
+    category: 'iv-therapy'
   }
 ]
 
 export default function ServicesPreview() {
+  const [selectedService, setSelectedService] = useState<typeof popularServices[number] | null>(null)
+
   return (
     <section id="services-preview" className="py-24 bg-gradient-to-b from-spa-sage-50/40 via-white to-spa-gold-50/30 relative overflow-hidden">
       {/* Subtle background pattern */}
@@ -71,65 +114,17 @@ export default function ServicesPreview() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {popularServices.map((service) => (
-            <div
+          {popularServices.map((service, index) => (
+            <LuxuryServiceCard
               key={service.id}
-              className="group"
-            >
-              <GlassCard 
-                className="p-8 h-full bg-white/95 border-spa-sage-200 hover:border-spa-gold-400/60 transition-all duration-500 hover:shadow-luxury-lg hover:scale-[1.02] hover:bg-white"
-                blur="sm"
-                opacity={0.95}
-              >
-                {/* Icon */}
-                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 rounded-2xl mb-6 group-hover:scale-110 group-hover:shadow-gold transition-all duration-500 shadow-lg">
-                  <service.icon className="h-8 w-8 text-white" />
-                </div>
-
-                {/* Content */}
-                <h3 className="text-2xl font-display font-bold text-spa-sage-800 mb-3 group-hover:text-spa-gold-700 transition-colors duration-300">
-                  {service.name}
-                </h3>
-                <p className="text-stone-600 leading-relaxed mb-6 text-sm">
-                  {service.description}
-                </p>
-
-                {/* Benefits */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {service.benefits.map((benefit) => (
-                    <span
-                      key={benefit}
-                      className="px-3 py-1.5 text-xs font-medium bg-spa-gold-50 text-spa-gold-700 rounded-full border border-spa-gold-200/50 group-hover:bg-spa-gold-100 transition-colors duration-300"
-                    >
-                      {benefit}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Duration and Price */}
-                <div className="flex items-center justify-between text-sm text-stone-600 mb-8">
-                  <div className="flex items-center space-x-2 font-medium">
-                    <ClockIcon className="h-4 w-4 text-spa-gold-600" />
-                    <span>{service.duration}</span>
-                  </div>
-                  <div className="text-3xl font-bold text-spa-sage-800 font-display">
-                    {service.price}
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <Button 
-                  variant="outline" 
-                  className="w-full"
-                  onClick={() => {
-                    const serviceUrl = getMangoMintServiceUrl(service.name)
-                    window.location.href = serviceUrl
-                  }}
-                >
-                  Book This Service
-                </Button>
-              </GlassCard>
-            </div>
+              service={service}
+              priority={index === 0}
+              onViewDetails={() => setSelectedService(service)}
+              onBook={() => {
+                const serviceUrl = getMangoMintServiceUrl(service.name)
+                window.location.href = serviceUrl
+              }}
+            />
           ))}
         </div>
 
@@ -144,6 +139,19 @@ export default function ServicesPreview() {
           </Link>
         </div>
       </div>
+
+      {/* Service Detail Modal */}
+      {selectedService && (
+        <ServiceDetailModal
+          service={selectedService}
+          isOpen={!!selectedService}
+          onClose={() => setSelectedService(null)}
+          onBookNow={() => {
+            const serviceUrl = getMangoMintServiceUrl(selectedService.name)
+            window.location.href = serviceUrl
+          }}
+        />
+      )}
     </section>
   )
 }

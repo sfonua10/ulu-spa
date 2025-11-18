@@ -97,16 +97,16 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator - Hidden on mobile */}
+      {/* Enhanced Scroll Indicator - Hidden on mobile, compact and closer to edge */}
       <button
         onClick={scrollToServices}
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 group hidden md:block ${
+        className={`absolute bottom-3 left-1/2 transform -translate-x-1/2 z-20 group hidden md:block ${
           isInView ? 'animate-in animate-fade-in animate-delay-1200' : 'opacity-0'
         }`}
       >
-        <div className="flex flex-col items-center space-y-2 text-white/80 hover:text-gold-300 transition-all duration-500 backdrop-blur-sm bg-black/20 hover:bg-black/30 px-4 py-3 rounded-2xl border border-white/10 hover:border-gold-300/40 animate-bounce hover:animate-none group-hover:scale-105">
-          <span className="text-sm font-medium drop-shadow-sm tracking-wide">Discover More</span>
-          <ChevronDownIcon className="h-5 w-5 drop-shadow-sm group-hover:translate-y-0.5 transition-transform duration-300" />
+        <div className="flex flex-col items-center space-y-1 text-white/80 hover:text-gold-300 transition-all duration-500 backdrop-blur-sm bg-black/20 hover:bg-black/30 px-3 py-2 rounded-xl border border-white/10 hover:border-gold-300/40 animate-bounce hover:animate-none group-hover:scale-105">
+          <span className="text-xs font-medium drop-shadow-sm tracking-wide">Discover More</span>
+          <ChevronDownIcon className="h-4 w-4 drop-shadow-sm group-hover:translate-y-0.5 transition-transform duration-300" />
         </div>
       </button>
       </section>

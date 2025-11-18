@@ -189,11 +189,11 @@ export default function ServicesPage() {
               >
                 <LuxuryServiceCard
                   service={service}
-                  onBookNow={() => {
+                  onBook={() => {
                     const serviceUrl = getMangoMintServiceUrl(service.name)
                     window.location.href = serviceUrl
                   }}
-                  onLearnMore={() => {
+                  onViewDetails={() => {
                     setSelectedService(service)
                   }}
                   className="h-full luxury-hover"

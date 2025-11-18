@@ -199,14 +199,31 @@ html {
 
 /* Video Performance Optimizations */
 video {
+  /* Enable hardware acceleration */
   transform: translateZ(0);
-  will-change: transform;
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Remove will-change to prevent memory issues */
+  /* will-change should be set dynamically when needed */
 }
 
-/* Reduced motion preferences */
+/* Ensure video fills container properly */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+/* Reduced motion preferences - pause instead of hide */
 @media (prefers-reduced-motion: reduce) {
   video {
-    display: none !important;
+    /* Don't hide completely, just pause animation */
+    animation-play-state: paused !important;
+  }
+
+  /* If video component detects reduced motion, it should pause not hide */
+  .video-reduced-motion {
+    opacity: 1 !important;
+    position: relative !important;
   }
 }
 
@@ -241,4 +258,55 @@ body[data-hide-chat="true"] iframe[src*="mangomint"],
 body[data-hide-chat="true"] div[class*="mangomint-chat"],
 body[data-hide-chat="true"] .mangomint-widget-container {
   display: none !important;
+}
+
+/* Custom Scrollbar for Luxury Service Cards */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(139, 136, 110, 0.1);
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #B89752, #8B886E);
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #D4AF37, #9a7a1a);
+}
+
+/* Firefox scrollbar styling */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #B89752 rgba(139, 136, 110, 0.1);
+}
+
+/* Hide scrollbar on mobile for cleaner look */
+@media (max-width: 640px) {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .custom-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+/* Prevent layout collisions on short viewports */
+@media (max-height: 650px) {
+  /* Reduce hero section top padding on short screens */
+  .min-h-screen.flex.items-center {
+    padding-top: 6rem !important;
+  }
+
+  /* Reduce spacing between hero elements */
+  .space-y-12 {
+    row-gap: 2rem !important;
+  }
 }

@@ -41,6 +41,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Preload critical video assets for immediate playback */}
+        <link
+          rel="preload"
+          as="video"
+          href="/videos/ulu-facial-site-optimized.mp4"
+          type="video/mp4"
+        />
+        <link
+          rel="preload"
+          as="video"
+          href="/videos/ulu-facial-site-mobile.mp4"
+          type="video/mp4"
+        />
+      </head>
       <body
         className={`${montserrat.variable} ${geistMono.variable} ${playfairDisplay.variable} ${dancingScript.variable} antialiased`}
       >
