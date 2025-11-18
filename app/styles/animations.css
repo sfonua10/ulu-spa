@@ -372,9 +372,9 @@
 }
 
 /* 3D Transform Utilities */
-.perspective-1000 {
+/* .perspective-1000 {
   perspective: 1000px;
-}
+} */
 
 .preserve-3d {
   transform-style: preserve-3d;
@@ -429,6 +429,10 @@
 .luxury-hover {
   position: relative;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Text rendering optimizations for crisp text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .luxury-hover::before {
@@ -446,7 +450,8 @@
 }
 
 .luxury-hover:hover {
-  transform: translateY(-8px) scale(1.02);
+  /* Removed scale(1.02) to prevent text blur - use only 2D translateY */
+  transform: translateY(-8px);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 

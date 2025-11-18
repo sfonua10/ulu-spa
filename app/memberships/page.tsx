@@ -213,17 +213,17 @@ export default function MembershipsPage() {
             {memberships.map((membership, index) => (
               <div
                 key={membership.id}
-                className="relative group animate-in animate-fade-in animate-slide-up hover-lift"
+                className="relative group animate-in animate-fade-in animate-slide-up hover-lift overflow-hidden rounded-3xl"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`bg-white rounded-3xl shadow-soft hover:shadow-soft-lg transition-all duration-300 p-8 h-full relative ${
+                <div className={`bg-white rounded-3xl shadow-soft hover:shadow-soft-lg transition-all duration-300 p-8 h-full relative flex flex-col ${
                   membership.popular || membership.bestValue
-                    ? 'ring-2 ring-spa-gold-400 border-spa-gold-200'
+                    ? 'ring-2 ring-spa-gold-500 border-2 border-spa-gold-400'
                     : 'border border-spa-sage-100 hover:border-spa-sage-200'
                 }`}>
                   {/* Corner Ribbon Badge */}
                   {(membership.popular || membership.bestValue) && (
-                    <div className="absolute top-0 right-0 overflow-hidden w-32 h-32 pointer-events-none">
+                    <div className="absolute top-0 right-0 overflow-hidden w-32 h-32 pointer-events-none rounded-3xl">
                       <div className={`absolute top-6 right-[-32px] w-40 text-center py-2 text-xs font-bold text-white shadow-lg transform rotate-45 ${
                         membership.popular
                           ? 'bg-gradient-to-r from-spa-gold-500 to-spa-gold-600'
@@ -261,7 +261,7 @@ export default function MembershipsPage() {
                   </div>
 
                   {/* Features */}
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-4 flex-grow">
                     {membership.features.map((feature) => (
                       <div key={feature} className="flex items-start space-x-3">
                         <CheckIcon className="h-5 w-5 text-spa-sage-600 flex-shrink-0 mt-0.5" />
@@ -273,7 +273,7 @@ export default function MembershipsPage() {
                   {/* CTA */}
                   <Button
                     variant={membership.popular || membership.bestValue ? "luxury" : "outline"}
-                    className="w-full text-lg py-4 font-semibold"
+                    className="w-full text-lg py-4 font-semibold mt-8"
                     onClick={() => membership.mangomintUrl && (window.location.href = membership.mangomintUrl)}
                   >
                     Get Started
@@ -321,23 +321,23 @@ export default function MembershipsPage() {
               return (
                 <div
                   key={addOn.id}
-                  className="relative group animate-in animate-fade-in animate-slide-up hover-lift"
+                  className="relative group animate-in animate-fade-in animate-slide-up hover-lift overflow-hidden rounded-2xl"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className={`bg-white rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300 p-8 h-full relative border ${borderClasses}`}>
+                  <div className={`bg-white rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300 p-8 h-full relative border flex flex-col ${borderClasses}`}>
                     {/* Corner Ribbon Badge */}
-                    <div className="absolute top-0 right-0 overflow-hidden w-32 h-32 pointer-events-none">
+                    <div className="absolute top-0 right-0 overflow-hidden w-32 h-32 pointer-events-none rounded-2xl">
                       <div className={`absolute top-6 right-[-32px] w-40 text-center py-2 text-xs font-bold text-white shadow-lg transform rotate-45 bg-gradient-to-r ${gradientClasses}`}>
                         {addOn.duration} MIN
                       </div>
                     </div>
 
-                    <div className="text-center mt-4">
+                    <div className="text-center mt-4 flex-grow flex flex-col">
                       <div className="text-4xl font-bold text-spa-sage-800 mb-2">
                         ${addOn.price}
                         <span className="text-lg font-normal text-stone-600">/month</span>
                       </div>
-                      <p className="text-stone-600 text-sm mb-6">
+                      <p className="text-stone-600 text-sm mb-6 flex-grow">
                         {addOn.description}
                       </p>
                       <Button

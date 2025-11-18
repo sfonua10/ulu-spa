@@ -139,7 +139,7 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Stats Section */}
-      <div className="max-w-6xl mx-auto px-6 mt-20">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="bg-white/85 backdrop-blur-xl rounded-3xl p-8 shadow-soft border border-white/30 luxury-shadow-transition">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>

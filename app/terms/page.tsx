@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton'
 import { GlassCard } from '@/app/components/ui/GlassCard'
 import { DocumentTextIcon, ScaleIcon } from '@heroicons/react/24/outline'
 
@@ -467,8 +466,6 @@ export default function TermsOfServicePage() {
 
       {/* Bottom Spacing */}
       <div className="h-20"></div>
-
-      <FloatingBookingButton />
     </main>
   )
 }

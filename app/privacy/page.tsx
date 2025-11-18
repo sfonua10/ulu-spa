@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton'
 import { GlassCard } from '@/app/components/ui/GlassCard'
 import { ShieldCheckIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 
@@ -373,8 +372,6 @@ export default function PrivacyPolicyPage() {
 
       {/* Bottom Spacing */}
       <div className="h-20"></div>
-
-      <FloatingBookingButton />
     </main>
   )
 }

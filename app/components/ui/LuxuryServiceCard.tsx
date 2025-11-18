@@ -63,7 +63,7 @@ export default function LuxuryServiceCard({
       }}
     >
       {/* Main Card */}
-      <div className="relative h-full max-h-[85vh] sm:max-h-none bg-white/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden transition-all duration-700 hover:shadow-4xl hover:border-spa-gold-200/40 perspective-1000 cursor-pointer flex flex-col">
+      <div className="relative h-full max-h-[85vh] sm:max-h-none bg-white/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden transition-all duration-700 hover:shadow-4xl hover:border-spa-gold-200/40 cursor-pointer flex flex-col">
         
         {/* Glass Morphism Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/40 to-white/20 backdrop-blur-xl" />
@@ -117,9 +117,7 @@ export default function LuxuryServiceCard({
         )}
 
         {/* Card Content - Scrollable */}
-        <div className={`relative z-10 flex-1 overflow-y-auto custom-scrollbar transition-transform duration-700 ${
-          isHovered ? 'transform translate-z-4 rotate-x-2' : ''
-        }`}>
+        <div className="relative z-10 flex-1 overflow-y-auto custom-scrollbar">
           {/* Scroll fade gradient */}
           <div className="sticky top-0 h-4 bg-gradient-to-b from-white/95 to-transparent z-10 pointer-events-none" />
 
@@ -210,9 +208,7 @@ export default function LuxuryServiceCard({
             <Button
               variant="luxury"
               size="md"
-              className={`flex-1 sm:flex-[1.4] bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn border-2 border-spa-gold-800 ${
-                isHovered ? 'scale-105' : ''
-              }`}
+              className="flex-1 sm:flex-[1.4] bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn border-2 border-spa-gold-800"
               onClick={(e) => {
                 e.stopPropagation()
                 onBook?.()
@@ -230,9 +226,9 @@ export default function LuxuryServiceCard({
         }`} />
       </div>
 
-      {/* 3D Shadow */}
+      {/* 3D Shadow - Reduced blur for better text clarity */}
       <div className={`absolute inset-0 bg-spa-sage-900/20 rounded-3xl transition-all duration-700 -z-10 ${
-        isHovered ? 'transform translate-y-2 translate-x-2 scale-105 blur-xl' : 'transform translate-y-1 translate-x-1 blur-md'
+        isHovered ? 'transform translate-y-2 translate-x-2 blur-lg' : 'transform translate-y-1 translate-x-1 blur-md'
       }`} />
     </div>
   )

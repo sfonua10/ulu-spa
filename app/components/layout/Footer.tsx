@@ -2,12 +2,13 @@
 
 import Link from 'next/link'
 import { useStaggeredInView } from '@/app/hooks/useInView'
-import { 
-  MapPinIcon, 
-  PhoneIcon, 
+import {
+  MapPinIcon,
+  PhoneIcon,
   EnvelopeIcon,
   ClockIcon
 } from '@heroicons/react/24/outline'
+import { Instagram, Facebook, X, Linkedin, Music } from 'lucide-react'
 
 const footerLinks = {
   services: [
@@ -40,6 +41,14 @@ const contactInfo = {
   }
 }
 
+const socialLinks = [
+  { name: 'Facebook', href: 'https://www.facebook.com/uluspaofficial', icon: Facebook },
+  { name: 'Instagram', href: 'https://www.instagram.com/ulu.spa/', icon: Instagram },
+  { name: 'Twitter', href: 'https://twitter.com/uluspaofficial', icon: X },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/uluspaofficial', icon: Linkedin },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@uluspaofficial', icon: Music },
+]
+
 export default function Footer() {
   const { ref: footerRef, visibleItems } = useStaggeredInView<HTMLDivElement>(5, 100)
 
@@ -57,11 +66,25 @@ export default function Footer() {
               Ulu Spa
             </h3>
             <p className="text-spa-sage-200 leading-relaxed mb-6">
-              Your sanctuary of luxury scalp massage. Experience stress relief, 
+              Your sanctuary of luxury scalp massage. Experience stress relief,
               promote hair growth, and find your inner peace with our holistic approach.
             </p>
             <div className="flex space-x-4">
-              {/* Social Media Icons would go here */}
+              {socialLinks.map((social) => {
+                const Icon = social.icon
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit our ${social.name}`}
+                    className="text-spa-sage-200 hover:text-white transition-colors duration-200"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                )
+              })}
             </div>
           </div>
 
