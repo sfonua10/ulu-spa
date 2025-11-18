@@ -30,6 +30,7 @@ export interface Membership {
   annualSavings: number
   retailDiscount?: number
   bundleDiscount?: number
+  mangomintUrl?: string
 }
 
 export interface Testimonial {

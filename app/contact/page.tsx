@@ -13,8 +13,6 @@ import {
   CreditCard
 } from 'lucide-react';
 import ContactCard from '@/app/components/ui/ContactCard';
-import TeamGrid from '@/app/components/sections/TeamGrid';
-import InstagramFeed from '@/app/components/sections/InstagramFeed';
 import { Button } from '@/app/components/ui/Button';
 import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton';
 import ParticleField from '@/app/components/ui/ParticleField';
@@ -183,7 +181,7 @@ export default function ContactPage() {
           <div className="relative rounded-3xl overflow-hidden shadow-soft-xl backdrop-blur-xl border border-white/30 animate-fade-in max-w-5xl mx-auto" style={{ animationDelay: '200ms' }}>
             <div className="aspect-video">
               <iframe
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3034.5!2d-111.7!3d40.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDIxJzAwLjAiTiAxMTHCsDQyJzAwLjAiVw!5e0!3m2!1sen!2sus!4v1234567890`}
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent('597 South Pleasant Grove Blvd. Suite 4, Pleasant Grove, UT 84064')}`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -197,12 +195,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* Team Grid Section */}
-      <TeamGrid />
-
-      {/* Instagram Feed Section */}
-      <InstagramFeed />
 
       {/* CTA Section */}
       <section className="relative py-24 overflow-hidden">
@@ -231,7 +223,7 @@ export default function ContactPage() {
                   variant="luxury"
                   size="lg"
                   onClick={handleBookNow}
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto gap-2"
                 >
                   <Calendar className="w-5 h-5" />
                   Book Your Appointment
@@ -240,7 +232,7 @@ export default function ContactPage() {
                   variant="outline"
                   size="lg"
                   onClick={() => window.location.href = `tel:+18015287368`}
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto gap-2"
                 >
                   <Phone className="w-5 h-5" />
                   Call Us Now

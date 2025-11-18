@@ -25,7 +25,7 @@ export default function CTASection() {
             ref={leftRef}
             className={`space-y-8 ${leftInView ? 'animate-in animate-slide-right animate-slow' : 'opacity-0'}`}
           >
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-luxury-warm-800/90 border border-custom-gold/40 text-custom-gold text-sm font-medium backdrop-blur-sm shadow-lg">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/95 text-luxury-warm-800 text-sm font-medium mb-6 backdrop-blur-sm shadow-lg border border-custom-gold/30">
               ✨ Ready to Begin Your Journey? ✨
             </div>
             

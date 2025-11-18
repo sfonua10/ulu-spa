@@ -2,6 +2,8 @@
 
 import FAQAccordion from '@/app/components/ui/FAQAccordion';
 import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton';
+import { CalendarDaysIcon } from '@heroicons/react/24/outline';
+import { Mail } from 'lucide-react';
 
 const generalFAQs = [
   {
@@ -131,14 +133,16 @@ export default function FAQPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => window.Mangomint?.book?.()}
-                className="px-8 py-4 bg-gradient-to-r from-sage-600 to-sage-700 text-gray-900 rounded-full font-montserrat font-semibold hover:from-sage-500 hover:to-sage-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="px-8 py-4 bg-gradient-to-br from-spa-gold-500 to-spa-gold-600 text-white rounded-full font-montserrat font-semibold hover:from-spa-gold-600 hover:to-spa-gold-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-3"
               >
+                <CalendarDaysIcon className="h-5 w-5" />
                 Book Appointment
               </button>
               <a
-                href="mailto:info@uluspas.com"
-                className="px-8 py-4 bg-white/10 backdrop-blur-md text-gray-900 rounded-full font-montserrat font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
+                href="mailto:uluspaofficial@gmail.com"
+                className="px-8 py-4 bg-white text-spa-sage-900 rounded-full font-montserrat font-semibold border border-white/40 hover:bg-spa-gold-50 hover:text-spa-sage-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-3"
               >
+                <Mail className="h-5 w-5" />
                 Contact Us
               </a>
             </div>

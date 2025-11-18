@@ -22,7 +22,8 @@ const memberships = [
       'Cancel anytime'
     ],
     popular: false,
-    bestValue: false
+    bestValue: false,
+    mangomintUrl: 'https://clients.mangomint.com/uluspa/memberships/13'
   },
   {
     id: 'classic',
@@ -47,7 +48,8 @@ const memberships = [
       'Cancel anytime'
     ],
     popular: true,
-    bestValue: false
+    bestValue: false,
+    mangomintUrl: 'https://clients.mangomint.com/uluspa/memberships/12'
   },
   {
     id: 'deluxe',
@@ -72,7 +74,8 @@ const memberships = [
       'Cancel anytime'
     ],
     popular: false,
-    bestValue: false
+    bestValue: false,
+    mangomintUrl: 'https://clients.mangomint.com/uluspa/memberships/11'
   },
   {
     id: 'vip',
@@ -97,7 +100,8 @@ const memberships = [
       'Cancel anytime'
     ],
     popular: false,
-    bestValue: true
+    bestValue: true,
+    mangomintUrl: 'https://clients.mangomint.com/uluspa/memberships/10'
   }
 ]
 
@@ -270,9 +274,9 @@ export default function MembershipsPage() {
                   <Button
                     variant={membership.popular || membership.bestValue ? "luxury" : "outline"}
                     className="w-full text-lg py-4 font-semibold"
-                    onClick={handleBookMembership}
+                    onClick={() => membership.mangomintUrl && (window.location.href = membership.mangomintUrl)}
                   >
-                    {membership.popular || membership.bestValue ? "Get Started" : "Choose Plan"}
+                    Get Started
                   </Button>
                 </div>
               </div>
@@ -397,41 +401,21 @@ export default function MembershipsPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div
-            className="text-center mb-16 scroll-animate"
-          >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
-              Frequently Asked
-              <br />
-              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
-                Questions
-              </span>
+      {/* FAQ Link Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="bg-spa-sage-50 rounded-3xl p-8 scroll-animate">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-spa-sage-800 mb-4">
+              Have Questions About Memberships?
             </h2>
-          </div>
-
-          <div
-            className="space-y-6 scroll-animate"
-            style={{ transitionDelay: '0.2s' }}
-          >
-            <div className="bg-spa-sage-50 rounded-2xl p-6">
-              <h3 className="font-semibold text-spa-sage-800 mb-2">Can I change my membership plan?</h3>
-              <p className="text-stone-600">Yes, you can upgrade or downgrade your membership at any time. Changes will be reflected in your next billing cycle.</p>
-            </div>
-            <div className="bg-spa-sage-50 rounded-2xl p-6">
-              <h3 className="font-semibold text-spa-sage-800 mb-2">What happens to unused spa credits?</h3>
-              <p className="text-stone-600">Unused spa credits expire after 3 months, so be sure to use them for treatments, upgrades, or retail products before they expire.</p>
-            </div>
-            <div className="bg-spa-sage-50 rounded-2xl p-6">
-              <h3 className="font-semibold text-spa-sage-800 mb-2">Can I cancel my membership?</h3>
-              <p className="text-stone-600">Yes! All memberships are month-to-month with the freedom to cancel anytime. No long-term commitments required.</p>
-            </div>
-            <div className="bg-spa-sage-50 rounded-2xl p-6">
-              <h3 className="font-semibold text-spa-sage-800 mb-2">What services are included?</h3>
-              <p className="text-stone-600">Choose from Scalp Treatment, Scratch Therapy, Facial, or Blowout depending on your membership tier. Each session is customized to your preferences.</p>
-            </div>
+            <p className="text-lg text-stone-600 mb-6">
+              Learn more about our membership options, benefits, and policies in our comprehensive FAQ.
+            </p>
+            <a href="/faq" className="inline-block">
+              <Button variant="outline" size="lg" className="px-8">
+                View Membership FAQs →
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -454,12 +438,19 @@ export default function MembershipsPage() {
               Your future self will thank you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="luxury" size="lg" className="px-12 font-semibold">
+              <Button
+                variant="luxury"
+                size="lg"
+                className="px-12 font-semibold"
+                onClick={handleBookMembership}
+              >
                 Start Membership
               </Button>
-              <Button variant="ghost" size="lg" className="text-white border-2 border-white hover:bg-white/20 hover:text-white px-12 font-semibold">
-                Schedule Consultation
-              </Button>
+              <a href="tel:+18015287368">
+                <Button variant="ghost" size="lg" className="text-white border-2 border-white hover:bg-white/20 hover:text-white px-12 font-semibold w-full">
+                  Call for Consultation
+                </Button>
+              </a>
             </div>
           </div>
         </div>

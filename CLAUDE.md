@@ -21,12 +21,15 @@ ULU Head Spa is a luxury spa website built with Next.js 16 and React 19, featuri
   - `/app/components/layout/` - Header, Footer components
   - `/app/components/sections/` - Page sections (Hero, Services, Testimonials, CTA)
   - `/app/components/ui/` - Reusable UI components and widgets
-- **Pages**: 
+- **Pages**:
   - `/app/page.tsx` - Homepage with section components
   - `/app/services/page.tsx` - Services listing
   - `/app/memberships/page.tsx` - Membership plans
   - `/app/group-bookings/page.tsx` - Group booking information
   - `/app/book/page.tsx` - Booking interface
+  - `/app/privacy/page.tsx` - Privacy Policy (legal information)
+  - `/app/terms/page.tsx` - Terms of Service (legal agreement)
+  - `/app/policy/page.tsx` - Booking Policy (cancellation, payment, arrival guidelines)
 
 ### Typography System
 Uses custom Google Fonts configured in layout.tsx:
@@ -81,3 +84,11 @@ Uses custom Google Fonts configured in layout.tsx:
 - Uses direct script integration, no environment variables needed
 - All booking functionality handled by MangoMint's system
 - Local service data is for display purposes only
+
+### Legal Pages
+The site includes comprehensive legal documentation to protect the business and inform customers:
+- **Privacy Policy** (`/privacy`) - CCPA-compliant privacy information covering data collection, usage, third-party services (MangoMint, payment processors), cookies, user rights, and contact information
+- **Terms of Service** (`/terms`) - Complete legal agreement covering booking terms, cancellation policy, payment terms, membership agreements, gift cards, health/safety disclaimers, liability limitations, conduct policies, and dispute resolution
+- **Booking Policy** (`/policy`) - User-friendly booking guidelines including 48-hour cancellation policy, group booking requirements, payment methods, arrival instructions, and preparation tips
+- All legal pages feature luxury spa aesthetic with GlassCard components, gradient backgrounds, and floating decorative elements
+- Links to legal pages are included in the Footer component under the "Support" section

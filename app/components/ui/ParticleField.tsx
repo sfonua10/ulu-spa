@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 
 interface ParticleFieldProps {
   particleCount?: number
@@ -8,7 +8,15 @@ interface ParticleFieldProps {
 }
 
 export default function ParticleField({ particleCount = 50, className = '' }: ParticleFieldProps) {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
   const particles = useMemo(() => {
+    if (!isMounted) return []
+
     return Array.from({ length: particleCount }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
@@ -18,7 +26,11 @@ export default function ParticleField({ particleCount = 50, className = '' }: Pa
       delay: Math.random() * 5,
       opacity: Math.random() * 0.5 + 0.1,
     }))
-  }, [particleCount])
+  }, [particleCount, isMounted])
+
+  if (!isMounted) {
+    return <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`} />
+  }
 
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>

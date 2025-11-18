@@ -10,15 +10,10 @@ import CTASection from '@/app/components/sections/CTASection';
 import {
   founders,
   values,
-  contactInfo,
   culturalStory
 } from '@/app/data/about';
 import {
-  SparklesIcon,
-  MapPinIcon,
-  PhoneIcon,
-  EnvelopeIcon,
-  ClockIcon
+  SparklesIcon
 } from '@heroicons/react/24/outline';
 
 export default function AboutPage() {
@@ -26,7 +21,6 @@ export default function AboutPage() {
   const { ref: storyRef, isInView: storyInView } = useInView({ threshold: 0.2 });
   const { ref: foundersRef, isInView: foundersInView } = useInView({ threshold: 0.2 });
   const { ref: valuesRef, isInView: valuesInView } = useInView({ threshold: 0.2 });
-  const { ref: contactRef, isInView: contactInView } = useInView({ threshold: 0.2 });
 
   return (
     <div className="relative">
@@ -258,136 +252,6 @@ export default function AboutPage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Location & Contact Section */}
-      <section
-        ref={contactRef}
-        className="py-20 md:py-32 bg-gradient-to-br from-spa-sage-50 via-spa-cream-50 to-white relative"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`text-center mb-16 transition-all duration-1000 ${
-            contactInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-stone-900 mb-4">
-              Visit Us
-            </h2>
-            <p className="text-xl text-stone-600 max-w-2xl mx-auto">
-              We welcome you to experience restoration at ULU Head Spa
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div className={`space-y-8 transition-all duration-1000 ${
-              contactInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-            }`}>
-              <GlassCard blur="md" opacity={0.7} className="p-8">
-                <h3 className="text-2xl font-display font-bold text-stone-900 mb-6">
-                  Get In Touch
-                </h3>
-
-                <div className="space-y-6">
-                  {/* Address */}
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-spa-gold-100 flex items-center justify-center">
-                      <MapPinIcon className="w-6 h-6 text-spa-gold-700" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-stone-900 mb-1">Location</h4>
-                      <p className="text-stone-600">{contactInfo.address}</p>
-                    </div>
-                  </div>
-
-                  {/* Phone */}
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-spa-sage-100 flex items-center justify-center">
-                      <PhoneIcon className="w-6 h-6 text-spa-sage-700" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-stone-900 mb-1">Phone</h4>
-                      <a
-                        href={`tel:${contactInfo.phone}`}
-                        className="text-stone-600 hover:text-spa-gold-600 transition-colors"
-                      >
-                        {contactInfo.phone}
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-spa-gold-100 flex items-center justify-center">
-                      <EnvelopeIcon className="w-6 h-6 text-spa-gold-700" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-stone-900 mb-1">Email</h4>
-                      <a
-                        href={`mailto:${contactInfo.email}`}
-                        className="text-stone-600 hover:text-spa-gold-600 transition-colors break-all"
-                      >
-                        {contactInfo.email}
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Hours */}
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-spa-sage-100 flex items-center justify-center">
-                      <ClockIcon className="w-6 h-6 text-spa-sage-700" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-stone-900 mb-1">Hours</h4>
-                      <p className="text-stone-600">{contactInfo.hours}</p>
-                    </div>
-                  </div>
-                </div>
-              </GlassCard>
-
-              {/* Social Media */}
-              <GlassCard blur="md" opacity={0.7} className="p-8">
-                <h3 className="text-2xl font-display font-bold text-stone-900 mb-6">
-                  Follow Our Journey
-                </h3>
-                <div className="space-y-3">
-                  {Object.entries(contactInfo.social).map(([platform, handle]) => (
-                    <div key={platform} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-spa-gold-500" />
-                      <span className="text-stone-600 capitalize">{platform}:</span>
-                      <span className="text-spa-gold-600 font-medium">{handle}</span>
-                    </div>
-                  ))}
-                </div>
-              </GlassCard>
-            </div>
-
-            {/* Location Image/Map Placeholder */}
-            <div className={`transition-all duration-1000 ${
-              contactInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-            }`}>
-              <GlassCard blur="md" opacity={0.5} className="h-full min-h-[400px] overflow-hidden">
-                <div className="relative h-full bg-gradient-to-br from-spa-sage-100 to-spa-gold-100 flex items-center justify-center">
-                  {/* Placeholder for actual location image or embedded map */}
-                  <div className="text-center p-8">
-                    <MapPinIcon className="w-20 h-20 text-spa-gold-600 mx-auto mb-4" />
-                    <h4 className="text-xl font-display font-bold text-stone-800 mb-2">
-                      Pleasant Grove, Utah
-                    </h4>
-                    <p className="text-stone-600 mb-6">
-                      Located in the heart of Utah Valley
-                    </p>
-                    <Button
-                      variant="luxury"
-                      onClick={() => window.open(`https://maps.google.com/?q=${encodeURIComponent(contactInfo.address)}`, '_blank')}
-                    >
-                      Get Directions
-                    </Button>
-                  </div>
-                </div>
-              </GlassCard>
-            </div>
           </div>
         </div>
       </section>
