@@ -10,7 +10,7 @@ import {
 
 interface Service {
   id: number
-  icon: React.ComponentType<any>
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
   name: string
   shortDesc: string
   fullDesc: string
@@ -66,16 +66,16 @@ export default function LuxuryServiceCard({
       <div className="relative h-full max-h-[85vh] sm:max-h-none bg-white/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden transition-all duration-700 hover:shadow-4xl hover:border-spa-gold-200/40 cursor-pointer flex flex-col">
         
         {/* Glass Morphism Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/40 to-white/20 backdrop-blur-xl" />
+        <div className="absolute inset-0 bg-linear-to-br from-white/60 via-white/40 to-white/20 backdrop-blur-xl" />
 
         {/* Hover Glow Effect */}
-        <div className={`absolute inset-0 bg-gradient-to-br from-spa-gold-400/20 via-transparent to-spa-sage-400/20 transition-opacity duration-500 ${
+        <div className={`absolute inset-0 bg-linear-to-br from-spa-gold-400/20 via-transparent to-spa-sage-400/20 transition-opacity duration-500 ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`} />
 
         {/* Hero Image */}
         {service.imageUrl && (
-          <div className="relative h-48 overflow-hidden bg-gradient-to-br from-spa-sage-100 to-spa-gold-50">
+          <div className="relative h-48 overflow-hidden bg-linear-to-br from-spa-sage-100 to-spa-gold-50">
             {/* Image */}
             <Image
               src={service.imageUrl}
@@ -93,16 +93,16 @@ export default function LuxuryServiceCard({
             />
 
             {/* Shimmer overlay on hover */}
-            <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 ${
+            <div className={`absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -skew-x-12 ${
               isHovered ? 'transition-all duration-1000 translate-x-full' : 'transition-none -translate-x-full'
             }`} />
 
             {/* Gradient overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
 
             {/* Loading skeleton */}
             {!imageLoaded && (
-              <div className="absolute inset-0 bg-gradient-to-r from-spa-sage-200 via-spa-gold-100 to-spa-sage-200 animate-pulse" />
+              <div className="absolute inset-0 bg-linear-to-r from-spa-sage-200 via-spa-gold-100 to-spa-sage-200 animate-pulse" />
             )}
           </div>
         )}
