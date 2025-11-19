@@ -16,6 +16,7 @@ export const services = [
     duration: '30 min',
     price: 70,
     imageUrl: '/images/services/island-breeze.JPG',
+    focusArea: 'center 60%',
     benefits: ['Stress Relief', 'Quick Relaxation', 'Scalp Health'],
     includes: [
       'Aromatherapy Scalp Massage',
@@ -38,6 +39,7 @@ export const services = [
     duration: '60 min',
     price: 130,
     imageUrl: '/images/services/the-ocean-ritual.JPG',
+    focusArea: 'center 60%',
     benefits: ['Deep Relaxation', 'Scalp Health', 'Stress Relief'],
     includes: [
       'Aromatherapy',
@@ -59,6 +61,7 @@ export const services = [
     duration: '75 min',
     price: 170,
     imageUrl: '/images/services/tropical-indulge.jpg',
+    focusArea: 'center 60%',
     benefits: ['Luxury Experience', 'Deep Relaxation', 'Scalp Rejuvenation'],
     includes: [
       'Warm towel welcome',
@@ -80,6 +83,7 @@ export const services = [
     duration: '90 min',
     price: 210,
     imageUrl: '/images/services/royal-escape.png',
+    focusArea: 'center center',
     benefits: ['Ultimate Relaxation', 'Premium Experience', 'Complete Wellness'],
     includes: [
       'Full royal treatment',
@@ -102,6 +106,7 @@ export const services = [
     duration: '30 min',
     price: 70,
     imageUrl: '/images/services/scratch-therapy.png',
+    focusArea: 'center center',
     benefits: ['Stress Relief', 'Comfort', 'Relaxation'],
     includes: [
       'Gentle rhythmic scratch patterns',
@@ -120,6 +125,7 @@ export const services = [
     duration: '60 min',
     price: 130,
     imageUrl: '/images/services/scalp-claw.png',
+    focusArea: 'center center',
     benefits: ['Deep Relaxation', 'Sensory Restoration', 'Therapeutic Touch'],
     includes: [
       'Full-body treatment',
@@ -139,6 +145,7 @@ export const services = [
     duration: '75 min',
     price: 170,
     imageUrl: '/images/services/scratch-therapy-claw2.png',
+    focusArea: 'center center',
     benefits: ['Ultimate Relaxation', 'Extended Therapy', 'Stress Relief'],
     includes: [
       'Extended signature scratching',
@@ -158,6 +165,7 @@ export const services = [
     duration: '90 min',
     price: 210,
     imageUrl: '/images/services/scalp-massage.png',
+    focusArea: 'center center',
     benefits: ['Premium Experience', 'Immersive Ritual', 'Ultimate Relaxation'],
     includes: [
       'Immersive full-body ritual',
@@ -179,6 +187,7 @@ export const services = [
     duration: '30 min',
     price: 65,
     imageUrl: '/images/services/glow-go-express.jpg',
+    focusArea: 'center top',
     benefits: ['Quick Refresh', 'Skin Glow', 'Time Efficient'],
     includes: [
       'Double cleanse',
@@ -198,6 +207,7 @@ export const services = [
     duration: '60 min',
     price: 130,
     imageUrl: '/images/services/island-renewal.jpg',
+    focusArea: 'center 60%',
     benefits: ['Skin Renewal', 'Deep Cleansing', 'Most Popular'],
     includes: [
       'Customized exfoliation',
@@ -217,6 +227,7 @@ export const services = [
     duration: '75 min',
     price: 165,
     imageUrl: '/images/services/island-escape-ritual.png',
+    focusArea: 'center center',
     benefits: ['Anti-Aging', 'Advanced Treatment', 'Skin Transformation'],
     includes: [
       'Anti-aging exfoliant',
@@ -236,6 +247,7 @@ export const services = [
     duration: '90 min',
     price: 195,
     imageUrl: '/images/services/facial-2.png',
+    focusArea: 'center 60%',
     benefits: ['Ultimate Skin Care', 'Signature Treatment', 'Complete Renewal'],
     includes: [
       'Cell Science Anti-Aging Masque',
@@ -258,6 +270,7 @@ export const services = [
     duration: '45 min',
     price: 195,
     imageUrl: '/images/services/Beaty Drip IV DRIP for website.png',
+    focusArea: 'center center',
     benefits: ['Skin Radiance', 'Beauty Enhancement', 'Hair Health'],
     includes: [
       'Biotin',
@@ -278,6 +291,7 @@ export const services = [
     duration: '45 min',
     price: 189,
     imageUrl: '/images/services/model.jpg',
+    focusArea: 'center 60%',
     benefits: ['Energy Boost', 'Mood Enhancement', 'Wellness Balance'],
     includes: [
       'Vitamin B12',
@@ -298,6 +312,7 @@ export const services = [
     duration: '45 min',
     price: 195,
     imageUrl: '/images/services/scalp-massage-2.png',
+    focusArea: 'center center',
     benefits: ['Performance Enhancement', 'Muscle Recovery', 'Energy Boost'],
     includes: [
       'Performance-enhancement drip',
@@ -317,6 +332,7 @@ export const services = [
     duration: '45 min',
     price: 209,
     imageUrl: '/images/services/facial-30min.png',
+    focusArea: 'center center',
     benefits: ['Postpartum Recovery', 'Energy Restoration', 'Hair Health'],
     includes: [
       'Postpartum recovery formulation',
@@ -336,6 +352,7 @@ export const services = [
     duration: '45 min',
     price: 185,
     imageUrl: '/images/services/facial-60min.png',
+    focusArea: 'center center',
     benefits: ['Headache Relief', 'Nausea Relief', 'System Reset'],
     includes: [
       'Vitamin B12',
@@ -356,6 +373,7 @@ export const services = [
     duration: '45 min',
     price: 189,
     imageUrl: '/images/services/facial-90mins.png',
+    focusArea: 'center center',
     benefits: ['Immune Support', 'Health Protection', 'Wellness Boost'],
     includes: [
       'Vitamin B12',
@@ -378,6 +396,7 @@ export const services = [
     duration: '30 min',
     price: 65,
     imageUrl: '/images/services/Facial Picture (1).png',
+    focusArea: 'center center',
     benefits: ['Quick Refresh', 'Add-on Service', 'Skin Care'],
     includes: [
       'Double cleanse',
@@ -397,6 +416,7 @@ export const services = [
     duration: '15 min',
     price: 30,
     imageUrl: '/images/services/scalp-massage.jpg',
+    focusArea: 'center center',
     benefits: ['Deep Relaxation', 'Muscle Penetration', 'Tension Relief'],
     includes: [
       'Heated volcanic stones',
@@ -415,6 +435,7 @@ export const services = [
     duration: '15 min',
     price: 35,
     imageUrl: '/images/services/scalp-90.png',
+    focusArea: 'center center',
     benefits: ['Stress Relief', 'Therapeutic Touch', 'Enhanced Relaxation'],
     includes: [
       'Gentle rhythmic scratch patterns',
@@ -433,6 +454,7 @@ export const services = [
     duration: '15-20 min',
     price: 30,
     imageUrl: '/images/services/beard-treatment.png',
+    focusArea: 'center center',
     benefits: ['Beard Care', 'Professional Grooming', 'Specialized Treatment'],
     includes: [
       'Exfoliating scrub',
@@ -452,6 +474,7 @@ export const services = [
     duration: '15 min',
     price: 20,
     imageUrl: '/images/services/hair-play.png',
+    focusArea: 'center center',
     benefits: ['Hair Care', 'Scalp Stimulation', 'Relaxation'],
     includes: [
       'Creative styling',
@@ -470,6 +493,7 @@ export const services = [
     duration: '15 min',
     price: 30,
     imageUrl: '/images/services/foot-massage.png',
+    focusArea: 'center center',
     benefits: ['Foot Care', 'Circulation', 'Pressure Point Relief'],
     includes: [
       'Exfoliating scrub',
@@ -489,6 +513,7 @@ export const services = [
     duration: '15 min',
     price: 30,
     imageUrl: '/images/services/hand-massage.png',
+    focusArea: 'center 60%',
     benefits: ['Hand Care', 'Circulation', 'Pressure Point Relief'],
     includes: [
       'Palm and finger focus',
@@ -507,6 +532,7 @@ export const services = [
     duration: '10 min',
     price: 20,
     imageUrl: '/images/services/tropical-serentity.png',
+    focusArea: 'center center',
     benefits: ['Scalp Health', 'Tension Relief', 'Quick Relaxation'],
     includes: [
       'Reflexology-based massage',
@@ -525,6 +551,7 @@ export const services = [
     duration: '30-45 min',
     price: 35,
     imageUrl: '/images/services/Facial for 30 minute package (1).png',
+    focusArea: 'center center',
     benefits: ['Professional Styling', 'Voluminous Results', 'Complete Look'],
     includes: [
       'Professional round-brush blow out',
@@ -543,6 +570,7 @@ export const services = [
     duration: '30 min',
     price: 35,
     imageUrl: '/images/services/hair-extension-removal.png',
+    focusArea: 'center 60%',
     benefits: ['Professional Removal', 'Hair Health', 'Safe Process'],
     includes: [
       'Professional removal',

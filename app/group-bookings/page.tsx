@@ -5,55 +5,56 @@ import {
   CalendarDaysIcon,
   CheckIcon,
   ChevronDownIcon,
-  SparklesIcon,
   ArrowRightIcon,
   PhoneIcon,
-  ArrowLongRightIcon
+  ArrowLongRightIcon,
+  SparklesIcon
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import { useState } from 'react'
+import VideoBackground from '../components/ui/VideoBackground'
 
 const groupPackages = [
   {
     id: 'wedding',
     name: 'Wedding Parties',
     description: 'Pamper the bride and her party with luxurious scalp treatments perfect for your special day preparation',
-    imageUrl: '/images/group-packages/couples.jpg',
+    imageUrl: '/images/services/facial-2.png',
     isPopular: false
   },
   {
     id: 'corporate',
     name: 'Corporate Wellness',
     description: 'Boost team morale and productivity with executive spa sessions and corporate wellness packages',
-    imageUrl: '/images/group-packages/corporate.jpg',
+    imageUrl: '/images/services/scalp-massage.jpg',
     isPopular: true
   },
   {
     id: 'couples',
     name: 'Couples Retreat',
     description: 'Reconnect and unwind together in our couple\'s room with side-by-side spa treatments',
-    imageUrl: '/images/group-packages/couples.jpg',
+    imageUrl: '/images/services/tropical-indulge.jpg',
     isPopular: false
   },
   {
     id: 'celebrations',
     name: 'Celebrations',
     description: 'Make birthdays, anniversaries, and special occasions unforgettable with group spa experiences',
-    imageUrl: '/images/group-packages/friends.jpg',
+    imageUrl: '/images/services/island-renewal.jpg',
     isPopular: false
   },
   {
     id: 'friends-family',
     name: 'Friends & Family',
     description: 'Bond with loved ones over relaxing treatments in our private group spaces',
-    imageUrl: '/images/group-packages/family.jpg',
+    imageUrl: '/images/services/glow-go-express.jpg',
     isPopular: false
   },
   {
     id: 'special-events',
     name: 'Special Events',
     description: 'Holiday parties, milestone celebrations, and unique gatherings tailored to your group\'s needs',
-    imageUrl: '/images/group-packages/friends.jpg',
+    imageUrl: '/images/services/island-escape-ritual.png',
     isPopular: false
   }
 ]
@@ -62,19 +63,19 @@ const specialEvents = [
   {
     title: 'Bridal Parties & Bachelorettes',
     description: 'Make your special day even more memorable with customized bridal wellness packages',
-    imageUrl: '/images/group-packages/couples.jpg',
+    imageUrl: '/images/services/facial-2.png',
     features: ['Pre-wedding stress relief', 'Group treatments', 'Celebration photography'],
   },
   {
     title: 'Corporate Retreats & Team Building',
     description: 'Enhance team productivity and morale with tailored corporate wellness programs',
-    imageUrl: '/images/group-packages/corporate.jpg',
+    imageUrl: '/images/services/scalp-massage.jpg',
     features: ['Team activities', 'Stress management', 'Executive packages'],
   },
   {
     title: 'Birthday & Anniversary Celebrations',
     description: 'Celebrate milestones with the gift of wellness and shared relaxation',
-    imageUrl: '/images/group-packages/friends.jpg',
+    imageUrl: '/images/services/island-renewal.jpg',
     features: ['Special treatments', 'Celebration refreshments', 'Personalized experience'],
   }
 ]
@@ -129,50 +130,34 @@ export default function GroupBookingsPage() {
   const bookingUrl = 'https://booking.mangomint.com/904811'
 
   return (
-    <div className="pt-24 pb-16">
-      {/* Luxury Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-spa-cream via-white to-spa-sage-50 overflow-hidden">
+    <div className="pb-16">
+      {/* Image Hero Section */}
+      <VideoBackground
+        videoSrc=""
+        fallbackImage="/images/services/tropical-serentity.png"
+        className="min-h-[60vh] relative"
+        overlay={true}
+        overlayOpacity={0.3}
+        priority={true}
+      >
         {/* Floating decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-spa-gold-100/20 rounded-full blur-3xl animate-float-gentle"></div>
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-spa-sage-100/20 rounded-full blur-3xl animate-float-reverse"></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-spa-gold-100/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-spa-sage-100/20 rounded-full blur-3xl animate-float-delayed"></div>
+          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-luxury-warm-200/10 rounded-full blur-2xl animate-float-reverse"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/80 backdrop-blur-sm text-spa-sage-700 text-sm font-medium mb-8 border border-spa-sage-200 shadow-soft animate-in animate-fade-in animate-slide-up">
-              <SparklesIcon className="h-5 w-5 text-spa-gold-600" />
-              <span className="uppercase tracking-wide">Exclusive Group Experiences</span>
-              <SparklesIcon className="h-5 w-5 text-spa-gold-600" />
-            </div>
-
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold text-spa-sage-800 mb-8 animate-in animate-fade-in animate-slide-up animate-delay-100">
-              Group Wellness
-              <span className="block mt-2 bg-gradient-to-r from-spa-gold-600 via-spa-gold-500 to-spa-bronze bg-clip-text text-transparent">
-                Experiences
-              </span>
+        <div className="flex items-center justify-center min-h-[60vh] px-6">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}>
+              Group Wellness Experiences
             </h1>
-
-            <p className="text-xl md:text-2xl text-spa-stone-600 max-w-3xl mx-auto leading-relaxed mb-12 animate-in animate-fade-in animate-slide-up animate-delay-200">
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
               Create unforgettable moments together with our luxury group wellness packages
             </p>
-
-            <div className="animate-in animate-fade-in animate-slide-up animate-delay-300">
-              <a href={bookingUrl}>
-                <Button
-                  variant="luxury"
-                  size="lg"
-                  className="px-12 py-6 text-lg shadow-luxury hover:shadow-luxury-lg transform hover:scale-105 transition-all duration-300"
-                >
-                  <CalendarDaysIcon className="h-6 w-6 mr-3" />
-                  Book Your Group Experience
-                  <ArrowRightIcon className="h-5 w-5 ml-3" />
-                </Button>
-              </a>
-            </div>
           </div>
         </div>
-      </section>
+      </VideoBackground>
 
       {/* Group Experience Cards */}
       <section className="py-20 bg-white relative">
@@ -180,7 +165,7 @@ export default function GroupBookingsPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6 animate-in animate-fade-in animate-slide-up">
               Choose Your Perfect
-              <span className="block mt-2 bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
+              <span className="block mt-2 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Group Package
               </span>
             </h2>
@@ -204,7 +189,7 @@ export default function GroupBookingsPage() {
                 )}
 
                 {/* Hero Image */}
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-spa-sage-100 to-spa-gold-50">
+                <div className="relative h-64 overflow-hidden bg-linear-to-br from-spa-sage-100 to-spa-gold-50">
                   <Image
                     src={pkg.imageUrl}
                     alt={pkg.name}
@@ -214,10 +199,10 @@ export default function GroupBookingsPage() {
                     quality={85}
                   />
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
 
                   {/* Shimmer effect on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 group-hover:translate-x-full transition-all duration-1000 -translate-x-full" />
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -skew-x-12 group-hover:translate-x-full transition-all duration-1000 -translate-x-full" />
                 </div>
 
                 {/* Card Content */}
@@ -248,18 +233,18 @@ export default function GroupBookingsPage() {
       </section>
 
       {/* Special Events Section */}
-      <section className="py-20 bg-gradient-to-br from-spa-sage-50 via-white to-spa-cream-50">
+      <section className="py-20 bg-linear-to-br from-spa-sage-50 via-white to-spa-cream-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               Special Event
-              <span className="block mt-2 bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
+              <span className="block mt-2 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Packages
               </span>
-            </h2>
             <p className="text-xl text-spa-stone-600 max-w-2xl mx-auto">
-              Celebrate life's milestones with customized wellness experiences
+              Celebrate life&apos;s milestones with customized wellness experiences
             </p>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -269,7 +254,7 @@ export default function GroupBookingsPage() {
                 className={`group bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-luxury transition-all duration-500 border border-spa-sage-100 hover:border-spa-gold-200 hover:-translate-y-2 animate-in animate-fade-in animate-slide-up animate-delay-${(index + 1) * 100}`}
               >
                 {/* Hero Image */}
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-spa-sage-100 to-spa-gold-50">
+                <div className="relative h-48 overflow-hidden bg-linear-to-br from-spa-sage-100 to-spa-gold-50">
                   <Image
                     src={event.imageUrl}
                     alt={event.title}
@@ -279,7 +264,7 @@ export default function GroupBookingsPage() {
                     quality={85}
                   />
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
 
                   {/* Shimmer effect on hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 group-hover:translate-x-full transition-all duration-1000 -translate-x-full" />
@@ -323,7 +308,7 @@ export default function GroupBookingsPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               Simple Booking
-              <span className="block mt-2 bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
+              <span className="block mt-2 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Process
               </span>
             </h2>
@@ -331,7 +316,7 @@ export default function GroupBookingsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             {/* Connecting Lines for Desktop */}
-            <div className="hidden md:block absolute top-12 left-1/3 right-1/3 h-0.5 bg-gradient-to-r from-spa-gold-200 via-spa-gold-300 to-spa-gold-200"></div>
+            <div className="hidden md:block absolute top-12 left-1/3 right-1/3 h-0.5 bg-linear-to-r from-spa-gold-200 via-spa-gold-300 to-spa-gold-200"></div>
 
             {bookingProcess.map((step, index) => (
               <div
@@ -373,12 +358,12 @@ export default function GroupBookingsPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-spa-cream-50 via-white to-spa-sage-50">
+      <section className="py-20 bg-linear-to-br from-spa-cream-50 via-white to-spa-sage-50">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-display font-bold text-spa-sage-800 mb-4">
               Frequently Asked
-              <span className="block mt-2 bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
+              <span className="block mt-2 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Questions
               </span>
             </h2>
@@ -422,7 +407,7 @@ export default function GroupBookingsPage() {
       {/* Final CTA Section */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="relative bg-gradient-to-br from-spa-sage-800 to-spa-sage-900 rounded-3xl p-12 md:p-16 overflow-hidden">
+          <div className="relative bg-linear-to-br from-spa-sage-800 to-spa-sage-900 rounded-3xl p-12 md:p-16 overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 right-0 w-64 h-64 bg-spa-gold-400 rounded-full blur-3xl"></div>

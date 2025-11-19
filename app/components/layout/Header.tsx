@@ -45,7 +45,7 @@ export default function Header() {
   const isWhiteBackgroundPage = whiteBackgroundPages.includes(pathname)
 
   // Pages that need dark text but should keep transparent header until scrolled
-  const darkTextTransparentPages = ['/faq', '/memberships', '/group-bookings', '/contact']
+  const darkTextTransparentPages = ['/faq', '/contact']
   const isDarkTextTransparentPage = darkTextTransparentPages.includes(pathname)
 
   // Pages that should use stone/cream text in default mode (not scrolled)

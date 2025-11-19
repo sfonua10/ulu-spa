@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import { Button } from '../components/ui/Button'
 import { CheckIcon } from '@heroicons/react/24/outline'
+import VideoBackground from '../components/ui/VideoBackground'
 
 const memberships = [
   {
@@ -181,30 +182,34 @@ export default function MembershipsPage() {
   }, [])
 
   return (
-    <div className="pt-24 pb-16">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-spa-gold-50 via-white to-spa-sage-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div
-            className="text-center animate-in animate-fade-in animate-slide-up animate-slow"
-          >
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-spa-gold-100 text-spa-gold-800 text-sm font-medium mb-6">
-              💎 Exclusive Membership Benefits 💎
-            </div>
-            <h1 className="text-5xl md:text-6xl font-display font-bold text-spa-sage-800 mb-6">
-              Invest in Your
-              <br />
-              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
-                Wellness Journey
-              </span>
+    <div className="pb-16">
+      {/* Image Hero Section */}
+      <VideoBackground
+        videoSrc=""
+        fallbackImage="/images/services/tropical-serentity.png"
+        className="min-h-[60vh] relative"
+        overlay={true}
+        overlayOpacity={0.3}
+        priority={true}
+      >
+        {/* Floating decorative elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-spa-gold-100/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-spa-sage-100/20 rounded-full blur-3xl animate-float-delayed"></div>
+          <div className="absolute top-1/3 right-1/3 w-72 h-72 bg-luxury-warm-200/10 rounded-full blur-2xl animate-float-reverse"></div>
+        </div>
+
+        <div className="flex items-center justify-center min-h-[60vh] px-6">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}>
+              Membership Plans
             </h1>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-              Transform your wellness routine with our membership plans designed to provide
-              consistent care, significant savings, and exclusive benefits. All memberships are month-to-month with the freedom to cancel anytime.
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
+              Invest in your wellness journey with exclusive benefits and significant savings
             </p>
           </div>
         </div>
-      </section>
+      </VideoBackground>
 
       {/* Pricing Cards */}
       <section className="py-16 bg-white">

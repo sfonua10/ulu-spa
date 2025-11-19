@@ -18,6 +18,7 @@ interface Service {
   price: number
   priceRange?: string
   imageUrl?: string
+  focusArea?: string
   benefits: string[]
   includes: string[]
   popular: boolean
@@ -89,6 +90,7 @@ export default function LuxuryServiceCard({
               className={`object-cover transition-all duration-700 ${
                 isHovered ? 'scale-110' : 'scale-100'
               } ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              style={{ objectPosition: service.focusArea || 'center' }}
               onLoad={() => setImageLoaded(true)}
               priority={priority}
               quality={85}
@@ -114,7 +116,7 @@ export default function LuxuryServiceCard({
         {/* Popular Badge - Corner Ribbon */}
         {service.popular && (
           <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden z-20">
-            <div className="absolute top-6 right-[-32px] w-40 text-center bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-xs font-bold py-1.5 transform rotate-45 shadow-lg">
+            <div className="absolute top-6 -right-8 w-40 text-center bg-linear-to-r from-spa-gold-500 to-spa-gold-600 text-white text-xs font-bold py-1.5 transform rotate-45 shadow-lg">
               MOST POPULAR
             </div>
           </div>
@@ -155,7 +157,7 @@ export default function LuxuryServiceCard({
               {service.benefits.slice(0, 3).map((benefit, index) => (
                 <span
                   key={benefit}
-                  className={`px-3 py-1 text-xs font-medium bg-gradient-to-r from-spa-sage-200 to-spa-sage-300 text-spa-sage-800 rounded-full border border-spa-sage-400 shadow-sm transition-all duration-500 ${
+                  className={`px-3 py-1 text-xs font-medium bg-linear-to-r from-spa-sage-200 to-spa-sage-300 text-spa-sage-800 rounded-full border border-spa-sage-400 shadow-sm transition-all duration-500 ${
                     isHovered ? `opacity-100 scale-102 brightness-105 animate-delay-${index * 100}` : 'opacity-90 scale-100'
                   }`}
                   style={{
@@ -198,7 +200,7 @@ export default function LuxuryServiceCard({
           <Button
             variant="luxury"
             size="md"
-            className="w-full bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn border-2 border-spa-gold-800"
+            className="w-full bg-linear-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn border-2 border-spa-gold-800"
             onClick={(e) => {
               e.stopPropagation()
               onBook?.()
@@ -210,7 +212,7 @@ export default function LuxuryServiceCard({
         </div>
 
         {/* Shimmer Effect */}
-        <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 ${
+        <div className={`absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -skew-x-12 ${
           isHovered ? 'transition-all duration-1000 translate-x-full' : 'transition-none -translate-x-full'
         }`} />
       </div>

@@ -8,6 +8,7 @@ export interface Service {
   price: number
   priceRange?: string
   imageUrl?: string
+  focusArea?: string // CSS object-position value (e.g., 'center top', 'center center', '75% 25%')
   benefits: string[]
   includes: string[]
   popular: boolean
