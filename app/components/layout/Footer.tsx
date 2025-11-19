@@ -8,7 +8,7 @@ import {
   EnvelopeIcon,
   ClockIcon
 } from '@heroicons/react/24/outline'
-import { Instagram, Facebook, X, Linkedin, Music } from 'lucide-react'
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaTiktok } from 'react-icons/fa'
 
 const footerLinks = {
   services: [
@@ -42,11 +42,11 @@ const contactInfo = {
 }
 
 const socialLinks = [
-  { name: 'Facebook', href: 'https://www.facebook.com/uluspaofficial', icon: Facebook },
-  { name: 'Instagram', href: 'https://www.instagram.com/ulu.spa/', icon: Instagram },
-  { name: 'Twitter', href: 'https://twitter.com/uluspaofficial', icon: X },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/uluspaofficial', icon: Linkedin },
-  { name: 'TikTok', href: 'https://www.tiktok.com/@uluspaofficial', icon: Music },
+  { name: 'Facebook', href: 'https://www.facebook.com/uluspaofficial', icon: FaFacebook },
+  { name: 'Instagram', href: 'https://www.instagram.com/ulu.spa/', icon: FaInstagram },
+  { name: 'Twitter', href: 'https://twitter.com/uluspaofficial', icon: FaTwitter },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/uluspaofficial', icon: FaLinkedin },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@uluspaofficial', icon: FaTiktok },
 ]
 
 export default function Footer() {

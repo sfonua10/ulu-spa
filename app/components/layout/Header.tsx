@@ -172,7 +172,7 @@ export default function Header() {
           style={{ height: '100dvh' }}
         >
           <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5">
+            <Link href="/" className="-m-1.5 p-1.5" onClick={closeMobileMenu}>
               <div className="flex items-center gap-3">
                 <div className="relative w-12 h-12 md:w-14 md:h-14">
                   <Image
