@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { teamMembers } from '@/app/data/team';
 import { Sparkles } from 'lucide-react';
 
@@ -37,25 +38,43 @@ export default function TeamGrid() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/90 to-white/60 backdrop-blur-xl border border-white/30 shadow-soft-lg hover:shadow-soft-xl transition-all duration-500 hover:-translate-y-3">
-                {/* Image placeholder with gradient */}
+                {/* Team member image or placeholder */}
                 <div className="relative h-80 bg-gradient-to-br from-spa-gold-400/30 via-spa-sage-400/20 to-luxury-warm-400/30 overflow-hidden">
-                  {/* Decorative pattern overlay */}
-                  <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
-                    <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-spa-gold-400/40 blur-3xl" />
-                    <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full bg-spa-sage-400/40 blur-3xl" />
-                  </div>
+                  {member.image ? (
+                    <>
+                      {/* Team member image */}
+                      <Image
+                        src={member.image}
+                        alt={`${member.name} - ${member.title}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        quality={90}
+                      />
+                      {/* Hover gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-stone-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </>
+                  ) : (
+                    <>
+                      {/* Decorative pattern overlay */}
+                      <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+                        <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-spa-gold-400/40 blur-3xl" />
+                        <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full bg-spa-sage-400/40 blur-3xl" />
+                      </div>
 
-                  {/* Elegant silhouette placeholder */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-spa-gold-300/50 to-spa-sage-300/50 backdrop-blur-sm border-2 border-white/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                      <span className="font-playfair text-5xl font-bold text-white/90">
-                        {member.name.charAt(0)}
-                      </span>
-                    </div>
-                  </div>
+                      {/* Elegant silhouette placeholder */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-32 h-32 rounded-full bg-gradient-to-br from-spa-gold-300/50 to-spa-sage-300/50 backdrop-blur-sm border-2 border-white/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                          <span className="font-playfair text-5xl font-bold text-white/90">
+                            {member.name.charAt(0)}
+                          </span>
+                        </div>
+                      </div>
 
-                  {/* Hover gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-stone-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      {/* Hover gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-stone-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </>
+                  )}
                 </div>
 
                 {/* Content */}

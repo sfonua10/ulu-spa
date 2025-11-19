@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import ContactCard from '@/app/components/ui/ContactCard';
 import { Button } from '@/app/components/ui/Button';
-import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton';
+// import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton';
 import ParticleField from '@/app/components/ui/ParticleField';
 import FloatingElements from '@/app/components/ui/FloatingElements';
 
@@ -163,10 +163,11 @@ export default function ContactPage() {
       </section>
 
       {/* Interactive Map Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-24">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-spa-sage-50/30 via-white to-spa-cream-50/30" />
 
+        {/* Title Section - Keep in container for proper alignment */}
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-stone-900 mb-4">
@@ -176,9 +177,11 @@ export default function ContactPage() {
               Located in the heart of Pleasant Grove, Utah
             </p>
           </div>
+        </div>
 
-          {/* Map Container */}
-          <div className="relative rounded-3xl overflow-hidden shadow-soft-xl backdrop-blur-xl border border-white/30 animate-fade-in max-w-5xl mx-auto" style={{ animationDelay: '200ms' }}>
+        {/* Full Width Map Container */}
+        <div className="relative w-full">
+          <div className="relative overflow-hidden shadow-soft-xl backdrop-blur-xl border-y border-white/30 animate-fade-in" style={{ animationDelay: '200ms' }}>
             <div className="aspect-video">
               <iframe
                 src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent('597 South Pleasant Grove Blvd. Suite 4, Pleasant Grove, UT 84064')}`}
@@ -288,7 +291,7 @@ export default function ContactPage() {
       </section>
 
       {/* Floating Booking Button */}
-      <FloatingBookingButton />
+      {/* <FloatingBookingButton /> */}
     </main>
   );
 }

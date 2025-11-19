@@ -21,7 +21,7 @@ const popularServices = [
     fullDesc: 'Our signature 90-minute royal treatment offering the ultimate in scalp massage luxury and relaxation. Experience the pinnacle of our head spa services with comprehensive scalp care and therapeutic massage.',
     duration: '90 min',
     price: 202,
-    imageUrl: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/royal-escape.png',
     benefits: ['Ultimate Relaxation', 'Premium Experience', 'Complete Wellness'],
     includes: [
       'Extended 90-minute treatment',
@@ -44,7 +44,7 @@ const popularServices = [
     fullDesc: 'A full hour facial treatment focused on skin renewal and rejuvenation with island-inspired techniques. Our expert aestheticians combine traditional island wisdom with modern skincare science.',
     duration: '60 min',
     price: 130,
-    imageUrl: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/island-renewal.jpg',
     benefits: ['Skin Renewal', 'Deep Cleansing', 'Rejuvenation'],
     includes: [
       'Deep facial cleansing',
@@ -66,7 +66,7 @@ const popularServices = [
     fullDesc: 'Specialized IV therapy designed to enhance beauty and promote radiant, healthy skin from within. This powerful infusion delivers essential vitamins and nutrients directly to your bloodstream for maximum absorption and immediate results.',
     duration: '45 min',
     price: 195,
-    imageUrl: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/Beaty Drip IV DRIP for website.png',
     benefits: ['Skin Radiance', 'Beauty Enhancement', 'Hydration'],
     includes: [
       'Vitamin C infusion',

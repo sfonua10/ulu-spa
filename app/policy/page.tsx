@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton'
+// import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton'
 import { GlassCard } from '@/app/components/ui/GlassCard'
 import { CalendarDaysIcon, ClockIcon, CreditCardIcon, UserGroupIcon } from '@heroicons/react/24/outline'
 import { Button } from '../components/ui/Button'
@@ -456,7 +456,7 @@ export default function BookingPolicyPage() {
       {/* Bottom Spacing */}
       <div className="h-20"></div>
 
-      <FloatingBookingButton />
+      {/* <FloatingBookingButton /> */}
     </main>
   )
 }

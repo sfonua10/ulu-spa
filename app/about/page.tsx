@@ -4,7 +4,7 @@ import { useInView } from '@/app/hooks/useInView';
 import VideoBackground from '@/app/components/ui/VideoBackground';
 import { GlassCard } from '@/app/components/ui/GlassCard';
 import { Button } from '@/app/components/ui/Button';
-import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton';
+// import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton';
 import { LeafDecoration } from '@/app/components/ui/DecorativeElements';
 import CTASection from '@/app/components/sections/CTASection';
 import {
@@ -260,7 +260,7 @@ export default function AboutPage() {
       <CTASection />
 
       {/* Floating Booking Button */}
-      <FloatingBookingButton />
+      {/* <FloatingBookingButton /> */}
     </div>
   );
 }

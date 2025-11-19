@@ -1,7 +1,7 @@
 'use client';
 
 import FAQAccordion from '@/app/components/ui/FAQAccordion';
-import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton';
+// import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 import { Mail } from 'lucide-react';
 
@@ -150,7 +150,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <FloatingBookingButton />
+      {/* <FloatingBookingButton /> */}
     </main>
   );
 }

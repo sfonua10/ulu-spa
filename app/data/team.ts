@@ -21,6 +21,7 @@ export const teamMembers: TeamMember[] = [
     title: 'Senior Spa Specialist',
     specialty: 'Hair Growth Treatment',
     description: 'Known for her warm presence and expert technique, Jobi specializes in therapeutic treatments that promote healthy hair growth and deep relaxation.',
+    image: '/images/team/jobi-niu.JPG',
   },
   {
     id: 'guiliana',
@@ -35,5 +36,6 @@ export const teamMembers: TeamMember[] = [
     title: 'Head Spa Technician',
     specialty: 'Scalp Massage Therapy',
     description: 'With precise technique and intuitive care, Enoch delivers exceptional head spa experiences that address both physical and mental wellness.',
+    image: '/images/team/inoke-niu.jpg',
   },
 ];

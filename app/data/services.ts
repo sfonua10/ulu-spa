@@ -15,7 +15,7 @@ export const services = [
     fullDesc: 'A refreshing 30-minute aromatherapy scalp massage featuring scalp detox, cleanse, halo rinse, and moisturizing conditioner to restore balance and promote relaxation.',
     duration: '30 min',
     price: 70,
-    imageUrl: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/island-breeze.JPG',
     benefits: ['Stress Relief', 'Quick Relaxation', 'Scalp Health'],
     includes: [
       'Aromatherapy Scalp Massage',
@@ -37,7 +37,7 @@ export const services = [
     fullDesc: 'A luxurious 60-minute comprehensive head and scalp treatment including aromatherapy, scalp exfoliation, décolleté massage, deep moisturizing mask, hot oil hand massage, and light blow dry for complete relaxation.',
     duration: '60 min',
     price: 130,
-    imageUrl: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/the-ocean-ritual.JPG',
     benefits: ['Deep Relaxation', 'Scalp Health', 'Stress Relief'],
     includes: [
       'Aromatherapy',
@@ -58,7 +58,7 @@ export const services = [
     fullDesc: 'An indulgent 75-minute premium scalp experience featuring warm towel welcome, red light therapy, scalp ritual, steam therapy, hand massage, and snack for ultimate rejuvenation.',
     duration: '75 min',
     price: 170,
-    imageUrl: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/tropical-indulge.jpg',
     benefits: ['Luxury Experience', 'Deep Relaxation', 'Scalp Rejuvenation'],
     includes: [
       'Warm towel welcome',
@@ -79,7 +79,7 @@ export const services = [
     fullDesc: 'Our signature 90-minute royal treatment offering the ultimate in scalp massage luxury. Premium treatment with extended rituals including hot oil foot massage and farewell snack.',
     duration: '90 min',
     price: 210,
-    imageUrl: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/royal-escape.png',
     benefits: ['Ultimate Relaxation', 'Premium Experience', 'Complete Wellness'],
     includes: [
       'Full royal treatment',
@@ -101,7 +101,7 @@ export const services = [
     fullDesc: 'A relaxing 30-minute scratch therapy session featuring gentle rhythmic scratch patterns focused on back and shoulders with optional oil infusion (+$10) for enhanced comfort and stress relief.',
     duration: '30 min',
     price: 70,
-    imageUrl: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/scratch-therapy.png',
     benefits: ['Stress Relief', 'Comfort', 'Relaxation'],
     includes: [
       'Gentle rhythmic scratch patterns',
@@ -119,7 +119,7 @@ export const services = [
     fullDesc: 'A comprehensive 60-minute full-body sensory restoration experience using soft fan brushes and scratch tools with optional Polynesian oil (+$15) for ultimate therapeutic touch.',
     duration: '60 min',
     price: 130,
-    imageUrl: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/scalp-claw.png',
     benefits: ['Deep Relaxation', 'Sensory Restoration', 'Therapeutic Touch'],
     includes: [
       'Full-body treatment',
@@ -138,7 +138,7 @@ export const services = [
     fullDesc: 'A 75-minute extended signature scratching experience with hand and arm ritual extension and optional oil infusion (+$15) for ultimate relaxation and stress relief.',
     duration: '75 min',
     price: 170,
-    imageUrl: 'https://images.unsplash.com/photo-1591343395082-e120087f4521?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/scratch-therapy-claw2.png',
     benefits: ['Ultimate Relaxation', 'Extended Therapy', 'Stress Relief'],
     includes: [
       'Extended signature scratching',
@@ -157,7 +157,7 @@ export const services = [
     fullDesc: 'Our signature 90-minute immersive full-body scratch therapy ritual including Tongan brush technique and skin drumming, with optional oil (+$20) for the ultimate therapeutic experience.',
     duration: '90 min',
     price: 210,
-    imageUrl: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/scalp-massage.png',
     benefits: ['Premium Experience', 'Immersive Ritual', 'Ultimate Relaxation'],
     includes: [
       'Immersive full-body ritual',
@@ -178,7 +178,7 @@ export const services = [
     fullDesc: 'A fast-paced 30-minute facial designed for busy schedules featuring double cleanse, exfoliation, enzyme mask, and cooling globes ritual while delivering maximum glow.',
     duration: '30 min',
     price: 65,
-    imageUrl: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/glow-go-express.jpg',
     benefits: ['Quick Refresh', 'Skin Glow', 'Time Efficient'],
     includes: [
       'Double cleanse',
@@ -197,7 +197,7 @@ export const services = [
     fullDesc: 'Our most popular 60-minute facial combining customized exfoliation with deep hydration and choice of scalp or scratch therapy for complete skin renewal and rejuvenation.',
     duration: '60 min',
     price: 130,
-    imageUrl: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/island-renewal.jpg',
     benefits: ['Skin Renewal', 'Deep Cleansing', 'Most Popular'],
     includes: [
       'Customized exfoliation',
@@ -216,7 +216,7 @@ export const services = [
     fullDesc: 'A 75-minute luxury facial ritual featuring advanced anti-aging exfoliant, professional extractions, high-frequency treatment, and LED light therapy for complete skin transformation.',
     duration: '75 min',
     price: 165,
-    imageUrl: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/island-escape-ritual.png',
     benefits: ['Anti-Aging', 'Advanced Treatment', 'Skin Transformation'],
     includes: [
       'Anti-aging exfoliant',
@@ -235,7 +235,7 @@ export const services = [
     fullDesc: 'Our signature 90-minute luxury facial experience featuring Cell Science Anti-Aging Masque, LED therapy, and combined scalp and scratch treatment for ultimate skin care and renewal.',
     duration: '90 min',
     price: 195,
-    imageUrl: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/facial-2.png',
     benefits: ['Ultimate Skin Care', 'Signature Treatment', 'Complete Renewal'],
     includes: [
       'Cell Science Anti-Aging Masque',
@@ -257,7 +257,7 @@ export const services = [
     fullDesc: 'Specialized 45-minute IV therapy designed to enhance beauty and promote radiant, healthy skin from within. Beauty-focused drip with biotin, glutathione, magnesium, and zinc for skin and hair rejuvenation.',
     duration: '45 min',
     price: 195,
-    imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/Beaty Drip IV DRIP for website.png',
     benefits: ['Skin Radiance', 'Beauty Enhancement', 'Hair Health'],
     includes: [
       'Biotin',
@@ -277,7 +277,7 @@ export const services = [
     fullDesc: 'Comprehensive 45-minute IV therapy to restore balance and promote overall wellness. Energy and mood-boosting infusion with B12, B Complex, calcium, and magnesium for vitality.',
     duration: '45 min',
     price: 189,
-    imageUrl: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/model.jpg',
     benefits: ['Energy Boost', 'Mood Enhancement', 'Wellness Balance'],
     includes: [
       'Vitamin B12',
@@ -297,7 +297,7 @@ export const services = [
     fullDesc: 'Specialized 45-minute IV therapy designed to enhance athletic performance, reduce muscle soreness, and boost energy for active lifestyles and peak performance.',
     duration: '45 min',
     price: 195,
-    imageUrl: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/scalp-massage-2.png',
     benefits: ['Performance Enhancement', 'Muscle Recovery', 'Energy Boost'],
     includes: [
       'Performance-enhancement drip',
@@ -316,7 +316,7 @@ export const services = [
     fullDesc: 'Comprehensive 45-minute IV therapy designed for postpartum recovery, addressing fatigue, hair loss, and cognitive effects to help you bounce back and feel rejuvenated.',
     duration: '45 min',
     price: 209,
-    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/facial-30min.png',
     benefits: ['Postpartum Recovery', 'Energy Restoration', 'Hair Health'],
     includes: [
       'Postpartum recovery formulation',
@@ -335,7 +335,7 @@ export const services = [
     fullDesc: 'A complete 45-minute system reset through specialized IV therapy featuring B12, B Complex, Vitamin C, Toradol, and Zofran to relieve headaches and nausea while restoring and revitalizing your body.',
     duration: '45 min',
     price: 185,
-    imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/facial-60min.png',
     benefits: ['Headache Relief', 'Nausea Relief', 'System Reset'],
     includes: [
       'Vitamin B12',
@@ -355,7 +355,7 @@ export const services = [
     fullDesc: 'Protective 45-minute IV therapy designed to boost and support your immune system with B12, B complex, Vitamin C, magnesium, and zinc for optimal health and wellness.',
     duration: '45 min',
     price: 189,
-    imageUrl: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/facial-90mins.png',
     benefits: ['Immune Support', 'Health Protection', 'Wellness Boost'],
     includes: [
       'Vitamin B12',
@@ -377,7 +377,7 @@ export const services = [
     fullDesc: 'A quick 30-minute facial service featuring double cleanse, massage, enzyme mask, and cooling globes that can be added to any treatment or enjoyed as a standalone option.',
     duration: '30 min',
     price: 65,
-    imageUrl: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/Facial Picture (1).png',
     benefits: ['Quick Refresh', 'Add-on Service', 'Skin Care'],
     includes: [
       'Double cleanse',
@@ -396,7 +396,7 @@ export const services = [
     fullDesc: 'Add 15 minutes of soothing heated volcanic stone placement to enhance any massage treatment with deep muscle penetration and tension relief through therapeutic heat.',
     duration: '15 min',
     price: 30,
-    imageUrl: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/scalp-massage.jpg',
     benefits: ['Deep Relaxation', 'Muscle Penetration', 'Tension Relief'],
     includes: [
       'Heated volcanic stones',
@@ -414,7 +414,7 @@ export const services = [
     fullDesc: 'Add 15 minutes of specialized scratch therapy featuring gentle rhythmic scratch patterns on back and shoulders to any service for enhanced relaxation and stress relief.',
     duration: '15 min',
     price: 35,
-    imageUrl: 'https://images.unsplash.com/photo-1629902412043-cf1e5c7e37a8?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/scalp-90.png',
     benefits: ['Stress Relief', 'Therapeutic Touch', 'Enhanced Relaxation'],
     includes: [
       'Gentle rhythmic scratch patterns',
@@ -432,7 +432,7 @@ export const services = [
     fullDesc: 'Specialized 15-20 minute beard treatment and grooming service featuring exfoliating scrub, steam therapy, shampoo, conditioner, oil, and balm application for professional beard care.',
     duration: '15-20 min',
     price: 30,
-    imageUrl: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/beard-treatment.png',
     benefits: ['Beard Care', 'Professional Grooming', 'Specialized Treatment'],
     includes: [
       'Exfoliating scrub',
@@ -451,7 +451,7 @@ export const services = [
     fullDesc: 'A relaxing 15-minute hair styling and play session featuring creative styling and therapeutic scalp stimulation through hair manipulation for stress relief.',
     duration: '15 min',
     price: 20,
-    imageUrl: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/hair-play.png',
     benefits: ['Hair Care', 'Scalp Stimulation', 'Relaxation'],
     includes: [
       'Creative styling',
@@ -469,7 +469,7 @@ export const services = [
     fullDesc: 'Add a relaxing 15-minute foot massage featuring exfoliating scrub, hot oil treatment, and specialized massage technique with gentle pressure-point focus to enhance any service.',
     duration: '15 min',
     price: 30,
-    imageUrl: 'https://images.unsplash.com/photo-1598966739654-5e9ff72faa0d?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/foot-massage.png',
     benefits: ['Foot Care', 'Circulation', 'Pressure Point Relief'],
     includes: [
       'Exfoliating scrub',
@@ -488,7 +488,7 @@ export const services = [
     fullDesc: 'Add a relaxing 15-minute hand massage focused on palms, fingers, and forearms with gentle pressure-point technique to enhance any service.',
     duration: '15 min',
     price: 30,
-    imageUrl: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/hand-massage.png',
     benefits: ['Hand Care', 'Circulation', 'Pressure Point Relief'],
     includes: [
       'Palm and finger focus',
@@ -506,7 +506,7 @@ export const services = [
     fullDesc: 'A quick scalp massage add-on featuring reflexology-based tension relief focusing on head pressure points for any service.',
     duration: '10 min',
     price: 20,
-    imageUrl: 'https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/tropical-serentity.png',
     benefits: ['Scalp Health', 'Tension Relief', 'Quick Relaxation'],
     includes: [
       'Reflexology-based massage',
@@ -524,7 +524,7 @@ export const services = [
     fullDesc: 'Professional blow out and styling service featuring round-brush styling with hot tools for voluminous results and a complete look.',
     duration: '30-45 min',
     price: 35,
-    imageUrl: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/Facial for 30 minute package (1).png',
     benefits: ['Professional Styling', 'Voluminous Results', 'Complete Look'],
     includes: [
       'Professional round-brush blow out',
@@ -542,7 +542,7 @@ export const services = [
     fullDesc: 'Safe and professional hair extension removal service featuring gentle detangling, scalp conditioning, and post-care for healthy hair.',
     duration: '30 min',
     price: 35,
-    imageUrl: 'https://images.unsplash.com/photo-1562004760-acb00610b1d0?w=800&h=600&fit=crop',
+    imageUrl: '/images/services/hair-extension-removal.png',
     benefits: ['Professional Removal', 'Hair Health', 'Safe Process'],
     includes: [
       'Professional removal',

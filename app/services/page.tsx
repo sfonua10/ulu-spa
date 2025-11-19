@@ -6,7 +6,7 @@ import { useInView, useStaggeredInView } from '../hooks/useInView'
 import VideoBackground from '../components/ui/VideoBackground'
 import LuxuryServiceCard from '../components/ui/LuxuryServiceCard'
 import LuxuryCategoryFilter from '../components/ui/LuxuryCategoryFilter'
-import FloatingBookingButton from '../components/ui/FloatingBookingButton'
+// import FloatingBookingButton from '../components/ui/FloatingBookingButton'
 import ServiceDetailModal from '../components/ui/ServiceDetailModal'
 import { getMangoMintServiceUrl } from '../utils/mangomint-urls'
 import { services } from '../data/services'
@@ -181,7 +181,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Floating Booking Button */}
-      <FloatingBookingButton />
+      {/* <FloatingBookingButton /> */}
 
       {/* Service Detail Modal */}
       <ServiceDetailModal

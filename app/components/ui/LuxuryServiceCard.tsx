@@ -63,7 +63,11 @@ export default function LuxuryServiceCard({
       }}
     >
       {/* Main Card */}
-      <div className="relative h-full max-h-[85vh] sm:max-h-none bg-white/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden transition-all duration-700 hover:shadow-4xl hover:border-spa-gold-200/40 cursor-pointer flex flex-col">
+      <div className={`relative h-full max-h-[85vh] sm:max-h-none bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden transition-all duration-700 cursor-pointer flex flex-col ${
+        service.popular
+          ? 'ring-2 ring-spa-gold-500 border-2 border-spa-gold-400 hover:shadow-4xl hover:ring-spa-gold-600'
+          : 'border border-white/20 hover:shadow-4xl hover:border-spa-gold-200/40'
+      }`}>
         
         {/* Glass Morphism Background */}
         <div className="absolute inset-0 bg-linear-to-br from-white/60 via-white/40 to-white/20 backdrop-blur-xl" />
@@ -107,11 +111,11 @@ export default function LuxuryServiceCard({
           </div>
         )}
 
-        {/* Popular Badge */}
+        {/* Popular Badge - Corner Ribbon */}
         {service.popular && (
-          <div className={`absolute z-20 ${service.imageUrl ? 'top-4 right-4' : 'top-6 right-6'}`}>
-            <div className="bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg most-popular-badge">
-              ⭐ Most Popular
+          <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden z-20">
+            <div className="absolute top-6 right-[-32px] w-40 text-center bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-xs font-bold py-1.5 transform rotate-45 shadow-lg">
+              MOST POPULAR
             </div>
           </div>
         )}
@@ -189,35 +193,20 @@ export default function LuxuryServiceCard({
           </div>
         </div>
 
-        {/* Action Buttons - Sticky Footer */}
+        {/* Action Button - Sticky Footer */}
         <div className="relative z-20 bg-white/95 backdrop-blur-xl border-t border-spa-sage-200/30 p-4 sm:p-6">
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button
-              variant="outline"
-              size="md"
-              className="flex-1 sm:flex-none sm:w-auto bg-white/80 backdrop-blur-sm border-2 border-spa-sage-300 text-spa-sage-800 hover:bg-spa-sage-50 hover:border-spa-sage-400 hover:text-spa-sage-900 transition-all duration-300 font-semibold"
-              onClick={(e) => {
-                e.stopPropagation()
-                setShowDetails(!showDetails)
-                onViewDetails?.()
-              }}
-            >
-              Learn More
-            </Button>
-
-            <Button
-              variant="luxury"
-              size="md"
-              className="flex-1 sm:flex-[1.4] bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn border-2 border-spa-gold-800"
-              onClick={(e) => {
-                e.stopPropagation()
-                onBook?.()
-              }}
-            >
-              <span>Book Now</span>
-              <ArrowRightIcon className="h-4 w-4 ml-1.5 group-hover/btn:translate-x-1 transition-transform duration-300" />
-            </Button>
-          </div>
+          <Button
+            variant="luxury"
+            size="md"
+            className="w-full bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn border-2 border-spa-gold-800"
+            onClick={(e) => {
+              e.stopPropagation()
+              onBook?.()
+            }}
+          >
+            <span>Book Now</span>
+            <ArrowRightIcon className="h-4 w-4 ml-1.5 group-hover/btn:translate-x-1 transition-transform duration-300" />
+          </Button>
         </div>
 
         {/* Shimmer Effect */}

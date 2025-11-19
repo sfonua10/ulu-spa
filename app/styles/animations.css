@@ -846,22 +846,6 @@
   background: linear-gradient(135deg, rgba(184, 151, 82, 0.9), rgba(139, 136, 110, 0.8));
 }
 
-/* Most Popular Badge Pulse */
-.most-popular-badge {
-  animation: popularPulse 2s ease-in-out infinite;
-}
-
-@keyframes popularPulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(184, 151, 82, 0.6);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 0 8px rgba(184, 151, 82, 0);
-    transform: scale(1.02);
-  }
-}
-
 /* FAQ Accordion Animation */
 .faq-content {
   overflow: hidden;

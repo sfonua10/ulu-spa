@@ -298,6 +298,16 @@ body[data-hide-chat="true"] .mangomint-widget-container {
   }
 }
 
+/* Hide scrollbar utility class for horizontal filters */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
 /* Prevent layout collisions on short viewports */
 @media (max-height: 650px) {
   /* Reduce hero section top padding on short screens */
