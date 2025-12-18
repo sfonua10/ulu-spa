@@ -33,8 +33,9 @@ const popularServices = [
       'Moisturizing mask',
       'Light blow dry'
     ],
-    popular: true,
-    category: 'head-scalp'
+    popular: false,
+    category: 'head-scalp',
+    badgeType: 'signature' as const
   },
   {
     id: 10,
@@ -55,8 +56,9 @@ const popularServices = [
       'Eye treatment',
       'Décolleté care'
     ],
-    popular: true,
-    category: 'facial'
+    popular: false,
+    category: 'facial',
+    badgeType: 'value' as const
   },
   {
     id: 13,
@@ -77,8 +79,9 @@ const popularServices = [
       'Mineral replenishment',
       'Consultation with specialist'
     ],
-    popular: true,
-    category: 'iv-therapy'
+    popular: false,
+    category: 'iv-therapy',
+    badgeType: 'popular' as const
   }
 ]
 
@@ -119,6 +122,7 @@ export default function ServicesPreview() {
               key={service.id}
               service={service}
               priority={index === 0}
+              badgeType={service.badgeType}
               onViewDetails={() => setSelectedService(service)}
               onBook={() => {
                 const serviceUrl = getMangoMintServiceUrl(service.name)

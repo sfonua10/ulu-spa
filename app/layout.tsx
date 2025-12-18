@@ -32,6 +32,9 @@ const dancingScript = Dancing_Script({
 export const metadata: Metadata = {
   title: "ULU Head Spa - Transform Your Gathering Into Pure Bliss",
   description: "Exclusive group experience designed for connection, relaxation, and shared moments of presence. Our ULU Group Room accommodates up to 4 guests in one tranquil space.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({

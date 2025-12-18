@@ -9,7 +9,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const navigation = [
   { name: 'Services', href: '/services' },
   { name: 'Memberships', href: '/memberships' },
-  { name: 'Group Bookings', href: '/group-bookings' },
+  { name: 'Cards', href: 'https://clients.mangomint.com/gift-cards/uluspa', external: true },
+  { name: 'Groups', href: '/group-bookings' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
   { name: 'FAQ', href: '/faq' },
@@ -83,7 +84,7 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="grid grid-cols-2 lg:grid-cols-3 items-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="grid grid-cols-2 lg:grid-cols-3 items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-self-start">
           <Link href="/" className="-m-1.5 p-1.5">
             <div className="flex items-center gap-3 hover-scale">
@@ -116,13 +117,14 @@ export default function Header() {
         </div>
 
         <div className="hidden lg:flex lg:justify-center justify-self-center">
-          <div className="flex gap-x-8 xl:gap-x-10">
+          <div className="flex gap-x-6 xl:gap-x-10">
           {navigation.map((item) => {
             const isActive = isActiveLink(item.href)
             return (
             <div key={item.name}>
               <Link
                 href={item.href}
+                {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className={`relative text-sm xl:text-base leading-6 whitespace-nowrap transition-all duration-300 after:absolute after:bottom-[-5px] after:left-0 after:h-0.5 after:bg-gold-300 after:transition-all after:duration-300 ${
                   isActive
                     ? `after:w-full font-semibold ${
@@ -205,6 +207,7 @@ export default function Header() {
                   >
                     <Link
                       href={item.href}
+                      {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                       className={`-mx-3 flex rounded-lg px-3 py-3 text-base leading-7 transition-colors duration-200 min-h-[44px] items-center ${
                         isActive
                           ? 'bg-gold-50 text-gold-600 font-semibold border-l-4 border-gold-500'

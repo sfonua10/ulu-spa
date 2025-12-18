@@ -127,29 +127,6 @@ const familyAddOns = [
   }
 ]
 
-const benefits = [
-  {
-    title: 'Consistent Wellness',
-    description: 'Regular sessions ensure lasting stress relief and hair health benefits',
-    icon: '🌱'
-  },
-  {
-    title: 'Significant Savings',
-    description: 'Save up to 30% compared to individual session pricing',
-    icon: '💰'
-  },
-  {
-    title: 'Priority Access',
-    description: 'Skip the waiting list with member-exclusive booking privileges',
-    icon: '⚡'
-  },
-  {
-    title: 'Personalized Care',
-    description: 'Tailored treatments based on your wellness journey and preferences',
-    icon: '✨'
-  }
-]
-
 export default function MembershipsPage() {
   const handleBookMembership = () => {
     if (typeof window !== 'undefined' && window.Mangomint?.show) {
@@ -363,64 +340,6 @@ export default function MembershipsPage() {
             <p className="text-sm text-stone-600 italic">
               Note: Spa credits and retail discounts remain with the primary membership holder
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-spa-sage-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div
-            className="text-center mb-16 scroll-animate"
-          >
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
-              Why Choose
-              <br />
-              <span className="bg-gradient-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
-                Membership?
-              </span>
-            </h2>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-              Our membership program is designed to support your long-term wellness goals 
-              with exclusive benefits and personalized care.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <div
-                key={benefit.title}
-                className="text-center scroll-animate"
-                style={{ transitionDelay: `${index * 0.1}s` }}
-              >
-                <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-semibold text-spa-sage-800 mb-3">
-                  {benefit.title}
-                </h3>
-                <p className="text-stone-600 leading-relaxed">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Link Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="bg-spa-sage-50 rounded-3xl p-8 scroll-animate">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-spa-sage-800 mb-4">
-              Have Questions About Memberships?
-            </h2>
-            <p className="text-lg text-stone-600 mb-6">
-              Learn more about our membership options, benefits, and policies in our comprehensive FAQ.
-            </p>
-            <a href="/faq" className="inline-block">
-              <Button variant="outline" size="lg" className="px-8">
-                View Membership FAQs →
-              </Button>
-            </a>
           </div>
         </div>
       </section>

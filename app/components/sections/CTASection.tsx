@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Button } from '../ui/Button'
 import { useInView } from '@/app/hooks/useInView'
-import { CalendarDaysIcon, GiftIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { GiftIcon } from '@heroicons/react/24/outline'
 
 export default function CTASection() {
   const { ref: leftRef, isInView: leftInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
@@ -45,19 +45,17 @@ export default function CTASection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6">
-              <a 
+              <a
                 href="https://booking.mangomint.com/904811"
-                className="mangomint-booking-button inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 bg-gradient-to-br from-spa-gold-500 to-spa-gold-600 text-white hover:from-spa-gold-600 hover:to-spa-gold-700 hover:shadow-lg relative overflow-hidden h-14 px-8 text-base px-10 transform hover:-translate-y-1 shadow-xl hover:shadow-2xl min-h-[60px] sm:min-h-0"
+                className="mangomint-booking-button inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 bg-gradient-to-br from-spa-gold-500 to-spa-gold-600 text-white hover:from-spa-gold-600 hover:to-spa-gold-700 hover:shadow-lg relative overflow-hidden h-14 px-10 text-base transform hover:-translate-y-1 shadow-xl hover:shadow-2xl"
               >
-                <CalendarDaysIcon className="h-5 w-5 mr-2" />
-                Book Your Experience
+                Book Now
               </a>
-              <a 
+              <a
                 href="tel:+18015287368"
-                className="inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 text-spa-stone-600 hover:bg-spa-stone-50 hover:text-spa-stone-700 border border-spa-stone-300 hover:border-spa-stone-400 h-14 px-8 text-base px-8 transform hover:-translate-y-0.5 shadow-md backdrop-blur-sm min-h-[60px] sm:min-h-0"
+                className="inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 text-spa-stone-600 hover:bg-spa-stone-50 hover:text-spa-stone-700 border border-spa-stone-300 hover:border-spa-stone-400 h-14 px-10 text-base transform hover:-translate-y-0.5 shadow-md backdrop-blur-sm"
               >
-                <PhoneIcon className="h-5 w-5 mr-2" />
-                Call (801) 528-7368
+                Call Us
               </a>
             </div>
           </div>

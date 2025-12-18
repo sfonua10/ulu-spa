@@ -1,16 +1,9 @@
-import { HeartIcon, SparklesIcon, UserGroupIcon } from '@heroicons/react/24/outline';
-
 export interface Founder {
   name: string;
   role: string;
   bio: string;
   image: string;
-}
-
-export interface Value {
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  title: string;
-  description: string;
+  imagePosition?: string;
 }
 
 export interface ContactInfo {
@@ -32,37 +25,22 @@ export const founders: Founder[] = [
     name: 'Jobi Niu',
     role: 'Co-Founder',
     bio: 'Passionate about bringing Polynesian wellness traditions to modern spa experiences.',
-    image: '/images/founders/jobi.jpg'
+    image: '/images/founders/jobi-niu.webp',
+    imagePosition: 'top'
   },
   {
     name: 'Enoch Niu',
     role: 'Co-Founder',
     bio: 'Dedicated to creating transformative experiences that honor cultural heritage and personal wellness.',
-    image: '/images/founders/enoch.jpg'
+    image: '/images/founders/inoke-niu.webp',
+    imagePosition: 'top'
   },
   {
     name: 'Grace Niu',
     role: 'Co-Founder',
     bio: 'Committed to helping guests find restoration, clarity, and connection through intentional care.',
-    image: '/images/founders/grace.jpg'
-  }
-];
-
-export const values: Value[] = [
-  {
-    icon: HeartIcon,
-    title: 'Restoration',
-    description: 'We believe in the power of intentional care to release tension and restore vitality from the scalp to the soul.'
-  },
-  {
-    icon: SparklesIcon,
-    title: 'Clarity',
-    description: 'Our treatments are designed to clear the mind, bringing focus and mental clarity through specialized scalp therapy.'
-  },
-  {
-    icon: UserGroupIcon,
-    title: 'Connection',
-    description: 'We honor the Polynesian tradition of wellness, creating meaningful connections between body, mind, and spirit.'
+    image: '/images/founders/grace-niu.webp',
+    imagePosition: 'center'
   }
 ];
 

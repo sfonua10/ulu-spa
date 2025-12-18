@@ -31,6 +31,7 @@ interface LuxuryServiceCardProps {
   onViewDetails?: () => void
   className?: string
   priority?: boolean
+  badgeType?: 'popular' | 'value' | 'signature'
 }
 
 export default function LuxuryServiceCard({
@@ -38,7 +39,8 @@ export default function LuxuryServiceCard({
   onBook,
   onViewDetails,
   className = '',
-  priority = false
+  priority = false,
+  badgeType
 }: LuxuryServiceCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [showDetails, setShowDetails] = useState(false)
@@ -64,11 +66,7 @@ export default function LuxuryServiceCard({
       }}
     >
       {/* Main Card */}
-      <div className={`relative h-full max-h-[85vh] sm:max-h-none bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden transition-all duration-700 cursor-pointer flex flex-col ${
-        service.popular
-          ? 'ring-2 ring-spa-gold-500 border-2 border-spa-gold-400 hover:shadow-4xl hover:ring-spa-gold-600'
-          : 'border border-white/20 hover:shadow-4xl hover:border-spa-gold-200/40'
-      }`}>
+      <div className="relative h-full max-h-[85vh] sm:max-h-none bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden transition-all duration-700 cursor-pointer flex flex-col border border-white/40 hover:shadow-4xl hover:border-spa-gold-200/60">
         
         {/* Glass Morphism Background */}
         <div className="absolute inset-0 bg-linear-to-br from-white/60 via-white/40 to-white/20 backdrop-blur-xl" />
@@ -113,12 +111,17 @@ export default function LuxuryServiceCard({
           </div>
         )}
 
-        {/* Popular Badge - Corner Ribbon */}
-        {service.popular && (
-          <div className="absolute top-0 right-0 w-32 h-32 overflow-hidden z-20">
-            <div className="absolute top-6 -right-8 w-40 text-center bg-linear-to-r from-spa-gold-500 to-spa-gold-600 text-white text-xs font-bold py-1.5 transform rotate-45 shadow-lg">
-              MOST POPULAR
-            </div>
+        {/* Badge Pill */}
+        {badgeType && (
+          <div className="absolute top-4 left-4 z-20">
+            <span className={`px-3 py-1.5 text-xs font-semibold rounded-full backdrop-blur-md shadow-sm ${
+              badgeType === 'popular' ? 'bg-spa-gold-500/90 text-white' :
+              badgeType === 'value' ? 'bg-spa-sage-600/90 text-white' :
+              'bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 text-white'
+            }`}>
+              {badgeType === 'popular' ? 'Most Popular' :
+               badgeType === 'value' ? 'Best Value' : 'Signature'}
+            </span>
           </div>
         )}
 
@@ -200,7 +203,7 @@ export default function LuxuryServiceCard({
           <Button
             variant="luxury"
             size="md"
-            className="w-full bg-linear-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn border-2 border-spa-gold-800"
+            className="w-full bg-linear-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn border border-spa-gold-700"
             onClick={(e) => {
               e.stopPropagation()
               onBook?.()

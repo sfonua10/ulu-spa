@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Import animations first - keyframes needed before @theme animations reference them */
+@import "./styles/animations.css" layer(base);
+
 @theme {
   /* Custom scale values for subtle animations */
   --scale-102: 1.02;
@@ -154,48 +157,48 @@
   --color-hero-pattern: repeating-linear-gradient(45deg, #D4AF37 0, #D4AF37 1px, transparent 1px, transparent 15px);
 }
 
-@import "./styles/animations.css";
+@layer base {
+  :root {
+    --gold: #D4AF37;
+    --gold-light: #E8D284;
+    --gold-dark: #B8941F;
+    --dark: #1a1a1a;
+    --light: #f8f5f0;
+    --cream: #FFF8E7;
+    --shadow: rgba(0,0,0,0.1);
+  }
 
-:root {
-  --gold: #D4AF37;
-  --gold-light: #E8D284;
-  --gold-dark: #B8941F;
-  --dark: #1a1a1a;
-  --light: #f8f5f0;
-  --cream: #FFF8E7;
-  --shadow: rgba(0,0,0,0.1);
+  body {
+    font-family: var(--font-body), system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background: linear-gradient(180deg, #ffffff 0%, var(--cream) 100%);
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-body {
-  font-family: var(--font-body), system-ui, sans-serif;
-  line-height: 1.6;
-  color: var(--dark);
-  background: linear-gradient(180deg, #ffffff 0%, var(--cream) 100%);
-  overflow-x: hidden;
-}
+@layer components {
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  ::-webkit-scrollbar-track {
+    background: var(--light);
+  }
 
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border-radius: 4px;
+  }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--light);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-dark);
-}
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-dark);
+  }
 
 /* Video Performance Optimizations */
 video {
@@ -319,4 +322,5 @@ body[data-hide-chat="true"] .mangomint-widget-container {
   .space-y-12 {
     row-gap: 2rem !important;
   }
+}
 }
