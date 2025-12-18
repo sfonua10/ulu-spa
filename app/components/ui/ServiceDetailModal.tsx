@@ -21,6 +21,8 @@ interface Service {
   price: number
   priceRange?: string
   imageUrl?: string
+  focusArea?: string
+  modalFocusArea?: string
   benefits: string[]
   includes: string[]
   popular: boolean
@@ -100,6 +102,7 @@ export default function ServiceDetailModal({
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1024px"
               className={`object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              style={{ objectPosition: service.modalFocusArea || service.focusArea || 'center' }}
               onLoad={() => setImageLoaded(true)}
               priority={true}
               quality={90}

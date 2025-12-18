@@ -9,6 +9,7 @@ export interface Service {
   priceRange?: string
   imageUrl?: string
   focusArea?: string // CSS object-position value (e.g., 'center top', 'center center', '75% 25%')
+  modalFocusArea?: string // Separate focal point for modal display
   benefits: string[]
   includes: string[]
   popular: boolean
