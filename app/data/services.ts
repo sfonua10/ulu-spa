@@ -16,7 +16,7 @@ export const services = [
     duration: '30 min',
     price: 70,
     imageUrl: '/images/services/island-breeze.JPG',
-    focusArea: 'center 30%',
+    focusArea: 'center 50%',
     benefits: ['Stress Relief', 'Quick Relaxation', 'Scalp Health'],
     includes: [
       'Aromatherapy Scalp Massage',
@@ -39,7 +39,7 @@ export const services = [
     duration: '60 min',
     price: 130,
     imageUrl: '/images/services/the-ocean-ritual.JPG',
-    focusArea: 'center 30%',
+    focusArea: 'center 25%',
     benefits: ['Deep Relaxation', 'Scalp Health', 'Stress Relief'],
     includes: [
       'Aromatherapy',
@@ -61,7 +61,7 @@ export const services = [
     duration: '75 min',
     price: 170,
     imageUrl: '/images/services/tropical-indulge.jpg',
-    focusArea: 'center 30%',
+    focusArea: 'center 20%',
     benefits: ['Luxury Experience', 'Deep Relaxation', 'Scalp Rejuvenation'],
     includes: [
       'Warm towel welcome',
@@ -106,7 +106,7 @@ export const services = [
     duration: '30 min',
     price: 70,
     imageUrl: '/images/services/scratch-therapy.png',
-    focusArea: 'center 40%',
+    focusArea: 'center 50%',
     benefits: ['Stress Relief', 'Comfort', 'Relaxation'],
     includes: [
       'Gentle rhythmic scratch patterns',
@@ -125,7 +125,7 @@ export const services = [
     duration: '60 min',
     price: 130,
     imageUrl: '/images/services/scalp-claw.png',
-    focusArea: 'center 40%',
+    focusArea: 'center %',
     benefits: ['Deep Relaxation', 'Sensory Restoration', 'Therapeutic Touch'],
     includes: [
       'Full-body treatment',
@@ -145,7 +145,7 @@ export const services = [
     duration: '75 min',
     price: 170,
     imageUrl: '/images/services/scratch-therapy-claw2.png',
-    focusArea: 'center 40%',
+    focusArea: 'center 45%',
     benefits: ['Ultimate Relaxation', 'Extended Therapy', 'Stress Relief'],
     includes: [
       'Extended signature scratching',
@@ -207,7 +207,7 @@ export const services = [
     duration: '60 min',
     price: 130,
     imageUrl: '/images/services/island-renewal.jpg',
-    focusArea: 'center 30%',
+    focusArea: 'center 50%',
     benefits: ['Skin Renewal', 'Deep Cleansing', 'Most Popular'],
     includes: [
       'Customized exfoliation',
@@ -227,7 +227,7 @@ export const services = [
     duration: '75 min',
     price: 165,
     imageUrl: '/images/services/island-escape-ritual.png',
-    focusArea: 'center center',
+    focusArea: 'center 20%',
     benefits: ['Anti-Aging', 'Advanced Treatment', 'Skin Transformation'],
     includes: [
       'Anti-aging exfoliant',
@@ -247,7 +247,7 @@ export const services = [
     duration: '90 min',
     price: 195,
     imageUrl: '/images/services/facial-2.png',
-    focusArea: 'center 30%',
+    focusArea: 'center 60%',
     benefits: ['Ultimate Skin Care', 'Signature Treatment', 'Complete Renewal'],
     includes: [
       'Cell Science Anti-Aging Masque',
@@ -270,7 +270,7 @@ export const services = [
     duration: '45 min',
     price: 195,
     imageUrl: '/images/services/Beaty Drip IV DRIP for website.png',
-    focusArea: 'center center',
+    focusArea: 'center 20%',
     benefits: ['Skin Radiance', 'Beauty Enhancement', 'Hair Health'],
     includes: [
       'Biotin',
@@ -291,7 +291,7 @@ export const services = [
     duration: '45 min',
     price: 189,
     imageUrl: '/images/services/model.jpg',
-    focusArea: 'center 30%',
+    focusArea: 'center 20%',
     benefits: ['Energy Boost', 'Mood Enhancement', 'Wellness Balance'],
     includes: [
       'Vitamin B12',

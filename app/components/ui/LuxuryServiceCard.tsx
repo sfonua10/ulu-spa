@@ -70,7 +70,7 @@ export default function LuxuryServiceCard({
 
         {/* Hero Image */}
         {service.imageUrl && (
-          <div className="relative h-56 overflow-hidden bg-linear-to-br from-spa-sage-100 to-spa-gold-50">
+          <div className="relative h-64 overflow-hidden bg-linear-to-br from-spa-sage-100 to-spa-gold-50">
             <Image
               src={service.imageUrl}
               alt={service.name}
