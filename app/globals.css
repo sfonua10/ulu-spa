@@ -263,6 +263,24 @@ body[data-hide-chat="true"] .mangomint-widget-container {
   display: none !important;
 }
 
+/* MangoMint Booking Panel - Reposition to Left Side */
+/* Target the booking panel iframe that slides in when user clicks Book Now */
+iframe[src*="booking.mangomint.com"],
+div[id*="mangomint-booking"],
+div[class*="mangomint-booking"],
+.mangomint-modal,
+[data-mangomint-booking] {
+  left: 0 !important;
+  right: auto !important;
+}
+
+/* Additional selectors for the booking panel container */
+body > iframe[src*="mangomint"],
+body > div[style*="position: fixed"][style*="right"] {
+  left: 0 !important;
+  right: auto !important;
+}
+
 /* Custom Scrollbar for Luxury Service Cards */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;

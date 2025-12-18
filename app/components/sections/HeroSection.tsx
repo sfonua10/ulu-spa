@@ -18,10 +18,12 @@ export default function HeroSection() {
 
   return (
     <VideoBackground
-      videoSrc="/videos/ulu-facial-site-optimized.mp4"
+      videoSrc="/videos/website.mp4"
+      mobileVideoSrc="/videos/website.mp4"
       fallbackImage="/images/hero-poster.jpg"
       className="min-h-screen"
       overlayOpacity={0.4}
+      videoAspectRatio={9/16}
     >
       <section
         ref={heroRef}

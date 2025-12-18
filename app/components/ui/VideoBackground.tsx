@@ -16,6 +16,7 @@ interface VideoBackgroundProps {
   loop?: boolean
   controls?: boolean
   priority?: boolean
+  videoAspectRatio?: number  // Video's width/height ratio (e.g., 9/16 = 0.5625 for portrait)
 }
 
 export default function VideoBackground({
@@ -30,7 +31,8 @@ export default function VideoBackground({
   muted = true,
   loop = true,
   controls = false,
-  priority = false
+  priority = false,
+  videoAspectRatio
 }: VideoBackgroundProps) {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
   const [hasError, setHasError] = useState(false)
@@ -39,6 +41,7 @@ export default function VideoBackground({
   const [showVideo, setShowVideo] = useState(false)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [dynamicScale, setDynamicScale] = useState(1)
   const videoRef = useRef<HTMLVideoElement>(null)
   const playAttemptsRef = useRef(0)
   const maxPlayAttempts = 5
@@ -68,6 +71,24 @@ export default function VideoBackground({
       mobileQuery.removeEventListener('change', handleMobileChange)
     }
   }, [])
+
+  // Calculate dynamic scale for portrait videos on desktop
+  useEffect(() => {
+    if (!videoAspectRatio || isMobile) {
+      setDynamicScale(1)
+      return
+    }
+
+    const calculateScale = () => {
+      const viewportAspectRatio = window.innerWidth / window.innerHeight
+      const scale = viewportAspectRatio / videoAspectRatio
+      setDynamicScale(Math.max(scale, 1))  // Never scale below 1
+    }
+
+    calculateScale()
+    window.addEventListener('resize', calculateScale)
+    return () => window.removeEventListener('resize', calculateScale)
+  }, [videoAspectRatio, isMobile])
 
   // Attempt to play the video with retry logic
   const attemptPlay = async () => {
@@ -331,7 +352,8 @@ export default function VideoBackground({
             poster={fallbackImage}
             aria-label="Ambient spa video background"
             style={{
-              willChange: isPlaying ? 'auto' : 'transform', // Only use will-change when needed
+              transform: dynamicScale > 1 ? `scale(${dynamicScale})` : undefined,
+              willChange: isPlaying ? 'auto' : 'transform',
               backfaceVisibility: 'hidden',
               WebkitBackfaceVisibility: 'hidden'
             }}
