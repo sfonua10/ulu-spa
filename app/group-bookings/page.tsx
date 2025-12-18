@@ -16,6 +16,7 @@ const groupPackages = [
     name: 'Wedding Parties',
     description: 'Pamper the bride and her party with luxurious scalp treatments perfect for your special day preparation',
     imageUrl: '/images/services/facial-2.png',
+    objectPosition: 'center 70%',
     isPopular: false
   },
   {
@@ -30,6 +31,7 @@ const groupPackages = [
     name: 'Couples Retreat',
     description: 'Reconnect and unwind together in our couple\'s room with side-by-side spa treatments',
     imageUrl: '/images/services/tropical-indulge.jpg',
+    objectPosition: 'center 30%',
     isPopular: false
   },
   {
@@ -51,6 +53,7 @@ const groupPackages = [
     name: 'Special Events',
     description: 'Holiday parties, milestone celebrations, and unique gatherings tailored to your group\'s needs',
     imageUrl: '/images/services/island-escape-ritual.png',
+    objectPosition: 'center 30%',
     isPopular: false
   }
 ]
@@ -126,6 +129,7 @@ export default function GroupBookingsPage() {
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-all duration-700 group-hover:scale-110"
+                    style={pkg.objectPosition ? { objectPosition: pkg.objectPosition } : undefined}
                     quality={85}
                   />
                   {/* Gradient overlay */}

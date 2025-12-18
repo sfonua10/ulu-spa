@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect } from 'react'
 import { Button } from '../components/ui/Button'
 import { CheckIcon } from '@heroicons/react/24/outline'
 import VideoBackground from '../components/ui/VideoBackground'
+import { useInView } from '../hooks/useInView'
 
 const memberships = [
   {
@@ -134,29 +134,15 @@ export default function MembershipsPage() {
     }
   }
 
-  useEffect(() => {
-    // Initialize scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view')
-        }
-      })
-    }, observerOptions)
-
-    // Observe all elements with scroll-animate class
-    const elements = document.querySelectorAll('.scroll-animate')
-    elements.forEach(el => observer.observe(el))
-
-    return () => {
-      elements.forEach(el => observer.unobserve(el))
-    }
-  }, [])
+  // Use React hooks for scroll animations instead of direct DOM manipulation
+  const { ref: familyHeaderRef, isInView: familyHeaderInView } = useInView<HTMLDivElement>({
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  })
+  const { ref: ctaRef, isInView: ctaInView } = useInView<HTMLDivElement>({
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  })
 
   return (
     <div className="pb-16">
@@ -270,7 +256,14 @@ export default function MembershipsPage() {
       {/* Family Add-On Section */}
       <section className="py-16 bg-gradient-to-br from-spa-sage-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12 scroll-animate">
+          <div
+            ref={familyHeaderRef}
+            className={`text-center mb-12 transition-all duration-700 ${
+              familyHeaderInView
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               Family Add-On
               <br />
@@ -348,7 +341,12 @@ export default function MembershipsPage() {
       <section className="py-20 bg-gradient-to-br from-spa-sage-800 to-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div
-            className="space-y-8 scroll-animate"
+            ref={ctaRef}
+            className={`space-y-8 transition-all duration-700 ${
+              ctaInView
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+            }`}
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold">
               Ready to Transform

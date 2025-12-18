@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useInView } from '@/app/hooks/useInView'
 
 interface AnimatedPriceProps {
@@ -19,35 +19,44 @@ export default function AnimatedPrice({
   const [displayPrice, setDisplayPrice] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.5 })
+  const hasAnimatedRef = useRef(false)
+  const frameRef = useRef<number | null>(null)
 
   useEffect(() => {
-    if (!isInView) return
+    if (!isInView || hasAnimatedRef.current) return
 
+    hasAnimatedRef.current = true
     setIsAnimating(true)
-    
+
     const startTime = Date.now()
-    const startPrice = displayPrice
 
     const animate = () => {
       const elapsed = Date.now() - startTime
       const progress = Math.min(elapsed / duration, 1)
-      
+
       // Easing function for smooth animation
       const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
       const easedProgress = easeOutCubic(progress)
-      
-      const currentPrice = Math.floor(startPrice + (price - startPrice) * easedProgress)
+
+      const currentPrice = Math.floor(price * easedProgress)
       setDisplayPrice(currentPrice)
 
       if (progress < 1) {
-        requestAnimationFrame(animate)
+        frameRef.current = requestAnimationFrame(animate)
       } else {
+        setDisplayPrice(price)
         setIsAnimating(false)
       }
     }
 
-    animate()
-  }, [isInView, price, duration, displayPrice])
+    frameRef.current = requestAnimationFrame(animate)
+
+    return () => {
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current)
+      }
+    }
+  }, [isInView, price, duration])
 
   return (
     <div ref={ref} className={`text-right ${className}`}>

@@ -7,9 +7,12 @@ import {
   Mail,
   Clock,
   Navigation,
-  Calendar
+  Calendar,
+  Sparkles
 } from 'lucide-react';
 import ContactCard from '@/app/components/ui/ContactCard';
+import ParticleField from '@/app/components/ui/ParticleField';
+import FloatingElements from '@/app/components/ui/FloatingElements';
 
 export default function ContactPage() {
   const contactInfo = {
@@ -21,16 +24,60 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-spa-gold-500/10 via-spa-sage-500/5 to-luxury-warm-500/10" />
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-spa-gold-500/20 via-spa-sage-500/10 to-luxury-warm-500/20" />
 
+        {/* Particle field */}
+        <ParticleField />
+
+        {/* Floating decorative elements */}
+        <FloatingElements />
+
+        {/* Decorative blurs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-spa-gold-400/30 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-spa-sage-400/30 rounded-full blur-3xl animate-float-delayed" />
+
+        {/* Content */}
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="font-playfair text-5xl md:text-7xl font-bold text-stone-900 mb-6">
-            Get in Touch
-          </h1>
-          <p className="text-xl md:text-2xl text-stone-700 max-w-2xl mx-auto font-montserrat leading-relaxed">
-            We&apos;re here to answer your questions and help you begin your wellness journey
-          </p>
+          <div className="animate-fade-in">
+            <div className="inline-flex items-center gap-2 mb-6">
+              <Sparkles className="w-5 h-5 text-spa-gold-500" />
+              <span className="text-sm font-montserrat font-medium text-spa-gold-600 uppercase tracking-wider">
+                Connect With Us
+              </span>
+              <Sparkles className="w-5 h-5 text-spa-gold-500" />
+            </div>
+
+            <h1 className="font-playfair text-5xl md:text-7xl font-bold text-stone-900 mb-6">
+              Get in Touch
+            </h1>
+
+            <p className="text-xl md:text-2xl text-stone-700 max-w-3xl mx-auto font-montserrat leading-relaxed">
+              We&apos;re here to answer your questions and help you begin your journey to ultimate relaxation
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="relative py-12">
+        <div className="relative w-full">
+          <div className="relative overflow-hidden shadow-soft-xl backdrop-blur-xl border-y border-white/30">
+            <div className="aspect-video">
+              <iframe
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent('597 South Pleasant Grove Blvd. Suite 4, Pleasant Grove, UT 84064')}`}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="ULU Head Spa Location"
+                className="grayscale-[0.2] contrast-[1.1]"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -118,27 +165,6 @@ export default function ContactPage() {
                 </p>
               </div>
             </ContactCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="relative pb-24">
-        <div className="relative w-full">
-          <div className="relative overflow-hidden shadow-soft-xl backdrop-blur-xl border-y border-white/30">
-            <div className="aspect-video">
-              <iframe
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent('597 South Pleasant Grove Blvd. Suite 4, Pleasant Grove, UT 84064')}`}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="ULU Head Spa Location"
-                className="grayscale-[0.2] contrast-[1.1]"
-              />
-            </div>
           </div>
         </div>
       </section>

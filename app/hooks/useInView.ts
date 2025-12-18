@@ -1,9 +1,13 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react'
+import { useAnimationContext } from '@/app/contexts/AnimationContext'
 
 interface UseInViewOptions {
   threshold?: number
   rootMargin?: string
   triggerOnce?: boolean
+  skipIfAnimated?: boolean // Skip animation if initial animations already played
 }
 
 export function useInView<T extends HTMLElement = HTMLElement>(options: UseInViewOptions = {}) {
@@ -11,13 +15,26 @@ export function useInView<T extends HTMLElement = HTMLElement>(options: UseInVie
     threshold = 0.1,
     rootMargin = '0px',
     triggerOnce = true,
+    skipIfAnimated = true,
   } = options
 
-  const [isInView, setIsInView] = useState(false)
-  const [hasTriggered, setHasTriggered] = useState(false)
+  const { hasInitialAnimationPlayed, markAnimationPlayed } = useAnimationContext()
+
+  // If animations already played and skipIfAnimated is true, start as visible
+  const shouldSkip = skipIfAnimated && hasInitialAnimationPlayed
+
+  const [isInView, setIsInView] = useState(shouldSkip)
+  const [hasTriggered, setHasTriggered] = useState(shouldSkip)
   const ref = useRef<T>(null)
 
   useEffect(() => {
+    // If we're skipping animations, ensure state is set correctly
+    if (shouldSkip) {
+      setIsInView(true)
+      setHasTriggered(true)
+      return
+    }
+
     const element = ref.current
 
     if (!element) return
@@ -32,6 +49,8 @@ export function useInView<T extends HTMLElement = HTMLElement>(options: UseInVie
 
         if (inView && !hasTriggered) {
           setHasTriggered(true)
+          // Mark that initial animations have played
+          markAnimationPlayed()
         }
       },
       {
@@ -45,7 +64,7 @@ export function useInView<T extends HTMLElement = HTMLElement>(options: UseInVie
     return () => {
       observer.unobserve(element)
     }
-  }, [threshold, rootMargin, triggerOnce, hasTriggered])
+  }, [threshold, rootMargin, triggerOnce, hasTriggered, shouldSkip, markAnimationPlayed])
 
   return { ref, isInView, hasTriggered }
 }
@@ -53,18 +72,34 @@ export function useInView<T extends HTMLElement = HTMLElement>(options: UseInVie
 // Hook for multiple elements with staggered animations
 export function useStaggeredInView<T extends HTMLElement = HTMLElement>(
   count: number,
-  delay: number = 100
+  delay: number = 100,
+  options: { skipIfAnimated?: boolean } = {}
 ) {
-  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set())
+  const { skipIfAnimated = true } = options
+  const { hasInitialAnimationPlayed, markAnimationPlayed } = useAnimationContext()
+
+  const shouldSkip = skipIfAnimated && hasInitialAnimationPlayed
+
+  // If skipping, initialize all items as visible
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(
+    shouldSkip ? new Set(Array.from({ length: count }, (_, i) => i)) : new Set()
+  )
   const ref = useRef<T>(null)
 
   useEffect(() => {
+    // If skipping, ensure all items are visible
+    if (shouldSkip) {
+      setVisibleItems(new Set(Array.from({ length: count }, (_, i) => i)))
+      return
+    }
+
     const element = ref.current
     if (!element) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          markAnimationPlayed()
           // Trigger staggered animations
           for (let i = 0; i < count; i++) {
             setTimeout(() => {
@@ -83,7 +118,7 @@ export function useStaggeredInView<T extends HTMLElement = HTMLElement>(
     return () => {
       observer.unobserve(element)
     }
-  }, [count, delay])
+  }, [count, delay, shouldSkip, markAnimationPlayed])
 
   return { ref, visibleItems }
 }

@@ -3,10 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Button } from './Button'
-import {
-  CheckIcon,
-  ArrowRightIcon
-} from '@heroicons/react/24/outline'
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
 
 interface Service {
   id: number
@@ -43,18 +40,13 @@ export default function LuxuryServiceCard({
   badgeType
 }: LuxuryServiceCardProps) {
   const [isHovered, setIsHovered] = useState(false)
-  const [showDetails, setShowDetails] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
-  const [showAllIncludes, setShowAllIncludes] = useState(false)
 
   return (
     <div
       className={`group relative h-full ${className}`}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false)
-        setShowDetails(false)
-      }}
+      onMouseLeave={() => setIsHovered(false)}
       onClick={onViewDetails}
       role="button"
       tabIndex={0}
@@ -66,8 +58,8 @@ export default function LuxuryServiceCard({
       }}
     >
       {/* Main Card */}
-      <div className="relative h-full max-h-[85vh] sm:max-h-none bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden transition-all duration-700 cursor-pointer flex flex-col border border-white/40 hover:shadow-4xl hover:border-spa-gold-200/60">
-        
+      <div className="relative h-full bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden transition-all duration-700 cursor-pointer flex flex-col border border-white/40 hover:shadow-4xl hover:border-spa-gold-200/60">
+
         {/* Glass Morphism Background */}
         <div className="absolute inset-0 bg-linear-to-br from-white/60 via-white/40 to-white/20 backdrop-blur-xl" />
 
@@ -78,8 +70,7 @@ export default function LuxuryServiceCard({
 
         {/* Hero Image */}
         {service.imageUrl && (
-          <div className="relative h-48 overflow-hidden bg-linear-to-br from-spa-sage-100 to-spa-gold-50">
-            {/* Image */}
+          <div className="relative h-56 overflow-hidden bg-linear-to-br from-spa-sage-100 to-spa-gold-50">
             <Image
               src={service.imageUrl}
               alt={service.name}
@@ -125,81 +116,35 @@ export default function LuxuryServiceCard({
           </div>
         )}
 
-        {/* Card Content - Scrollable */}
-        <div className="relative z-10 flex-1 overflow-y-auto custom-scrollbar">
-          {/* Scroll fade gradient */}
-          <div className="sticky top-0 h-4 bg-gradient-to-b from-white/95 to-transparent z-10 pointer-events-none" />
+        {/* Card Content */}
+        <div className="relative z-10 flex-1 p-5 sm:p-6">
+          <h3 className="text-xl sm:text-2xl font-display font-bold text-spa-sage-900 mb-2 leading-tight group-hover:text-spa-gold-700 transition-colors duration-300">
+            {service.name}
+          </h3>
 
-          {/* Inner Content Wrapper */}
-          <div className="p-4 sm:p-6 pb-2">
-            <h3 className="text-2xl font-display font-bold text-spa-sage-900 mb-2 leading-tight group-hover:text-spa-gold-700 transition-colors duration-300">
-              {service.name}
-            </h3>
+          <p className="text-sm text-stone-600 leading-relaxed mb-4">
+            {service.shortDesc}
+          </p>
 
-            <p className={`text-sm text-stone-600 leading-relaxed mb-3 transition-all duration-300 ${
-              showDetails ? 'text-stone-700' : ''
-            }`}>
-              {showDetails ? service.fullDesc : service.shortDesc}
-            </p>
-
-            {/* Duration & Price */}
-            <div className="flex items-center gap-2 mb-5">
-              <span className="text-base font-semibold text-spa-sage-700 transition-colors duration-300 group-hover:text-spa-sage-800">
-                {service.duration}
-              </span>
-              <span className="text-spa-gold-500 font-bold">•</span>
-              <span className="text-base font-bold text-spa-gold-600 transition-colors duration-300 group-hover:text-spa-gold-700">
-                ${service.price}
-              </span>
-            </div>
-
-            {/* Benefits Tags */}
-            <div className={`flex flex-wrap gap-2 mb-6 transition-all duration-500 ${
-              isHovered ? 'transform translate-y-0' : 'transform translate-y-2'
-            }`}>
-              {service.benefits.slice(0, 3).map((benefit, index) => (
-                <span
-                  key={benefit}
-                  className={`px-3 py-1 text-xs font-medium bg-linear-to-r from-spa-sage-200 to-spa-sage-300 text-spa-sage-800 rounded-full border border-spa-sage-400 shadow-sm transition-all duration-500 ${
-                    isHovered ? `opacity-100 scale-102 brightness-105 animate-delay-${index * 100}` : 'opacity-90 scale-100'
-                  }`}
-                  style={{
-                    transitionDelay: isHovered ? `${index * 100}ms` : '0ms'
-                  }}
-                >
-                  {benefit}
-                </span>
-              ))}
-            </div>
-
-            {/* Includes (collapsible on mobile) */}
-            <div className="mb-4">
-              <h4 className="text-sm font-semibold text-spa-sage-700 mb-2">Includes:</h4>
-              <ul className="space-y-1">
-                {(showAllIncludes ? service.includes : service.includes.slice(0, 4)).map((item) => (
-                  <li key={item} className="flex items-center text-xs text-stone-600">
-                    <CheckIcon className="h-3 w-3 text-spa-sage-500 mr-2 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              {service.includes.length > 4 && !showAllIncludes && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    setShowAllIncludes(true)
-                  }}
-                  className="mt-2 text-xs font-medium text-spa-gold-600 hover:text-spa-gold-700 transition-colors duration-200"
-                >
-                  + Show all {service.includes.length} items
-                </button>
-              )}
-            </div>
+          {/* Duration & Price */}
+          <div className="flex items-center gap-2">
+            <span className="text-base font-semibold text-spa-sage-700 transition-colors duration-300 group-hover:text-spa-sage-800">
+              {service.duration}
+            </span>
+            <span className="text-spa-gold-500 font-bold">•</span>
+            <span className="text-base font-bold text-spa-gold-600 transition-colors duration-300 group-hover:text-spa-gold-700">
+              ${service.price}
+            </span>
           </div>
+
+          {/* View Details hint */}
+          <p className="text-xs text-stone-400 mt-3">
+            Tap to view details
+          </p>
         </div>
 
         {/* Action Button - Sticky Footer */}
-        <div className="relative z-20 bg-white/95 backdrop-blur-xl border-t border-spa-sage-200/30 p-4 sm:p-6">
+        <div className="relative z-20 bg-white/95 backdrop-blur-xl border-t border-spa-sage-200/30 p-4 sm:p-5">
           <Button
             variant="luxury"
             size="md"
@@ -220,7 +165,7 @@ export default function LuxuryServiceCard({
         }`} />
       </div>
 
-      {/* 3D Shadow - Reduced blur for better text clarity */}
+      {/* 3D Shadow */}
       <div className={`absolute inset-0 bg-spa-sage-900/20 rounded-3xl transition-all duration-700 -z-10 ${
         isHovered ? 'transform translate-y-2 translate-x-2 blur-lg' : 'transform translate-y-1 translate-x-1 blur-md'
       }`} />

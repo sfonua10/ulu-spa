@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import ChatWidgetController from "./components/ui/ChatWidgetController";
+import { AnimationProvider } from "./contexts/AnimationContext";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -33,7 +34,10 @@ export const metadata: Metadata = {
   title: "ULU Head Spa - Transform Your Gathering Into Pure Bliss",
   description: "Exclusive group experience designed for connection, relaxation, and shared moments of presence. Our ULU Group Room accommodates up to 4 guests in one tranquil space.",
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
   },
 };
 
@@ -76,10 +80,12 @@ export default function RootLayout({
           id="mangomint-booking-script"
           async
         />
-        <ChatWidgetController />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <AnimationProvider>
+          <ChatWidgetController />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </AnimationProvider>
       </body>
     </html>
   );

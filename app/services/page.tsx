@@ -2,73 +2,109 @@
 
 import { useState } from 'react'
 import { Button } from '../components/ui/Button'
-import { useInView, useStaggeredInView } from '../hooks/useInView'
+import { useInView } from '../hooks/useInView'
 import VideoBackground from '../components/ui/VideoBackground'
 import LuxuryServiceCard from '../components/ui/LuxuryServiceCard'
-import LuxuryCategoryFilter from '../components/ui/LuxuryCategoryFilter'
-// import FloatingBookingButton from '../components/ui/FloatingBookingButton'
+import CategoryCard from '../components/ui/CategoryCard'
 import ServiceDetailModal from '../components/ui/ServiceDetailModal'
 import { getMangoMintServiceUrl } from '../utils/mangomint-urls'
 import { services } from '../data/services'
-import {
-  SparklesIcon,
-  StarIcon
-} from '@heroicons/react/24/outline'
+import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+
+// Category definitions with taglines and representative images
+const categoryData = [
+  {
+    id: 'head-scalp',
+    name: 'Head & Scalp Massage',
+    tagline: 'Our signature head spa ritual',
+    imageUrl: '/images/services/royal-escape.png'
+  },
+  {
+    id: 'scratch-therapy',
+    name: 'Scratch Therapy',
+    tagline: 'Gentle, rhythmic relaxation',
+    imageUrl: '/images/services/scratch-therapy.png'
+  },
+  {
+    id: 'facial',
+    name: 'Facial Services',
+    tagline: 'Rejuvenate & restore your glow',
+    imageUrl: '/images/services/island-renewal.jpg'
+  },
+  {
+    id: 'iv-therapy',
+    name: 'IV Therapy',
+    tagline: 'Wellness from within',
+    imageUrl: '/images/services/Beaty Drip IV DRIP for website.png'
+  }
+]
 
 export default function ServicesPage() {
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedService, setSelectedService] = useState<typeof services[number] | null>(null)
 
-  const { ref: filterRef, isInView: filterInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
-  const { ref: servicesRef, visibleItems } = useStaggeredInView<HTMLDivElement>(6, 100)
+  // Track which category services have been viewed to prevent re-animation
+  const [viewedCategoryServices, setViewedCategoryServices] = useState<Set<string>>(new Set())
+
+  // useInView already tracks hasTriggered internally, no need for separate state
+  const { ref: categoriesRef, isInView: categoriesInView, hasTriggered: hasViewedCategories } = useInView<HTMLDivElement>({ threshold: 0.2 })
   const { ref: ctaRef, isInView: ctaInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
 
-  const filteredServices = selectedCategory === 'all'
-    ? services
-    : selectedCategory === 'popular'
-    ? services.filter(service => service.popular)
-    : services.filter(service => service.category === selectedCategory)
-
-  // Calculate category counts
-  const getCategoryCount = (categoryId: string) => {
-    if (categoryId === 'all') return services.length
-    if (categoryId === 'popular') return services.filter(s => s.popular).length
-    return services.filter(s => s.category === categoryId).length
+  // Handle category selection and track viewed services
+  const handleCategorySelect = (categoryId: string) => {
+    setSelectedCategory(categoryId)
+    // Mark as viewed after animation completes
+    if (!viewedCategoryServices.has(categoryId)) {
+      setTimeout(() => {
+        setViewedCategoryServices(prev => new Set([...prev, categoryId]))
+      }, 600) // Match animation duration
+    }
   }
 
-  const categories = [
-    { id: 'all', name: 'All Services', count: getCategoryCount('all') },
-    { id: 'popular', name: 'Most Popular', count: getCategoryCount('popular'), icon: StarIcon },
-    { id: 'head-scalp', name: 'Head & Scalp Massage', count: getCategoryCount('head-scalp') },
-    { id: 'scratch-therapy', name: 'Scratch Therapy', count: getCategoryCount('scratch-therapy') },
-    { id: 'facial', name: 'Facial Services', count: getCategoryCount('facial') },
-    { id: 'iv-therapy', name: 'IV Therapy', count: getCategoryCount('iv-therapy') },
-    { id: 'add-on', name: 'Add-On Services', count: getCategoryCount('add-on') }
-  ]
+  // Determine if services should animate (first time viewing this category)
+  const shouldAnimateServices = selectedCategory ? !viewedCategoryServices.has(selectedCategory) : false
+
+  // Filter out add-ons and get services for selected category
+  const mainServices = services.filter(s => s.category !== 'add-on')
+  const addOnServices = services.filter(s => s.category === 'add-on')
+
+  const filteredServices = selectedCategory
+    ? mainServices.filter(service => service.category === selectedCategory)
+    : []
+
+  // Get service count for each category
+  const getCategoryCount = (categoryId: string) => {
+    return mainServices.filter(s => s.category === categoryId).length
+  }
+
+  // Get category name for display
+  const getSelectedCategoryName = () => {
+    const category = categoryData.find(c => c.id === selectedCategory)
+    return category?.name || ''
+  }
 
   return (
     <div className="relative">
-
-      {/* Video Hero Section - Reduced height for better service visibility */}
+      {/* Video Hero Section - Compact */}
       <VideoBackground
         videoSrc="/videos/ulu-facial-site-optimized.mp4"
         fallbackImage="/images/hero-poster.jpg"
-        className="min-h-[50vh]"
+        className="min-h-[35vh]"
         priority={true}
       >
-        <div className="flex items-center justify-center min-h-[50vh] px-6">
+        <div className="flex items-center justify-center min-h-[35vh] px-6">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
               Our Services
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-              Experience the ultimate in luxury spa treatments with our complete range of personalized wellness services
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
+              Choose your experience and discover your perfect treatment
             </p>
           </div>
         </div>
       </VideoBackground>
 
-      {/* Services Section */}
+      {/* Main Content Section */}
       <section className="relative py-16 bg-gradient-to-br from-spa-sage-50/30 via-white to-spa-cream-50/40 overflow-hidden">
         {/* Subtle Floating Background Orbs */}
         <div className="absolute inset-0 opacity-[0.06] pointer-events-none" aria-hidden="true">
@@ -77,67 +113,136 @@ export default function ServicesPage() {
             className="absolute bottom-32 right-32 w-80 h-80 bg-spa-sage-200 rounded-full blur-3xl animate-float"
             style={{ animationDelay: '2s', animationDuration: '10s' }}
           />
-          <div
-            className="absolute top-1/2 left-1/3 w-64 h-64 bg-spa-gold-300 rounded-full blur-3xl animate-float"
-            style={{ animationDelay: '4s', animationDuration: '12s' }}
-          />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          {/* Luxury Category Filter */}
-          <div
-            ref={filterRef}
-            className={`mb-8 ${filterInView ? 'animate-in animate-fade-in animate-delay-200' : 'opacity-0'}`}
-          >
-            <LuxuryCategoryFilter
-              categories={categories}
-              selectedCategory={selectedCategory}
-              onCategoryChange={setSelectedCategory}
-              className="max-w-4xl mx-auto"
-            />
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
 
-            {/* Result Count Feedback */}
+          {/* Category Selection View */}
+          {!selectedCategory && (
             <div
-              role="status"
-              aria-live="polite"
-              className="text-center mt-4 mb-8"
+              ref={categoriesRef}
+              className={`${
+                hasViewedCategories
+                  ? '' // Already viewed, show immediately
+                  : categoriesInView
+                    ? 'animate-in animate-fade-in'
+                    : 'opacity-0'
+              }`}
             >
-              <p className="text-spa-sage-600 text-sm font-medium">
-                Showing{' '}
-                <span className="inline-flex items-center justify-center min-w-[2ch] font-semibold text-spa-gold-600 transition-all duration-300">
-                  {filteredServices.length}
-                </span>
-                {' '}of{' '}
-                <span className="font-semibold text-spa-sage-700">
-                  {services.length}
-                </span>
-                {' '}services
-              </p>
+              <div className="text-center mb-10">
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-spa-sage-800 mb-3">
+                  Choose Your Experience
+                </h2>
+                <p className="text-lg text-stone-600">
+                  Select a category to explore our treatments
+                </p>
+              </div>
+
+              {/* Category Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                {categoryData.map((category, index) => (
+                  <div
+                    key={category.id}
+                    className={`${
+                      hasViewedCategories
+                        ? '' // Already viewed, show immediately
+                        : categoriesInView
+                          ? 'animate-in animate-slide-up'
+                          : 'opacity-0'
+                    }`}
+                    style={!hasViewedCategories ? { animationDelay: `${index * 100}ms` } : undefined}
+                  >
+                    <CategoryCard
+                      name={category.name}
+                      tagline={category.tagline}
+                      serviceCount={getCategoryCount(category.id)}
+                      imageUrl={category.imageUrl}
+                      onClick={() => handleCategorySelect(category.id)}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
+          )}
+
+          {/* Filtered Services View */}
+          {selectedCategory && (
+            <div>
+              {/* Back Button & Category Title */}
+              <div className="mb-8">
+                <button
+                  onClick={() => setSelectedCategory(null)}
+                  className="inline-flex items-center gap-2 text-spa-sage-600 hover:text-spa-sage-800 transition-colors duration-200 mb-4 group"
+                >
+                  <ArrowLeftIcon className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
+                  <span className="font-medium">Back to all services</span>
+                </button>
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-spa-sage-800">
+                  {getSelectedCategoryName()}
+                </h2>
+                <p className="text-stone-600 mt-2">
+                  {filteredServices.length} treatment{filteredServices.length !== 1 ? 's' : ''} available
+                </p>
+              </div>
+
+              {/* Services Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {filteredServices.map((service, index) => (
+                  <div
+                    key={service.id}
+                    className={shouldAnimateServices ? 'animate-in animate-fade-in animate-slide-up' : ''}
+                    style={shouldAnimateServices ? { animationDelay: `${index * 100}ms`, animationFillMode: 'both' } : undefined}
+                  >
+                    <LuxuryServiceCard
+                      service={service}
+                      onBook={() => {
+                        const serviceUrl = getMangoMintServiceUrl(service.name)
+                        window.location.href = serviceUrl
+                      }}
+                      onViewDetails={() => {
+                        setSelectedService(service)
+                      }}
+                      className="h-full"
+                      priority={index < 2}
+                      badgeType={service.popular ? 'popular' : undefined}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Enhance Your Visit - Add-Ons Section */}
+      <section className="py-12 bg-white border-t border-spa-sage-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-spa-sage-800 mb-2">
+              Enhance Your Visit
+            </h2>
+            <p className="text-stone-600">
+              Add these extras to any service
+            </p>
           </div>
 
-          {/* Luxury Services Grid */}
-          <div ref={servicesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animation">
-            {filteredServices.map((service, index) => (
-              <div
-                key={service.id}
-                className={`${
-                  visibleItems.has(index) ? `animate-in animate-slide-up animate-delay-${index * 100}` : 'opacity-0'
-                }`}
+          {/* Add-ons Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {addOnServices.map((addon) => (
+              <a
+                key={addon.id}
+                href={getMangoMintServiceUrl(addon.name)}
+                className="group bg-spa-sage-50/50 hover:bg-spa-sage-100/70 border border-spa-sage-200/60 hover:border-spa-sage-300 rounded-xl p-4 transition-all duration-200 hover:shadow-md"
               >
-                <LuxuryServiceCard
-                  service={service}
-                  onBook={() => {
-                    const serviceUrl = getMangoMintServiceUrl(service.name)
-                    window.location.href = serviceUrl
-                  }}
-                  onViewDetails={() => {
-                    setSelectedService(service)
-                  }}
-                  className="h-full luxury-hover"
-                  priority={index < 4}
-                />
-              </div>
+                <h3 className="font-semibold text-spa-sage-800 text-sm mb-1 group-hover:text-spa-gold-700 transition-colors">
+                  {addon.name}
+                </h3>
+                <div className="flex items-center gap-1.5 text-xs text-stone-500">
+                  <span>{addon.duration}</span>
+                  <span className="text-spa-gold-500">•</span>
+                  <span className="font-medium text-spa-gold-600">${addon.price}</span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
@@ -158,7 +263,7 @@ export default function ServicesPage() {
               </span>
             </h2>
             <p className="text-xl text-stone-600 leading-relaxed">
-              Book your personalized consultation today and let our experts 
+              Book your personalized consultation today and let our experts
               recommend the perfect service for your unique needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -179,9 +284,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      {/* Floating Booking Button */}
-      {/* <FloatingBookingButton /> */}
 
       {/* Service Detail Modal */}
       <ServiceDetailModal
