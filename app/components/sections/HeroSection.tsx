@@ -27,7 +27,7 @@ export default function HeroSection() {
     >
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-16"
+        className="relative min-h-screen flex items-start justify-center overflow-hidden pt-36 md:pt-40 lg:pt-44"
       >
         {/* Subtle bottom gradient to indicate scroll on mobile */}
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/30 to-transparent z-10 md:hidden"></div>
