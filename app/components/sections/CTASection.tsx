@@ -94,7 +94,7 @@ export default function CTASection() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-spa-sage-800 mb-2">Membership Benefits</h3>
-                  <p className="text-stone-600 mb-4">Save up to 25% with our wellness memberships.</p>
+                  <p className="text-stone-600 mb-4">Enjoy exclusive benefits with our wellness memberships.</p>
                   <Link 
                     href="/memberships"
                     className="inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 text-spa-sage-700 hover:bg-spa-sage-50 hover:text-spa-sage-700 border border-spa-sage-500/60 hover:bg-spa-sage-500 hover:text-white hover:border-spa-sage-500 h-9 px-4 text-sm"
@@ -105,19 +105,6 @@ export default function CTASection() {
               </div>
             </div>
 
-            {/* First Time Offer */}
-            <div className="bg-gradient-to-r from-spa-gold-400/25 to-spa-gold-300/25 backdrop-blur-md rounded-2xl p-6 border border-spa-gold-300/40 hover:border-spa-gold-300/70 transition-all duration-300 hover-lift shadow-lg hover:shadow-xl">
-              <div className="text-center">
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-spa-gold-400 text-spa-sage-900 text-sm font-medium mb-3">
-                  🎉 First Visit Special
-                </div>
-                <h3 className="text-xl font-semibold text-spa-sage-800 mb-2">20% Off Your First Session</h3>
-                <p className="text-stone-600 text-sm mb-4">New clients receive 20% off any signature service</p>
-                <Button variant="luxury" size="sm" className="px-8 transform hover:-translate-y-0.5 transition-all duration-300">
-                  Claim Offer
-                </Button>
-              </div>
-            </div>
           </div>
         </div>
       </div>

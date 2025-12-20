@@ -35,16 +35,12 @@ const memberships = [
     sessionDuration: 60,
     sessionTypes: ['Scalp Treatment', 'Scratch Therapy', 'Facial', 'Blowout'],
     monthlyCredit: 25,
-    retailDiscount: 10,
-    bundleDiscount: 10,
     statedValue: 155,
     annualSavings: 420,
     features: [
       '1 × 60-minute session per month',
       'Choose from 4 signature services',
       '$25 monthly spa credit',
-      '10% off retail products',
-      '10% off ULU Ultimate Experience bundle',
       'Month-to-month billing',
       'Cancel anytime'
     ],
@@ -61,16 +57,12 @@ const memberships = [
     sessionDuration: 75,
     sessionTypes: ['Scalp Treatment', 'Scratch Therapy', 'Facial', 'Blowout'],
     monthlyCredit: 25,
-    retailDiscount: 10,
-    bundleDiscount: 10,
     statedValue: 200,
     annualSavings: 492,
     features: [
       '1 × 75-minute session per month',
       'Choose from 4 signature services',
       '$25 monthly spa credit',
-      '10% off retail products',
-      '10% off ULU Ultimate Experience bundle',
       'Month-to-month billing',
       'Cancel anytime'
     ],
@@ -87,16 +79,12 @@ const memberships = [
     sessionDuration: 90,
     sessionTypes: ['Scalp Treatment', 'Scratch Therapy', 'Facial', 'Blowout'],
     monthlyCredit: 30,
-    retailDiscount: 10,
-    bundleDiscount: 10,
     statedValue: 250,
     annualSavings: 660,
     features: [
       '1 × 90-minute session per month',
       'Choose from 4 signature services',
       '$30 monthly spa credit',
-      '10% off retail products',
-      '10% off ULU Ultimate Experience bundle',
       'Month-to-month billing',
       'Cancel anytime'
     ],
@@ -331,7 +319,7 @@ export default function MembershipsPage() {
 
           <div className="mt-8 text-center">
             <p className="text-sm text-stone-600 italic">
-              Note: Spa credits and retail discounts remain with the primary membership holder
+              Note: Spa credits remain with the primary membership holder
             </p>
           </div>
         </div>
