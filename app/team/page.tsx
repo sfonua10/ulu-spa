@@ -97,7 +97,7 @@ export default function TeamPage() {
               >
                 <GlassCard blur="lg" opacity={0.6} className="overflow-hidden hover-lift">
                   {/* Founder Image */}
-                  <div className="relative h-80 bg-gradient-to-br from-spa-sage-100 to-spa-gold-100 overflow-hidden">
+                  <div className="relative h-96 md:h-80 bg-gradient-to-br from-spa-sage-100 to-spa-gold-100 overflow-hidden">
                     {founder.image ? (
                       <Image
                         src={founder.image}

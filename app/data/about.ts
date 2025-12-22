@@ -26,7 +26,7 @@ export const founders: Founder[] = [
     role: 'Co-Founder',
     bio: 'Passionate about bringing Polynesian wellness traditions to modern spa experiences.',
     image: '/images/founders/jobi-niu.webp',
-    imagePosition: 'top'
+    imagePosition: 'center'
   },
   {
     name: 'Enoch Niu',

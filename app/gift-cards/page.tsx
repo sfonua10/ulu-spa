@@ -52,7 +52,7 @@ export default function GiftCardPolicyPage() {
           </div>
 
           <p className="font-montserrat text-sm text-spa-stone-500 mt-6 italic">
-            Last Updated: January 2025
+            Last Updated: December 2025
           </p>
         </div>
       </section>
