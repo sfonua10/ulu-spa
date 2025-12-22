@@ -150,7 +150,7 @@ export default function GroupBookingsPage() {
                   </p>
 
                   {/* CTA Button */}
-                  <a href={bookingUrl} className="block">
+                  <a href={bookingUrl} className="mangomint-booking-button block">
                     <Button
                       variant="luxury"
                       className="w-full group-hover:scale-105 transition-transform duration-300"
@@ -190,7 +190,7 @@ export default function GroupBookingsPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href={bookingUrl}>
+                <a href={bookingUrl} className="mangomint-booking-button">
                   <Button
                     variant="default"
                     size="lg"

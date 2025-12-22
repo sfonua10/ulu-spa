@@ -29,7 +29,7 @@ export default function AboutPage() {
       >
         <section
           ref={heroRef}
-          className="min-h-[70vh] flex items-center justify-center relative z-10"
+          className="min-h-[70vh] flex items-center justify-center relative z-10 pt-24"
         >
           <div className={`max-w-4xl mx-auto text-center px-6 transition-all duration-1000 ${
             heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

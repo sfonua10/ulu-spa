@@ -56,18 +56,6 @@ export default function ServiceDetailModal({
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isOpen, onClose])
 
-  // Prevent body scroll when modal is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [isOpen])
 
   if (!isOpen || !service) return null
 
@@ -81,7 +69,7 @@ export default function ServiceDetailModal({
 
       {/* Modal Content */}
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl modal-slide-up"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto overscroll-contain bg-white rounded-3xl shadow-2xl modal-slide-up"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}

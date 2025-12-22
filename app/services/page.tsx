@@ -85,14 +85,14 @@ export default function ServicesPage() {
 
   return (
     <div className="relative">
-      {/* Video Hero Section - Compact */}
+      {/* Video Hero Section */}
       <VideoBackground
         videoSrc="/videos/ulu-facial-site-optimized.mp4"
         fallbackImage="/images/hero-poster.jpg"
-        className="min-h-[35vh]"
+        className="min-h-[50vh]"
         priority={true}
       >
-        <div className="flex items-center justify-center min-h-[35vh] px-6">
+        <div className="flex items-center justify-center min-h-[50vh] px-6 pt-24">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
               Our Services
@@ -129,7 +129,7 @@ export default function ServicesPage() {
                     : 'opacity-0'
               }`}
             >
-              <div className="text-center mb-10">
+              <div className="text-center mb-14">
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-spa-sage-800 mb-3">
                   Choose Your Experience
                 </h2>

@@ -24,7 +24,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-spa-gold-500/20 via-spa-sage-500/10 to-luxury-warm-500/20" />
 

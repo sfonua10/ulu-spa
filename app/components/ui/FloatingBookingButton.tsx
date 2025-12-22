@@ -22,17 +22,15 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
 
   if (!isVisible) return null
 
-  const bookingUrl = process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'
-
   return (
     <div className={`fixed bottom-24 right-8 z-50 ${className}`}>
-      <a
-        href={bookingUrl}
+      <button
+        type="button"
         className="mangomint-booking-button inline-flex items-center justify-center bg-gradient-to-r from-spa-sage-600 to-spa-sage-700 text-white shadow-2xl hover:from-spa-sage-700 hover:to-spa-sage-800 hover:shadow-3xl transition-all duration-300 rounded-full px-6 py-4 font-semibold cursor-pointer"
       >
         <CalendarIcon className="h-6 w-6 mr-2 stroke-2" />
         Book Now
-      </a>
+      </button>
 
       {/* Tooltip */}
       <div className="absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">

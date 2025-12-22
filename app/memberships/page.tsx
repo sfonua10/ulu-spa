@@ -116,12 +116,6 @@ const familyAddOns = [
 ]
 
 export default function MembershipsPage() {
-  const handleBookMembership = () => {
-    if (typeof window !== 'undefined' && window.Mangomint?.show) {
-      window.Mangomint.show()
-    }
-  }
-
   // Use React hooks for scroll animations instead of direct DOM manipulation
   const { ref: familyHeaderRef, isInView: familyHeaderInView } = useInView<HTMLDivElement>({
     threshold: 0.1,
@@ -303,13 +297,17 @@ export default function MembershipsPage() {
                       <p className="text-stone-600 text-sm mb-6 flex-grow">
                         {addOn.description}
                       </p>
-                      <Button
-                        variant={addOn.duration === 90 ? "luxury" : "outline"}
-                        className="w-full"
-                        onClick={handleBookMembership}
+                      <a
+                        href="https://booking.mangomint.com/904811"
+                        className="mangomint-booking-button block"
                       >
-                        Add to Plan
-                      </Button>
+                        <Button
+                          variant={addOn.duration === 90 ? "luxury" : "outline"}
+                          className="w-full"
+                        >
+                          Add to Plan
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -348,14 +346,18 @@ export default function MembershipsPage() {
               Your future self will thank you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="luxury"
-                size="lg"
-                className="px-12 font-semibold"
-                onClick={handleBookMembership}
+              <a
+                href="https://booking.mangomint.com/904811"
+                className="mangomint-booking-button"
               >
-                Start Membership
-              </Button>
+                <Button
+                  variant="luxury"
+                  size="lg"
+                  className="px-12 font-semibold"
+                >
+                  Start Membership
+                </Button>
+              </a>
               <a href="tel:+18015287368">
                 <Button variant="ghost" size="lg" className="text-white border-2 border-white hover:bg-white/20 hover:text-white px-12 font-semibold w-full">
                   Call for Consultation
