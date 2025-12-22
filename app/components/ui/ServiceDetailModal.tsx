@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { Button } from './Button'
 import {
   XMarkIcon,
   ClockIcon,
@@ -198,29 +197,18 @@ export default function ServiceDetailModal({
             </ul>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t-2 border-spa-sage-100">
-            <Button
-              variant="luxury"
-              size="lg"
-              className="flex-1 bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-xl hover:shadow-2xl transition-all duration-300 group border-2 border-spa-gold-800"
+          {/* CTA Button */}
+          <div className="pt-6 border-t-2 border-spa-sage-100">
+            <button
+              className="w-full inline-flex items-center justify-center py-4 px-8 rounded-full text-lg font-bold bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-spa-gold-800 group cursor-pointer"
               onClick={() => {
                 onBookNow()
                 onClose()
               }}
             >
-              <span>Book This Service</span>
+              Book Now
               <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              className="sm:w-auto bg-white border-2 border-spa-sage-300 text-spa-sage-800 hover:bg-spa-sage-50 hover:border-spa-sage-400 font-semibold"
-              onClick={onClose}
-            >
-              Close
-            </Button>
+            </button>
           </div>
         </div>
       </div>

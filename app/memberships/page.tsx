@@ -363,7 +363,7 @@ export default function MembershipsPage() {
               Start your membership today and take the first step toward lasting wellness. 
               Your future self will thank you.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
                 href="https://booking.mangomint.com/904811"
                 className="mangomint-booking-button"
@@ -377,7 +377,7 @@ export default function MembershipsPage() {
                 </Button>
               </a>
               <a href="tel:+18015287368">
-                <Button variant="ghost" size="lg" className="text-white border-2 border-white hover:bg-white/20 hover:text-white px-12 font-semibold w-full">
+                <Button variant="ghost" size="lg" className="text-white border-2 border-white hover:bg-white/20 hover:text-white px-12 font-semibold">
                   Call for Consultation
                 </Button>
               </a>
