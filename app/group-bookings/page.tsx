@@ -92,6 +92,80 @@ export default function GroupBookingsPage() {
         </div>
       </VideoBackground>
 
+      {/* Group Experience Cards */}
+      <section className="py-20 bg-white relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6 animate-in animate-fade-in animate-slide-up">
+              Choose Your Perfect
+              <span className="block mt-2 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
+                Group Package
+              </span>
+            </h2>
+            <p className="text-xl text-spa-stone-600 max-w-2xl mx-auto animate-in animate-fade-in animate-slide-up animate-delay-100">
+              Each experience is thoughtfully designed for connection and relaxation
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {groupPackages.map((pkg, index) => (
+              <div
+                key={pkg.id}
+                className={`group relative bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-luxury-lg transition-all duration-500 border border-spa-sage-100 hover:border-spa-gold-200 animate-in animate-fade-in animate-slide-up animate-delay-${(index + 1) * 100}`}
+              >
+                {/* Popular Badge */}
+                {pkg.isPopular && (
+                  <div className="absolute top-4 right-4 z-10 bg-spa-gold-500 text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-gold animate-pulse-subtle">
+                    <SparklesIcon className="h-4 w-4" />
+                    <span className="text-sm font-semibold">Most Popular</span>
+                  </div>
+                )}
+
+                {/* Hero Image */}
+                <div className="relative h-64 overflow-hidden bg-linear-to-br from-spa-sage-100 to-spa-gold-50">
+                  <Image
+                    src={pkg.imageUrl}
+                    alt={pkg.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-all duration-700 group-hover:scale-110"
+                    style={pkg.objectPosition ? { objectPosition: pkg.objectPosition } : undefined}
+                    quality={85}
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
+
+                  {/* Shimmer effect on hover */}
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -skew-x-12 group-hover:translate-x-full transition-all duration-1000 -translate-x-full" />
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6">
+                  <h3 className="text-2xl font-display font-bold text-spa-sage-900 mb-3 leading-tight group-hover:text-spa-gold-700 transition-colors duration-300">
+                    {pkg.name}
+                  </h3>
+
+                  <p className="text-spa-stone-600 mb-6 leading-relaxed">
+                    {pkg.description}
+                  </p>
+
+                  {/* CTA Button */}
+                  <a href={bookingUrl} className="mangomint-booking-button block">
+                    <Button
+                      variant="luxury"
+                      className="w-full group-hover:scale-105 transition-transform duration-300"
+                    >
+                      Book This Experience
+                      <ArrowRightIcon className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ULU Group Room Experience Section */}
       <section className="py-20 bg-white relative">
         <div className="max-w-5xl mx-auto px-6">
@@ -230,80 +304,6 @@ export default function GroupBookingsPage() {
           <p className="text-2xl font-display text-spa-gold-600 italic">
             Relax side by side. Reset deeply. Leave glowing.
           </p>
-        </div>
-      </section>
-
-      {/* Group Experience Cards */}
-      <section className="py-20 bg-white relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6 animate-in animate-fade-in animate-slide-up">
-              Choose Your Perfect
-              <span className="block mt-2 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
-                Group Package
-              </span>
-            </h2>
-            <p className="text-xl text-spa-stone-600 max-w-2xl mx-auto animate-in animate-fade-in animate-slide-up animate-delay-100">
-              Each experience is thoughtfully designed for connection and relaxation
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {groupPackages.map((pkg, index) => (
-              <div
-                key={pkg.id}
-                className={`group relative bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-luxury-lg transition-all duration-500 border border-spa-sage-100 hover:border-spa-gold-200 animate-in animate-fade-in animate-slide-up animate-delay-${(index + 1) * 100}`}
-              >
-                {/* Popular Badge */}
-                {pkg.isPopular && (
-                  <div className="absolute top-4 right-4 z-10 bg-spa-gold-500 text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-gold animate-pulse-subtle">
-                    <SparklesIcon className="h-4 w-4" />
-                    <span className="text-sm font-semibold">Most Popular</span>
-                  </div>
-                )}
-
-                {/* Hero Image */}
-                <div className="relative h-64 overflow-hidden bg-linear-to-br from-spa-sage-100 to-spa-gold-50">
-                  <Image
-                    src={pkg.imageUrl}
-                    alt={pkg.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-all duration-700 group-hover:scale-110"
-                    style={pkg.objectPosition ? { objectPosition: pkg.objectPosition } : undefined}
-                    quality={85}
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
-
-                  {/* Shimmer effect on hover */}
-                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -skew-x-12 group-hover:translate-x-full transition-all duration-1000 -translate-x-full" />
-                </div>
-
-                {/* Card Content */}
-                <div className="p-6">
-                  <h3 className="text-2xl font-display font-bold text-spa-sage-900 mb-3 leading-tight group-hover:text-spa-gold-700 transition-colors duration-300">
-                    {pkg.name}
-                  </h3>
-
-                  <p className="text-spa-stone-600 mb-6 leading-relaxed">
-                    {pkg.description}
-                  </p>
-
-                  {/* CTA Button */}
-                  <a href={bookingUrl} className="mangomint-booking-button block">
-                    <Button
-                      variant="luxury"
-                      className="w-full group-hover:scale-105 transition-transform duration-300"
-                    >
-                      Book This Experience
-                      <ArrowRightIcon className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
