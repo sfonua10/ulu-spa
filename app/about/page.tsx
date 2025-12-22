@@ -11,13 +11,15 @@ import {
   culturalStory
 } from '@/app/data/about';
 import {
-  SparklesIcon
+  SparklesIcon,
+  UserGroupIcon
 } from '@heroicons/react/24/outline';
 
 export default function AboutPage() {
   const { ref: heroRef, isInView: heroInView } = useInView({ threshold: 0.2 });
   const { ref: storyRef, isInView: storyInView } = useInView({ threshold: 0.2 });
   const { ref: foundersRef, isInView: foundersInView } = useInView({ threshold: 0.2 });
+  const { ref: specialistsRef, isInView: specialistsInView } = useInView({ threshold: 0.2 });
 
   return (
     <div className="relative">
@@ -198,6 +200,75 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Our Service Providers Section */}
+      <section
+        ref={specialistsRef}
+        className="py-20 md:py-24 bg-gradient-to-br from-spa-sage-50 via-white to-spa-gold-50/10 relative"
+      >
+        <div className="max-w-4xl mx-auto px-6">
+          <div className={`transition-all duration-1000 ${
+            specialistsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-white/80 backdrop-blur-sm border border-spa-sage-200 shadow-soft mb-8">
+                <UserGroupIcon className="w-6 h-6 text-spa-gold-600" />
+                <span className="text-xl font-display font-bold text-spa-sage-800">
+                  Our Service Providers
+                </span>
+              </div>
+            </div>
+
+            {/* Growing Team Message */}
+            <GlassCard blur="md" opacity={0.6} className="p-8 md:p-12 text-center relative overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-spa-gold-100/30 rounded-full blur-2xl" />
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-spa-sage-100/30 rounded-full blur-2xl" />
+
+              <div className="relative z-10">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-spa-gold-100 to-spa-sage-100 mx-auto mb-6 flex items-center justify-center">
+                  <UserGroupIcon className="w-10 h-10 text-spa-gold-600" />
+                </div>
+
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-stone-800 mb-4">
+                  Growing Our Team
+                </h3>
+
+                <p className="text-stone-600 leading-relaxed max-w-2xl mx-auto mb-6">
+                  Our team of skilled service providers is growing! Each specialist is carefully
+                  selected for their expertise, passion for wellness, and commitment to the ULU
+                  experience. We take pride in training our team in both modern techniques and
+                  traditional Polynesian wellness practices.
+                </p>
+
+                <p className="text-spa-gold-700 font-medium">
+                  Check back soon to meet the talented individuals who will be caring for you.
+                </p>
+              </div>
+            </GlassCard>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-spa-sage-800 to-stone-900">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+            Ready to Experience ULU?
+          </h2>
+          <p className="text-spa-sage-200 text-lg mb-8">
+            Book your appointment and let our team take care of you.
+          </p>
+          <a
+            href="https://booking.mangomint.com/904811"
+            className="mangomint-booking-button inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white rounded-full font-semibold hover:from-spa-gold-600 hover:to-spa-gold-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+          >
+            <SparklesIcon className="w-5 h-5" />
+            Book Your Visit
+          </a>
         </div>
       </section>
     </div>

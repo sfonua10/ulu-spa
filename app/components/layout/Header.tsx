@@ -12,7 +12,6 @@ const navigation = [
   { name: 'Gift Cards', href: '/gift-cards' },
   { name: 'Groups', href: '/group-bookings' },
   { name: 'About', href: '/about' },
-  { name: 'Team', href: '/team' },
   { name: 'Contact', href: '/contact' },
   { name: 'FAQ', href: '/faq' },
 ]
