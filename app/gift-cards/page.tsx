@@ -123,9 +123,13 @@ export default function GiftCardPage() {
           </p>
 
           {/* Occasion Pills */}
-          <p className="font-dancing text-2xl text-spa-gold-600 mb-4">
-            Perfect for Any Occasion
-          </p>
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <SparklesIcon className="h-6 w-6 text-spa-gold-400 animate-pulse" />
+            <p className="font-dancing text-3xl md:text-4xl text-spa-gold-600 drop-shadow-sm">
+              Perfect for Any Occasion
+            </p>
+            <SparklesIcon className="h-6 w-6 text-spa-gold-400 animate-pulse" />
+          </div>
           <div className="flex flex-wrap justify-center gap-3 mb-6">
             {[
               { icon: CakeIcon, label: 'Birthdays & Holidays' },
@@ -138,7 +142,7 @@ export default function GiftCardPage() {
             ].map((occasion) => (
               <div
                 key={occasion.label}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-spa-gold-200/50 text-spa-sage-700 text-sm font-medium hover:bg-spa-gold-50 hover:border-spa-gold-300 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-spa-gold-50 to-white border border-spa-gold-200/60 text-spa-sage-800 text-sm font-medium hover:from-spa-gold-100 hover:to-spa-gold-50 hover:border-spa-gold-300 hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all duration-300"
               >
                 <occasion.icon className="h-4 w-4 text-spa-gold-500" />
                 <span>{occasion.label}</span>
