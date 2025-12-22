@@ -92,6 +92,147 @@ export default function GroupBookingsPage() {
         </div>
       </VideoBackground>
 
+      {/* ULU Group Room Experience Section */}
+      <section className="py-20 bg-white relative">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12 animate-in animate-fade-in animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
+              ULU Group Room
+              <span className="block mt-2 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
+                Experience
+              </span>
+            </h2>
+            <p className="text-xl text-spa-stone-600 max-w-3xl mx-auto leading-relaxed">
+              Designed for connection, relaxation, and shared moments of presence — our ULU Group Room accommodates up to 4 guests together in one tranquil space. The room can also be divided into two semi-private lounge suites, perfect for couples, besties, or doubles who want to unwind side-by-side.
+            </p>
+          </div>
+
+          {/* Capacity and Perfect For Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* Capacity Details */}
+            <div className="bg-spa-cream-50 rounded-3xl p-8 border border-spa-sage-100 shadow-soft animate-in animate-fade-in animate-slide-up animate-delay-100">
+              <h3 className="text-2xl font-display font-bold text-spa-sage-800 mb-4">
+                Our Capacity
+              </h3>
+              <p className="text-spa-stone-600 leading-relaxed mb-4">
+                Alongside the group room, we offer <span className="font-semibold text-spa-sage-700">3 private VIP treatment rooms</span>, allowing us to host groups of up to <span className="font-semibold text-spa-gold-600">7 guests</span> at one time — with 4 guests together in the group suite and 3 guests experiencing their treatment in private rooms.
+              </p>
+              <p className="text-spa-stone-600 leading-relaxed">
+                This layout creates a seamless and elevated experience for your entire group.
+              </p>
+            </div>
+
+            {/* Perfect For */}
+            <div className="bg-spa-cream-50 rounded-3xl p-8 border border-spa-sage-100 shadow-soft animate-in animate-fade-in animate-slide-up animate-delay-200">
+              <h3 className="text-2xl font-display font-bold text-spa-sage-800 mb-4">
+                Perfect For
+              </h3>
+              <ul className="space-y-3 text-spa-stone-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Corporate wellness teams</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Bridal & wedding preparation groups</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Groomsmen relaxation retreats</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Birthdays & special celebrations</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Friends&apos; day out & shared wellness rituals</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Large Groups Callout */}
+          <div className="bg-spa-gold-50/50 rounded-3xl p-8 border border-spa-gold-200 animate-in animate-fade-in animate-slide-up animate-delay-300">
+            <h3 className="text-2xl font-display font-bold text-spa-sage-800 mb-4 text-center">
+              Groups of 8+
+            </h3>
+            <p className="text-spa-stone-600 leading-relaxed text-center max-w-3xl mx-auto">
+              If your group includes 8 guests or more, we invite you to enjoy your experience in two back-to-back waves, so every guest receives the full ULU experience without being rushed. <span className="font-semibold text-spa-sage-700">Calm, presence, and flow remain at the heart of the experience.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Group Booking Coordination Section */}
+      <section className="py-20 bg-gradient-to-br from-spa-sage-50/50 to-spa-cream-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12 animate-in animate-fade-in animate-slide-up">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-spa-sage-800 mb-4">
+              Group Booking Coordination
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* We Assist With */}
+            <div className="bg-white rounded-3xl p-8 border border-spa-sage-100 shadow-soft animate-in animate-fade-in animate-slide-up animate-delay-100">
+              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-4">
+                We will assist with:
+              </h3>
+              <ul className="space-y-3 text-spa-stone-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Scheduling and timing for your group size</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Determining who prefers together vs. private room treatment time</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Enhancements, upgrades, and celebration touches</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Guest List Request */}
+            <div className="bg-white rounded-3xl p-8 border border-spa-sage-100 shadow-soft animate-in animate-fade-in animate-slide-up animate-delay-200">
+              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-4">
+                We kindly request a guest list noting:
+              </h3>
+              <ul className="space-y-3 text-spa-stone-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Who would like to be in the Group Room</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Who prefers Private Room service</span>
+                </li>
+              </ul>
+              <p className="text-spa-stone-500 mt-6 italic text-sm">
+                This allows us to create a smooth, harmonious, and personalized group experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Your Shared Retreat Awaits Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center animate-in animate-fade-in animate-slide-up">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-spa-sage-800 mb-6">
+            Your Shared Retreat Awaits
+          </h2>
+          <p className="text-xl text-spa-stone-600 leading-relaxed mb-8 max-w-3xl mx-auto">
+            Whether you are celebrating, reconnecting, or simply taking time to breathe, our group room was created as a place for relaxation, presence, and renewal — together.
+          </p>
+          <p className="text-2xl font-display text-spa-gold-600 italic">
+            Relax side by side. Reset deeply. Leave glowing.
+          </p>
+        </div>
+      </section>
+
       {/* Group Experience Cards */}
       <section className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-6">
