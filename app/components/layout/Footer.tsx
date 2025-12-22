@@ -19,8 +19,9 @@ const footerLinks = {
   ],
   company: [
     { name: 'About Us', href: '/about' },
+    { name: 'Our Team', href: '/team' },
     { name: 'Memberships', href: '/memberships' },
-    { name: 'Gift Cards', href: 'https://clients.mangomint.com/gift-cards/uluspa' },
+    { name: 'Gift Cards', href: '/gift-cards' },
     { name: 'Contact', href: '/contact' },
   ],
   support: [

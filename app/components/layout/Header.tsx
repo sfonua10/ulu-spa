@@ -9,9 +9,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const navigation = [
   { name: 'Services', href: '/services' },
   { name: 'Memberships', href: '/memberships' },
-  { name: 'Cards', href: 'https://clients.mangomint.com/gift-cards/uluspa', external: true },
+  { name: 'Gift Cards', href: '/gift-cards' },
   { name: 'Groups', href: '/group-bookings' },
   { name: 'About', href: '/about' },
+  { name: 'Team', href: '/team' },
   { name: 'Contact', href: '/contact' },
   { name: 'FAQ', href: '/faq' },
 ]
@@ -42,11 +43,19 @@ export default function Header() {
   }
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20)
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -104,7 +113,6 @@ export default function Header() {
             <div key={item.name}>
               <Link
                 href={item.href}
-                {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className={`relative text-sm xl:text-base leading-6 whitespace-nowrap transition-all duration-300 after:absolute after:bottom-[-5px] after:left-0 after:h-0.5 after:bg-gold-300 after:transition-all after:duration-300 ${
                   isActive
                     ? `after:w-full font-semibold ${
@@ -186,7 +194,6 @@ export default function Header() {
                   >
                     <Link
                       href={item.href}
-                      {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                       className={`-mx-3 flex rounded-lg px-3 py-3 text-base leading-7 transition-colors duration-200 min-h-[44px] items-center ${
                         isActive
                           ? 'bg-gold-50 text-gold-600 font-semibold border-l-4 border-gold-500'

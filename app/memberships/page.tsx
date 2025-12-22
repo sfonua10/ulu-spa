@@ -323,6 +323,24 @@ export default function MembershipsPage() {
         </div>
       </section>
 
+      {/* Bi-Weekly Membership Info */}
+      <section className="py-12 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="bg-gradient-to-br from-spa-gold-50 to-spa-sage-50 rounded-2xl p-8 border border-spa-gold-200/50 shadow-soft">
+            <h3 className="text-2xl font-display font-bold text-spa-sage-800 mb-4 text-center">
+              Bi-Weekly Membership Options
+            </h3>
+            <p className="text-stone-700 leading-relaxed text-center">
+              Some guests prefer care every 2 weeks for stress relief, scalp maintenance, or faster progress.
+              We offer bi-weekly memberships for clients who want consistent support and premium savings.
+            </p>
+            <p className="text-spa-gold-700 font-medium mt-4 text-center">
+              Ask our team during your visit — we&apos;ll help you choose what fits best.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-spa-sage-800 to-stone-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">

@@ -44,7 +44,7 @@ export default function VideoBackground({
   const [dynamicScale, setDynamicScale] = useState(1)
   const videoRef = useRef<HTMLVideoElement>(null)
   const playAttemptsRef = useRef(0)
-  const maxPlayAttempts = 5
+  const maxPlayAttempts = 3 // Reduced from 5 for better performance
   const hasAttemptedPlayRef = useRef(false)
 
   useEffect(() => {
@@ -86,7 +86,7 @@ export default function VideoBackground({
     }
 
     calculateScale()
-    window.addEventListener('resize', calculateScale)
+    window.addEventListener('resize', calculateScale, { passive: true })
     return () => window.removeEventListener('resize', calculateScale)
   }, [videoAspectRatio, isMobile])
 
@@ -126,7 +126,7 @@ export default function VideoBackground({
       if (playAttemptsRef.current < maxPlayAttempts) {
         setTimeout(() => {
           attemptPlay()
-        }, 300 * playAttemptsRef.current) // Increasing delay with each attempt
+        }, 200 * playAttemptsRef.current) // Reduced delay for faster retries
       } else {
         // Show play button if all attempts failed
         setShowPlayButton(true)
@@ -265,8 +265,8 @@ export default function VideoBackground({
       }
     }
 
-    window.addEventListener('focus', handleFocus)
-    document.addEventListener('visibilitychange', handleVisibilityChange)
+    window.addEventListener('focus', handleFocus, { passive: true })
+    document.addEventListener('visibilitychange', handleVisibilityChange, { passive: true })
 
     // Intersection Observer to play when visible
     const observer = new IntersectionObserver(
@@ -293,8 +293,8 @@ export default function VideoBackground({
       document.removeEventListener('click', handleFirstInteraction)
     }
 
-    document.addEventListener('touchstart', handleFirstInteraction, { once: true })
-    document.addEventListener('click', handleFirstInteraction, { once: true })
+    document.addEventListener('touchstart', handleFirstInteraction, { once: true, passive: true })
+    document.addEventListener('click', handleFirstInteraction, { once: true, passive: true })
 
     return () => {
       video.removeEventListener('loadeddata', handleLoadedData)

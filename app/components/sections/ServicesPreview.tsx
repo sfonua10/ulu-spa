@@ -8,7 +8,8 @@ import ServiceDetailModal from '../ui/ServiceDetailModal'
 import { getMangoMintServiceUrl } from '@/app/utils/mangomint-urls'
 import {
   SparklesIcon,
-  StarIcon
+  StarIcon,
+  HeartIcon
 } from '@heroicons/react/24/outline'
 
 // Popular services from the main services list
@@ -20,7 +21,7 @@ const popularServices = [
     shortDesc: 'Ultimate 90-minute royal treatment',
     fullDesc: 'Our signature 90-minute royal treatment offering the ultimate in scalp massage luxury and relaxation. Experience the pinnacle of our head spa services with comprehensive scalp care and therapeutic massage.',
     duration: '90 min',
-    price: 202,
+    price: 210,
     imageUrl: '/images/services/royal-escape.png',
     benefits: ['Ultimate Relaxation', 'Premium Experience', 'Complete Wellness'],
     includes: [
@@ -82,6 +83,27 @@ const popularServices = [
     popular: false,
     category: 'iv-therapy',
     badgeType: 'popular' as const
+  },
+  {
+    id: 7,
+    icon: HeartIcon,
+    name: 'Pure Unwind',
+    shortDesc: 'Extended signature scratching',
+    fullDesc: 'A 75-minute extended signature scratching experience with hand and arm ritual extension and optional oil infusion (+$15) for ultimate relaxation and stress relief. We use soft scratch nails, gentle brushes, and sanitized tools to create a smooth, relaxing scratch sensation.',
+    duration: '75 min',
+    price: 170,
+    imageUrl: '/images/services/scratch-therapy-claw2.png',
+    benefits: ['Ultimate Relaxation', 'Sensory Therapy', 'Stress Relief'],
+    includes: [
+      'Extended signature scratching',
+      'Hand and arm ritual extension',
+      'Soft fan brushes & scratch tools',
+      'Deep relaxation',
+      'Optional oil infusion (+$15)'
+    ],
+    popular: false,
+    category: 'scratch-therapy',
+    badgeType: 'signature' as const
   }
 ]
 

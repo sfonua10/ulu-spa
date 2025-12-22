@@ -20,7 +20,7 @@ const generalFAQs = [
   },
   {
     question: 'Can I customize my treatment?',
-    answer: 'Absolutely! Our therapists consult with clients beforehand to tailor sessions based on individual needs like hydration, tension relief, or scalp cleansing. We believe in personalized care that addresses your specific wellness goals.',
+    answer: 'Absolutely! Our service providers consult with clients beforehand to tailor sessions based on individual needs like hydration, tension relief, or scalp cleansing. We believe in personalized care that addresses your specific wellness goals.',
   },
   {
     question: 'How should I prepare for my head spa session?',
@@ -28,7 +28,7 @@ const generalFAQs = [
   },
   {
     question: 'Do you accept walk-ins or is it by appointment only?',
-    answer: 'ULU Spa is by appointment only to ensure personalized care and minimal wait times. We recommend booking in advance to secure your preferred time slot.',
+    answer: 'ULU Spa is primarily appointment-based to ensure each guest receives dedicated time and attention. Walk-ins are welcome when availability allows, and we are happy to accommodate based on the next open appointment time. To guarantee your preferred provider and time, we recommend booking in advance.',
   },
   {
     question: 'What is your cancellation policy?',
@@ -38,12 +38,16 @@ const generalFAQs = [
     question: 'Is treatment suitable for everyone?',
     answer: 'Generally yes, our treatments are suitable for most people. However, those with severe eczema or psoriasis should consult healthcare providers first. Please inform us of any skin conditions or concerns during booking.',
   },
+  {
+    question: 'How long are your treatment sessions?',
+    answer: 'Our signature treatments are designed to be comprehensive 90-minute experiences, allowing ample time for consultation, treatment, and relaxation. We also offer 30, 60, and 75-minute options for guests with varying schedules. The full 90-minute sessions provide the most immersive and restorative experience.',
+  },
 ];
 
 const scratchTherapyFAQs = [
   {
     question: 'What is Scratch Therapy?',
-    answer: 'Scratch Therapy is a soothing, sensory-driven body treatment using gentle to firm scratching motions to relieve stress and activate the parasympathetic nervous system. It creates a deeply relaxing experience that many find profoundly calming.',
+    answer: 'Scratch Therapy is a soothing, sensory-driven body treatment using gentle to firm scratching motions to relieve stress and activate the parasympathetic nervous system. We use soft scratch nails, gentle brushes, and sanitized tools to create a smooth, relaxing scratch sensation—safe, soothing, and incredibly calming. Every tool is fully sanitized and selected for safety, comfort, and controlled sensory stimulation. Many guests experience ASMR-like tingling sensations and describe it as profoundly calming.',
   },
   {
     question: 'What are the benefits?',
@@ -63,7 +67,7 @@ const scratchTherapyFAQs = [
   },
   {
     question: 'How long is a session?',
-    answer: 'Sessions range from 30 to 60 minutes depending on your preference and package selection. Scratch Therapy can also be added as an upgrade to other services for an enhanced experience.',
+    answer: 'Our Scratch Therapy sessions range from 30 to 90 minutes. The 30-minute Island Drift focuses on back and shoulders, the 60-minute Heavenly Glide provides full-body sensory restoration, the 75-minute Pure Unwind includes hand and arm ritual extensions, and our signature 90-minute ULU Trace offers the most immersive full-body experience with Tongan brush technique and skin drumming. Scratch Therapy can also be added as an upgrade to other services.',
   },
   {
     question: 'Can I add Scratch Therapy to another service?',

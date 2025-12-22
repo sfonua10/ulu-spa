@@ -4,11 +4,17 @@ import React from 'react'
 import Image from 'next/image'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { testimonials, type Testimonial } from '@/app/data/testimonials'
+import MobileTestimonialsCarousel from '@/app/components/ui/MobileTestimonialsCarousel'
 
-// Create balanced arrays for the two rows with more variety
+// Create balanced arrays for the two rows with more variety (Desktop)
 // Using a larger selection to avoid visible repetition
 const firstRowTestimonials = testimonials.slice(0, 12) // First 12 testimonials
 const secondRowTestimonials = testimonials.slice(10, 22) // Different 12 testimonials with slight overlap
+
+// Select best testimonials for mobile (longer, more descriptive reviews)
+const mobileTestimonials = testimonials
+  .filter(t => t.content.length > 80)
+  .slice(0, 6)
 
 // Testimonial Card Component  
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
@@ -105,12 +111,17 @@ export default function TestimonialsSection() {
         </p>
       </div>
 
-      {/* Infinite Scrolling Testimonials */}
-      <div className="relative py-12">
+      {/* Mobile Carousel - Single Row, Swipe Only */}
+      <div className="md:hidden py-8">
+        <MobileTestimonialsCarousel testimonials={mobileTestimonials} />
+      </div>
+
+      {/* Desktop Infinite Scrolling Testimonials */}
+      <div className="hidden md:block relative py-12">
         {/* First Row - Scrolling Left */}
         <div className="testimonials-row mb-4">
           <div className="flex testimonials-scroll-left py-4">
-            {Array(2).fill(null).map((_, setIndex) => 
+            {Array(2).fill(null).map((_, setIndex) =>
               firstRowTestimonials.map((testimonial, index) => (
                 <div key={`first-${setIndex}-${index}`} className="my-4">
                   <TestimonialCard testimonial={testimonial} />
@@ -123,7 +134,7 @@ export default function TestimonialsSection() {
         {/* Second Row - Scrolling Right */}
         <div className="testimonials-row">
           <div className="flex testimonials-scroll-right py-4">
-            {Array(2).fill(null).map((_, setIndex) => 
+            {Array(2).fill(null).map((_, setIndex) =>
               secondRowTestimonials.map((testimonial, index) => (
                 <div key={`second-${setIndex}-${index}`} className="my-4">
                   <TestimonialCard testimonial={testimonial} />
@@ -134,8 +145,8 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Enhanced Gradient Overlays for Seamless Effect */}
-        <div className="absolute inset-y-0 left-0 w-8 md:w-40 bg-gradient-to-r from-luxury-warm-50 via-luxury-warm-50/60 to-transparent pointer-events-none z-10"></div>
-        <div className="absolute inset-y-0 right-0 w-8 md:w-40 bg-gradient-to-l from-luxury-warm-100 via-luxury-warm-100/60 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-luxury-warm-50 via-luxury-warm-50/60 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-luxury-warm-100 via-luxury-warm-100/60 to-transparent pointer-events-none z-10"></div>
       </div>
 
       {/* Stats Section */}

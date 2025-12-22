@@ -166,6 +166,132 @@ export default function GroupBookingsPage() {
         </div>
       </section>
 
+      {/* Group Booking & Gift Card Policy Section */}
+      <section className="py-20 bg-gradient-to-br from-spa-cream-50 to-spa-sage-50/30">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-spa-sage-800 mb-4">
+              Group Booking & Gift Card Policy
+            </h2>
+            <p className="text-lg text-spa-stone-600">
+              Important information for group reservations
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {/* Group Reservation Requirements */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-soft border border-spa-sage-100">
+              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-4">
+                Group Reservation Requirements
+              </h3>
+              <ul className="space-y-3 text-spa-stone-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Groups are 3 or more guests</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>A valid debit/credit card is required to secure appointments</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>A non-refundable deposit may be required</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span><strong>Deposits cannot be paid using gift cards</strong></span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Gift Card Usage for Groups */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-soft border border-spa-sage-100">
+              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-4">
+                Using Gift Cards for Groups
+              </h3>
+              <ul className="space-y-3 text-spa-stone-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Gift cards may be redeemed individually at checkout</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span><strong>One gift card per guest, per visit</strong></span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Valid toward regular-priced services</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Any remaining balance stays on the card for future visits</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Gift Card Restrictions for Groups */}
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-soft border border-spa-sage-100">
+              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-4">
+                Gift Cards Cannot Be Used For
+              </h3>
+              <ul className="space-y-3 text-spa-stone-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Deposits or reservation holds</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Group or corporate discounted rates</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Seasonal or promotional pricing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Membership pricing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Cancellation fees or no-shows</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Gratuity</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Individual Payment */}
+            <div className="bg-spa-gold-50/50 rounded-2xl p-6 md:p-8 border border-spa-gold-200">
+              <h3 className="text-xl font-display font-bold text-spa-sage-800 mb-4">
+                Individual Payment
+              </h3>
+              <p className="text-spa-stone-600 leading-relaxed mb-4">
+                Each guest in a group booking is responsible for:
+              </p>
+              <ul className="space-y-3 text-spa-stone-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Their own payment method</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Their own gratuity</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-spa-gold-500 font-bold mt-1">•</span>
+                  <span>Their own gift card use</span>
+                </li>
+              </ul>
+              <p className="text-spa-stone-600 mt-4 italic">
+                Gift cards cannot be pooled or shared across guests.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6">

@@ -9,7 +9,29 @@ import CategoryCard from '../components/ui/CategoryCard'
 import ServiceDetailModal from '../components/ui/ServiceDetailModal'
 import { getMangoMintServiceUrl } from '../utils/mangomint-urls'
 import { services } from '../data/services'
-import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+import {
+  ArrowLeftIcon,
+  SparklesIcon,
+  HandRaisedIcon,
+  FireIcon,
+  ScissorsIcon,
+  HeartIcon,
+  UserIcon
+} from '@heroicons/react/24/outline'
+
+// Icon mapping for add-on services
+const addOnIcons: Record<string, React.ComponentType<{className?: string}>> = {
+  '30-min Facial': SparklesIcon,
+  'Hot Stones Enhancement': FireIcon,
+  'Scratch Therapy Add-on': HandRaisedIcon,
+  'Beard Treatment': UserIcon,
+  'Hair Play': SparklesIcon,
+  'Foot Massage': HeartIcon,
+  'Hand Massage': HandRaisedIcon,
+  'Scalp Massage': SparklesIcon,
+  'Full Blow Out & Style': SparklesIcon,
+  'Hair Extension Removal': ScissorsIcon,
+}
 
 // Category definitions with taglines and representative images
 const categoryData = [
@@ -228,22 +250,42 @@ export default function ServicesPage() {
 
           {/* Add-ons Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {addOnServices.map((addon) => (
-              <a
-                key={addon.id}
-                href={getMangoMintServiceUrl(addon.name)}
-                className="group bg-spa-sage-50/50 hover:bg-spa-sage-100/70 border border-spa-sage-200/60 hover:border-spa-sage-300 rounded-xl p-4 transition-all duration-200 hover:shadow-md"
-              >
-                <h3 className="font-semibold text-spa-sage-800 text-sm mb-1 group-hover:text-spa-gold-700 transition-colors">
-                  {addon.name}
-                </h3>
-                <div className="flex items-center gap-1.5 text-xs text-stone-500">
-                  <span>{addon.duration}</span>
-                  <span className="text-spa-gold-500">•</span>
-                  <span className="font-medium text-spa-gold-600">${addon.price}</span>
-                </div>
-              </a>
-            ))}
+            {addOnServices.map((addon) => {
+              const IconComponent = addOnIcons[addon.name] || SparklesIcon
+              return (
+                <a
+                  key={addon.id}
+                  href={getMangoMintServiceUrl(addon.name)}
+                  className="group relative bg-white hover:bg-spa-sage-50 border border-spa-sage-200 hover:border-spa-gold-300 rounded-2xl p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden"
+                >
+                  {/* Subtle gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-spa-gold-50/0 to-spa-gold-100/0 group-hover:from-spa-gold-50/50 group-hover:to-spa-gold-100/30 transition-all duration-300 rounded-2xl" />
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    {/* Icon */}
+                    <div className="w-10 h-10 rounded-full bg-spa-sage-100 group-hover:bg-spa-gold-100 flex items-center justify-center mb-3 transition-colors duration-300">
+                      <IconComponent className="w-5 h-5 text-spa-sage-600 group-hover:text-spa-gold-600 transition-colors duration-300" />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-semibold text-spa-sage-800 text-sm mb-2 group-hover:text-spa-gold-700 transition-colors duration-300 leading-tight">
+                      {addon.name}
+                    </h3>
+
+                    {/* Duration & Price */}
+                    <div className="flex items-center gap-2 text-xs">
+                      <span className="text-stone-500">{addon.duration}</span>
+                      <span className="w-1 h-1 rounded-full bg-spa-gold-400" />
+                      <span className="font-semibold text-spa-gold-600">${addon.price}</span>
+                    </div>
+                  </div>
+
+                  {/* Hover indicator */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-spa-gold-400 to-spa-gold-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                </a>
+              )
+            })}
           </div>
         </div>
       </section>
