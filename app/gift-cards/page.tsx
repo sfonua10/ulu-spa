@@ -12,7 +12,9 @@ import {
   ChevronDownIcon,
   CakeIcon,
   HeartIcon,
-  StarIcon
+  StarIcon,
+  UserGroupIcon,
+  BriefcaseIcon
 } from '@heroicons/react/24/outline'
 
 // Gift Card FAQ Accordion Item
@@ -107,24 +109,31 @@ export default function GiftCardPage() {
             <span className="uppercase tracking-wide">The Perfect Present</span>
           </div>
 
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-spa-sage-900 mb-6">
-            Give the Gift of{' '}
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-spa-sage-900 mb-6">
+            Give the Gift Everyone Wants —{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-spa-gold-500 to-spa-gold-600">
-              Wellness
+              Relaxation, Reset, & Renewal
             </span>
           </h1>
 
           <p className="font-montserrat text-xl text-spa-stone-600 leading-relaxed max-w-2xl mx-auto mb-8">
-            Share the luxury of relaxation and restoration with someone special.
-            ULU Spa gift cards are the perfect way to show you care.
+            ULU Spa Gift Cards are more than a present — they&apos;re an experience.
+            Thoughtful, flexible, and deeply relaxing, they allow your recipient to choose
+            the service that best supports their mind, body, and well-being.
           </p>
 
           {/* Occasion Pills */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <p className="font-dancing text-2xl text-spa-gold-600 mb-4">
+            Perfect for Any Occasion
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
             {[
-              { icon: CakeIcon, label: 'Birthdays' },
+              { icon: CakeIcon, label: 'Birthdays & Holidays' },
               { icon: HeartIcon, label: 'Anniversaries' },
-              { icon: GiftIcon, label: 'Holidays' },
+              { icon: UserGroupIcon, label: 'New Parents' },
+              { icon: SparklesIcon, label: 'Self-Care Reset' },
+              { icon: GiftIcon, label: 'Thank You' },
+              { icon: BriefcaseIcon, label: 'Employee Appreciation' },
               { icon: StarIcon, label: 'Just Because' },
             ].map((occasion) => (
               <div
@@ -136,6 +145,9 @@ export default function GiftCardPage() {
               </div>
             ))}
           </div>
+          <p className="text-spa-stone-500 italic text-lg mb-10">
+            Because the best gifts aren&apos;t things — they&apos;re moments of rest.
+          </p>
 
           <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer">
             <Button variant="luxury" size="lg" className="px-12 py-4 text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
