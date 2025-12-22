@@ -9,7 +9,10 @@ import {
   ClockIcon,
   CreditCardIcon,
   DevicePhoneMobileIcon,
-  ChevronDownIcon
+  ChevronDownIcon,
+  CakeIcon,
+  HeartIcon,
+  StarIcon
 } from '@heroicons/react/24/outline'
 
 // Gift Card FAQ Accordion Item
@@ -111,10 +114,28 @@ export default function GiftCardPage() {
             </span>
           </h1>
 
-          <p className="font-montserrat text-xl text-spa-stone-600 leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="font-montserrat text-xl text-spa-stone-600 leading-relaxed max-w-2xl mx-auto mb-8">
             Share the luxury of relaxation and restoration with someone special.
             ULU Spa gift cards are the perfect way to show you care.
           </p>
+
+          {/* Occasion Pills */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {[
+              { icon: CakeIcon, label: 'Birthdays' },
+              { icon: HeartIcon, label: 'Anniversaries' },
+              { icon: GiftIcon, label: 'Holidays' },
+              { icon: StarIcon, label: 'Just Because' },
+            ].map((occasion) => (
+              <div
+                key={occasion.label}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-spa-gold-200/50 text-spa-sage-700 text-sm font-medium hover:bg-spa-gold-50 hover:border-spa-gold-300 transition-all duration-300"
+              >
+                <occasion.icon className="h-4 w-4 text-spa-gold-500" />
+                <span>{occasion.label}</span>
+              </div>
+            ))}
+          </div>
 
           <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer">
             <Button variant="luxury" size="lg" className="px-12 py-4 text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
