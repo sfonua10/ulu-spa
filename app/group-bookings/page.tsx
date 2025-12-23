@@ -152,7 +152,7 @@ export default function GroupBookingsPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6 animate-in animate-fade-in animate-slide-up">
               Choose Your Perfect
-              <span className="block mt-2 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
+              <span className="block mt-2 pb-1 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Group Package
               </span>
             </h2>
@@ -226,7 +226,7 @@ export default function GroupBookingsPage() {
           <div className="text-center mb-12 animate-in animate-fade-in animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
               ULU Group Room
-              <span className="block mt-2 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
+              <span className="block mt-2 pb-1 bg-linear-to-r from-spa-gold-600 to-spa-gold-500 bg-clip-text text-transparent">
                 Experience
               </span>
             </h2>

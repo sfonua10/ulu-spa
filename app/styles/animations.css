@@ -1107,6 +1107,45 @@
   animation: skeletonLoading 1.5s ease-in-out infinite;
 }
 
+/* Text Shimmer Effect - Continuous shine sweep */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    currentColor 0%,
+    currentColor 40%,
+    rgba(212, 175, 55, 0.9) 50%,
+    currentColor 60%,
+    currentColor 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 3s ease-in-out infinite;
+}
+
+/* Gold Text with White Shimmer - Premium variant */
+.text-shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    #D4AF37 0%,
+    #D4AF37 40%,
+    #FFFFFF 50%,
+    #D4AF37 60%,
+    #D4AF37 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 3s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: -100% 50%; }
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   *,

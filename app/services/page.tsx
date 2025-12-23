@@ -314,12 +314,12 @@ export default function ServicesPage() {
                 className="mangomint-booking-button inline-block"
               >
                 <Button variant="luxury" size="lg" className="px-12 w-full">
-                  Book Consultation
+                  Book Now
                 </Button>
               </a>
               <a href="tel:+18015287368" className="inline-block">
                 <Button variant="outline" size="lg" className="px-12 w-full">
-                  Call (801) 528-7368
+                  Call Us
                 </Button>
               </a>
             </div>

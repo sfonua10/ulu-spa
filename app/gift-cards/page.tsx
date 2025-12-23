@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { GlassCard } from '@/app/components/ui/GlassCard'
 import { Button } from '@/app/components/ui/Button'
+import { useInView } from '@/app/hooks/useInView'
 import {
   GiftIcon,
   SparklesIcon,
@@ -12,9 +13,9 @@ import {
   ChevronDownIcon,
   CakeIcon,
   HeartIcon,
-  StarIcon,
   UserGroupIcon,
-  BriefcaseIcon
+  BriefcaseIcon,
+  StarIcon
 } from '@heroicons/react/24/outline'
 
 // Gift Card FAQ Accordion Item
@@ -63,6 +64,11 @@ export default function GiftCardPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const giftCardPurchaseUrl = 'https://clients.mangomint.com/gift-cards/uluspa'
   const bookingUrl = 'https://booking.mangomint.com/904811'
+
+  const { ref: occasionsRef, isInView: occasionsInView } = useInView<HTMLDivElement>({
+    threshold: 0.2,
+    triggerOnce: true,
+  })
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
@@ -116,41 +122,15 @@ export default function GiftCardPage() {
             </span>
           </h1>
 
-          <p className="font-montserrat text-xl text-spa-stone-600 leading-relaxed max-w-2xl mx-auto mb-8">
+          <p className="font-montserrat text-xl text-spa-stone-600 leading-relaxed max-w-2xl mx-auto mb-4">
             ULU Spa Gift Cards are more than a present — they&apos;re an experience.
             Thoughtful, flexible, and deeply relaxing, they allow your recipient to choose
             the service that best supports their mind, body, and well-being.
           </p>
 
-          {/* Occasion Pills */}
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <SparklesIcon className="h-6 w-6 text-spa-gold-400 animate-pulse" />
-            <p className="font-dancing text-3xl md:text-4xl text-spa-gold-600 drop-shadow-sm">
-              Perfect for Any Occasion
-            </p>
-            <SparklesIcon className="h-6 w-6 text-spa-gold-400 animate-pulse" />
-          </div>
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
-            {[
-              { icon: CakeIcon, label: 'Birthdays & Holidays' },
-              { icon: HeartIcon, label: 'Anniversaries' },
-              { icon: UserGroupIcon, label: 'New Parents' },
-              { icon: SparklesIcon, label: 'Self-Care Reset' },
-              { icon: GiftIcon, label: 'Thank You' },
-              { icon: BriefcaseIcon, label: 'Employee Appreciation' },
-              { icon: StarIcon, label: 'Just Because' },
-            ].map((occasion) => (
-              <div
-                key={occasion.label}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-spa-gold-50 to-white border border-spa-gold-200/60 text-spa-sage-800 text-sm font-medium hover:from-spa-gold-100 hover:to-spa-gold-50 hover:border-spa-gold-300 hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all duration-300"
-              >
-                <occasion.icon className="h-4 w-4 text-spa-gold-500" />
-                <span>{occasion.label}</span>
-              </div>
-            ))}
-          </div>
-          <p className="text-spa-stone-500 italic text-lg mb-10">
-            Because the best gifts aren&apos;t things — they&apos;re moments of rest.
+          <p className="font-montserrat text-lg text-spa-stone-500 leading-relaxed max-w-2xl mx-auto mb-10">
+            From luxurious scalp therapy to rejuvenating facials and calming add-ons,
+            each visit is designed to help them unplug, reset, and feel restored.
           </p>
 
           <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer">
@@ -159,6 +139,52 @@ export default function GiftCardPage() {
               Purchase Gift Card
             </Button>
           </a>
+        </div>
+      </section>
+
+      {/* Perfect for Any Occasion */}
+      <section ref={occasionsRef} className="relative py-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white/40 backdrop-blur-sm rounded-3xl border border-spa-gold-100/50 p-8 md:p-12 text-center">
+            <h2
+              className={`font-dancing text-4xl md:text-5xl pb-1 mb-12 transition-all duration-700 ${
+                occasionsInView ? 'opacity-100 translate-y-0 text-shimmer-gold' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              Perfect for Any Occasion
+            </h2>
+
+            <div className={`grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 mb-12 ${occasionsInView ? 'stagger-animation' : ''}`}>
+              {[
+                { icon: CakeIcon, label: 'Birthdays & Holidays' },
+                { icon: HeartIcon, label: 'Anniversaries' },
+                { icon: UserGroupIcon, label: 'New Parents' },
+                { icon: GiftIcon, label: 'Thank You' },
+                { icon: BriefcaseIcon, label: 'Employee Appreciation' },
+                { icon: StarIcon, label: 'Just Because' },
+              ].map((occasion) => (
+                <div
+                  key={occasion.label}
+                  className="flex flex-col items-center gap-3 p-4 rounded-2xl cursor-default hover-glow transition-all duration-300 hover:scale-105 hover:bg-white/50"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-spa-gold-100 to-spa-gold-50 flex items-center justify-center shadow-sm">
+                    <occasion.icon className="h-7 w-7 text-spa-gold-600" />
+                  </div>
+                  <span className="font-montserrat text-spa-sage-800 font-medium">
+                    {occasion.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <p
+              className={`font-dancing text-2xl md:text-3xl text-spa-gold-600 drop-shadow-sm transition-all duration-700 delay-700 ${
+                occasionsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              Because the best gifts aren&apos;t things — they&apos;re moments of rest.
+            </p>
+          </div>
         </div>
       </section>
 
