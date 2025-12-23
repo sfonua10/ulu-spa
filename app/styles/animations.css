@@ -1146,6 +1146,39 @@
   100% { background-position: -100% 50%; }
 }
 
+/* One-time shimmer on load - gold gradient with light sweep */
+.text-shimmer-once {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(to right, #d4ae37, #c9a030);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-shimmer-once::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmerSweep 2s ease-in-out 0.8s forwards;
+  pointer-events: none;
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   *,

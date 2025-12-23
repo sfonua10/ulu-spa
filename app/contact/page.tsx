@@ -8,8 +8,10 @@ import {
   Clock,
   Navigation,
   Calendar,
-  Sparkles
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
+import Link from 'next/link';
 import ContactCard from '@/app/components/ui/ContactCard';
 import ParticleField from '@/app/components/ui/ParticleField';
 import FloatingElements from '@/app/components/ui/FloatingElements';
@@ -86,13 +88,38 @@ export default function ContactPage() {
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-spa-cream-50/30 to-white" />
 
+        {/* Decorative background elements */}
+        <div className="absolute top-20 left-10 w-64 h-64 bg-spa-gold-200/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-64 h-64 bg-spa-sage-200/20 rounded-full blur-3xl" />
+
         <div className="container mx-auto px-4 relative">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Section Header */}
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <div className="w-12 h-px bg-gradient-to-r from-transparent to-spa-gold-400" />
+              <Sparkles className="w-4 h-4 text-spa-gold-500" />
+              <span className="text-sm font-montserrat font-medium text-spa-gold-600 uppercase tracking-widest">
+                Ways to Connect
+              </span>
+              <Sparkles className="w-4 h-4 text-spa-gold-500" />
+              <div className="w-12 h-px bg-gradient-to-l from-transparent to-spa-gold-400" />
+            </div>
+            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-stone-900">
+              We&apos;d Love to Hear From You
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             {/* Visit Us Card */}
             <ContactCard
               icon={<MapPin className="w-8 h-8" />}
               title="Visit Us"
               delay={0}
+              footer={
+                <p className="text-sm text-stone-600">
+                  <strong className="text-stone-900">Parking:</strong> Free parking available on-site
+                </p>
+              }
             >
               <p className="font-montserrat leading-relaxed">
                 {contactInfo.address}
@@ -106,11 +133,6 @@ export default function ContactPage() {
                 <Navigation className="w-4 h-4" />
                 Get Directions
               </a>
-              <div className="mt-4 pt-4 border-t border-stone-200">
-                <p className="text-sm text-stone-600">
-                  <strong className="text-stone-900">Parking:</strong> Free parking available on-site
-                </p>
-              </div>
             </ContactCard>
 
             {/* Reach Us Card */}
@@ -118,6 +140,11 @@ export default function ContactPage() {
               icon={<Phone className="w-8 h-8" />}
               title="Reach Us"
               delay={100}
+              footer={
+                <p className="text-sm text-stone-600">
+                  We typically respond within 24 hours
+                </p>
+              }
             >
               <div className="space-y-3">
                 <a
@@ -135,11 +162,6 @@ export default function ContactPage() {
                   {contactInfo.email}
                 </a>
               </div>
-              <div className="mt-4 pt-4 border-t border-stone-200">
-                <p className="text-sm text-stone-600">
-                  We typically respond within 24 hours
-                </p>
-              </div>
             </ContactCard>
 
             {/* Hours Card */}
@@ -147,6 +169,12 @@ export default function ContactPage() {
               icon={<Clock className="w-8 h-8" />}
               title="Hours"
               delay={200}
+              footer={
+                <p className="text-sm text-stone-600 flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  By appointment only
+                </p>
+              }
             >
               <div className="space-y-2 font-montserrat">
                 <div className="flex justify-between items-center">
@@ -158,13 +186,19 @@ export default function ContactPage() {
                   <span className="text-stone-700">10AM - 6PM</span>
                 </div>
               </div>
-              <div className="mt-4 pt-4 border-t border-stone-200">
-                <p className="text-sm text-stone-600 flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  By appointment only
-                </p>
-              </div>
             </ContactCard>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '300ms' }}>
+            <p className="text-stone-600 font-montserrat mb-4">Ready to relax?</p>
+            <Link
+              href="/book"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white font-montserrat font-semibold rounded-full hover:from-spa-gold-600 hover:to-spa-gold-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+            >
+              Book Your Appointment
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>

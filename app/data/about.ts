@@ -26,7 +26,7 @@ export const founders: Founder[] = [
     role: 'Co-Founder',
     bio: 'Passionate about bringing Polynesian wellness traditions to modern spa experiences.',
     image: '/images/founders/jobi-niu.webp',
-    imagePosition: 'center'
+    imagePosition: 'center 30%'
   },
   {
     name: 'Enoch Niu',
@@ -40,7 +40,7 @@ export const founders: Founder[] = [
     role: 'Co-Founder',
     bio: 'Committed to helping guests find restoration, clarity, and connection through intentional care.',
     image: '/images/founders/grace-niu.webp',
-    imagePosition: 'center'
+    imagePosition: 'bottom'
   }
 ];
 
