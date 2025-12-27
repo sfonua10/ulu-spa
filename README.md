@@ -1,37 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ULU Head Spa
+
+A luxury head spa website built with Next.js 16 and React 19, featuring an elegant design with glass morphism effects, video backgrounds, and seamless MangoMint booking integration.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **UI**: React 19
+- **Styling**: Tailwind CSS v4
+- **Icons**: Lucide React, Heroicons, React Icons
+- **UI Components**: Headless UI
+- **Booking**: MangoMint Integration
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+
+# Run linting
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+├── components/
+│   ├── layout/        # Header, Footer
+│   ├── sections/      # Page sections (Hero, Services, Testimonials, CTA)
+│   ├── ui/            # Reusable UI components
+│   └── seo/           # SEO components (JsonLd)
+├── constants/         # Centralized configuration
+├── contexts/          # React contexts (AnimationContext)
+├── data/              # Static data (services, testimonials, team)
+├── hooks/             # Custom React hooks
+├── lib/               # Utilities and analytics
+├── styles/            # Custom CSS animations
+└── [routes]/          # Page routes (services, memberships, about, etc.)
+```
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Luxury Design**: Glass morphism, floating elements, particle effects
+- **Video Backgrounds**: Full-screen hero with video support
+- **MangoMint Integration**: Seamless booking and scheduling
+- **Responsive**: Mobile-first design approach
+- **SEO Optimized**: Sitemap, structured data (JSON-LD)
+- **Analytics**: Google Analytics integration
+- **Custom Typography**: Playfair Display, Montserrat, Dancing Script
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Deploy on [Vercel](https://vercel.com) for optimal Next.js performance:
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# ulu-spa
+See [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying) for other platforms.
