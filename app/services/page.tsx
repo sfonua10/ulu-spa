@@ -18,7 +18,6 @@ import {
   HeartIcon,
   UserIcon
 } from '@heroicons/react/24/outline'
-import { ServiceSchema } from '../components/seo/JsonLd'
 
 // Icon mapping for add-on services
 const addOnIcons: Record<string, React.ComponentType<{className?: string}>> = {
@@ -106,21 +105,9 @@ export default function ServicesPage() {
     return category?.name || ''
   }
 
-  // Prepare services data for schema (excluding add-ons)
-  const schemaServices = mainServices.map(s => ({
-    name: s.name,
-    description: s.fullDesc,
-    price: s.price,
-    duration: s.duration,
-    image: s.imageUrl,
-    category: s.category
-  }))
 
   return (
     <div className="relative">
-      {/* Service Schema for SEO */}
-      <ServiceSchema services={schemaServices} />
-
       {/* Video Hero Section */}
       <VideoBackground
         videoSrc="/videos/ulu-facial-site-optimized.mp4"
