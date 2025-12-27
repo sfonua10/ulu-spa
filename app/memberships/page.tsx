@@ -4,6 +4,7 @@ import { Button } from '../components/ui/Button'
 import { CheckIcon } from '@heroicons/react/24/outline'
 import VideoBackground from '../components/ui/VideoBackground'
 import { useInView } from '../hooks/useInView'
+import Breadcrumb from '../components/ui/Breadcrumb'
 
 const memberships = [
   {
@@ -150,11 +151,18 @@ export default function MembershipsPage() {
               Membership Plans
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
-              Invest in your wellness journey with exclusive benefits and significant savings
+              Invest in your wellness journey with exclusive benefits and significant savings on our <a href="/services" className="text-spa-gold-300 hover:text-spa-gold-200 underline">premium spa services</a>
             </p>
           </div>
         </div>
       </VideoBackground>
+
+      {/* Breadcrumb */}
+      <div className="bg-white border-b border-spa-sage-100">
+        <div className="max-w-7xl mx-auto px-6 py-3">
+          <Breadcrumb items={[{ name: 'Memberships', href: '/memberships' }]} />
+        </div>
+      </div>
 
       {/* Pricing Cards */}
       <section className="py-16 bg-white">
@@ -335,7 +343,7 @@ export default function MembershipsPage() {
               We offer bi-weekly memberships for clients who want consistent support and premium savings.
             </p>
             <p className="text-spa-gold-700 font-medium mt-4 text-center">
-              Ask our team during your visit — we&apos;ll help you choose what fits best.
+              <a href="/contact" className="hover:text-spa-gold-800 underline">Contact our team</a> or ask during your visit — we&apos;ll help you choose what fits best.
             </p>
           </div>
         </div>
@@ -360,8 +368,8 @@ export default function MembershipsPage() {
               </span>
             </h2>
             <p className="text-xl text-spa-sage-200 leading-relaxed">
-              Start your membership today and take the first step toward lasting wellness. 
-              Your future self will thank you.
+              Start your membership today and take the first step toward lasting wellness.
+              Not sure which plan is right for you? <a href="/faq" className="text-spa-gold-400 hover:text-spa-gold-300 underline">Check our FAQ</a> or call for a consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a

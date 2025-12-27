@@ -34,7 +34,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
               {testimonial.avatarImage ? (
                 <Image
                   src={testimonial.avatarImage}
-                  alt={testimonial.name}
+                  alt={`Profile photo of ${testimonial.name}`}
                   width={48}
                   height={48}
                   className="rounded-full object-cover"

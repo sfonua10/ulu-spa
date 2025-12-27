@@ -31,7 +31,7 @@ export default function CategoryCard({
       {/* Background Image */}
       <Image
         src={imageUrl}
-        alt={name}
+        alt={`${name} spa services at ULU Spa`}
         fill
         sizes="(max-width: 768px) 100vw, 50vw"
         className={`object-cover transition-all duration-700 ${

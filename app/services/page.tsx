@@ -18,6 +18,8 @@ import {
   HeartIcon,
   UserIcon
 } from '@heroicons/react/24/outline'
+import Breadcrumb from '../components/ui/Breadcrumb'
+import { ServiceSchema } from '../components/seo/JsonLd'
 
 // Icon mapping for add-on services
 const addOnIcons: Record<string, React.ComponentType<{className?: string}>> = {
@@ -105,8 +107,21 @@ export default function ServicesPage() {
     return category?.name || ''
   }
 
+  // Prepare services data for schema (excluding add-ons)
+  const schemaServices = mainServices.map(s => ({
+    name: s.name,
+    description: s.fullDesc,
+    price: s.price,
+    duration: s.duration,
+    image: s.imageUrl,
+    category: s.category
+  }))
+
   return (
     <div className="relative">
+      {/* Service Schema for SEO */}
+      <ServiceSchema services={schemaServices} />
+
       {/* Video Hero Section */}
       <VideoBackground
         videoSrc="/videos/ulu-facial-site-optimized.mp4"
@@ -125,6 +140,13 @@ export default function ServicesPage() {
           </div>
         </div>
       </VideoBackground>
+
+      {/* Breadcrumb */}
+      <div className="bg-white border-b border-spa-sage-100">
+        <div className="max-w-6xl mx-auto px-6 py-3">
+          <Breadcrumb items={[{ name: 'Services', href: '/services' }]} />
+        </div>
+      </div>
 
       {/* Main Content Section */}
       <section className="relative py-16 bg-gradient-to-br from-spa-sage-50/30 via-white to-spa-cream-50/40 overflow-hidden">

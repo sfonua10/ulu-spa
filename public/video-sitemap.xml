@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://www.uluspas.com/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.uluspas.com/images/hero-poster.jpg</video:thumbnail_loc>
+      <video:title>ULU Head Spa - Luxury Spa Experience</video:title>
+      <video:description>Experience the ultimate relaxation at ULU Head Spa in Pleasant Grove, Utah. Our Polynesian-inspired wellness treatments include scalp massages, scratch therapy, facials, and IV therapy.</video:description>
+      <video:content_loc>https://www.uluspas.com/videos/ulu-facial-site-optimized.mp4</video:content_loc>
+      <video:duration>60</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.uluspas.com/services</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.uluspas.com/images/hero-poster.jpg</video:thumbnail_loc>
+      <video:title>ULU Spa Services - Head Spa Treatments</video:title>
+      <video:description>Explore our premium head spa services including scalp treatments, scratch therapy, facials, and IV therapy at ULU Head Spa.</video:description>
+      <video:content_loc>https://www.uluspas.com/videos/ulu-facial-site-optimized.mp4</video:content_loc>
+      <video:duration>60</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.uluspas.com/about</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.uluspas.com/images/hero-poster.jpg</video:thumbnail_loc>
+      <video:title>About ULU Head Spa - Our Story</video:title>
+      <video:description>Learn about the Polynesian heritage and wellness philosophy behind ULU Head Spa in Pleasant Grove, Utah.</video:description>
+      <video:content_loc>https://www.uluspas.com/videos/ulu-facial-site-optimized.mp4</video:content_loc>
+      <video:duration>60</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+</urlset>

@@ -73,7 +73,7 @@ export default function LuxuryServiceCard({
           <div className="relative h-64 overflow-hidden bg-linear-to-br from-spa-sage-100 to-spa-gold-50">
             <Image
               src={service.imageUrl}
-              alt={service.name}
+              alt={`${service.name} treatment at ULU Spa`}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className={`object-cover transition-all duration-700 ${

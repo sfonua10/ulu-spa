@@ -52,9 +52,10 @@ export default function FAQAccordion({ items, className = '' }: FAQAccordionProp
             }}
           >
             <div className="px-6 pb-5 pt-2">
-              <p className="text-gray-800 leading-relaxed font-montserrat">
-                {item.answer}
-              </p>
+              <p
+                className="text-gray-800 leading-relaxed font-montserrat"
+                dangerouslySetInnerHTML={{ __html: item.answer }}
+              />
             </div>
           </div>
         </div>
