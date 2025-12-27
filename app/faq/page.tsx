@@ -79,7 +79,7 @@ export default function FAQPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-sage-900 via-sage-800 to-sage-900">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-20 px-4">
+      <section className="relative pt-32 pb-28 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold text-gray-900 mb-6">
             Frequently Asked{' '}
