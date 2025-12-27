@@ -11,7 +11,6 @@ import {
   Sparkles,
   ArrowRight
 } from 'lucide-react';
-import Link from 'next/link';
 import ContactCard from '@/app/components/ui/ContactCard';
 import ParticleField from '@/app/components/ui/ParticleField';
 import FloatingElements from '@/app/components/ui/FloatingElements';
@@ -192,13 +191,13 @@ export default function ContactPage() {
           {/* CTA Section */}
           <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '300ms' }}>
             <p className="text-stone-600 font-montserrat mb-4">Ready to relax?</p>
-            <Link
-              href="/book"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white font-montserrat font-semibold rounded-full hover:from-spa-gold-600 hover:to-spa-gold-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+            <button
+              type="button"
+              className="mangomint-booking-button inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white font-montserrat font-semibold rounded-full hover:from-spa-gold-600 hover:to-spa-gold-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 cursor-pointer"
             >
               Book Your Appointment
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
