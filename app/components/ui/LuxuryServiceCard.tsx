@@ -102,17 +102,19 @@ export default function LuxuryServiceCard({
           </div>
         )}
 
-        {/* Badge Pill */}
+        {/* Corner Ribbon Badge */}
         {badgeType && (
-          <div className="absolute top-4 left-4 z-20">
-            <span className={`px-3 py-1.5 text-xs font-semibold rounded-full backdrop-blur-md shadow-sm ${
-              badgeType === 'popular' ? 'bg-spa-gold-500/90 text-white' :
-              badgeType === 'value' ? 'bg-spa-sage-600/90 text-white' :
-              'bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 text-white'
+          <div className="absolute top-0 right-0 overflow-hidden w-32 h-32 pointer-events-none z-20 rounded-3xl">
+            <div className={`absolute top-6 right-[-32px] w-40 text-center py-2 text-xs font-bold text-white shadow-lg transform rotate-45 ${
+              badgeType === 'popular'
+                ? 'bg-gradient-to-r from-spa-gold-500 to-spa-gold-600'
+                : badgeType === 'value'
+                ? 'bg-gradient-to-r from-spa-sage-600 to-spa-sage-700'
+                : 'bg-gradient-to-r from-spa-gold-600 to-spa-gold-700'
             }`}>
-              {badgeType === 'popular' ? 'Most Popular' :
-               badgeType === 'value' ? 'Best Value' : 'Signature'}
-            </span>
+              {badgeType === 'popular' ? 'MOST POPULAR' :
+               badgeType === 'value' ? 'BEST VALUE' : 'SIGNATURE'}
+            </div>
           </div>
         )}
 

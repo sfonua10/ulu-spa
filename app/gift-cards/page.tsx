@@ -15,7 +15,8 @@ import {
   HeartIcon,
   UserGroupIcon,
   BriefcaseIcon,
-  StarIcon
+  StarIcon,
+  CalendarDaysIcon
 } from '@heroicons/react/24/outline'
 
 // Gift Card FAQ Accordion Item
@@ -450,15 +451,16 @@ export default function GiftCardPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer">
-                <Button variant="luxury" size="lg" className="px-10 shadow-lg hover:shadow-xl">
+                <Button variant="luxury" size="lg" className="px-12">
                   <GiftIcon className="h-5 w-5 mr-2" />
-                  Purchase Gift Card
+                  Buy Gift Card
                 </Button>
               </a>
 
               <a href={bookingUrl} className="mangomint-booking-button">
-                <Button variant="outline" size="lg" className="px-10">
-                  Book an Appointment
+                <Button variant="outline" size="lg" className="px-12">
+                  <CalendarDaysIcon className="h-5 w-5 mr-2" />
+                  Book Now
                 </Button>
               </a>
             </div>

@@ -3,11 +3,11 @@
 import { useState } from 'react'
 import { Button } from '../components/ui/Button'
 import {
-  CalendarDaysIcon,
   ArrowRightIcon,
-  PhoneIcon,
   SparklesIcon,
-  ChevronDownIcon
+  ChevronDownIcon,
+  CalendarDaysIcon,
+  PhoneIcon
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import VideoBackground from '../components/ui/VideoBackground'
@@ -517,24 +517,16 @@ export default function GroupBookingsPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href={bookingUrl} className="mangomint-booking-button">
-                  <Button
-                    variant="default"
-                    size="lg"
-                    className="bg-spa-gold-500 hover:bg-spa-gold-600 text-spa-sage-900 px-10 py-6 text-lg font-semibold shadow-gold"
-                  >
-                    <CalendarDaysIcon className="h-6 w-6 mr-3" />
-                    Book Online Now
+                  <Button variant="luxury" size="lg" className="px-12">
+                    <CalendarDaysIcon className="h-5 w-5 mr-2" />
+                    Book Now
                   </Button>
                 </a>
 
                 <a href="tel:+18015287368">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-spa-gold-400 text-spa-gold-400 hover:bg-spa-gold-400 hover:text-spa-sage-900 px-10 py-6 text-lg font-semibold"
-                  >
-                    <PhoneIcon className="h-6 w-6 mr-3" />
-                    (801) 528-7368
+                  <Button variant="outline" size="lg" className="px-12">
+                    <PhoneIcon className="h-5 w-5 mr-2" />
+                    Call Us
                   </Button>
                 </a>
               </div>
