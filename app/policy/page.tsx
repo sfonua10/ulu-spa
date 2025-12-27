@@ -1,22 +1,16 @@
 'use client'
 
 import React from 'react'
-// import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton'
 import { GlassCard } from '@/app/components/ui/GlassCard'
 import { CalendarDaysIcon, ClockIcon, CreditCardIcon, UserGroupIcon } from '@heroicons/react/24/outline'
 import { Button } from '../components/ui/Button'
+import FloatingBackgroundElements from '@/app/components/ui/FloatingBackgroundElements'
+import { COMPANY, URLS } from '@/app/constants/config'
 
 export default function BookingPolicyPage() {
-  const bookingUrl = 'https://booking.mangomint.com/904811'
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-spa-cream-50 via-white to-spa-sage-50">
-      {/* Floating Background Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-spa-gold-100/20 rounded-full blur-3xl animate-float-gentle"></div>
-        <div className="absolute top-1/3 -left-40 w-96 h-96 bg-spa-sage-100/20 rounded-full blur-3xl animate-float-reverse"></div>
-        <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-spa-gold-100/10 rounded-full blur-3xl animate-float-gentle"></div>
-      </div>
+      <FloatingBackgroundElements />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6">
@@ -132,7 +126,7 @@ export default function BookingPolicyPage() {
               </div>
 
               <div className="mt-6 text-center">
-                <a href={bookingUrl}>
+                <a href={URLS.BOOKING}>
                   <Button variant="luxury" size="lg" className="px-10">
                     Book Online Now
                   </Button>
@@ -435,7 +429,7 @@ export default function BookingPolicyPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={bookingUrl}>
+              <a href={URLS.BOOKING}>
                 <Button variant="luxury" size="lg" className="px-10">
                   <CalendarDaysIcon className="h-5 w-5 mr-2" />
                   Book Appointment

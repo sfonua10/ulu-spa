@@ -21,11 +21,11 @@ const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
       <div
         className={cn(
           "rounded-3xl border border-white/20 shadow-soft-lg",
-          `bg-white/${opacity * 100}`,
           blurClasses[blur],
           "backdrop-saturate-150",
           className
         )}
+        style={{ backgroundColor: `rgba(255, 255, 255, ${opacity})` }}
         ref={ref}
         {...props}
       >

@@ -14,12 +14,13 @@ import {
 import ContactCard from '@/app/components/ui/ContactCard';
 import ParticleField from '@/app/components/ui/ParticleField';
 import FloatingElements from '@/app/components/ui/FloatingElements';
+import { COMPANY } from '@/app/constants/config';
 
 export default function ContactPage() {
   const contactInfo = {
-    address: '597 South Pleasant Grove Blvd. Suite 4, Pleasant Grove, UT 84064',
-    phone: '(801) 528-7368',
-    email: 'uluspaofficial@gmail.com',
+    address: COMPANY.ADDRESS,
+    phone: COMPANY.PHONE,
+    email: COMPANY.EMAIL,
   };
 
   return (
@@ -67,7 +68,7 @@ export default function ContactPage() {
           <div className="relative overflow-hidden shadow-soft-xl backdrop-blur-xl border-y border-white/30">
             <div className="aspect-video">
               <iframe
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent('597 South Pleasant Grove Blvd. Suite 4, Pleasant Grove, UT 84064')}`}
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}&q=${encodeURIComponent(COMPANY.ADDRESS)}`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

@@ -6,20 +6,6 @@ export interface Founder {
   imagePosition?: string;
 }
 
-export interface ContactInfo {
-  address: string;
-  phone: string;
-  email: string;
-  hours: string;
-  social: {
-    instagram: string;
-    facebook: string;
-    twitter: string;
-    linkedin: string;
-    tiktok: string;
-  };
-}
-
 export const founders: Founder[] = [
   {
     name: 'Jobi Niu',
@@ -43,20 +29,6 @@ export const founders: Founder[] = [
     imagePosition: 'bottom'
   }
 ];
-
-export const contactInfo: ContactInfo = {
-  address: '597 South Pleasant Grove Blvd. Suite 4, Pleasant Grove, UT 84064',
-  phone: '801-528-7368',
-  email: 'uluspaofficial@gmail.com',
-  hours: 'Monday–Saturday, 10am–8pm',
-  social: {
-    instagram: '@ulu.spa',
-    facebook: '@uluspaofficial',
-    twitter: '@uluspaofficial',
-    linkedin: '@uluspaofficial',
-    tiktok: '@uluspaofficial'
-  }
-};
 
 export const culturalStory = {
   heading: 'The Meaning of ULU',

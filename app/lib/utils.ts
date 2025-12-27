@@ -11,13 +11,3 @@ export function formatPrice(price: number) {
     currency: 'USD',
   }).format(price)
 }
-
-export function scrollToElement(elementId: string) {
-  const element = document.getElementById(elementId)
-  if (element) {
-    element.scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'start'
-    })
-  }
-}

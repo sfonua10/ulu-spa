@@ -8,6 +8,7 @@ import ChatWidgetController from "./components/ui/ChatWidgetController";
 import { AnimationProvider } from "./contexts/AnimationContext";
 import { OrganizationSchema, LocalBusinessSchema } from "./components/seo/JsonLd";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import { COMPANY } from "./constants/config";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -184,7 +185,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               window.Mangomint = window.Mangomint || {};
-              window.Mangomint.CompanyId = 904811;
+              window.Mangomint.CompanyId = ${COMPANY.MANGOMINT_ID};
               (function() {
                 var s = document.createElement('script');
                 s.src = 'https://booking.mangomint.com/app.js';

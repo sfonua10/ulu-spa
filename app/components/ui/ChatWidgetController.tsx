@@ -12,7 +12,7 @@ export default function ChatWidgetController() {
 
   useEffect(() => {
     // Pages where chat should be hidden
-    const hideChatPages = ['/book']
+    const hideChatPages: string[] = []
 
     // Check if current page should hide chat
     const shouldHideChat = hideChatPages.some(page =>

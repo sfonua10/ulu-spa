@@ -4,7 +4,6 @@ import { Button } from '../components/ui/Button'
 import { CheckIcon } from '@heroicons/react/24/outline'
 import VideoBackground from '../components/ui/VideoBackground'
 import { useInView } from '../hooks/useInView'
-import Breadcrumb from '../components/ui/Breadcrumb'
 
 const memberships = [
   {
@@ -156,13 +155,6 @@ export default function MembershipsPage() {
           </div>
         </div>
       </VideoBackground>
-
-      {/* Breadcrumb */}
-      <div className="bg-white border-b border-spa-sage-100">
-        <div className="max-w-7xl mx-auto px-6 py-3">
-          <Breadcrumb items={[{ name: 'Memberships', href: '/memberships' }]} />
-        </div>
-      </div>
 
       {/* Pricing Cards */}
       <section className="py-16 bg-white">

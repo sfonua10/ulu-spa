@@ -14,7 +14,6 @@ import {
   SparklesIcon,
   UserGroupIcon
 } from '@heroicons/react/24/outline';
-import Breadcrumb from '@/app/components/ui/Breadcrumb';
 
 export default function AboutPage() {
   const { ref: heroRef, isInView: heroInView } = useInView({ threshold: 0.2 });
@@ -66,13 +65,6 @@ export default function AboutPage() {
           </div>
         </section>
       </VideoBackground>
-
-      {/* Breadcrumb */}
-      <div className="bg-white border-b border-spa-sage-100">
-        <div className="max-w-6xl mx-auto px-6 py-3">
-          <Breadcrumb items={[{ name: 'About', href: '/about' }]} />
-        </div>
-      </div>
 
       {/* Origin Story Section */}
       <section

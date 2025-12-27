@@ -117,10 +117,8 @@ export default function VideoBackground({
         setIsPlaying(true)
         setShowPlayButton(false)
         playAttemptsRef.current = 0 // Reset on success
-        console.log('Video playing successfully')
       }
-    } catch (error) {
-      console.log(`Play attempt ${playAttemptsRef.current} failed:`, error)
+    } catch {
 
       // Try again after a short delay
       if (playAttemptsRef.current < maxPlayAttempts) {
@@ -136,7 +134,6 @@ export default function VideoBackground({
 
   // Handle when video can play through
   const handleCanPlay = () => {
-    console.log('Video can play')
     setIsVideoLoaded(true)
     setHasError(false)
 
@@ -152,7 +149,6 @@ export default function VideoBackground({
 
   // Handle video errors
   const handleVideoError = () => {
-    console.error('Video failed to load')
     setHasError(true)
     setIsVideoLoaded(false)
     setShowPlayButton(false)
@@ -175,8 +171,8 @@ export default function VideoBackground({
         await videoRef.current.play()
         setIsPlaying(true)
         setShowPlayButton(false)
-      } catch (mutedError) {
-        console.error('Manual play failed:', mutedError)
+      } catch {
+        // Manual play failed, user may need to interact with page first
       }
     }
   }
@@ -193,7 +189,6 @@ export default function VideoBackground({
     // Attempt initial play after page settles
     const initialPlayTimer = setTimeout(() => {
       if (videoRef.current && !isPlaying && !hasAttemptedPlayRef.current) {
-        console.log('Initial play attempt triggered')
         hasAttemptedPlayRef.current = true
         attemptPlay()
       }
@@ -213,7 +208,6 @@ export default function VideoBackground({
 
     // Force a play attempt when video element is ready
     const handleLoadedData = () => {
-      console.log('Video data loaded')
       if (autoPlay && !isPlaying) {
         setTimeout(() => attemptPlay(), 200)
       }
@@ -221,20 +215,17 @@ export default function VideoBackground({
 
     // Handle when metadata is loaded
     const handleLoadedMetadata = () => {
-      console.log('Video metadata loaded')
       setIsVideoLoaded(true)
     }
 
     // Handle play event
     const handlePlay = () => {
-      console.log('Video started playing')
       setIsPlaying(true)
       setShowPlayButton(false)
     }
 
     // Handle pause event
     const handlePause = () => {
-      console.log('Video paused')
       // If video pauses unexpectedly and we want it playing, try again
       if (autoPlay && !video.ended && video.readyState >= 2) {
         setTimeout(() => {
@@ -273,7 +264,6 @@ export default function VideoBackground({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && autoPlay && video.paused) {
-            console.log('Video in view, attempting play')
             attemptPlay()
           }
         })

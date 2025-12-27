@@ -4,7 +4,6 @@ import FAQAccordion from '@/app/components/ui/FAQAccordion';
 // import FloatingBookingButton from '@/app/components/ui/FloatingBookingButton';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 import { Mail } from 'lucide-react';
-import Breadcrumb from '@/app/components/ui/Breadcrumb';
 
 const generalFAQs = [
   {
@@ -79,13 +78,6 @@ const scratchTherapyFAQs = [
 export default function FAQPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-sage-900 via-sage-800 to-sage-900">
-      {/* Breadcrumb */}
-      <div className="bg-white/90 backdrop-blur-sm border-b border-spa-sage-100">
-        <div className="max-w-4xl mx-auto px-4 py-3">
-          <Breadcrumb items={[{ name: 'FAQ', href: '/faq' }]} />
-        </div>
-      </div>
-
       {/* Hero Section */}
       <section className="relative pt-20 pb-20 px-4">
         <div className="max-w-4xl mx-auto text-center">

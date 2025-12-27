@@ -3,8 +3,10 @@
  * Maps service names to their specific MangoMint booking URLs with serviceId parameters
  */
 
+import { COMPANY, URLS } from '@/app/constants/config'
+
 export const getMangoMintServiceUrl = (serviceName: string): string => {
-  const baseUrl = process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'
+  const baseUrl = process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || URLS.BOOKING
   
   // Service name to MangoMint serviceId mapping
   const serviceIdMap: Record<string, number> = {
@@ -45,13 +47,14 @@ export const getMangoMintServiceUrl = (serviceName: string): string => {
 export const getMangoMintMembershipUrl = (membershipType: '30min' | '60min' | 'couple-30min' | 'couple-60min'): string => {
   const membershipIdMap: Record<string, number> = {
     '30min': 13,
-    '60min': 14, 
-    'couple-30min': 13, // Assuming same as 30min for couples
-    'couple-60min': 14  // Assuming same as 60min for couples
+    '60min': 14,
+    'couple-30min': 13,
+    'couple-60min': 14
   }
-  
+
   const membershipId = membershipIdMap[membershipType]
-  const baseUrl = 'https://clients.mangomint.com/uluspa/memberships'
-  
-  return `${baseUrl}/${membershipId}`
+  return `https://clients.mangomint.com/uluspa/memberships/${membershipId}`
 }
+
+// Re-export for convenience
+export { COMPANY, URLS } from '@/app/constants/config'

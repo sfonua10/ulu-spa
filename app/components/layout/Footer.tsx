@@ -8,7 +8,8 @@ import {
   EnvelopeIcon,
   ClockIcon
 } from '@heroicons/react/24/outline'
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaTiktok } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa'
+import { COMPANY, SOCIAL } from '@/app/constants/config'
 
 const footerLinks = {
   services: [
@@ -32,9 +33,9 @@ const footerLinks = {
 }
 
 const contactInfo = {
-  address: '597 South Pleasant Grove Blvd. Suite 4, Pleasant Grove, UT 84064',
-  phone: '801-528-7368',
-  email: 'uluspaofficial@gmail.com',
+  address: COMPANY.ADDRESS,
+  phone: COMPANY.PHONE,
+  email: COMPANY.EMAIL,
   hours: {
     weekdays: 'Mon - Fri: 9AM - 8PM',
     weekends: 'Sat - Sun: 10AM - 6PM'
@@ -42,11 +43,9 @@ const contactInfo = {
 }
 
 const socialLinks = [
-  { name: 'Facebook', href: 'https://www.facebook.com/uluspaofficial', icon: FaFacebook },
-  { name: 'Instagram', href: 'https://www.instagram.com/ulu.spa/', icon: FaInstagram },
-  { name: 'Twitter', href: 'https://twitter.com/uluspaofficial', icon: FaTwitter },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/uluspaofficial', icon: FaLinkedin },
-  { name: 'TikTok', href: 'https://www.tiktok.com/@uluspaofficial', icon: FaTiktok },
+  { name: 'Facebook', href: SOCIAL.FACEBOOK, icon: FaFacebook },
+  { name: 'Instagram', href: SOCIAL.INSTAGRAM, icon: FaInstagram },
+  { name: 'TikTok', href: SOCIAL.TIKTOK, icon: FaTiktok },
 ]
 
 export default function Footer() {

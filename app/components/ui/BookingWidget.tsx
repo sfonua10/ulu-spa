@@ -4,19 +4,18 @@ import {
   CalendarDaysIcon,
   SparklesIcon
 } from '@heroicons/react/24/outline'
+import { COMPANY, URLS } from '@/app/constants/config'
 
 interface BookingWidgetProps {
-  serviceId?: string
   serviceName?: string
   className?: string
 }
 
 export default function BookingWidget({
-  serviceId: _serviceId = 'signature-scalp-massage',
   serviceName = 'Signature Scalp Massage',
   className = ''
 }: BookingWidgetProps) {
-  const bookingUrl = process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'
+  const bookingUrl = process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || URLS.BOOKING
 
   return (
     <div
@@ -74,11 +73,11 @@ export default function BookingWidget({
           <p className="text-xs text-stone-500 mb-2">
             Prefer to speak with someone?
           </p>
-          <a 
-            href="tel:+1234567890" 
+          <a
+            href={`tel:${COMPANY.PHONE_LINK}`}
             className="text-sm text-spa-sage-600 hover:text-spa-sage-700 transition-colors cursor-pointer"
           >
-            Call us at (123) 456-7890
+            Call us at {COMPANY.PHONE}
           </a>
         </div>
       </div>

@@ -1,34 +1,41 @@
 'use client'
 
-import { useMemo, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 interface ParticleFieldProps {
   particleCount?: number
   className?: string
 }
 
+interface Particle {
+  id: number
+  x: number
+  y: number
+  size: number
+  duration: number
+  delay: number
+  opacity: number
+}
+
 export default function ParticleField({ particleCount = 50, className = '' }: ParticleFieldProps) {
-  const [isMounted, setIsMounted] = useState(false)
+  const [particles, setParticles] = useState<Particle[]>([])
 
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
+    // Generate random particles only on client after mount
+    setParticles(
+      Array.from({ length: particleCount }, (_, i) => ({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * 3 + 1,
+        duration: Math.random() * 20 + 10,
+        delay: Math.random() * 5,
+        opacity: Math.random() * 0.5 + 0.1,
+      }))
+    )
+  }, [particleCount])
 
-  const particles = useMemo(() => {
-    if (!isMounted) return []
-
-    return Array.from({ length: particleCount }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 3 + 1,
-      duration: Math.random() * 20 + 10,
-      delay: Math.random() * 5,
-      opacity: Math.random() * 0.5 + 0.1,
-    }))
-  }, [particleCount, isMounted])
-
-  if (!isMounted) {
+  if (particles.length === 0) {
     return <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`} />
   }
 
