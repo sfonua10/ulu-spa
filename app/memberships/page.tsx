@@ -4,6 +4,7 @@ import { Button } from '../components/ui/Button'
 import { CheckIcon } from '@heroicons/react/24/outline'
 import VideoBackground from '../components/ui/VideoBackground'
 import { useInView } from '../hooks/useInView'
+import { trackMembershipClick, trackBookNowClick, trackPhoneClick } from '../lib/analytics'
 
 const memberships = [
   {
@@ -224,7 +225,10 @@ export default function MembershipsPage() {
                   <Button
                     variant={membership.popular || membership.bestValue ? "luxury" : "outline"}
                     className="w-full text-lg py-4 font-semibold mt-8"
-                    onClick={() => membership.mangomintUrl && (window.location.href = membership.mangomintUrl)}
+                    onClick={() => {
+                      trackMembershipClick(membership.id)
+                      membership.mangomintUrl && (window.location.href = membership.mangomintUrl)
+                    }}
                   >
                     Get Started
                   </Button>
@@ -367,6 +371,7 @@ export default function MembershipsPage() {
               <a
                 href="https://booking.mangomint.com/904811"
                 className="mangomint-booking-button"
+                onClick={() => trackBookNowClick('memberships_cta')}
               >
                 <Button
                   variant="luxury"
@@ -376,7 +381,7 @@ export default function MembershipsPage() {
                   Start Membership
                 </Button>
               </a>
-              <a href="tel:+18015287368">
+              <a href="tel:+18015287368" onClick={() => trackPhoneClick('memberships')}>
                 <Button variant="ghost" size="lg" className="text-white border-2 border-white hover:bg-white/20 hover:text-white px-12 font-semibold">
                   Call for Consultation
                 </Button>

@@ -9,6 +9,7 @@ import {
   SparklesIcon,
   ArrowRightIcon
 } from '@heroicons/react/24/outline'
+import { trackServiceView, trackBookNowClick } from '@/app/lib/analytics'
 
 interface Service {
   id: number
@@ -54,6 +55,13 @@ export default function ServiceDetailModal({
     document.addEventListener('keydown', handleEscape)
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isOpen, onClose])
+
+  // Track service view when modal opens
+  useEffect(() => {
+    if (isOpen && service) {
+      trackServiceView(service.name)
+    }
+  }, [isOpen, service])
 
 
   if (!isOpen || !service) return null
@@ -202,6 +210,7 @@ export default function ServiceDetailModal({
             <button
               className="w-full inline-flex items-center justify-center py-4 px-8 rounded-full text-lg font-bold bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-spa-gold-800 group cursor-pointer"
               onClick={() => {
+                trackBookNowClick('service_modal')
                 onBookNow()
                 onClose()
               }}

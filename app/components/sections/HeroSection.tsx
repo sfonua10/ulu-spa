@@ -5,6 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import { HeroPattern, LeafDecoration, RotatingElement } from '../ui/DecorativeElements'
 import { useInView } from '@/app/hooks/useInView'
 import VideoBackground from '../ui/VideoBackground'
+import { trackBookNowClick } from '@/app/lib/analytics'
 
 export default function HeroSection() {
   const { ref: heroRef, isInView } = useInView({ threshold: 0.2 })
@@ -77,8 +78,9 @@ export default function HeroSection() {
           <div className={`flex flex-col sm:flex-row justify-center items-center gap-6 pt-8 pb-12 md:pb-8 ${
             isInView ? 'animate-in animate-slide-up animate-delay-900' : 'opacity-0'
           }`}>
-            <a 
+            <a
               href={process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'}
+              onClick={() => trackBookNowClick('hero')}
               className="mangomint-booking-button group relative overflow-hidden bg-transparent hover:bg-custom-gold/10 text-custom-gold px-12 py-6 rounded-full font-bold text-xl transition-all duration-500 cursor-pointer shadow-2xl hover:shadow-custom-gold/30 transform hover:scale-105 border-2 border-custom-gold hover:border-custom-gold backdrop-blur-sm inline-block"
             >
               <div className="absolute inset-0 bg-custom-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

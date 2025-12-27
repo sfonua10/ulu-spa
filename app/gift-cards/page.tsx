@@ -18,6 +18,7 @@ import {
   StarIcon,
   CalendarDaysIcon
 } from '@heroicons/react/24/outline'
+import { trackGiftCardClick, trackBookNowClick } from '@/app/lib/analytics'
 
 // Gift Card FAQ Accordion Item
 function GiftCardAccordionItem({
@@ -134,7 +135,7 @@ export default function GiftCardPage() {
             each visit is designed to help them unplug, reset, and feel restored.
           </p>
 
-          <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer">
+          <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackGiftCardClick('gift_cards_hero')}>
             <Button variant="luxury" size="lg" className="px-12 py-4 text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
               <GiftIcon className="h-6 w-6 mr-3" />
               Purchase Gift Card
@@ -450,14 +451,14 @@ export default function GiftCardPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer">
+              <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackGiftCardClick('gift_cards_cta')}>
                 <Button variant="luxury" size="lg" className="px-12">
                   <GiftIcon className="h-5 w-5 mr-2" />
                   Buy Gift Card
                 </Button>
               </a>
 
-              <a href={bookingUrl} className="mangomint-booking-button">
+              <a href={bookingUrl} className="mangomint-booking-button" onClick={() => trackBookNowClick('gift_cards')}>
                 <Button variant="outline" size="lg" className="px-12">
                   <CalendarDaysIcon className="h-5 w-5 mr-2" />
                   Book Now
