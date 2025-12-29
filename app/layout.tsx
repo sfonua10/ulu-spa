@@ -124,13 +124,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="video"
-          href="/videos/ulu-facial-site-optimized.mp4"
-          type="video/mp4"
-        />
-        <link
-          rel="preload"
-          as="video"
-          href="/videos/ulu-facial-site-mobile.mp4"
+          href="/videos/website-optimized.mp4"
           type="video/mp4"
         />
       </head>

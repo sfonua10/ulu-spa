@@ -11,6 +11,19 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 7, // 7 days
     qualities: [75, 85, 90],
   },
+  async headers() {
+    return [
+      {
+        source: '/videos/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
