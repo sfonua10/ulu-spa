@@ -164,7 +164,7 @@ export default function ServicesPreview() {
             <div className="relative bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden">
               <div className="grid md:grid-cols-2 gap-0">
                 {/* Image Side */}
-                <div className="relative h-72 md:h-96 overflow-hidden">
+                <div className="relative h-72 md:h-auto md:min-h-96 overflow-hidden">
                   <Image
                     src={featuredExperience.imageUrl}
                     alt={`${featuredExperience.name} at ULU Spa`}
