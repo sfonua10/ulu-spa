@@ -40,7 +40,7 @@ const addOnIcons: Record<string, React.ComponentType<{className?: string}>> = {
 const categoryData = [
   {
     id: 'signature-experience',
-    name: 'Signature Experiences',
+    name: 'Ultimate ULU Experiences',
     tagline: 'Curated wellness journeys',
     imageUrl: '/images/services/island-escape-ritual.png',
     isPremium: true
@@ -264,7 +264,11 @@ export default function ServicesPage() {
                         }}
                         className="h-full"
                         priority={index < 2}
-                        badgeType={service.popular ? 'popular' : undefined}
+                        badgeType={
+                          service.id === 4 ? 'value' :      // Royal Escape
+                          service.id === 10 ? 'signature' : // Island Renewal
+                          service.popular ? 'popular' : undefined
+                        }
                       />
                     )}
                   </div>

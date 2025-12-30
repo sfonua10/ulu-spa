@@ -34,7 +34,7 @@ export default function SignatureExperiences() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-sm font-bold mb-6 shadow-gold border border-spa-gold-400">
             <StarIcon className="h-4 w-4" />
-            <span className="uppercase tracking-wider">Signature Experiences</span>
+            <span className="uppercase tracking-wider">Ultimate ULU Experiences</span>
             <StarIcon className="h-4 w-4" />
           </div>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">

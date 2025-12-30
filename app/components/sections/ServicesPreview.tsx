@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../ui/Button'
 import LuxuryServiceCard from '../ui/LuxuryServiceCard'
@@ -9,11 +10,36 @@ import { getMangoMintServiceUrl } from '@/app/utils/mangomint-urls'
 import {
   SparklesIcon,
   StarIcon,
-  HeartIcon
+  HeartIcon,
+  CheckIcon
 } from '@heroicons/react/24/outline'
+import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 
-// Popular services from the main services list
-const popularServices = [
+// Featured hero bundle - ULU Ultimate Escape
+const featuredExperience = {
+  id: 32,
+  icon: SparklesIcon,
+  name: 'ULU Ultimate Escape',
+  shortDesc: 'Our most comprehensive and luxurious 3.5-hour journey.',
+  fullDesc: 'Our most comprehensive and luxurious journey. Indulge in full scalp therapy, full-body scratch therapy, hot stone enhancement, and a rejuvenating foot spa ritual — all paired with a personalized facial for complete renewal. This 3.5-hour escape balances, restores, and elevates your entire mind and body.',
+  duration: '3 hr 30 min',
+  price: 530,
+  imageUrl: '/images/services/model.jpg',
+  focusArea: 'center 20%',
+  benefits: ['Full-body therapy', 'Hot stone enhancement', 'Complete renewal'],
+  includes: [
+    'Full Scalp Therapy',
+    'Full-Body Scratch Therapy',
+    'Hot Stone Enhancement',
+    'Foot Spa Ritual',
+    'Personalized Facial'
+  ],
+  popular: false,
+  category: 'signature-experience'
+}
+
+// Curated individual services
+const curatedServices = [
   {
     id: 4,
     icon: SparklesIcon,
@@ -36,6 +62,27 @@ const popularServices = [
     ],
     popular: false,
     category: 'head-scalp',
+    badgeType: 'value' as const
+  },
+  {
+    id: 7,
+    icon: HeartIcon,
+    name: 'Pure Unwind',
+    shortDesc: 'Extended signature scratching',
+    fullDesc: 'A 75-minute extended signature scratching experience with hand and arm ritual extension and optional oil infusion (+$15) for ultimate relaxation and stress relief. We use soft scratch nails, gentle brushes, and sanitized tools to create a smooth, relaxing scratch sensation.',
+    duration: '75 min',
+    price: 170,
+    imageUrl: '/images/services/scratch-therapy-claw2.png',
+    benefits: ['Ultimate Relaxation', 'Sensory Therapy', 'Stress Relief'],
+    includes: [
+      'Extended signature scratching',
+      'Hand and arm ritual extension',
+      'Soft fan brushes & scratch tools',
+      'Deep relaxation',
+      'Optional oil infusion (+$15)'
+    ],
+    popular: false,
+    category: 'scratch-therapy',
     badgeType: 'signature' as const
   },
   {
@@ -59,87 +106,152 @@ const popularServices = [
     ],
     popular: false,
     category: 'facial',
-    badgeType: 'value' as const
-  },
-  {
-    id: 13,
-    icon: SparklesIcon,
-    name: 'ULU Glow – Beauty & Radiance',
-    shortDesc: 'Beauty-enhancing IV therapy',
-    fullDesc: 'Specialized IV therapy designed to enhance beauty and promote radiant, healthy skin from within. This powerful infusion delivers essential vitamins and nutrients directly to your bloodstream for maximum absorption and immediate results.',
-    duration: '45 min',
-    price: 195,
-    imageUrl: '/images/services/Beaty Drip IV DRIP for website.png',
-    benefits: ['Skin Radiance', 'Beauty Enhancement', 'Hydration'],
-    includes: [
-      'Vitamin C infusion',
-      'Biotin complex',
-      'Glutathione boost',
-      'Hydration therapy',
-      'Antioxidant blend',
-      'Mineral replenishment',
-      'Consultation with specialist'
-    ],
-    popular: false,
-    category: 'iv-therapy',
-    badgeType: 'popular' as const
-  },
-  {
-    id: 7,
-    icon: HeartIcon,
-    name: 'Pure Unwind',
-    shortDesc: 'Extended signature scratching',
-    fullDesc: 'A 75-minute extended signature scratching experience with hand and arm ritual extension and optional oil infusion (+$15) for ultimate relaxation and stress relief. We use soft scratch nails, gentle brushes, and sanitized tools to create a smooth, relaxing scratch sensation.',
-    duration: '75 min',
-    price: 170,
-    imageUrl: '/images/services/scratch-therapy-claw2.png',
-    benefits: ['Ultimate Relaxation', 'Sensory Therapy', 'Stress Relief'],
-    includes: [
-      'Extended signature scratching',
-      'Hand and arm ritual extension',
-      'Soft fan brushes & scratch tools',
-      'Deep relaxation',
-      'Optional oil infusion (+$15)'
-    ],
-    popular: false,
-    category: 'scratch-therapy',
     badgeType: 'signature' as const
   }
 ]
 
+type ServiceType = typeof featuredExperience | typeof curatedServices[number]
+
 export default function ServicesPreview() {
-  const [selectedService, setSelectedService] = useState<typeof popularServices[number] | null>(null)
+  const [selectedService, setSelectedService] = useState<ServiceType | null>(null)
 
   return (
-    <section id="services-preview" className="py-24 bg-gradient-to-b from-spa-sage-50/40 via-white to-spa-gold-50/30 relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-spa-gold-200 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-20 w-24 h-24 bg-spa-sage-200 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}} />
-        <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-spa-gold-300 rounded-full blur-xl animate-pulse-slow" />
+    <section id="services-preview" className="py-24 bg-gradient-to-b from-spa-gold-50/50 via-white to-spa-sage-50/30 relative overflow-hidden">
+      {/* Premium background accents */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-spa-gold-200/30 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-10 right-10 w-48 h-48 bg-spa-gold-300/20 rounded-full blur-3xl animate-float" style={{animationDelay: '3s'}} />
+        <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-spa-cream-200/40 rounded-full blur-2xl animate-pulse-slow" />
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-spa-gold-300/20 to-transparent" />
+        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-spa-gold-300/20 to-transparent" />
       </div>
-      <div className="max-w-7xl mx-auto px-6">
+
+      <div className="max-w-7xl mx-auto px-6 relative">
         {/* Section Header */}
-        <div
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-spa-gold-600 text-white text-sm font-medium mb-6 backdrop-blur-sm shadow-luxury border border-spa-gold-300/50">
-            Our Signature Services
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-sm font-bold mb-6 shadow-gold border border-spa-gold-400">
+            <StarIconSolid className="h-4 w-4" />
+            <span className="uppercase tracking-wider">Experience ULU</span>
+            <StarIconSolid className="h-4 w-4" />
           </div>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-6">
-            Tailored Experiences for 
-            <br />
-            Your Perfect Sanctuary
+            Your Journey to Relaxation
           </h2>
           <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            Each service is carefully designed to address your unique needs, 
-            whether you&apos;re seeking stress relief, hair growth support, or simply a moment of pure tranquility.
+            From our signature ultimate escape to individual treatments,
+            discover the perfect experience for your needs.
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Featured Hero Bundle */}
+        <div className="mb-20">
+          <div
+            className="relative group cursor-pointer"
+            onClick={() => setSelectedService(featuredExperience)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                setSelectedService(featuredExperience)
+              }
+            }}
+          >
+            {/* Gold Gradient Border */}
+            <div className="absolute -inset-[2px] bg-gradient-to-br from-spa-gold-400 via-spa-gold-500 to-spa-gold-600 rounded-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+
+            {/* Main Card */}
+            <div className="relative bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-0">
+                {/* Image Side */}
+                <div className="relative h-72 md:h-96 overflow-hidden">
+                  <Image
+                    src={featuredExperience.imageUrl}
+                    alt={`${featuredExperience.name} at ULU Spa`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{ objectPosition: featuredExperience.focusArea }}
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
+
+                  {/* Premium Badge */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 rounded-full shadow-gold">
+                    <StarIconSolid className="h-4 w-4 text-white" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-white">
+                      Ultimate ULU Experience
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content Side */}
+                <div className="p-8 md:p-10 flex flex-col justify-center bg-gradient-to-br from-white via-spa-gold-50/30 to-spa-cream-50/50">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-sm font-semibold text-spa-gold-600 bg-spa-gold-100 px-3 py-1 rounded-full">
+                      {featuredExperience.duration}
+                    </span>
+                    <span className="text-sm text-stone-500">•</span>
+                    <span className="text-sm font-semibold text-stone-600">
+                      Our Flagship Experience
+                    </span>
+                  </div>
+
+                  <h3 className="text-3xl md:text-4xl font-display font-bold text-spa-sage-800 mb-4">
+                    {featuredExperience.name}
+                  </h3>
+
+                  <p className="text-lg text-stone-600 mb-6 leading-relaxed">
+                    {featuredExperience.shortDesc}
+                  </p>
+
+                  {/* Includes */}
+                  <div className="grid grid-cols-2 gap-2 mb-8">
+                    {featuredExperience.includes.map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <CheckIcon className="h-4 w-4 text-spa-gold-500 flex-shrink-0" />
+                        <span className="text-sm text-stone-600">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Price & CTA */}
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="text-4xl font-display font-bold text-spa-sage-800">
+                        ${featuredExperience.price}
+                      </span>
+                    </div>
+                    <Button
+                      variant="luxury"
+                      size="lg"
+                      className="px-8 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 hover:from-spa-gold-600 hover:to-spa-gold-700 shadow-gold hover:shadow-gold-lg border border-spa-gold-500"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        window.location.href = getMangoMintServiceUrl(featuredExperience.name)
+                      }}
+                    >
+                      Book Experience
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider - Start Your Journey */}
+        <div className="flex items-center justify-center gap-6 mb-12">
+          <div className="h-px w-24 bg-gradient-to-r from-transparent to-spa-gold-300" />
+          <span className="text-lg font-display font-medium text-spa-sage-600 tracking-wide">
+            Start Your Journey
+          </span>
+          <div className="h-px w-24 bg-gradient-to-l from-transparent to-spa-gold-300" />
+        </div>
+
+        {/* Individual Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {popularServices.map((service, index) => (
+          {curatedServices.map((service, index) => (
             <LuxuryServiceCard
               key={service.id}
               service={service}
@@ -147,17 +259,14 @@ export default function ServicesPreview() {
               badgeType={service.badgeType}
               onViewDetails={() => setSelectedService(service)}
               onBook={() => {
-                const serviceUrl = getMangoMintServiceUrl(service.name)
-                window.location.href = serviceUrl
+                window.location.href = getMangoMintServiceUrl(service.name)
               }}
             />
           ))}
         </div>
 
         {/* View All Services CTA */}
-        <div
-          className="text-center mt-20 relative"
-        >
+        <div className="text-center mt-16">
           <Link href="/services">
             <Button variant="luxury" size="lg" className="px-12 shadow-luxury hover:shadow-luxury-lg">
               View All Services
@@ -173,8 +282,7 @@ export default function ServicesPreview() {
           isOpen={!!selectedService}
           onClose={() => setSelectedService(null)}
           onBookNow={() => {
-            const serviceUrl = getMangoMintServiceUrl(selectedService.name)
-            window.location.href = serviceUrl
+            window.location.href = getMangoMintServiceUrl(selectedService.name)
           }}
         />
       )}

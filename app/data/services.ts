@@ -6,7 +6,7 @@ import {
 } from '@heroicons/react/24/outline'
 
 export const services = [
-  // SIGNATURE EXPERIENCES (3 bundles)
+  // ULTIMATE ULU EXPERIENCES (3 bundles)
   {
     id: 29,
     icon: SparklesIcon,

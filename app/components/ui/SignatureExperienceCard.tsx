@@ -70,7 +70,7 @@ export default function SignatureExperienceCard({
           <div className="flex items-center gap-2">
             <StarIcon className="h-4 w-4 text-spa-gold-900" />
             <span className="text-xs font-bold uppercase tracking-wider text-spa-gold-900">
-              Signature Experience
+              Ultimate ULU Experience
             </span>
           </div>
           <span className="text-sm font-semibold text-spa-gold-900">

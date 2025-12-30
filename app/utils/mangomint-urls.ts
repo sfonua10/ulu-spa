@@ -10,7 +10,7 @@ export const getMangoMintServiceUrl = (serviceName: string): string => {
   
   // Service name to MangoMint serviceId mapping
   const serviceIdMap: Record<string, number> = {
-    // Signature Experiences
+    // Ultimate ULU Experiences
     'Golden Reset': 21,
     'Island Glow': 22,
     'ULU Paradise Retreat': 23,
