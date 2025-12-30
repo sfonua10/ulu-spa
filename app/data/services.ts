@@ -6,6 +6,89 @@ import {
 } from '@heroicons/react/24/outline'
 
 export const services = [
+  // SIGNATURE EXPERIENCES (3 bundles)
+  {
+    id: 29,
+    icon: SparklesIcon,
+    name: 'Golden Reset',
+    shortDesc: 'Glow from the inside out with this signature 60-minute ULU Spa experience.',
+    fullDesc: 'Enjoy scalp therapy and scratch therapy, paired with a custom facial of your choice — from beauty-boosting radiance to calming stress relief. Perfect for those who want luxury relaxation and targeted wellness in just one hour.',
+    duration: '1 hr',
+    price: 280,
+    imageUrl: '/images/services/royal-escape.png',
+    focusArea: 'center center',
+    benefits: ['Scalp therapy', 'Scratch therapy', 'Custom facial choice'],
+    includes: [
+      'Scalp Therapy',
+      'Scratch Therapy',
+      'Custom Facial of Choice'
+    ],
+    popular: false,
+    category: 'signature-experience'
+  },
+  {
+    id: 30,
+    icon: SparklesIcon,
+    name: 'Island Glow',
+    shortDesc: 'A deeply indulgent 90-minute ritual for full-body relaxation.',
+    fullDesc: 'Immerse yourself in a deeply indulgent 90-minute ritual combining scalp therapy, extended scratch therapy, and a rejuvenating foot spa ritual. Complete your journey with a signature facial tailored to your needs — hydrating, immune-supporting, or glow-enhancing. Perfect for celebrations, anniversaries, or when you need a full-body reset.',
+    duration: '1 hr 30 min',
+    price: 365,
+    imageUrl: '/images/services/island-renewal.jpg',
+    focusArea: 'center center',
+    benefits: ['Extended scratch therapy', 'Foot spa ritual', 'Signature facial'],
+    includes: [
+      'Scalp Therapy',
+      'Extended Scratch Therapy',
+      'Foot Spa Ritual',
+      'Signature Facial'
+    ],
+    popular: false,
+    category: 'signature-experience'
+  },
+  {
+    id: 31,
+    icon: SparklesIcon,
+    name: 'ULU Paradise Retreat',
+    shortDesc: 'Pure island luxury — our 2-hour ultimate escape.',
+    fullDesc: 'Step into pure island luxury with our 2-hour Paradise Retreat. This immersive ritual blends scalp therapy, extended scratch therapy, a soothing foot spa ritual, and the grounding warmth of a hot stone massage. Finish with a custom facial designed to restore balance, brighten skin, and leave you glowing. Perfect for special occasions, deep self-care, or anyone seeking the ultimate escape.',
+    duration: '2 hr',
+    price: 405,
+    imageUrl: '/images/services/couple.jpg',
+    focusArea: 'center center',
+    benefits: ['Hot stone massage', 'Full ritual experience', 'Custom facial'],
+    includes: [
+      'Scalp Therapy',
+      'Extended Scratch Therapy',
+      'Foot Spa Ritual',
+      'Hot Stone Massage',
+      'Custom Facial'
+    ],
+    popular: false,
+    category: 'signature-experience'
+  },
+  {
+    id: 32,
+    icon: SparklesIcon,
+    name: 'ULU Ultimate Escape',
+    shortDesc: 'Our most comprehensive and luxurious 3.5-hour journey.',
+    fullDesc: 'Our most comprehensive and luxurious journey. Indulge in full scalp therapy, full-body scratch therapy, hot stone enhancement, and a rejuvenating foot spa ritual — all paired with a personalized facial for complete renewal. This 3.5-hour escape balances, restores, and elevates your entire mind and body.',
+    duration: '3 hr 30 min',
+    price: 530,
+    imageUrl: '/images/services/model.jpg',
+    focusArea: 'center 20%',
+    benefits: ['Full-body therapy', 'Hot stone enhancement', 'Complete renewal'],
+    includes: [
+      'Full Scalp Therapy',
+      'Full-Body Scratch Therapy',
+      'Hot Stone Enhancement',
+      'Foot Spa Ritual',
+      'Personalized Facial'
+    ],
+    popular: false,
+    category: 'signature-experience'
+  },
+
   // HEAD & SCALP MASSAGE (4 services)
   {
     id: 1,

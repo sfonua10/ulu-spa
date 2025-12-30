@@ -1,10 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { Button } from '../components/ui/Button'
 import { useInView } from '../hooks/useInView'
 import VideoBackground from '../components/ui/VideoBackground'
 import LuxuryServiceCard from '../components/ui/LuxuryServiceCard'
+import SignatureExperienceCard from '../components/ui/SignatureExperienceCard'
 import CategoryCard from '../components/ui/CategoryCard'
 import ServiceDetailModal from '../components/ui/ServiceDetailModal'
 import { getMangoMintServiceUrl } from '../utils/mangomint-urls'
@@ -18,6 +20,7 @@ import {
   HeartIcon,
   UserIcon
 } from '@heroicons/react/24/outline'
+import { StarIcon } from '@heroicons/react/24/solid'
 
 // Icon mapping for add-on services
 const addOnIcons: Record<string, React.ComponentType<{className?: string}>> = {
@@ -36,34 +39,54 @@ const addOnIcons: Record<string, React.ComponentType<{className?: string}>> = {
 // Category definitions with taglines and representative images
 const categoryData = [
   {
+    id: 'signature-experience',
+    name: 'Signature Experiences',
+    tagline: 'Curated wellness journeys',
+    imageUrl: '/images/services/island-escape-ritual.png',
+    isPremium: true
+  },
+  {
     id: 'head-scalp',
     name: 'Head & Scalp Massage',
     tagline: 'Our signature head spa ritual',
-    imageUrl: '/images/services/royal-escape.png'
+    imageUrl: '/images/services/royal-escape.png',
+    isPremium: false
   },
   {
     id: 'scratch-therapy',
     name: 'Scratch Therapy',
     tagline: 'Gentle, rhythmic relaxation',
-    imageUrl: '/images/services/scratch-therapy.png'
+    imageUrl: '/images/services/scratch-therapy.png',
+    isPremium: false
   },
   {
     id: 'facial',
     name: 'Facial Services',
     tagline: 'Rejuvenate & restore your glow',
-    imageUrl: '/images/services/island-renewal.jpg'
+    imageUrl: '/images/services/island-renewal.jpg',
+    isPremium: false
   },
   {
     id: 'iv-therapy',
     name: 'IV Therapy',
     tagline: 'Wellness from within',
-    imageUrl: '/images/services/Beaty Drip IV DRIP for website.png'
+    imageUrl: '/images/services/Beaty Drip IV DRIP for website.png',
+    isPremium: false
   }
 ]
 
 export default function ServicesPage() {
+  const searchParams = useSearchParams()
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedService, setSelectedService] = useState<typeof services[number] | null>(null)
+
+  // Handle URL query param for category pre-selection
+  useEffect(() => {
+    const category = searchParams.get('category')
+    if (category && categoryData.some(c => c.id === category)) {
+      setSelectedCategory(category)
+    }
+  }, [searchParams])
 
   // Track which category services have been viewed to prevent re-animation
   const [viewedCategoryServices, setViewedCategoryServices] = useState<Set<string>>(new Set())
@@ -209,26 +232,41 @@ export default function ServicesPage() {
               </div>
 
               {/* Services Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className={`grid grid-cols-1 md:grid-cols-2 gap-8`}>
                 {filteredServices.map((service, index) => (
                   <div
                     key={service.id}
                     className={shouldAnimateServices ? 'animate-in animate-fade-in animate-slide-up' : ''}
                     style={shouldAnimateServices ? { animationDelay: `${index * 100}ms`, animationFillMode: 'both' } : undefined}
                   >
-                    <LuxuryServiceCard
-                      service={service}
-                      onBook={() => {
-                        const serviceUrl = getMangoMintServiceUrl(service.name)
-                        window.location.href = serviceUrl
-                      }}
-                      onViewDetails={() => {
-                        setSelectedService(service)
-                      }}
-                      className="h-full"
-                      priority={index < 2}
-                      badgeType={service.popular ? 'popular' : undefined}
-                    />
+                    {selectedCategory === 'signature-experience' ? (
+                      <SignatureExperienceCard
+                        service={service}
+                        onBook={() => {
+                          const serviceUrl = getMangoMintServiceUrl(service.name)
+                          window.location.href = serviceUrl
+                        }}
+                        onViewDetails={() => {
+                          setSelectedService(service)
+                        }}
+                        className="h-full"
+                        priority={index < 2}
+                      />
+                    ) : (
+                      <LuxuryServiceCard
+                        service={service}
+                        onBook={() => {
+                          const serviceUrl = getMangoMintServiceUrl(service.name)
+                          window.location.href = serviceUrl
+                        }}
+                        onViewDetails={() => {
+                          setSelectedService(service)
+                        }}
+                        className="h-full"
+                        priority={index < 2}
+                        badgeType={service.popular ? 'popular' : undefined}
+                      />
+                    )}
                   </div>
                 ))}
               </div>
@@ -237,12 +275,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Enhance Your Visit - Add-Ons Section */}
+      {/* Elevate Your Experience - Add-Ons Section */}
       <section className="py-12 bg-white border-t border-spa-sage-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-display font-bold text-spa-sage-800 mb-2">
-              Enhance Your Visit
+              Elevate Your Experience
             </h2>
             <p className="text-stone-600">
               Add these extras to any service

@@ -10,21 +10,27 @@ export const getMangoMintServiceUrl = (serviceName: string): string => {
   
   // Service name to MangoMint serviceId mapping
   const serviceIdMap: Record<string, number> = {
+    // Signature Experiences
+    'Golden Reset': 21,
+    'Island Glow': 22,
+    'ULU Paradise Retreat': 23,
+    'ULU Ultimate Escape': 24,
+
     // Head & Scalp Massage Services
     'Island Breeze': 7,
-    'The Ocean Ritual': 8, 
+    'The Ocean Ritual': 8,
     'Tropical Indulge': 9,
     'Royal Escape': 18,
-    
-    // Scratch Therapy Services  
+
+    // Scratch Therapy Services
     'Island Drift': 15,
     'Heavenly Glide': 16,
     'Pure Unwind': 17,
     'ULU Trace': 17, // Note: Using same ID as Pure Unwind per provided URLs
-    
+
     // Facial Services
     'Island Renewal': 10, // TODO: Verify correct service ID for facial service
-    
+
     // IV Therapy Services
     'ULU Glow – Beauty & Radiance': 25,
     'Balance Restore': 26,
