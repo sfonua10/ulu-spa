@@ -29,7 +29,7 @@ export default function BookingPolicyPage() {
           </p>
 
           <p className="font-montserrat text-sm text-spa-stone-500 mt-6 italic">
-            Last Updated: January 18, 2025
+            Last Updated: December 30, 2025
           </p>
         </div>
       </section>

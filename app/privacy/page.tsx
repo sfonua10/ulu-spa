@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <p className="font-montserrat text-sm text-spa-stone-500 mt-6 italic">
-            Last Updated: January 18, 2025
+            Last Updated: December 30, 2025
           </p>
         </div>
       </section>
@@ -166,26 +166,33 @@ export default function PrivacyPolicyPage() {
           {/* Cookies and Tracking */}
           <GlassCard blur="md" opacity={0.8} className="p-8 md:p-10">
             <h2 className="font-playfair text-3xl md:text-4xl font-bold text-spa-sage-900 mb-6">
-              Cookies and Tracking Technologies
+              Cookies and Tracking
             </h2>
 
             <div className="font-montserrat text-spa-stone-700 space-y-4">
               <p className="leading-relaxed">
-                We use cookies and similar tracking technologies to enhance your experience on our website. Cookies are small data files stored on your device that help us remember your preferences and understand how you use our site.
+                This website does not set its own cookies. However, we use third-party services that may set cookies on your device:
               </p>
 
               <div>
-                <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Types of Cookies We Use</h3>
-                <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li><strong>Essential Cookies:</strong> Required for basic site functionality and booking system</li>
-                  <li><strong>Performance Cookies:</strong> Help us understand how visitors interact with our website</li>
-                  <li><strong>Functional Cookies:</strong> Remember your preferences and settings</li>
-                  <li><strong>Marketing Cookies:</strong> Track your browsing to provide relevant advertisements</li>
-                </ul>
+                <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Google Analytics</h3>
+                <p className="leading-relaxed">
+                  We use Google Analytics to understand how visitors use our website. Google Analytics sets cookies (such as <code className="bg-spa-sage-100 px-1 rounded text-sm">_ga</code> and <code className="bg-spa-sage-100 px-1 rounded text-sm">_gid</code>) to collect anonymous information about page views and site usage. This helps us improve our website. You can learn more about Google's privacy practices at{' '}
+                  <a href="https://policies.google.com/privacy" className="text-spa-gold-600 hover:text-spa-gold-700 underline" target="_blank" rel="noopener noreferrer">
+                    policies.google.com/privacy
+                  </a>.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">MangoMint Booking</h3>
+                <p className="leading-relaxed">
+                  Our booking system is provided by MangoMint. When you use the booking features, MangoMint may set cookies on their domain to manage your booking session.
+                </p>
               </div>
 
               <p className="leading-relaxed">
-                You can control cookies through your browser settings. However, disabling certain cookies may limit your ability to use some features of our website.
+                You can block or delete cookies through your browser settings. Blocking cookies will not affect your ability to browse this website, though it may impact analytics tracking and booking functionality.
               </p>
             </div>
           </GlassCard>
