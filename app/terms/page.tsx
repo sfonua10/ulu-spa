@@ -96,9 +96,9 @@ export default function TermsOfServicePage() {
 
             <div className="font-montserrat text-spa-stone-700 space-y-4">
               <div className="bg-spa-gold-50/50 border border-spa-gold-200 rounded-lg p-4 mb-4">
-                <p className="font-semibold text-spa-sage-900 mb-2">48-Hour Cancellation Policy</p>
+                <p className="font-semibold text-spa-sage-900 mb-2">24-Hour Cancellation Policy</p>
                 <p className="text-sm leading-relaxed">
-                  We require at least 48 hours advance notice for cancellations or changes to appointments. Cancellations or changes made with less than 48 hours notice will be charged 50% of the service fee.
+                  We require at least 24 hours advance notice for cancellations or changes to appointments. Cancellations made with less than 24 hours notice will be charged 50% of the service fee.
                 </p>
               </div>
 
@@ -112,7 +112,7 @@ export default function TermsOfServicePage() {
               <div>
                 <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Rescheduling</h3>
                 <p className="leading-relaxed">
-                  You may reschedule your appointment without penalty if done at least 48 hours in advance. We will do our best to accommodate your preferred date and time, subject to availability.
+                  You may reschedule your appointment without penalty if done at least 24 hours in advance. We will do our best to accommodate your preferred date and time, subject to availability.
                 </p>
               </div>
 
@@ -124,7 +124,7 @@ export default function TermsOfServicePage() {
                 <ul className="list-disc list-inside space-y-2 ml-4">
                   <li>72-hour advance notice required for changes or cancellations</li>
                   <li>50% deposit required at time of booking (non-refundable)</li>
-                  <li>Individual cancellations within a group must be made 48 hours in advance</li>
+                  <li>Individual cancellations within a group must be made 24 hours in advance</li>
                   <li>Final guest count must be confirmed 72 hours prior</li>
                 </ul>
               </div>
@@ -175,7 +175,7 @@ export default function TermsOfServicePage() {
               <div>
                 <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Deposits</h3>
                 <p className="leading-relaxed">
-                  Certain services may require a deposit at the time of booking. Deposits will be applied toward the final service cost. Deposits are non-refundable for cancellations made with less than 48 hours notice.
+                  Certain services may require a deposit at the time of booking. Deposits will be applied toward the final service cost. Deposits are non-refundable for cancellations made with less than 24 hours notice.
                 </p>
               </div>
             </div>

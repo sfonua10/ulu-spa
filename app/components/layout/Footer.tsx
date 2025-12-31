@@ -49,14 +49,14 @@ const socialLinks = [
 ]
 
 export default function Footer() {
-  const { ref: footerRef, visibleItems } = useStaggeredInView<HTMLDivElement>(5, 100)
+  const { ref: footerRef, visibleItems } = useStaggeredInView<HTMLDivElement>(6, 100)
 
   return (
     <footer className="bg-spa-sage-900 text-spa-sage-50 relative">
       {/* Top border for better separation */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-spa-sage-700 to-transparent"></div>
       <div ref={footerRef} className="max-w-7xl mx-auto px-6 py-16 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Brand Section */}
           <div className={`lg:col-span-1 ${
             visibleItems.has(0) ? 'animate-in animate-slide-up animate-delay-100' : 'opacity-0'
@@ -115,7 +115,7 @@ export default function Footer() {
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   {link.href.startsWith('http') ? (
-                    <a 
+                    <a
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -124,7 +124,7 @@ export default function Footer() {
                       {link.name}
                     </a>
                   ) : (
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-spa-sage-200 hover:text-white transition-colors duration-200"
                     >
@@ -136,9 +136,28 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Support Links */}
+          <div className={`${
+            visibleItems.has(3) ? 'animate-in animate-slide-up animate-delay-400' : 'opacity-0'
+          }`}>
+            <h4 className="text-lg font-bold text-spa-sage-50 mb-4 tracking-wide">Support</h4>
+            <ul className="space-y-3">
+              {footerLinks.support.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-spa-sage-200 hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Contact Info */}
           <div className={`${
-            visibleItems.has(3) ? 'animate-in animate-slide-up animate-delay-300' : 'opacity-0'
+            visibleItems.has(4) ? 'animate-in animate-slide-up animate-delay-500' : 'opacity-0'
           }`}>
             <h4 className="text-lg font-bold text-spa-sage-50 mb-4 tracking-wide">Contact Us</h4>
             <div className="space-y-3 text-spa-sage-200">
@@ -167,7 +186,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className={`mt-12 pt-8 border-t border-spa-sage-800 ${
-          visibleItems.has(4) ? 'animate-in animate-fade-in animate-delay-500' : 'opacity-0'
+          visibleItems.has(5) ? 'animate-in animate-fade-in animate-delay-600' : 'opacity-0'
         }`}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-spa-sage-300">

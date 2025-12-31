@@ -131,6 +131,6 @@ Key packages:
 The site includes comprehensive legal documentation to protect the business and inform customers:
 - **Privacy Policy** (`/privacy`) - CCPA-compliant privacy information covering data collection, usage, third-party services (MangoMint, payment processors), cookies, user rights, and contact information
 - **Terms of Service** (`/terms`) - Complete legal agreement covering booking terms, cancellation policy, payment terms, membership agreements, gift cards, health/safety disclaimers, liability limitations, conduct policies, and dispute resolution
-- **Booking Policy** (`/policy`) - User-friendly booking guidelines including 48-hour cancellation policy, group booking requirements, payment methods, arrival instructions, and preparation tips
+- **Booking Policy** (`/policy`) - User-friendly booking guidelines including 24-hour cancellation policy, group booking requirements, payment methods, arrival instructions, and preparation tips
 - All legal pages feature luxury spa aesthetic with GlassCard components, gradient backgrounds, and floating decorative elements
 - Links to legal pages are included in the Footer component under the "Support" section

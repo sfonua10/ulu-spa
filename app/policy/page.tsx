@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { GlassCard } from '@/app/components/ui/GlassCard'
-import { CalendarDaysIcon, ClockIcon, CreditCardIcon, UserGroupIcon } from '@heroicons/react/24/outline'
+import { CalendarDaysIcon, ClockIcon, CreditCardIcon, UserGroupIcon, GiftIcon } from '@heroicons/react/24/outline'
 import { Button } from '../components/ui/Button'
 import FloatingBackgroundElements from '@/app/components/ui/FloatingBackgroundElements'
 import { COMPANY, URLS } from '@/app/constants/config'
@@ -46,7 +46,7 @@ export default function BookingPolicyPage() {
                 Cancellation Window
               </h3>
               <p className="font-montserrat text-4xl font-bold text-spa-sage-800 mb-2">
-                48 Hours
+                24 Hours
               </p>
               <p className="font-montserrat text-sm text-spa-stone-600">
                 Cancel or reschedule without penalty
@@ -148,9 +148,9 @@ export default function BookingPolicyPage() {
 
             <div className="font-montserrat text-spa-stone-700 space-y-4">
               <div className="bg-spa-gold-50/50 border-l-4 border-spa-gold-500 p-4 rounded-r-lg">
-                <h3 className="font-semibold text-spa-sage-900 mb-2">48-Hour Notice Required</h3>
+                <h3 className="font-semibold text-spa-sage-900 mb-2">24-Hour Notice Required</h3>
                 <p className="text-sm leading-relaxed">
-                  We require at least 48 hours advance notice for any cancellations or changes to your appointment. This allows us to offer the time slot to other guests.
+                  We require at least 24 hours advance notice for any cancellations or changes to your appointment. This allows us to offer the time slot to other guests.
                 </p>
               </div>
 
@@ -159,15 +159,15 @@ export default function BookingPolicyPage() {
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
                     <span className="text-spa-gold-600 font-bold">•</span>
-                    <span className="text-sm"><strong>48+ hours notice:</strong> No charge, free cancellation</span>
+                    <span className="text-sm"><strong>24+ hours notice:</strong> No charge, free cancellation</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-spa-gold-600 font-bold">•</span>
-                    <span className="text-sm"><strong>24-48 hours notice:</strong> 50% of service fee charged</span>
+                    <span className="text-sm"><strong>Less than 24 hours:</strong> 50% of service fee charged</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-spa-gold-600 font-bold">•</span>
-                    <span className="text-sm"><strong>Less than 24 hours or no-show:</strong> 100% of service fee charged</span>
+                    <span className="text-sm"><strong>No-show:</strong> 100% of service fee charged</span>
                   </li>
                 </ul>
               </div>
@@ -195,7 +195,7 @@ export default function BookingPolicyPage() {
 
               <div className="bg-spa-sage-50/50 border border-spa-sage-200 rounded-lg p-4">
                 <p className="text-sm leading-relaxed">
-                  <strong className="text-spa-sage-900">Understanding Our Policy:</strong> We understand that unexpected things happen. Our cancellation policy ensures that our therapists' time is valued while maintaining availability for all guests. We appreciate your understanding and cooperation.
+                  <strong className="text-spa-sage-900">Understanding Our Policy:</strong> We understand that unexpected things happen. Our cancellation policy ensures that our Service Providers' time is valued while maintaining availability for all guests. We appreciate your understanding and cooperation.
                 </p>
               </div>
             </div>
@@ -255,7 +255,7 @@ export default function BookingPolicyPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-spa-gold-600 font-bold">•</span>
-                    <span className="text-sm">Individual cancellations within group must provide 48-hour notice</span>
+                    <span className="text-sm">Individual cancellations within group must provide 24-hour notice</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-spa-gold-600 font-bold">•</span>
@@ -349,6 +349,173 @@ export default function BookingPolicyPage() {
             </div>
           </GlassCard>
 
+          {/* Gift Card & Spa Credits Policy */}
+          <GlassCard blur="md" opacity={0.8} className="p-8 md:p-10" id="gift-cards">
+            <div className="flex items-start gap-4 mb-6">
+              <GiftIcon className="h-8 w-8 text-spa-gold-600 flex-shrink-0 mt-1" />
+              <div>
+                <h2 className="font-playfair text-3xl md:text-4xl font-bold text-spa-sage-900 mb-4">
+                  Gift Card & Spa Credits Policy
+                </h2>
+              </div>
+            </div>
+
+            <div className="font-montserrat text-spa-stone-700 space-y-6">
+              {/* Booking with Gift Cards */}
+              <div className="bg-spa-gold-50/50 border-l-4 border-spa-gold-500 p-4 rounded-r-lg">
+                <h3 className="font-semibold text-spa-sage-900 mb-2">Booking with Gift Cards</h3>
+                <p className="text-sm leading-relaxed">
+                  To ensure accurate redemption and proper application of deposits and promotional value, all appointments using gift cards must be booked by calling ULU Spa directly at{' '}
+                  <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 underline font-semibold">
+                    (801) 528-7368
+                  </a>. Online booking is not available for gift card redemptions at this time.
+                </p>
+              </div>
+
+              {/* Purchased Gift Cards */}
+              <div>
+                <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Purchased Gift Cards</h3>
+                <p className="text-sm leading-relaxed mb-3">
+                  Gift cards purchased directly from ULU Spa are redeemed dollar-for-dollar toward full-priced services and add-ons.
+                </p>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Treated as cash value</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">May be used over multiple visits until the balance is depleted</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">The required $50 booking deposit may be applied from the gift card balance</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Any remaining balance is applied at checkout</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Added-Value Gift Card Promotions */}
+              <div>
+                <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Added-Value Gift Card Promotions</h3>
+                <p className="text-sm leading-relaxed mb-3">
+                  Added-value gift cards include a promotional bonus (example: Buy $100, Get $120).
+                </p>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">The paid value is applied first</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">The added promotional value is applied last</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm"><strong>The $50 booking deposit must be paid separately</strong> using a credit or debit card</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Promotional value cannot be used toward deposits, discounts, or combined offers</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Promotional & Complimentary Spa Credits */}
+              <div>
+                <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Promotional & Complimentary Spa Credits</h3>
+                <p className="text-sm leading-relaxed mb-3">
+                  Spa credits issued through giveaways, promotions, partnerships, or complimentary offers are not cash value.
+                </p>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Deposit is required separately</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Credits apply only toward full-priced services</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Cannot be combined with other promotions or discounts</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Additional restrictions may apply as noted</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Deposits & Cancellations */}
+              <div>
+                <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Deposits & Cancellations</h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">A $50 deposit is required to secure all appointments</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Deposits are applied toward the service total unless otherwise stated</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Cancellation or reschedule policies apply as outlined at booking</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Gratuity Policy */}
+              <div className="bg-spa-sage-50/50 border border-spa-sage-200 rounded-lg p-4">
+                <h3 className="font-semibold text-spa-sage-900 mb-2">Gratuity Policy</h3>
+                <p className="text-sm leading-relaxed mb-3">
+                  Gratuity is not included in service pricing.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Gift cards and spa credits cannot be used for gratuity</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Gratuity must be paid separately via cash or credit/debit card</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Gratuity is always at the guest&apos;s discretion and goes directly to the service provider</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Additional Policy Notes */}
+              <div>
+                <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Additional Policy Notes</h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">One gift card or spa credit may be used per service per visit</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Gift cards and credits cannot be exchanged for cash</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Gift cards may not be combined with discounts, promotions, or bundled offers unless otherwise stated</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">All policies are subject to change to protect appointment availability and service quality</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </GlassCard>
+
           {/* Arrival and Preparation */}
           <GlassCard blur="md" opacity={0.8} className="p-8 md:p-10">
             <h2 className="font-playfair text-3xl md:text-4xl font-bold text-spa-sage-900 mb-6">
@@ -368,7 +535,7 @@ export default function BookingPolicyPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-spa-gold-600">→</span>
-                    <span className="text-sm">Consult with your therapist about preferences</span>
+                    <span className="text-sm">Consult with your Service Provider about preferences</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-spa-gold-600">→</span>
