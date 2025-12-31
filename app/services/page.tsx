@@ -70,7 +70,7 @@ const categoryData = [
     id: 'iv-therapy',
     name: 'IV Therapy',
     tagline: 'Wellness from within',
-    imageUrl: '/images/services/Beaty Drip IV DRIP for website.png',
+    imageUrl: '/images/services/model.jpg',
     isPremium: false
   }
 ]

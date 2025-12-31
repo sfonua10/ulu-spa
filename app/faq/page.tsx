@@ -42,6 +42,10 @@ const generalFAQs = [
     question: 'How long are your treatment sessions?',
     answer: 'Our signature treatments are designed to be comprehensive 90-minute experiences, allowing ample time for consultation, treatment, and relaxation. We also offer 30, 60, and 75-minute options for guests with varying schedules. The full 90-minute sessions provide the most immersive and restorative experience. <a href="/services" class="text-spa-gold-600 hover:text-spa-gold-700 underline">Browse our services</a> to find your perfect treatment.',
   },
+  {
+    question: 'How do I book with a gift card?',
+    answer: 'Gift cards cannot be applied through our online booking system. To book with your gift card, please call us at <a href="tel:+18015287368" class="text-spa-gold-600 hover:text-spa-gold-700 underline">(801) 528-7368</a>. Our team will apply your gift card toward the required deposit, and any remaining balance will be credited at checkout. <a href="/gift-cards" class="text-spa-gold-600 hover:text-spa-gold-700 underline">Learn more about gift cards</a>.',
+  },
 ];
 
 const scratchTherapyFAQs = [

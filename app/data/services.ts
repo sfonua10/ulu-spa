@@ -352,7 +352,7 @@ export const services = [
     fullDesc: 'Specialized 45-minute IV therapy designed to enhance beauty and promote radiant, healthy skin from within. Beauty-focused drip with biotin, glutathione, magnesium, and zinc for skin and hair rejuvenation.',
     duration: '45 min',
     price: 195,
-    imageUrl: '/images/services/Beaty Drip IV DRIP for website.png',
+    imageUrl: '/images/services/model.jpg',
     focusArea: 'center 20%',
     benefits: ['Skin Radiance', 'Beauty Enhancement', 'Hair Health'],
     includes: [

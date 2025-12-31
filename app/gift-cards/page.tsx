@@ -124,15 +124,10 @@ export default function GiftCardPage() {
             </span>
           </h1>
 
-          <p className="font-montserrat text-xl text-spa-stone-600 leading-relaxed max-w-2xl mx-auto mb-4">
+          <p className="font-montserrat text-xl text-spa-stone-600 leading-relaxed max-w-2xl mx-auto mb-10">
             ULU Spa Gift Cards are more than a present — they&apos;re an experience.
             Thoughtful, flexible, and deeply relaxing, they allow your recipient to choose
             the service that best supports their mind, body, and well-being.
-          </p>
-
-          <p className="font-montserrat text-lg text-spa-stone-500 leading-relaxed max-w-2xl mx-auto mb-10">
-            From luxurious scalp therapy to rejuvenating facials and calming add-ons,
-            each visit is designed to help them unplug, reset, and feel restored.
           </p>
 
           <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackGiftCardClick('gift_cards_hero')}>
@@ -141,6 +136,20 @@ export default function GiftCardPage() {
               Purchase Gift Card
             </Button>
           </a>
+
+          {/* Gift Card Redemption Callout */}
+          <div className="mt-8 max-w-md mx-auto">
+            <div className="bg-spa-sage-50/70 backdrop-blur-sm border border-spa-sage-200/50 rounded-2xl px-6 py-4 text-center">
+              <p className="font-montserrat text-spa-sage-800">
+                <span className="font-semibold">Redeeming a gift card?</span>{' '}
+                <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 underline font-medium">
+                  Call (801) 528-7368
+                </a>{' '}
+                to book.
+                <span className="block text-sm text-spa-stone-500 mt-1">Gift cards can&apos;t be applied online.</span>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -229,71 +238,63 @@ export default function GiftCardPage() {
           </div>
 
           <div className="space-y-4">
-            {/* How to Use */}
+            {/* How to Use Your Gift Card */}
             <GiftCardAccordionItem
               question="How do I use my gift card?"
               isOpen={openIndex === 0}
               onToggle={() => toggleAccordion(0)}
             >
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Redeemable toward regular-priced services or retail</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Applied at checkout toward the service subtotal</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>If the service exceeds the card amount, the remaining balance may be paid by card or cash</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Any unused balance remains on the card for future visits</span>
-                </li>
-              </ul>
-            </GiftCardAccordionItem>
+              {/* Booking Section */}
+              <div className="mb-6">
+                <p className="font-semibold text-spa-sage-900 mb-3">Booking Your Appointment</p>
+                <p className="mb-4 leading-relaxed">
+                  Gift cards cannot be applied through our online booking system. To book with your gift card:
+                </p>
+                <ol className="space-y-3 mb-4">
+                  <li className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-spa-gold-100 text-spa-gold-700 font-bold text-sm flex items-center justify-center">1</span>
+                    <span>Call us at <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 underline font-semibold">(801) 528-7368</a></span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-spa-gold-100 text-spa-gold-700 font-bold text-sm flex items-center justify-center">2</span>
+                    <span>Our team will apply your gift card toward the required deposit</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-spa-gold-100 text-spa-gold-700 font-bold text-sm flex items-center justify-center">3</span>
+                    <span>Any remaining gift card balance will be applied at checkout</span>
+                  </li>
+                </ol>
+              </div>
 
-            {/* Deposits */}
-            <GiftCardAccordionItem
-              question="Can I use a gift card for deposits?"
-              isOpen={openIndex === 1}
-              onToggle={() => toggleAccordion(1)}
-            >
-              <p className="mb-4 leading-relaxed">
-                Some appointments may require a non-refundable deposit to secure time with a provider.
-                To keep scheduling fair and consistent:
-              </p>
-              <div className="bg-spa-gold-50/50 border-l-4 border-spa-gold-400 p-4 rounded-r-lg mb-4">
-                <ul className="space-y-2">
+              {/* At Checkout Section */}
+              <div className="border-t border-spa-sage-100 pt-5">
+                <p className="font-semibold text-spa-sage-900 mb-3">At Checkout</p>
+                <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <span className="text-spa-gold-600 font-bold">•</span>
-                    <span>Deposits must be paid using a valid debit/credit card</span>
+                    <span>Redeemable toward regular-priced services or retail</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-spa-gold-600 font-bold">•</span>
-                    <span><strong>Gift cards cannot be used to pay deposits or hold reservations</strong></span>
+                    <span>Applied at checkout toward the service subtotal</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-spa-gold-600 font-bold">•</span>
-                    <span>At checkout, a gift card may be applied toward the remaining balance of the service</span>
+                    <span>If the service exceeds the card amount, the remaining balance may be paid by card or cash</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Any unused balance remains on the card for future visits</span>
                   </li>
                 </ul>
-              </div>
-              <div className="bg-spa-sage-50/50 border border-spa-sage-200 rounded-lg p-4">
-                <p className="text-sm leading-relaxed">
-                  <strong className="text-spa-sage-900">Example:</strong> If a service is $120 with a $50 deposit,
-                  the $50 remains applied, and the gift card may be used toward the remaining balance at checkout.
-                </p>
               </div>
             </GiftCardAccordionItem>
 
             {/* Combining Cards */}
             <GiftCardAccordionItem
               question="Can I combine multiple gift cards?"
-              isOpen={openIndex === 2}
-              onToggle={() => toggleAccordion(2)}
+              isOpen={openIndex === 1}
+              onToggle={() => toggleAccordion(1)}
             >
               <p className="mb-4 leading-relaxed">
                 To keep billing simple:
@@ -313,104 +314,133 @@ export default function GiftCardPage() {
             {/* Restrictions */}
             <GiftCardAccordionItem
               question="Are there any restrictions?"
-              isOpen={openIndex === 3}
-              onToggle={() => toggleAccordion(3)}
+              isOpen={openIndex === 2}
+              onToggle={() => toggleAccordion(2)}
             >
-              <p className="mb-4">Gift cards may not be used toward:</p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Discounts or promotional pricing</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Seasonal or holiday offers</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Membership pricing or monthly dues</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Corporate or group rates</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Deposits or reservation holds</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Cancellation or no-show fees</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Cash gratuity</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Purchasing additional gift cards</span>
-                </li>
-              </ul>
-            </GiftCardAccordionItem>
+              {/* Deposit Info */}
+              <div className="mb-6">
+                <p className="font-semibold text-spa-sage-900 mb-3">About Deposits</p>
+                <p className="mb-4 leading-relaxed">
+                  Some appointments may require a non-refundable deposit to secure time with a provider.
+                  To keep scheduling fair and consistent:
+                </p>
+                <div className="bg-spa-gold-50/50 border-l-4 border-spa-gold-400 p-4 rounded-r-lg mb-4">
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3">
+                      <span className="text-spa-gold-600 font-bold">•</span>
+                      <span>Deposits must be paid using a valid debit/credit card</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-spa-gold-600 font-bold">•</span>
+                      <span><strong>Gift cards cannot be used to pay deposits or hold reservations</strong></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-spa-gold-600 font-bold">•</span>
+                      <span>At checkout, a gift card may be applied toward the remaining balance of the service</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-spa-sage-50/50 border border-spa-sage-200 rounded-lg p-4">
+                  <p className="text-sm leading-relaxed">
+                    <strong className="text-spa-sage-900">Example:</strong> If a service is $120 with a $50 deposit,
+                    the $50 remains applied, and the gift card may be used toward the remaining balance at checkout.
+                  </p>
+                </div>
+              </div>
 
-            {/* Promotional Cards */}
-            <GiftCardAccordionItem
-              question="What about bonus or promotional cards?"
-              isOpen={openIndex === 4}
-              onToggle={() => toggleAccordion(4)}
-            >
-              <p className="mb-4 leading-relaxed">
-                ULU may offer added-value cards (e.g., &quot;Buy $100, Get $20 Free&quot;) or promotional spa credits.
-                To ensure clarity:
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>The bonus/promotional portion may include expiration dates</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Bonus value cannot be used on discounted services or restricted categories</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Bonus value cannot be used toward deposits, membership pricing, corporate/group rates, or gratuity</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span>Limit one promotional/added-value card per guest, per visit</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-spa-gold-600 font-bold">•</span>
-                  <span><strong>Paid value never expires; bonus value may</strong></span>
-                </li>
-              </ul>
+              {/* Other Restrictions */}
+              <div className="border-t border-spa-sage-100 pt-5">
+                <p className="font-semibold text-spa-sage-900 mb-3">Gift cards may not be used toward:</p>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Discounts or promotional pricing</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Seasonal or holiday offers</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Membership pricing or monthly dues</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Corporate or group rates</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Cancellation or no-show fees</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Cash gratuity</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Purchasing additional gift cards</span>
+                  </li>
+                </ul>
+              </div>
             </GiftCardAccordionItem>
 
             {/* Expiration */}
             <GiftCardAccordionItem
               question="Do gift cards expire?"
-              isOpen={openIndex === 5}
-              onToggle={() => toggleAccordion(5)}
+              isOpen={openIndex === 3}
+              onToggle={() => toggleAccordion(3)}
             >
-              <div className="bg-spa-sage-50/50 border-l-4 border-spa-sage-500 p-4 rounded-r-lg mb-4">
-                <p className="font-semibold text-spa-sage-900 mb-2">Standard Gift Cards</p>
-                <p className="leading-relaxed">
-                  <strong>Purchased gift card value does not expire</strong> and will retain its full
-                  value indefinitely in compliance with applicable laws.
+              {/* Standard Gift Cards */}
+              <div className="mb-6">
+                <div className="bg-spa-sage-50/50 border-l-4 border-spa-sage-500 p-4 rounded-r-lg">
+                  <p className="font-semibold text-spa-sage-900 mb-2">Standard Gift Cards</p>
+                  <p className="leading-relaxed">
+                    <strong>Purchased gift card value does not expire</strong> and will retain its full
+                    value indefinitely in compliance with applicable laws.
+                  </p>
+                </div>
+              </div>
+
+              {/* Bonus & Promotional Cards */}
+              <div className="border-t border-spa-sage-100 pt-5">
+                <p className="font-semibold text-spa-sage-900 mb-3">Bonus & Promotional Cards</p>
+                <p className="mb-4 leading-relaxed">
+                  ULU may offer added-value cards (e.g., &quot;Buy $100, Get $20 Free&quot;) or promotional spa credits.
+                  To ensure clarity:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>The bonus/promotional portion may include expiration dates</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Bonus value cannot be used on discounted services or restricted categories</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Bonus value cannot be used toward deposits, membership pricing, corporate/group rates, or gratuity</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span>Limit one promotional/added-value card per guest, per visit</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span><strong>Paid value never expires; bonus value may</strong></span>
+                  </li>
+                </ul>
+                <p className="mt-4 leading-relaxed text-sm text-spa-stone-600">
+                  Redemption windows or blackout dates will be clearly communicated at the time of purchase.
                 </p>
               </div>
-              <p className="leading-relaxed text-sm">
-                Note: Bonus or promotional value may have redemption windows or blackout dates,
-                which will be clearly communicated at the time of purchase.
-              </p>
             </GiftCardAccordionItem>
 
             {/* Balance Check */}
             <GiftCardAccordionItem
               question="How do I check my balance?"
-              isOpen={openIndex === 6}
-              onToggle={() => toggleAccordion(6)}
+              isOpen={openIndex === 4}
+              onToggle={() => toggleAccordion(4)}
             >
               <ul className="space-y-3 mb-4">
                 <li className="flex items-start gap-3">
@@ -465,6 +495,14 @@ export default function GiftCardPage() {
                 </Button>
               </a>
             </div>
+
+            <p className="text-sm text-spa-stone-600 mt-6">
+              Have a gift card?{' '}
+              <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 underline font-medium">
+                Call (801) 528-7368
+              </a>{' '}
+              to book your appointment.
+            </p>
           </GlassCard>
         </div>
       </section>

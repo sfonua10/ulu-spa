@@ -207,6 +207,13 @@ export default function ServiceDetailModal({
 
           {/* CTA Button */}
           <div className="pt-6 border-t-2 border-spa-sage-100">
+            <p className="text-sm text-stone-500 text-center mb-4">
+              Have a gift card?{' '}
+              <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 underline font-medium">
+                Call (801) 528-7368
+              </a>{' '}
+              to book.
+            </p>
             <button
               className="w-full inline-flex items-center justify-center py-4 px-8 rounded-full text-lg font-bold bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-spa-gold-800 group cursor-pointer"
               onClick={() => {
