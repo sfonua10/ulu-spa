@@ -372,6 +372,25 @@ export default function BookingPolicyPage() {
                 </p>
               </div>
 
+              {/* Gift Card Honoring Policy */}
+              <div>
+                <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Gift Card Honoring Policy</h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Gift cards purchased prior to January 1, 2025 will be honored at the service level or dollar value purchased.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Gift cards purchased on or after January 1, 2025 apply toward current menu pricing.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-spa-gold-600 font-bold">•</span>
+                    <span className="text-sm">Gift cards do not expire and may be applied toward any service.</span>
+                  </li>
+                </ul>
+              </div>
+
               {/* Purchased Gift Cards */}
               <div>
                 <h3 className="font-semibold text-xl text-spa-sage-800 mb-3">Purchased Gift Cards</h3>
