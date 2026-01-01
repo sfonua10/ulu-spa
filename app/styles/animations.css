@@ -1179,6 +1179,101 @@
   100% { transform: translateX(100%); }
 }
 
+/* Gift Card Hover Effect - matches service card style */
+.gift-card-hover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 20px rgba(212, 175, 55, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gift-card-hover:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 12px 40px rgba(212, 175, 55, 0.3),
+    0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Diagonal shimmer sweep on hover */
+.gift-card-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: translateX(-100%) skewX(-12deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.gift-card-hover:hover::after {
+  transform: translateX(100%) skewX(-12deg);
+  transition: transform 1s ease;
+}
+
+/* Gift Card 3D Floating + Flip Animation */
+.gift-card-3d-container {
+  perspective: 1000px;
+}
+
+.gift-card-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: floatAndFlip 8s ease-in-out infinite;
+}
+
+.gift-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 20px rgba(212, 175, 55, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.gift-card-back {
+  transform: rotateY(180deg);
+}
+
+@keyframes floatAndFlip {
+  0% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  20% {
+    transform: translateY(-8px) rotateX(2deg) rotateY(-3deg);
+  }
+  40% {
+    transform: translateY(-4px) rotateX(-1deg) rotateY(3deg);
+  }
+  /* Build up to flip */
+  55% {
+    transform: translateY(-6px) rotateX(0deg) rotateY(0deg);
+  }
+  /* QUICK 360° spin - back barely visible */
+  65% {
+    transform: translateY(-12px) rotateX(0deg) rotateY(180deg);
+  }
+  75% {
+    transform: translateY(-8px) rotateX(0deg) rotateY(360deg);
+  }
+  /* Settle back to gentle float */
+  85% {
+    transform: translateY(-5px) rotateX(1deg) rotateY(357deg);
+  }
+  100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(360deg);
+  }
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1224,5 +1319,9 @@
 
   .image-zoom-hover:hover {
     transform: none !important;
+  }
+
+  .gift-card-3d {
+    animation: none !important;
   }
 }

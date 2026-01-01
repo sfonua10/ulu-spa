@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { GlassCard } from '@/app/components/ui/GlassCard'
 import { Button } from '@/app/components/ui/Button'
 import { useInView } from '@/app/hooks/useInView'
+import Image from 'next/image'
 import {
   GiftIcon,
   SparklesIcon,
@@ -110,44 +111,69 @@ export default function GiftCardPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-spa-gold-50 to-spa-cream-50 backdrop-blur-sm text-spa-sage-700 text-sm font-medium mb-8 border border-spa-gold-200/50 shadow-soft">
-            <GiftIcon className="h-5 w-5 text-spa-gold-600" />
-            <span className="uppercase tracking-wide">The Perfect Present</span>
-          </div>
+      <section className="relative pt-48 pb-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left: Text Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-spa-sage-900 mb-6">
+                Give the Gift Everyone Wants —{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-spa-gold-500 to-spa-gold-600">
+                  Relaxation, Reset, & Renewal
+                </span>
+              </h1>
 
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-spa-sage-900 mb-6">
-            Give the Gift Everyone Wants —{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-spa-gold-500 to-spa-gold-600">
-              Relaxation, Reset, & Renewal
-            </span>
-          </h1>
+              <p className="font-montserrat text-lg md:text-xl text-spa-stone-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-10">
+                ULU Spa Gift Cards are more than a present — they&apos;re an experience.
+                Thoughtful, flexible, and deeply relaxing, they allow your recipient to choose
+                the service that best supports their mind, body, and well-being.
+              </p>
 
-          <p className="font-montserrat text-xl text-spa-stone-600 leading-relaxed max-w-2xl mx-auto mb-10">
-            ULU Spa Gift Cards are more than a present — they&apos;re an experience.
-            Thoughtful, flexible, and deeply relaxing, they allow your recipient to choose
-            the service that best supports their mind, body, and well-being.
-          </p>
+              <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackGiftCardClick('gift_cards_hero')}>
+                <Button variant="luxury" size="lg" className="px-12 py-4 text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                  <GiftIcon className="h-6 w-6 mr-3" />
+                  Purchase Gift Card
+                </Button>
+              </a>
 
-          <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackGiftCardClick('gift_cards_hero')}>
-            <Button variant="luxury" size="lg" className="px-12 py-4 text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
-              <GiftIcon className="h-6 w-6 mr-3" />
-              Purchase Gift Card
-            </Button>
-          </a>
-
-          {/* Gift Card Redemption Callout */}
-          <div className="mt-8 max-w-md mx-auto">
-            <div className="bg-spa-sage-50/70 backdrop-blur-sm border border-spa-sage-200/50 rounded-2xl px-6 py-4 text-center">
-              <p className="font-montserrat text-spa-sage-800">
-                <span className="font-semibold">Redeeming a gift card?</span>{' '}
-                <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 underline font-medium">
+              <p className="mt-4 font-montserrat text-sm text-spa-stone-500 text-center lg:text-left">
+                Redeeming?{' '}
+                <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 font-medium">
                   Call (801) 528-7368
                 </a>{' '}
-                to book.
-                <span className="block text-sm text-spa-stone-500 mt-1">Online booking isn&apos;t available for gift card appointments.</span>
+                to book
               </p>
+            </div>
+
+            {/* Right: Badge + Gift Card Image */}
+            <div className="flex flex-col items-center order-first lg:order-last">
+              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-spa-gold-50 to-spa-cream-50 backdrop-blur-sm text-spa-sage-700 text-sm font-medium mb-6 border border-spa-gold-200/50 shadow-soft">
+                <GiftIcon className="h-5 w-5 text-spa-gold-600" />
+                <span className="uppercase tracking-wide">The Perfect Present</span>
+              </div>
+              <div className="gift-card-3d-container max-w-md w-full">
+                <div className="gift-card-3d" style={{ aspectRatio: '500/315' }}>
+                  {/* Front */}
+                  <div className="gift-card-face">
+                    <Image
+                      src="/images/gift-card-front.png"
+                      alt="ULU Head Spa Gift Card - The Ultimate Gift of Relaxation"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                  {/* Back */}
+                  <div className="gift-card-face gift-card-back">
+                    <Image
+                      src="/images/gift-card-back.png"
+                      alt="ULU Head Spa Gift Card - Back"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -336,7 +362,7 @@ export default function GiftCardPage() {
                 </Button>
               </a>
 
-              <a href={bookingUrl} className="mangomint-booking-button" onClick={() => trackBookNowClick('gift_cards')}>
+              <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="mangomint-booking-button" onClick={() => trackBookNowClick('gift_cards')}>
                 <Button variant="outline" size="lg" className="px-12">
                   <CalendarDaysIcon className="h-5 w-5 mr-2" />
                   Book Now

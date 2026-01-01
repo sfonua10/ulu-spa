@@ -25,11 +25,14 @@ export const getMangoMintServiceUrl = (serviceName: string): string => {
     // Scratch Therapy Services
     'Island Drift': 15,
     'Heavenly Glide': 16,
-    'Pure Unwind': 17,
+    'Pure Unwind': 39,
     'ULU Trace': 17, // Note: Using same ID as Pure Unwind per provided URLs
 
     // Facial Services
-    'Island Renewal': 10, // TODO: Verify correct service ID for facial service
+    'Island Renewal': 50,
+    'Island Escape Ritual': 52,
+    'ULU Paradise Renewal': 54,
+    'Glow & Go Express': 47,
 
     // IV Therapy Services
     'ULU Glow – Beauty & Radiance': 25,

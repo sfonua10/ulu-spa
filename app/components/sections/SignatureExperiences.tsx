@@ -55,8 +55,7 @@ export default function SignatureExperiences() {
               priority={index === 0}
               onViewDetails={() => setSelectedService(service)}
               onBook={() => {
-                const serviceUrl = getMangoMintServiceUrl(service.name)
-                window.location.href = serviceUrl
+                window.open(getMangoMintServiceUrl(service.name), '_blank')
               }}
             />
           ))}
@@ -83,8 +82,7 @@ export default function SignatureExperiences() {
           isOpen={!!selectedService}
           onClose={() => setSelectedService(null)}
           onBookNow={() => {
-            const serviceUrl = getMangoMintServiceUrl(selectedService.name)
-            window.location.href = serviceUrl
+            window.open(getMangoMintServiceUrl(selectedService.name), '_blank')
           }}
         />
       )}

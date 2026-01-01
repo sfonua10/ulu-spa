@@ -28,7 +28,7 @@ const generalFAQs = [
   },
   {
     question: 'Do you accept walk-ins or is it by appointment only?',
-    answer: 'ULU Spa is primarily appointment-based to ensure each guest receives dedicated time and attention. Walk-ins are welcome when availability allows, and we are happy to accommodate based on the next open appointment time. To guarantee your preferred provider and time, we recommend <a href="https://booking.mangomint.com/904811" class="text-spa-gold-600 hover:text-spa-gold-700 underline">booking in advance</a>.',
+    answer: 'ULU Spa is primarily appointment-based to ensure each guest receives dedicated time and attention. Walk-ins are welcome when availability allows, and we are happy to accommodate based on the next open appointment time. To guarantee your preferred provider and time, we recommend <a href="https://booking.mangomint.com/904811" target="_blank" rel="noopener noreferrer" class="text-spa-gold-600 hover:text-spa-gold-700 underline">booking in advance</a>.',
   },
   {
     question: 'What is your cancellation policy?',
@@ -75,7 +75,7 @@ const scratchTherapyFAQs = [
   },
   {
     question: 'Can I add Scratch Therapy to another service?',
-    answer: 'Yes! Scratch Therapy can be booked as a standalone service or as an add-on to our Signature Head Spa Package or Foot Bath Ritual. We\'re happy to customize your wellness experience. <a href="https://booking.mangomint.com/904811" class="text-spa-gold-600 hover:text-spa-gold-700 underline">Book your appointment</a> to discuss options.',
+    answer: 'Yes! Scratch Therapy can be booked as a standalone service or as an add-on to our Signature Head Spa Package or Foot Bath Ritual. We\'re happy to customize your wellness experience. <a href="https://booking.mangomint.com/904811" target="_blank" rel="noopener noreferrer" class="text-spa-gold-600 hover:text-spa-gold-700 underline">Book your appointment</a> to discuss options.',
   },
 ];
 
@@ -141,6 +141,8 @@ export default function FAQPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="https://booking.mangomint.com/904811"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mangomint-booking-button px-8 py-4 bg-gradient-to-br from-spa-gold-500 to-spa-gold-600 text-white rounded-full font-montserrat font-semibold hover:from-spa-gold-600 hover:to-spa-gold-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-3"
               >
                 <CalendarDaysIcon className="h-5 w-5" />

@@ -48,6 +48,8 @@ export default function CTASection() {
             <div className="flex flex-col sm:flex-row gap-6">
               <a
                 href={URLS.BOOKING}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => trackBookNowClick('cta')}
                 className="mangomint-booking-button inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 bg-gradient-to-br from-spa-gold-500 to-spa-gold-600 text-white hover:from-spa-gold-600 hover:to-spa-gold-700 hover:shadow-lg relative overflow-hidden h-14 px-10 text-base transform hover:-translate-y-1 shadow-xl hover:shadow-2xl"
               >

@@ -144,7 +144,7 @@ export default function ServicesPreview() {
                       className="px-8 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 hover:from-spa-gold-600 hover:to-spa-gold-700 shadow-gold hover:shadow-gold-lg border border-spa-gold-500"
                       onClick={(e) => {
                         e.stopPropagation()
-                        window.location.href = getMangoMintServiceUrl(featuredExperience.name)
+                        window.open(getMangoMintServiceUrl(featuredExperience.name), '_blank')
                       }}
                     >
                       Book Experience
@@ -175,7 +175,7 @@ export default function ServicesPreview() {
               badgeType={service.badgeType}
               onViewDetails={() => setSelectedService(service)}
               onBook={() => {
-                window.location.href = getMangoMintServiceUrl(service.name)
+                window.open(getMangoMintServiceUrl(service.name), '_blank')
               }}
             />
           ))}
@@ -198,7 +198,7 @@ export default function ServicesPreview() {
           isOpen={!!selectedService}
           onClose={() => setSelectedService(null)}
           onBookNow={() => {
-            window.location.href = getMangoMintServiceUrl(selectedService.name)
+            window.open(getMangoMintServiceUrl(selectedService.name), '_blank')
           }}
         />
       )}

@@ -243,8 +243,7 @@ export default function ServicesPage() {
                       <SignatureExperienceCard
                         service={service}
                         onBook={() => {
-                          const serviceUrl = getMangoMintServiceUrl(service.name)
-                          window.location.href = serviceUrl
+                          window.open(getMangoMintServiceUrl(service.name), '_blank')
                         }}
                         onViewDetails={() => {
                           setSelectedService(service)
@@ -256,8 +255,7 @@ export default function ServicesPage() {
                       <LuxuryServiceCard
                         service={service}
                         onBook={() => {
-                          const serviceUrl = getMangoMintServiceUrl(service.name)
-                          window.location.href = serviceUrl
+                          window.open(getMangoMintServiceUrl(service.name), '_blank')
                         }}
                         onViewDetails={() => {
                           setSelectedService(service)
@@ -299,6 +297,8 @@ export default function ServicesPage() {
                 <a
                   key={addon.id}
                   href={getMangoMintServiceUrl(addon.name)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative bg-white hover:bg-spa-sage-50 border border-spa-sage-200 hover:border-spa-gold-300 rounded-2xl p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden"
                 >
                   {/* Subtle gradient overlay on hover */}
@@ -354,6 +354,8 @@ export default function ServicesPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mangomint-booking-button inline-block"
               >
                 <Button variant="luxury" size="lg" className="px-12 w-full">
@@ -377,8 +379,7 @@ export default function ServicesPage() {
         onClose={() => setSelectedService(null)}
         onBookNow={() => {
           if (selectedService) {
-            const serviceUrl = getMangoMintServiceUrl(selectedService.name)
-            window.location.href = serviceUrl
+            window.open(getMangoMintServiceUrl(selectedService.name), '_blank')
           }
         }}
       />

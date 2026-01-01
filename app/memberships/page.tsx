@@ -227,7 +227,7 @@ export default function MembershipsPage() {
                     className="w-full text-lg py-4 font-semibold mt-8"
                     onClick={() => {
                       trackMembershipClick(membership.id)
-                      membership.mangomintUrl && (window.location.href = membership.mangomintUrl)
+                      membership.mangomintUrl && window.open(membership.mangomintUrl, '_blank')
                     }}
                   >
                     Get Started
@@ -303,6 +303,8 @@ export default function MembershipsPage() {
                       </p>
                       <a
                         href="https://booking.mangomint.com/904811"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="mangomint-booking-button block"
                       >
                         <Button
@@ -370,6 +372,8 @@ export default function MembershipsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
                 href="https://booking.mangomint.com/904811"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mangomint-booking-button"
                 onClick={() => trackBookNowClick('memberships_cta')}
               >
