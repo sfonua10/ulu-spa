@@ -1240,6 +1240,43 @@
     0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
+/* Auto-shimmer on front face - synced with flip */
+.gift-card-face:not(.gift-card-back)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: translateX(-100%) skewX(-12deg);
+  animation: cardShimmer 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Shimmer keyframes - plays right after flip lands */
+@keyframes cardShimmer {
+  0%, 74% {
+    opacity: 0;
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(100%) skewX(-12deg);
+  }
+  86%, 100% {
+    opacity: 0;
+    transform: translateX(100%) skewX(-12deg);
+  }
+}
+
 .gift-card-back {
   transform: rotateY(180deg);
 }
@@ -1323,5 +1360,10 @@
 
   .gift-card-3d {
     animation: none !important;
+  }
+
+  .gift-card-face:not(.gift-card-back)::after {
+    animation: none !important;
+    opacity: 0 !important;
   }
 }

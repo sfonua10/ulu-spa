@@ -129,20 +129,22 @@ export default function GiftCardPage() {
                 the service that best supports their mind, body, and well-being.
               </p>
 
-              <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackGiftCardClick('gift_cards_hero')}>
-                <Button variant="luxury" size="lg" className="px-12 py-4 text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
-                  <GiftIcon className="h-6 w-6 mr-3" />
-                  Purchase Gift Card
-                </Button>
-              </a>
+              <div className="inline-flex flex-col items-center">
+                <a href={giftCardPurchaseUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackGiftCardClick('gift_cards_hero')}>
+                  <Button variant="luxury" size="lg" className="px-12 py-4 text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                    <GiftIcon className="h-6 w-6 mr-3" />
+                    Purchase Gift Card
+                  </Button>
+                </a>
 
-              <p className="mt-4 font-montserrat text-sm text-spa-stone-500 text-center lg:text-left">
-                Redeeming?{' '}
-                <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 font-medium">
-                  Call (801) 528-7368
-                </a>{' '}
-                to book
-              </p>
+                <p className="mt-4 font-montserrat text-sm text-spa-stone-500 text-center">
+                  Redeeming?{' '}
+                  <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 font-medium">
+                    Call (801) 528-7368
+                  </a>{' '}
+                  to book
+                </p>
+              </div>
             </div>
 
             {/* Right: Badge + Gift Card Image */}
