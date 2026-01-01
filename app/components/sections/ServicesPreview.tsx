@@ -7,110 +7,26 @@ import { Button } from '../ui/Button'
 import LuxuryServiceCard from '../ui/LuxuryServiceCard'
 import ServiceDetailModal from '../ui/ServiceDetailModal'
 import { getMangoMintServiceUrl } from '@/app/utils/mangomint-urls'
-import {
-  SparklesIcon,
-  StarIcon,
-  HeartIcon,
-  CheckIcon
-} from '@heroicons/react/24/outline'
+import { services } from '@/app/data/services'
+import { CheckIcon } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 
-// Featured hero bundle - ULU Ultimate Escape
-const featuredExperience = {
-  id: 32,
-  icon: SparklesIcon,
-  name: 'ULU Ultimate Escape',
-  shortDesc: 'Our most comprehensive and luxurious 3.5-hour journey.',
-  fullDesc: 'Our most comprehensive and luxurious journey. Indulge in full scalp therapy, full-body scratch therapy, hot stone enhancement, and a rejuvenating foot spa ritual — all paired with a personalized facial for complete renewal. This 3.5-hour escape balances, restores, and elevates your entire mind and body.',
-  duration: '3 hr 30 min',
-  price: 530,
-  imageUrl: '/images/services/model.jpg',
-  focusArea: 'center 20%',
-  benefits: ['Full-body therapy', 'Hot stone enhancement', 'Complete renewal'],
-  includes: [
-    'Full Scalp Therapy',
-    'Full-Body Scratch Therapy',
-    'Hot Stone Enhancement',
-    'Foot Spa Ritual',
-    'Personalized Facial'
-  ],
-  popular: false,
-  category: 'signature-experience'
+// Get featured experience from services data (single source of truth)
+const featuredExperience = services.find(s => s.id === 32)! // ULU Ultimate Escape
+
+// Get curated services from services data with component-specific badge types
+const curatedServiceIds = [4, 7, 10] // Royal Escape, Pure Unwind, Island Renewal
+const badgeTypes: Record<number, 'value' | 'signature'> = {
+  4: 'value',
+  7: 'signature',
+  10: 'signature'
 }
+const curatedServices = curatedServiceIds.map(id => ({
+  ...services.find(s => s.id === id)!,
+  badgeType: badgeTypes[id]
+}))
 
-// Curated individual services
-const curatedServices = [
-  {
-    id: 4,
-    icon: SparklesIcon,
-    name: 'Royal Escape',
-    shortDesc: 'Ultimate 90-minute royal treatment',
-    fullDesc: 'Our signature 90-minute royal treatment offering the ultimate in scalp massage luxury and relaxation. Experience the pinnacle of our head spa services with comprehensive scalp care and therapeutic massage.',
-    duration: '90 min',
-    price: 210,
-    imageUrl: '/images/services/royal-escape.png',
-    benefits: ['Ultimate Relaxation', 'Premium Experience', 'Complete Wellness'],
-    includes: [
-      'Extended 90-minute treatment',
-      'Comprehensive scalp analysis',
-      'Deep tissue scalp massage',
-      'Aromatherapy experience',
-      'Hot towel treatment',
-      'Scalp detox and cleanse',
-      'Moisturizing mask',
-      'Light blow dry'
-    ],
-    popular: false,
-    category: 'head-scalp',
-    badgeType: 'value' as const
-  },
-  {
-    id: 7,
-    icon: HeartIcon,
-    name: 'Pure Unwind',
-    shortDesc: 'Extended signature scratching',
-    fullDesc: 'A 75-minute extended signature scratching experience with hand and arm ritual extension and optional oil infusion (+$15) for ultimate relaxation and stress relief. We use soft scratch nails, gentle brushes, and sanitized tools to create a smooth, relaxing scratch sensation.',
-    duration: '75 min',
-    price: 170,
-    imageUrl: '/images/services/scratch-therapy-claw2.png',
-    benefits: ['Ultimate Relaxation', 'Sensory Therapy', 'Stress Relief'],
-    includes: [
-      'Extended signature scratching',
-      'Hand and arm ritual extension',
-      'Soft fan brushes & scratch tools',
-      'Deep relaxation',
-      'Optional oil infusion (+$15)'
-    ],
-    popular: false,
-    category: 'scratch-therapy',
-    badgeType: 'signature' as const
-  },
-  {
-    id: 10,
-    icon: StarIcon,
-    name: 'Island Renewal',
-    shortDesc: 'Rejuvenating facial treatment',
-    fullDesc: 'A full hour facial treatment focused on skin renewal and rejuvenation with island-inspired techniques. Our expert aestheticians combine traditional island wisdom with modern skincare science.',
-    duration: '60 min',
-    price: 130,
-    imageUrl: '/images/services/island-renewal.jpg',
-    benefits: ['Skin Renewal', 'Deep Cleansing', 'Rejuvenation'],
-    includes: [
-      'Deep facial cleansing',
-      'Exfoliation treatment',
-      'Custom facial mask',
-      'Face and neck massage',
-      'Moisturizing treatment',
-      'Eye treatment',
-      'Décolleté care'
-    ],
-    popular: false,
-    category: 'facial',
-    badgeType: 'signature' as const
-  }
-]
-
-type ServiceType = typeof featuredExperience | typeof curatedServices[number]
+type ServiceType = typeof services[number] & { badgeType?: 'value' | 'signature' }
 
 export default function ServicesPreview() {
   const [selectedService, setSelectedService] = useState<ServiceType | null>(null)
