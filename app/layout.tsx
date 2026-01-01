@@ -6,6 +6,7 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import ChatWidgetController from "./components/ui/ChatWidgetController";
 import { AnimationProvider } from "./contexts/AnimationContext";
+import FeedbackWidget from "./components/ui/FeedbackWidget";
 import { OrganizationSchema, LocalBusinessSchema } from "./components/seo/JsonLd";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { COMPANY } from "./constants/config";
@@ -196,6 +197,7 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
           <Footer />
+          <FeedbackWidget />
         </AnimationProvider>
       </body>
     </html>

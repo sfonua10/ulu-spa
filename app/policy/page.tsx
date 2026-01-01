@@ -378,11 +378,11 @@ export default function BookingPolicyPage() {
                 <ul className="space-y-2 ml-4">
                   <li className="flex items-start gap-2">
                     <span className="text-spa-gold-600 font-bold">•</span>
-                    <span className="text-sm">Gift cards purchased prior to January 1, 2025 will be honored at the service level or dollar value purchased.</span>
+                    <span className="text-sm">Gift cards purchased prior to January 1, 2026 will be honored at the service level or dollar value purchased.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-spa-gold-600 font-bold">•</span>
-                    <span className="text-sm">Gift cards purchased on or after January 1, 2025 apply toward current menu pricing.</span>
+                    <span className="text-sm">Gift cards purchased on or after January 1, 2026 apply toward current menu pricing.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-spa-gold-600 font-bold">•</span>
