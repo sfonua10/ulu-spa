@@ -41,7 +41,7 @@ export default function FeedbackWidget() {
 
     // Check for URL param
     const urlParams = new URLSearchParams(window.location.search)
-    const feedbackKey = urlParams.get('feedbackKey')
+    const feedbackKey = urlParams.get('showFeedback')
 
     if (feedbackKey === FEEDBACK_SECRET) {
       // Enable feedback mode
