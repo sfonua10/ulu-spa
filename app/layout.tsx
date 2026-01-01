@@ -81,10 +81,12 @@ export const metadata: Metadata = {
       "Experience the ultimate relaxation at ULU Head Spa. Premium scalp treatments, head massages, and rejuvenating spa services in Pleasant Grove, UT.",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "https://www.uluspas.com/images/og-image.png",
+        secureUrl: "https://www.uluspas.com/images/og-image.png",
         width: 1536,
         height: 1024,
         alt: "ULU Head Spa - Luxury Scalp Massage",
+        type: "image/png",
       },
     ],
   },
@@ -95,7 +97,14 @@ export const metadata: Metadata = {
     title: "ULU Head Spa | Luxury Head Spa in Pleasant Grove, Utah",
     description:
       "Experience the ultimate relaxation at ULU Head Spa. Premium scalp treatments, head massages, and rejuvenating spa services.",
-    images: ["/images/og-image.png"],
+    images: [
+      {
+        url: "https://www.uluspas.com/images/og-image.png",
+        secureUrl: "https://www.uluspas.com/images/og-image.png",
+        type: "image/png",
+        alt: "ULU Head Spa - Luxury Scalp Massage",
+      },
+    ],
   },
   robots: {
     index: true,
