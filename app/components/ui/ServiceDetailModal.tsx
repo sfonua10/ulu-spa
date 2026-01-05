@@ -27,6 +27,10 @@ interface Service {
   includes: string[]
   popular: boolean
   category: string
+  // New fields for enhanced UX
+  tagline?: string
+  highlights?: string[]
+  perfectFor?: string[]
 }
 
 interface ServiceDetailModalProps {
@@ -164,6 +168,25 @@ export default function ServiceDetailModal({
               {service.fullDesc}
             </p>
           </div>
+
+          {/* Perfect For Section */}
+          {service.perfectFor && service.perfectFor.length > 0 && (
+            <div className="mb-8">
+              <h3 className="text-lg font-display font-bold text-spa-sage-900 mb-4 uppercase tracking-wide">
+                Perfect For
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {service.perfectFor.map((item) => (
+                  <span
+                    key={item}
+                    className="px-4 py-2 bg-gradient-to-br from-spa-sage-50 to-spa-gold-50 rounded-full border border-spa-sage-200 text-spa-sage-700 text-sm font-medium hover:border-spa-gold-300 hover:bg-spa-gold-50/50 transition-all duration-300"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Benefits */}
           <div className="mb-8">

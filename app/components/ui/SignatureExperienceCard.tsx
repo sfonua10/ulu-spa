@@ -19,6 +19,10 @@ interface Service {
   includes: string[]
   popular: boolean
   category: string
+  // New fields for enhanced UX
+  tagline?: string
+  highlights?: string[]
+  perfectFor?: string[]
 }
 
 interface SignatureExperienceCardProps {
@@ -120,7 +124,7 @@ export default function SignatureExperienceCard({
           </h3>
 
           <p className="text-sm text-stone-600 leading-relaxed mb-4">
-            {service.shortDesc}
+            {service.tagline || service.shortDesc}
           </p>
 
           {/* Includes Section */}

@@ -11,17 +11,34 @@ export const services = [
     id: 29,
     icon: SparklesIcon,
     name: 'Golden Reset',
+    tagline: 'Glow from the inside out in just one hour',
     shortDesc: 'Glow from the inside out with this signature 60-minute ULU Spa experience.',
-    fullDesc: 'Enjoy scalp therapy and scratch therapy, paired with a custom facial of your choice — from beauty-boosting radiance to calming stress relief. Perfect for those who want luxury relaxation and targeted wellness in just one hour.',
+    fullDesc: 'A refined 60-minute ritual combining therapeutic scalp care with soothing scratch therapy to release tension and restore balance. Complete your experience with a custom facial tailored to your needs — radiance-boosting, calming, or wellness-focused.',
     duration: '1 hr',
     price: 285,
     imageUrl: '/images/services/royal-escape.png',
     focusArea: 'center center',
     benefits: ['Scalp therapy', 'Scratch therapy', 'Custom facial choice'],
+    highlights: [
+      'Aromatherapy scalp therapy',
+      'Scratch therapy for stress relief',
+      'Custom facial of your choice'
+    ],
     includes: [
-      'Scalp Therapy',
-      'Scratch Therapy',
-      'Custom Facial of Choice'
+      'Warm towel welcome',
+      'Aromatherapy scalp therapy',
+      'Scalp detox and exfoliation',
+      'Scratch therapy for stress relief',
+      'Nourishing conditioner',
+      'Custom facial',
+      'Hot towel wrap with cooling eye pads',
+      'Farewell beverage'
+    ],
+    perfectFor: [
+      'Busy professionals',
+      'Mid-week resets',
+      'First-time guests',
+      'Birthday gifts'
     ],
     popular: false,
     category: 'signature-experience'
@@ -30,18 +47,37 @@ export const services = [
     id: 30,
     icon: SparklesIcon,
     name: 'Island Glow',
+    tagline: '90 minutes of restoration, radiance, and calm',
     shortDesc: 'A deeply indulgent 90-minute ritual for full-body relaxation.',
-    fullDesc: 'Immerse yourself in a deeply indulgent 90-minute ritual combining scalp therapy, extended scratch therapy, and a rejuvenating foot spa ritual. Complete your journey with a signature facial tailored to your needs — hydrating, immune-supporting, or glow-enhancing. Perfect for celebrations, anniversaries, or when you need a full-body reset.',
+    fullDesc: 'Immerse yourself in a deeply indulgent 90-minute ritual designed to relax the nervous system while restoring scalp health and skin vitality. This elevated experience blends advanced scalp therapy, extended scratch therapy, and a rejuvenating foot spa to melt away tension from head to toe. Complete your journey with a signature facial customized to your needs.',
     duration: '1 hr 30 min',
     price: 375,
     imageUrl: '/images/services/island-renewal.jpg',
     focusArea: 'center center',
     benefits: ['Extended scratch therapy', 'Foot spa ritual', 'Signature facial'],
+    highlights: [
+      'Extended scratch therapy',
+      'Hot oil foot spa ritual',
+      'Signature facial tailored to you'
+    ],
     includes: [
-      'Scalp Therapy',
-      'Extended Scratch Therapy',
-      'Foot Spa Ritual',
-      'Signature Facial'
+      'Warm towel welcome',
+      'Aromatherapy & red light therapy',
+      'Scalp detox and exfoliation',
+      'Scalp cleanse and relaxing massage',
+      'Extended scratch therapy',
+      'Hot oil foot spa ritual',
+      'Nourishing conditioner',
+      'Signature facial',
+      'Hot towel wrap with cooling eye pads',
+      'Light blow-dry finish',
+      'Farewell beverage & light snack'
+    ],
+    perfectFor: [
+      'Birthdays & celebrations',
+      'Stress relief with visible results',
+      'Scalp therapy + facial in one visit',
+      'Luxury in 90 minutes'
     ],
     popular: false,
     category: 'signature-experience'
@@ -50,19 +86,39 @@ export const services = [
     id: 31,
     icon: SparklesIcon,
     name: 'ULU Paradise Retreat',
+    tagline: 'A two-hour island journey into deep relaxation',
     shortDesc: 'Pure island luxury — our 2-hour ultimate escape.',
-    fullDesc: 'Step into pure island luxury with our 2-hour Paradise Retreat. This immersive ritual blends scalp therapy, extended scratch therapy, a soothing foot spa ritual, and the grounding warmth of a hot stone massage. Finish with a custom facial designed to restore balance, brighten skin, and leave you glowing. Perfect for special occasions, deep self-care, or anyone seeking the ultimate escape.',
+    fullDesc: 'Step into pure island luxury with our 2-hour Paradise Retreat — a beautifully curated ritual designed to calm the nervous system, restore balance, and leave you feeling renewed from head to toe. This immersive retreat blends advanced scalp therapy, extended scratch therapy, a soothing foot spa, and the grounding warmth of hot stone massage, completed with a custom facial tailored to your skin.',
     duration: '2 hr',
     price: 445,
     imageUrl: '/images/services/couple.jpg',
     focusArea: 'center center',
     benefits: ['Hot stone massage', 'Full ritual experience', 'Custom facial'],
+    highlights: [
+      'Extended scratch therapy',
+      'Hot stone massage',
+      'Custom facial for your skin'
+    ],
     includes: [
-      'Scalp Therapy',
-      'Extended Scratch Therapy',
-      'Foot Spa Ritual',
-      'Hot Stone Massage',
-      'Custom Facial'
+      'Warm towel welcome',
+      'Aromatherapy & red light therapy',
+      'Scalp detox and exfoliation',
+      'Scalp cleanse and extended massage',
+      'Halo rinse with décolleté massage',
+      'Extended scratch therapy',
+      'Hot oil foot spa ritual',
+      'Hot stone massage',
+      'Nourishing conditioner',
+      'Custom facial',
+      'Hot towel wrap with cooling eye pads',
+      'Light blow-dry finish',
+      'Farewell beverage & light snack'
+    ],
+    perfectFor: [
+      'Anniversaries & romantic celebrations',
+      'Birthdays & special occasions',
+      'Deep self-care without a half-day commitment',
+      'Scalp therapy + facial together'
     ],
     popular: false,
     category: 'signature-experience'
@@ -71,19 +127,41 @@ export const services = [
     id: 32,
     icon: SparklesIcon,
     name: 'ULU Ultimate Escape',
+    tagline: 'Our most comprehensive and luxurious journey',
     shortDesc: 'Our most comprehensive and luxurious 3.5-hour journey.',
-    fullDesc: 'Our most comprehensive and luxurious journey. Indulge in full scalp therapy, full-body scratch therapy, hot stone enhancement, and a rejuvenating foot spa ritual — all paired with a personalized facial for complete renewal. This 3.5-hour escape balances, restores, and elevates your entire mind and body.',
+    fullDesc: 'The pinnacle of relaxation at ULU Spa. This 3.5-hour immersive ritual combines complete scalp therapy, full-body scratch therapy, restorative touch, hot stone enhancement, and advanced skincare in one deeply indulgent experience. Every detail is intentional, allowing your nervous system to fully unwind while your body, skin, and scalp are renewed. This is not just a service — it\'s a transformational escape.',
     duration: '3 hr 30 min',
     price: 545,
     imageUrl: '/images/services/model.jpg',
     focusArea: 'center 20%',
     benefits: ['Full-body therapy', 'Hot stone enhancement', 'Complete renewal'],
+    highlights: [
+      'Full-body scratch therapy',
+      'Hot stone enhancement',
+      'Personalized facial'
+    ],
     includes: [
-      'Full Scalp Therapy',
-      'Full-Body Scratch Therapy',
-      'Hot Stone Enhancement',
-      'Foot Spa Ritual',
-      'Personalized Facial'
+      'Warm towel welcome',
+      'Aromatherapy & red light therapy',
+      'Full scalp detox and exfoliation',
+      'Deep scalp cleanse and extended massage',
+      'Halo rinse with décolleté massage',
+      'Deep moisturizing hair mask with steam therapy',
+      'Full-body scratch therapy',
+      'Hot stone therapy',
+      'Hot oil foot spa massage',
+      'Exfoliating scrub & hot oil hand massage',
+      'Nourishing conditioner',
+      'Personalized facial',
+      'Hot towel wrap with cooling eye pads',
+      'Light blow-dry finish',
+      'Farewell beverage & light snack'
+    ],
+    perfectFor: [
+      'Anniversaries & milestone celebrations',
+      'Once-a-year indulgence',
+      'Promotions & life transitions',
+      'Total body renewal'
     ],
     popular: false,
     category: 'signature-experience'
@@ -94,21 +172,32 @@ export const services = [
     id: 1,
     icon: SparklesIcon,
     name: 'Island Breeze',
+    tagline: 'A refreshing reset for busy schedules',
     shortDesc: 'Aromatherapy Scalp Massage',
-    fullDesc: 'A refreshing 30-minute aromatherapy scalp massage featuring scalp detox, cleanse, halo rinse, and moisturizing conditioner to restore balance and promote relaxation.',
+    fullDesc: 'A refreshing 30-minute escape delivering the essential benefits of scalp therapy and relaxation in a shorter session. Perfect for busy professionals, first-time guests, or maintenance between longer treatments.',
     duration: '30 min',
     price: 70,
     imageUrl: '/images/services/island-breeze.JPG',
     focusArea: 'center 50%',
     benefits: ['Stress Relief', 'Quick Relaxation', 'Scalp Health'],
+    highlights: [
+      'Aromatherapy scalp massage',
+      'Scalp detox & cleanse',
+      'Halo rinse with décolleté massage'
+    ],
     includes: [
-      'Aromatherapy Scalp Massage',
-      'Scalp Detox',
-      'Scalp Cleanse and Massage',
-      'Halo rinse with light décolleté',
-      'Moisturizing Conditioner',
-      'No Blow dry included',
-      'A Farewell beverage'
+      'Aromatherapy scalp massage',
+      'Scalp detox',
+      'Scalp cleanse and massage',
+      'Halo rinse with light décolleté massage',
+      'Moisturizing conditioner',
+      'Farewell beverage'
+    ],
+    perfectFor: [
+      'Busy professionals',
+      'First-time guests',
+      'Mid-week stress relief',
+      'Maintenance between treatments'
     ],
     popular: false,
     category: 'head-scalp'
@@ -117,20 +206,37 @@ export const services = [
     id: 2,
     icon: SparklesIcon,
     name: 'The Ocean Ritual',
+    tagline: 'A calming experience rooted in relaxation and renewal',
     shortDesc: 'Comprehensive head and scalp treatment',
-    fullDesc: 'A luxurious 60-minute comprehensive head and scalp treatment including aromatherapy, scalp exfoliation, décolleté massage, deep moisturizing mask, hot oil hand massage, and light blow dry for complete relaxation.',
+    fullDesc: 'A calming, restorative 60-minute experience designed to gently release tension, hydrate the scalp and hair, and restore balance through soothing touch and intentional care. The Ocean Ritual delivers relaxation with lasting results.',
     duration: '60 min',
     price: 145,
     imageUrl: '/images/services/the-ocean-ritual.JPG',
     focusArea: 'center 25%',
     benefits: ['Deep Relaxation', 'Scalp Health', 'Stress Relief'],
+    highlights: [
+      'Extended aromatherapy massage',
+      'Deep conditioning mask',
+      'Hot oil hand massage'
+    ],
     includes: [
-      'Aromatherapy',
-      'Scalp exfoliation',
+      'Extended aromatherapy scalp massage',
+      'Scalp detox and exfoliation',
+      'Scalp cleanse and massage',
+      'Halo rinse',
+      'Warm deep conditioning mask',
+      'Hot towel wrap',
       'Décolleté massage',
-      'Deep moisturizing mask',
-      'Hot oil hand massage',
-      'Light blow dry'
+      'Exfoliating scrub & hot oil hand massage',
+      'Nourishing conditioner',
+      'Light blow-dry finish',
+      'Farewell beverage'
+    ],
+    perfectFor: [
+      'Monthly self-care',
+      'Stress relief & mental reset',
+      'Thoughtful gifts',
+      'Relaxation with lasting results'
     ],
     popular: false,
     category: 'head-scalp'
@@ -139,20 +245,38 @@ export const services = [
     id: 3,
     icon: SparklesIcon,
     name: 'Tropical Indulge',
+    tagline: 'From scalp to soul — our most luxurious scalp ritual',
     shortDesc: 'Luxurious extended scalp experience',
-    fullDesc: 'An indulgent 75-minute premium scalp experience featuring warm towel welcome, red light therapy, scalp ritual, steam therapy, hand massage, and snack for ultimate rejuvenation.',
+    fullDesc: 'Our most elevated scalp experience, designed for guests who want to slow down completely and be fully immersed in comfort, care, and relaxation. Every detail is curated to feel indulgent, nurturing, and deeply restorative.',
     duration: '75 min',
     price: 180,
     imageUrl: '/images/services/tropical-indulge.jpg',
     focusArea: 'center 20%',
     benefits: ['Luxury Experience', 'Deep Relaxation', 'Scalp Rejuvenation'],
+    highlights: [
+      'Aromatherapy & red light therapy',
+      'Steam therapy hair mask',
+      'Hot oil hand massage'
+    ],
     includes: [
       'Warm towel welcome',
-      'Red light therapy',
-      'Scalp ritual',
-      'Steam therapy',
-      'Hand massage',
-      'Snack'
+      'Aromatherapy & red light therapy',
+      'Scalp detox and exfoliation',
+      'Scalp cleanse and massage',
+      'Halo rinse with décolleté massage',
+      'Deep moisturizing hair mask with steam therapy',
+      'Exfoliating scrub & hot oil hand massage',
+      'Nourishing conditioner',
+      'Hot towel wrap with cooling eye pads',
+      'Relaxation in massage chairs',
+      'Light blow-dry finish',
+      'Farewell beverage & light snack'
+    ],
+    perfectFor: [
+      'Anniversaries & romantic celebrations',
+      'Birthday splurges',
+      '"Just because" self-care',
+      'The most luxurious scalp experience'
     ],
     popular: false,
     category: 'head-scalp'
@@ -161,19 +285,36 @@ export const services = [
     id: 4,
     icon: SparklesIcon,
     name: 'Royal Escape',
+    tagline: 'A complete head-to-toe reset designed to melt stress',
     shortDesc: 'Ultimate premium scalp massage experience',
-    fullDesc: 'Our signature 90-minute royal treatment offering the ultimate in scalp massage luxury. Premium treatment with extended rituals including hot oil foot massage and farewell snack.',
+    fullDesc: 'Indulge in 90 minutes of pure relaxation. This immersive experience blends advanced scalp care with full-body relaxation elements, calming the nervous system and leaving you refreshed, grounded, and glowing from head to toe.',
     duration: '90 min',
     price: 210,
     imageUrl: '/images/services/royal-escape.png',
     focusArea: 'center center',
     benefits: ['Ultimate Relaxation', 'Premium Experience', 'Complete Wellness'],
+    highlights: [
+      'Aromatherapy & red light therapy',
+      'Hot stone therapy',
+      'Hot oil foot spa massage'
+    ],
     includes: [
-      'Full royal treatment',
-      'Premium aromatherapy',
-      'Extended scalp rituals',
-      'Hot oil foot massage',
-      'Farewell snack'
+      'Aromatherapy & red light therapy',
+      'Scalp detox and exfoliation',
+      'Scalp cleanse and relaxing massage',
+      'Halo rinse with décolleté massage',
+      'Deep moisturizing hair mask with steam therapy',
+      'Hot oil hand massage',
+      'Hot oil foot spa massage',
+      'Hot stone therapy',
+      'Nourishing conditioner',
+      'Farewell beverage & light snack'
+    ],
+    perfectFor: [
+      'Anniversaries & birthdays',
+      'Stress relief or burnout recovery',
+      'First-time guests wanting the full experience',
+      'Celebrating milestones'
     ],
     popular: true,
     category: 'head-scalp'

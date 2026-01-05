@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Button } from './Button'
-import { ArrowRightIcon } from '@heroicons/react/24/outline'
+import { ArrowRightIcon, CheckIcon } from '@heroicons/react/24/outline'
 
 interface Service {
   id: number
@@ -20,6 +20,10 @@ interface Service {
   includes: string[]
   popular: boolean
   category: string
+  // New fields for enhanced UX
+  tagline?: string
+  highlights?: string[]
+  perfectFor?: string[]
 }
 
 interface LuxuryServiceCardProps {
@@ -124,9 +128,26 @@ export default function LuxuryServiceCard({
             {service.name}
           </h3>
 
-          <p className="text-sm text-stone-600 leading-relaxed mb-4">
-            {service.shortDesc}
+          <p className="text-sm text-stone-600 leading-relaxed mb-3">
+            {service.tagline || service.shortDesc}
           </p>
+
+          {/* Highlights Preview */}
+          {service.highlights && service.highlights.length > 0 && (
+            <div className="mb-4 space-y-1.5">
+              {service.highlights.slice(0, 3).map((highlight) => (
+                <div key={highlight} className="flex items-start gap-2">
+                  <CheckIcon className="h-4 w-4 text-spa-gold-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-xs text-stone-600 leading-tight">{highlight}</span>
+                </div>
+              ))}
+              {service.includes.length > 3 && (
+                <p className="text-xs text-spa-gold-600 font-medium pl-6 pt-1 group-hover:text-spa-gold-700 transition-colors">
+                  +{service.includes.length - 3} more included
+                </p>
+              )}
+            </div>
+          )}
 
           {/* Duration & Price */}
           <div className="flex items-center gap-2">
@@ -138,11 +159,6 @@ export default function LuxuryServiceCard({
               ${service.price}
             </span>
           </div>
-
-          {/* View Details hint */}
-          <p className="text-xs text-stone-400 mt-3">
-            Tap to view details
-          </p>
         </div>
 
         {/* Action Button - Sticky Footer */}
