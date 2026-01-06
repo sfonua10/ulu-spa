@@ -375,6 +375,11 @@ export const services = [
     imageUrl: '/images/services/scratch-therapy-claw2.png',
     focusArea: 'center 45%',
     benefits: ['Ultimate Relaxation', 'Extended Therapy', 'Stress Relief'],
+    highlights: [
+      'Extended signature scratching',
+      'Hand and arm ritual extension',
+      'Optional oil infusion (+$15)'
+    ],
     includes: [
       'Extended signature scratching',
       'Hand and arm ritual extension',
@@ -437,6 +442,11 @@ export const services = [
     imageUrl: '/images/services/island-renewal.jpg',
     focusArea: 'center 50%',
     benefits: ['Skin Renewal', 'Deep Cleansing', 'Most Popular'],
+    highlights: [
+      'Customized exfoliation',
+      'Deep hydration',
+      'Scalp or scratch therapy'
+    ],
     includes: [
       'Customized exfoliation',
       'Deep hydration',
