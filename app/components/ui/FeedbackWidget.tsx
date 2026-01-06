@@ -49,7 +49,7 @@ export default function FeedbackWidget() {
       setIsEnabled(true)
 
       // Remove the param from URL without page reload
-      urlParams.delete('feedbackKey')
+      urlParams.delete('showFeedback')
       const newUrl = urlParams.toString()
         ? `${window.location.pathname}?${urlParams.toString()}`
         : window.location.pathname
