@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { ChevronDownIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { HeroPattern, LeafDecoration, RotatingElement } from '../ui/DecorativeElements'
 import { useInView } from '@/app/hooks/useInView'
@@ -10,13 +9,6 @@ import { BookingLink } from '../ui/BookingButton'
 
 export default function HeroSection() {
   const { ref: heroRef, isInView } = useInView({ threshold: 0.2 })
-
-  const scrollToServices = () => {
-    const element = document.getElementById('services-preview')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
 
   return (
     <VideoBackground
@@ -121,18 +113,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator - Hidden on mobile, compact and closer to edge */}
-      <button
-        onClick={scrollToServices}
-        className={`absolute bottom-3 left-1/2 transform -translate-x-1/2 z-20 group hidden md:block ${
-          isInView ? 'animate-in animate-fade-in animate-delay-1200' : 'opacity-0'
-        }`}
-      >
-        <div className="flex flex-col items-center space-y-1 text-white/80 hover:text-gold-300 transition-all duration-500 backdrop-blur-sm bg-black/20 hover:bg-black/30 px-3 py-2 rounded-xl border border-white/10 hover:border-gold-300/40 animate-bounce hover:animate-none group-hover:scale-105">
-          <span className="text-xs font-medium drop-shadow-sm tracking-wide">Discover More</span>
-          <ChevronDownIcon className="h-4 w-4 drop-shadow-sm group-hover:translate-y-0.5 transition-transform duration-300" />
-        </div>
-      </button>
       </section>
     </VideoBackground>
   )

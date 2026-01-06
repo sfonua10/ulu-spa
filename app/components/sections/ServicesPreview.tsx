@@ -11,14 +11,15 @@ import { services } from '@/app/data/services'
 import { CheckIcon } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 
-// Get featured experience - Ocean Ritual (#1 best seller)
-const featuredExperience = services.find(s => s.id === 2)! // Ocean Ritual - #1 best seller
+// Get featured experience - ULU Ultimate Escape
+const featuredExperience = services.find(s => s.id === 32)! // ULU Ultimate Escape
 
-// Get top sellers (Royal Escape #2) and entry point (Island Breeze)
-const curatedServiceIds = [4, 1] // Royal Escape (#2 seller), Island Breeze (entry point)
-const badgeTypes: Record<number, 'value' | 'signature'> = {
-  4: 'value', // Royal Escape
-  1: 'signature' // Island Breeze - entry level
+// Get curated services: Ocean Ritual, Royal Escape, Island Breeze
+const curatedServiceIds = [2, 4, 1] // Ocean Ritual, Royal Escape, Island Breeze
+const badgeTypes: Record<number, 'popular' | 'value' | 'signature'> = {
+  2: 'popular',   // Ocean Ritual - Most Popular
+  4: 'value',     // Royal Escape - Best Value
+  1: 'signature'  // Island Breeze - entry level
 }
 const curatedServices = curatedServiceIds.map(id => ({
   ...services.find(s => s.id === id)!,
@@ -28,7 +29,7 @@ const curatedServices = curatedServiceIds.map(id => ({
 // Island Breeze for entry point section
 const entryPointService = services.find(s => s.id === 1)!
 
-type ServiceType = typeof services[number] & { badgeType?: 'value' | 'signature' }
+type ServiceType = typeof services[number] & { badgeType?: 'popular' | 'value' | 'signature' }
 
 export default function ServicesPreview() {
   const [selectedService, setSelectedService] = useState<ServiceType | null>(null)
@@ -93,14 +94,6 @@ export default function ServicesPreview() {
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
-
-                  {/* #1 Best Seller Badge */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full shadow-lg">
-                    <StarIconSolid className="h-4 w-4 text-white" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-white">
-                      #1 Best Seller
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content Side */}
@@ -111,7 +104,7 @@ export default function ServicesPreview() {
                     </span>
                     <span className="text-sm text-stone-500">•</span>
                     <span className="text-sm font-semibold text-stone-600">
-                      Most Booked Experience
+                      Signature Experience
                     </span>
                   </div>
 
@@ -168,7 +161,7 @@ export default function ServicesPreview() {
         </div>
 
         {/* Individual Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {curatedServices.map((service, index) => (
             <LuxuryServiceCard
               key={service.id}
