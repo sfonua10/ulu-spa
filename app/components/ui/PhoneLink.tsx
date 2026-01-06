@@ -8,14 +8,12 @@ interface PhoneLinkProps {
   location: string
   className?: string
   children: React.ReactNode
-  showIcon?: boolean
 }
 
 export function PhoneLink({
   location,
   className,
   children,
-  showIcon = false,
 }: PhoneLinkProps) {
   const handleClick = () => {
     trackPhoneClick(location)

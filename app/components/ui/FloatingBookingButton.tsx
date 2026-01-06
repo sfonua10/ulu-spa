@@ -17,14 +17,14 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
       setIsVisible(window.scrollY > 300)
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   if (!isVisible) return null
 
   return (
-    <div className={`fixed bottom-24 right-8 z-50 ${className}`}>
+    <div className={`fixed bottom-24 right-8 z-50 group ${className}`}>
       <BookingButton
         location="floating"
         variant="default"

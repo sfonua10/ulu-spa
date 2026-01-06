@@ -4,27 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { Button } from './Button'
 import { ArrowRightIcon, CheckIcon } from '@heroicons/react/24/outline'
-
-interface Service {
-  id: number
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
-  name: string
-  shortDesc: string
-  fullDesc: string
-  duration: string
-  price: number
-  priceRange?: string
-  imageUrl?: string
-  focusArea?: string
-  benefits: string[]
-  includes: string[]
-  popular: boolean
-  category: string
-  // New fields for enhanced UX
-  tagline?: string
-  highlights?: string[]
-  perfectFor?: string[]
-}
+import type { Service } from '@/app/types/service'
 
 interface LuxuryServiceCardProps {
   service: Service

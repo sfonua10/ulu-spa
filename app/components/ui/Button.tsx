@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from "react"
 import { cn } from "@/app/lib/utils"
 
@@ -22,7 +24,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       sm: "h-9 px-4 text-sm",
       md: "h-12 px-6 text-base",
       lg: "h-14 px-8 text-lg",
-      xl: "h-14 px-8 text-lg"
+      xl: "h-16 px-10 text-xl"
     }
 
     return (

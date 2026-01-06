@@ -37,8 +37,8 @@ const contactInfo = {
   phone: COMPANY.PHONE,
   email: COMPANY.EMAIL,
   hours: {
-    weekdays: 'Mon - Fri: 9AM - 8PM',
-    weekends: 'Sat - Sun: 10AM - 6PM'
+    weekdays: COMPANY.HOURS.WEEKDAYS,
+    weekends: COMPANY.HOURS.WEEKENDS
   }
 }
 
@@ -190,7 +190,7 @@ export default function Footer() {
         }`}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-spa-sage-300">
-              © 2025 Ulu Spa. All rights reserved.
+              © {new Date().getFullYear()} Ulu Spa. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm text-spa-sage-300">
               {footerLinks.support.slice(2).map((link) => (

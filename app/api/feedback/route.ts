@@ -1,24 +1,115 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// Validation constants
+const MAX_DESCRIPTION_LENGTH = 5000
+const MAX_SCREENSHOTS = 3
+const MAX_BASE64_SIZE = 7 * 1024 * 1024 // ~5MB file in base64
+const VALID_TYPES = ['bug', 'feature', 'general'] as const
+const VALID_IMAGE_PREFIXES = ['data:image/png', 'data:image/jpeg', 'data:image/jpg', 'data:image/gif', 'data:image/webp']
+
+type FeedbackType = typeof VALID_TYPES[number]
+
 interface FeedbackRequest {
-  type: 'bug' | 'feature' | 'general'
+  type: FeedbackType
   description: string
   page: string
-  screenshots: string[] // base64 encoded images
+  screenshots: string[]
+}
+
+type ValidationResult =
+  | { valid: true; data: FeedbackRequest }
+  | { valid: false; error: string }
+
+function validateFeedbackRequest(body: unknown): ValidationResult {
+  if (!body || typeof body !== 'object') {
+    return { valid: false, error: 'Invalid request body' }
+  }
+
+  const { type, description, page, screenshots } = body as Record<string, unknown>
+
+  // Validate type
+  if (!type || typeof type !== 'string' || !VALID_TYPES.includes(type as FeedbackType)) {
+    return { valid: false, error: 'Invalid feedback type. Must be bug, feature, or general.' }
+  }
+
+  // Validate description
+  if (!description || typeof description !== 'string' || description.trim().length === 0) {
+    return { valid: false, error: 'Description is required' }
+  }
+  if (description.length > MAX_DESCRIPTION_LENGTH) {
+    return { valid: false, error: `Description exceeds ${MAX_DESCRIPTION_LENGTH} characters` }
+  }
+
+  // Validate page
+  if (!page || typeof page !== 'string') {
+    return { valid: false, error: 'Page is required' }
+  }
+  // Sanitize page to prevent path injection
+  if (page.includes('..') || page.includes('<') || page.includes('>')) {
+    return { valid: false, error: 'Invalid page path' }
+  }
+
+  // Validate screenshots
+  if (!Array.isArray(screenshots)) {
+    return { valid: false, error: 'Screenshots must be an array' }
+  }
+  if (screenshots.length > MAX_SCREENSHOTS) {
+    return { valid: false, error: `Maximum ${MAX_SCREENSHOTS} screenshots allowed` }
+  }
+
+  for (const screenshot of screenshots) {
+    if (typeof screenshot !== 'string') {
+      return { valid: false, error: 'Invalid screenshot format' }
+    }
+    if (screenshot.length > MAX_BASE64_SIZE) {
+      return { valid: false, error: 'Screenshot file too large (max 5MB)' }
+    }
+    if (!VALID_IMAGE_PREFIXES.some(prefix => screenshot.startsWith(prefix))) {
+      return { valid: false, error: 'Invalid image type. Allowed: PNG, JPEG, GIF, WebP' }
+    }
+  }
+
+  return {
+    valid: true,
+    data: {
+      type: type as FeedbackType,
+      description: description.trim(),
+      page: page as string,
+      screenshots: screenshots as string[]
+    }
+  }
+}
+
+// Sanitize text for markdown to prevent injection
+function sanitizeForMarkdown(text: string): string {
+  return text
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\[([^\]]*)\]\(javascript:/gi, '[$1](blocked:')
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const body: FeedbackRequest = await request.json()
-    const { type, description, page, screenshots } = body
+    const rawBody = await request.json()
+    const validation = validateFeedbackRequest(rawBody)
+
+    if (!validation.valid) {
+      return NextResponse.json(
+        { error: validation.error },
+        { status: 400 }
+      )
+    }
+
+    const { type, description, page, screenshots } = validation.data
 
     const githubToken = process.env.GITHUB_TOKEN
     const githubRepo = process.env.GITHUB_REPO
+    const githubImagesRepo = process.env.GITHUB_IMAGES_REPO || githubRepo
 
     if (!githubToken) {
       console.error('GitHub token not configured')
       return NextResponse.json(
-        { error: 'GitHub token not configured' },
+        { error: 'Service temporarily unavailable' },
         { status: 500 }
       )
     }
@@ -26,7 +117,7 @@ export async function POST(request: NextRequest) {
     if (!githubRepo) {
       console.error('GitHub repo not configured')
       return NextResponse.json(
-        { error: 'GitHub repo not configured' },
+        { error: 'Service temporarily unavailable' },
         { status: 500 }
       )
     }
@@ -45,9 +136,9 @@ export async function POST(request: NextRequest) {
       const timestamp = Date.now()
       const filename = `feedback/${timestamp}-${i}.${extension}`
 
-      // Upload to GitHub repo (in a feedback-images branch or main)
+      // Upload to public GitHub images repo
       const uploadResponse = await fetch(
-        `https://api.github.com/repos/${githubRepo}/contents/${filename}`,
+        `https://api.github.com/repos/${githubImagesRepo}/contents/${filename}`,
         {
           method: 'PUT',
           headers: {
@@ -64,8 +155,8 @@ export async function POST(request: NextRequest) {
       )
 
       if (uploadResponse.ok) {
-        // Use the raw GitHub URL for the image
-        screenshotUrls.push(`https://raw.githubusercontent.com/${githubRepo}/main/${filename}`)
+        // Use the raw GitHub URL for the image (from public images repo)
+        screenshotUrls.push(`https://raw.githubusercontent.com/${githubImagesRepo}/main/${filename}`)
       } else {
         console.error('Failed to upload screenshot:', await uploadResponse.text())
       }
@@ -83,12 +174,12 @@ export async function POST(request: NextRequest) {
     const issueBody = `## Feedback Details
 
 **Type:** ${typeCapitalized}
-**Page:** \`${page}\`
+**Page:** \`${sanitizeForMarkdown(page)}\`
 **Submitted:** ${new Date().toLocaleString('en-US', { timeZone: 'America/Denver' })}
 
 ## Description
 
-${description}${screenshotsSection}
+${sanitizeForMarkdown(description)}${screenshotsSection}
 
 ---
 *Submitted via ULU Spa feedback widget*`

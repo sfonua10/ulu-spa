@@ -59,7 +59,7 @@ export default function AnimatedPrice({
   }, [isInView, price, duration])
 
   return (
-    <div ref={ref} className={`text-right ${className}`}>
+    <div ref={ref} className={`relative text-right ${className}`}>
       <div className={`text-3xl font-bold text-spa-sage-800 leading-none transition-all duration-300 ${
         isAnimating ? 'scale-110 text-spa-gold-600' : ''
       }`}>

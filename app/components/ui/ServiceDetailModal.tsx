@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useId, useCallback } from 'react'
 import Image from 'next/image'
 import {
   XMarkIcon,
@@ -12,28 +12,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { trackServiceView, trackBookNowClick } from '@/app/lib/analytics'
 import { PhoneLink } from './PhoneLink'
-
-interface Service {
-  id: number
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
-  name: string
-  shortDesc: string
-  fullDesc: string
-  duration: string
-  price: number
-  priceRange?: string
-  imageUrl?: string
-  focusArea?: string
-  modalFocusArea?: string
-  benefits: string[]
-  includes: string[]
-  popular: boolean
-  category: string
-  // New fields for enhanced UX
-  tagline?: string
-  highlights?: string[]
-  perfectFor?: string[]
-}
+import type { Service } from '@/app/types/service'
 
 interface ServiceDetailModalProps {
   service: Service | null
@@ -50,6 +29,8 @@ export default function ServiceDetailModal({
 }: ServiceDetailModalProps) {
   const [imageLoaded, setImageLoaded] = useState(false)
   const [showFullDetails, setShowFullDetails] = useState(false)
+  const titleId = useId()
+  const descriptionId = useId()
 
   // Handle escape key
   useEffect(() => {
@@ -63,12 +44,29 @@ export default function ServiceDetailModal({
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isOpen, onClose])
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = originalOverflow
+      }
+    }
+  }, [isOpen])
+
   // Track service view when modal opens
   useEffect(() => {
     if (isOpen && service) {
       trackServiceView(service.name)
     }
   }, [isOpen, service])
+
+  const handleBookNow = useCallback(() => {
+    trackBookNowClick('service_modal')
+    onBookNow()
+    onClose()
+  }, [onBookNow, onClose])
 
 
   if (!isOpen || !service) return null
@@ -77,9 +75,13 @@ export default function ServiceDetailModal({
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-fade-in"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
+      aria-describedby={descriptionId}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-md" aria-hidden="true" />
 
       {/* Modal Content */}
       <div
@@ -131,10 +133,10 @@ export default function ServiceDetailModal({
 
             {/* Service Name Overlay */}
             <div className="absolute bottom-8 left-8 right-8">
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white drop-shadow-2xl mb-2">
+              <h2 id={titleId} className="text-4xl md:text-5xl font-display font-bold text-white drop-shadow-2xl mb-2">
                 {service.name}
               </h2>
-              <p className="text-white/90 text-lg drop-shadow-lg">
+              <p id={descriptionId} className="text-white/90 text-lg drop-shadow-lg">
                 {service.shortDesc}
               </p>
             </div>
@@ -300,11 +302,7 @@ export default function ServiceDetailModal({
             </p>
             <button
               className="w-full inline-flex items-center justify-center py-4 px-8 rounded-full text-lg font-bold bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-spa-gold-800 group cursor-pointer"
-              onClick={() => {
-                trackBookNowClick('service_modal')
-                onBookNow()
-                onClose()
-              }}
+              onClick={handleBookNow}
             >
               Book Now
               <ArrowRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />

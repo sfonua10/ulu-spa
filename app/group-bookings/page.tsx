@@ -5,10 +5,10 @@ import { Button } from '../components/ui/Button'
 import {
   ArrowRightIcon,
   SparklesIcon,
-  ChevronDownIcon,
   CalendarDaysIcon,
   PhoneIcon
 } from '@heroicons/react/24/outline'
+import AccordionItem from '../components/ui/AccordionItem'
 import Image from 'next/image'
 import VideoBackground from '../components/ui/VideoBackground'
 
@@ -59,54 +59,6 @@ const groupPackages = [
     isPopular: false
   }
 ]
-
-// Policy Accordion Item Component
-function PolicyAccordionItem({
-  title,
-  children,
-  isOpen,
-  onToggle,
-  variant = 'default'
-}: {
-  title: string
-  children: React.ReactNode
-  isOpen: boolean
-  onToggle: () => void
-  variant?: 'default' | 'highlighted'
-}) {
-  const baseClasses = variant === 'highlighted'
-    ? 'bg-spa-gold-50/50 border-spa-gold-200'
-    : 'bg-white border-spa-sage-100'
-
-  return (
-    <div className={`group rounded-2xl overflow-hidden hover:border-spa-gold-200 transition-all duration-300 shadow-soft border ${baseClasses}`}>
-      <button
-        onClick={onToggle}
-        className="w-full px-6 py-5 md:px-8 md:py-6 flex items-center justify-between text-left transition-colors duration-300"
-        aria-expanded={isOpen}
-      >
-        <h3 className="text-lg md:text-xl font-display font-bold text-spa-sage-800 pr-4">
-          {title}
-        </h3>
-        <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-spa-gold-100 flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-          <ChevronDownIcon className="w-5 h-5 text-spa-gold-600" />
-        </div>
-      </button>
-
-      <div
-        className="overflow-hidden transition-all duration-500 ease-in-out"
-        style={{
-          maxHeight: isOpen ? '1000px' : '0',
-          opacity: isOpen ? 1 : 0,
-        }}
-      >
-        <div className="px-6 pb-6 md:px-8 md:pb-8 pt-2">
-          {children}
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default function GroupBookingsPage() {
   const [openPolicyIndex, setOpenPolicyIndex] = useState<number | null>(null)
@@ -375,7 +327,7 @@ export default function GroupBookingsPage() {
 
           <div className="space-y-4">
             {/* Group Reservation Requirements */}
-            <PolicyAccordionItem
+            <AccordionItem
               title="Group Reservation Requirements"
               isOpen={openPolicyIndex === 0}
               onToggle={() => togglePolicy(0)}
@@ -398,10 +350,10 @@ export default function GroupBookingsPage() {
                   <span><strong>Deposits cannot be paid using gift cards</strong></span>
                 </li>
               </ul>
-            </PolicyAccordionItem>
+            </AccordionItem>
 
             {/* Gift Card Usage for Groups */}
-            <PolicyAccordionItem
+            <AccordionItem
               title="Using Gift Cards for Groups"
               isOpen={openPolicyIndex === 1}
               onToggle={() => togglePolicy(1)}
@@ -424,10 +376,10 @@ export default function GroupBookingsPage() {
                   <span>Any remaining balance stays on the card for future visits</span>
                 </li>
               </ul>
-            </PolicyAccordionItem>
+            </AccordionItem>
 
             {/* Gift Card Restrictions for Groups */}
-            <PolicyAccordionItem
+            <AccordionItem
               title="Gift Cards Cannot Be Used For"
               isOpen={openPolicyIndex === 2}
               onToggle={() => togglePolicy(2)}
@@ -458,10 +410,10 @@ export default function GroupBookingsPage() {
                   <span>Gratuity</span>
                 </li>
               </ul>
-            </PolicyAccordionItem>
+            </AccordionItem>
 
             {/* Individual Payment */}
-            <PolicyAccordionItem
+            <AccordionItem
               title="Individual Payment"
               isOpen={openPolicyIndex === 3}
               onToggle={() => togglePolicy(3)}
@@ -487,7 +439,7 @@ export default function GroupBookingsPage() {
               <p className="text-spa-stone-600 mt-4 italic">
                 Gift cards cannot be pooled or shared across guests.
               </p>
-            </PolicyAccordionItem>
+            </AccordionItem>
           </div>
         </div>
       </section>

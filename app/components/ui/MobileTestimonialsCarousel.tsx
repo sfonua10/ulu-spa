@@ -1,75 +1,14 @@
 'use client'
 
 import React, { useRef, useState, useEffect, useCallback } from 'react'
-import Image from 'next/image'
-import { StarIcon } from '@heroicons/react/24/solid'
 import { type Testimonial } from '@/app/data/testimonials'
 import PaginationDots from './PaginationDots'
+import TestimonialCard from './TestimonialCard'
 
 interface MobileTestimonialsCarouselProps {
   testimonials: Testimonial[]
   className?: string
 }
-
-// Mobile-optimized testimonial card
-const MobileTestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
-  <div className="mobile-testimonial-card mx-2">
-    <a
-      href={testimonial.googleUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block h-full group cursor-pointer focus:outline-none focus:ring-2 focus:ring-spa-sage-400 focus:ring-opacity-50 rounded-2xl"
-      aria-label={`Read ${testimonial.name}'s review on Google`}
-    >
-      <div className="card-inner bg-white/90 backdrop-blur-xl rounded-2xl p-5 shadow-lg border border-white/20 h-full relative overflow-hidden">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center space-x-3">
-            <div className={`w-12 h-12 bg-gradient-to-br ${testimonial.avatarColor} rounded-full flex items-center justify-center text-sm font-bold text-white shadow-md overflow-hidden`}>
-              {testimonial.avatarImage ? (
-                <Image
-                  src={testimonial.avatarImage}
-                  alt={`Profile photo of ${testimonial.name}`}
-                  width={48}
-                  height={48}
-                  className="rounded-full object-cover"
-                />
-              ) : (
-                testimonial.initials
-              )}
-            </div>
-            <div>
-              <div className="font-medium text-spa-sage-800 text-base tracking-wide">
-                {testimonial.name}
-              </div>
-              <div className="text-stone-500 text-xs font-light tracking-wider">
-                {testimonial.timeAgo}
-              </div>
-            </div>
-          </div>
-          <div className="text-xs text-stone-500 font-medium bg-spa-sage-50 px-3 py-1 rounded-full tracking-wide">
-            Google
-          </div>
-        </div>
-
-        {/* Stars */}
-        <div className="flex items-center space-x-1 mb-4">
-          {[...Array(testimonial.rating)].map((_, i) => (
-            <StarIcon
-              key={i}
-              className="h-4 w-4 text-yellow-400 drop-shadow-sm"
-            />
-          ))}
-        </div>
-
-        {/* Content - more lines on mobile */}
-        <p className="text-stone-700 leading-[1.7] text-base line-clamp-5 font-light tracking-wide">
-          {testimonial.content}
-        </p>
-      </div>
-    </a>
-  </div>
-)
 
 export default function MobileTestimonialsCarousel({
   testimonials,
@@ -154,7 +93,7 @@ export default function MobileTestimonialsCarousel({
             aria-roledescription="slide"
             aria-label={`Testimonial ${index + 1} of ${testimonials.length}`}
           >
-            <MobileTestimonialCard testimonial={testimonial} />
+            <TestimonialCard testimonial={testimonial} variant="mobile" />
           </div>
         ))}
       </div>

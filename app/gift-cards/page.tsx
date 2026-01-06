@@ -11,7 +11,6 @@ import {
   ClockIcon,
   CreditCardIcon,
   DevicePhoneMobileIcon,
-  ChevronDownIcon,
   CakeIcon,
   HeartIcon,
   UserGroupIcon,
@@ -19,51 +18,10 @@ import {
   StarIcon,
   CalendarDaysIcon
 } from '@heroicons/react/24/outline'
+import AccordionItem from '@/app/components/ui/AccordionItem'
 import { trackGiftCardClick } from '@/app/lib/analytics'
 import { BookingLink } from '@/app/components/ui/BookingButton'
 import { PhoneLink } from '@/app/components/ui/PhoneLink'
-
-// Gift Card FAQ Accordion Item
-function GiftCardAccordionItem({
-  question,
-  children,
-  isOpen,
-  onToggle
-}: {
-  question: string
-  children: React.ReactNode
-  isOpen: boolean
-  onToggle: () => void
-}) {
-  return (
-    <div className="group bg-white/60 backdrop-blur-md rounded-2xl border border-spa-gold-200/50 overflow-hidden hover:border-spa-gold-300/70 transition-all duration-300 shadow-soft">
-      <button
-        onClick={onToggle}
-        className="w-full px-6 py-5 flex items-center justify-between text-left transition-colors duration-300"
-        aria-expanded={isOpen}
-      >
-        <h3 className="text-lg md:text-xl font-playfair font-semibold text-spa-sage-900 pr-4">
-          {question}
-        </h3>
-        <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-spa-gold-100 flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-          <ChevronDownIcon className="w-5 h-5 text-spa-gold-600" />
-        </div>
-      </button>
-
-      <div
-        className="overflow-hidden transition-all duration-500 ease-in-out"
-        style={{
-          maxHeight: isOpen ? '1000px' : '0',
-          opacity: isOpen ? 1 : 0,
-        }}
-      >
-        <div className="px-6 pb-6 pt-2 font-montserrat text-spa-stone-700">
-          {children}
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default function GiftCardPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -269,10 +227,11 @@ export default function GiftCardPage() {
 
           <div className="space-y-4">
             {/* How to Use Your Gift Card */}
-            <GiftCardAccordionItem
-              question="How do I use my gift card?"
+            <AccordionItem
+              title="How do I use my gift card?"
               isOpen={openIndex === 0}
               onToggle={() => toggleAccordion(0)}
+              variant="gift-card"
             >
               <p className="mb-4 leading-relaxed">
                 To book with a gift card, call us at{' '}
@@ -293,13 +252,14 @@ export default function GiftCardPage() {
                   <span>Unused balance stays on your card for future visits</span>
                 </li>
               </ul>
-            </GiftCardAccordionItem>
+            </AccordionItem>
 
             {/* Expiration */}
-            <GiftCardAccordionItem
-              question="Do gift cards expire?"
+            <AccordionItem
+              title="Do gift cards expire?"
               isOpen={openIndex === 1}
               onToggle={() => toggleAccordion(1)}
+              variant="gift-card"
             >
               <p className="mb-4 leading-relaxed">
                 <strong>Purchased gift card value never expires</strong> and retains its full value indefinitely.
@@ -308,13 +268,14 @@ export default function GiftCardPage() {
                 Promotional or bonus gift cards (e.g., &quot;Buy $100, Get $20 Free&quot;) may have expiration dates on the bonus portion.
                 Any terms will be clearly communicated at the time of purchase.
               </p>
-            </GiftCardAccordionItem>
+            </AccordionItem>
 
             {/* Balance Check */}
-            <GiftCardAccordionItem
-              question="How do I check my balance?"
+            <AccordionItem
+              title="How do I check my balance?"
               isOpen={openIndex === 2}
               onToggle={() => toggleAccordion(2)}
+              variant="gift-card"
             >
               <p className="mb-3 leading-relaxed">
                 Check your balance anytime in-spa or by calling{' '}
@@ -324,7 +285,7 @@ export default function GiftCardPage() {
               <p className="text-sm text-spa-stone-600">
                 Note: Lost or stolen cards cannot be replaced.
               </p>
-            </GiftCardAccordionItem>
+            </AccordionItem>
           </div>
 
           {/* Link to Full Policy */}

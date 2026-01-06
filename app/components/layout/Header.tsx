@@ -23,8 +23,7 @@ export default function Header() {
   const pathname = usePathname()
 
   // Pages that have white backgrounds and need dark navigation by default
-  const whiteBackgroundPages: string[] = []
-  const isWhiteBackgroundPage = whiteBackgroundPages.includes(pathname)
+  const isWhiteBackgroundPage = false
 
   // Pages that need dark text but should keep transparent header until scrolled
   const darkTextTransparentPages = ['/faq', '/contact', '/gift-cards', '/policy']
@@ -113,6 +112,7 @@ export default function Header() {
             <div key={item.name}>
               <Link
                 href={item.href}
+                aria-current={isActive ? 'page' : undefined}
                 className={`relative text-sm xl:text-base leading-6 whitespace-nowrap transition-all duration-300 after:absolute after:bottom-[-5px] after:left-0 after:h-0.5 after:bg-gold-300 after:transition-all after:duration-300 ${
                   isActive
                     ? `after:w-full font-semibold ${
@@ -196,6 +196,7 @@ export default function Header() {
                   >
                     <Link
                       href={item.href}
+                      aria-current={isActive ? 'page' : undefined}
                       className={`-mx-3 flex rounded-lg px-3 py-3 text-base leading-7 transition-colors duration-200 min-h-[44px] items-center ${
                         isActive
                           ? 'bg-gold-50 text-gold-600 font-semibold border-l-4 border-gold-500'

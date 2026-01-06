@@ -22,6 +22,20 @@ interface PositionedElement {
 
 export default function FloatingElements() {
   const [elements, setElements] = useState<PositionedElement[]>([])
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+
+  useEffect(() => {
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches)
+    }
+
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
 
   useEffect(() => {
     // Generate random positions only on client after mount
@@ -35,12 +49,13 @@ export default function FloatingElements() {
     )
   }, [])
 
-  if (elements.length === 0) {
-    return <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" />
+  if (elements.length === 0 || prefersReducedMotion) {
+    // Don't render floating elements if user prefers reduced motion
+    return <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true" />
   }
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
       {elements.map((element) => (
         <div
           key={element.key}
