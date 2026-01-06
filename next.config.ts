@@ -11,6 +11,25 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 7, // 7 days
     qualities: [75, 85, 90],
   },
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/store',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/store/:path*',
+        destination: '/services',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

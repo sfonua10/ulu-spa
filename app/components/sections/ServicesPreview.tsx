@@ -35,7 +35,7 @@ export default function ServicesPreview() {
   const [selectedService, setSelectedService] = useState<ServiceType | null>(null)
 
   return (
-    <section id="services-preview" className="py-24 bg-gradient-to-b from-spa-gold-50/50 via-white to-spa-sage-50/30 relative overflow-hidden">
+    <section id="services-preview" className="py-16 md:py-24 bg-gradient-to-b from-spa-gold-50/50 via-white to-spa-sage-50/30 relative overflow-hidden">
       {/* Premium background accents */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-10 left-10 w-64 h-64 bg-spa-gold-200/30 rounded-full blur-3xl animate-float" />
@@ -127,7 +127,7 @@ export default function ServicesPreview() {
                   </div>
 
                   {/* Price & CTA */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-4">
                     <div>
                       <span className="text-4xl font-display font-bold text-spa-sage-800">
                         ${featuredExperience.price}
@@ -142,7 +142,7 @@ export default function ServicesPreview() {
                         window.open(getMangoMintServiceUrl(featuredExperience.name), '_blank')
                       }}
                     >
-                      Book Experience
+                      Book Now
                     </Button>
                   </div>
                 </div>
@@ -151,8 +151,8 @@ export default function ServicesPreview() {
           </div>
         </div>
 
-        {/* Divider - Start Your Journey */}
-        <div className="flex items-center justify-center gap-6 mb-12">
+        {/* Divider - Start Your Journey (hidden on mobile) */}
+        <div className="hidden md:flex items-center justify-center gap-6 mb-12">
           <div className="h-px w-24 bg-gradient-to-r from-transparent to-spa-gold-300" />
           <span className="text-lg font-display font-medium text-spa-sage-600 tracking-wide">
             Start Your Journey
@@ -201,7 +201,7 @@ export default function ServicesPreview() {
         </div>
 
         {/* View All Services CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-10 md:mt-16">
           <Link href="/services">
             <Button variant="luxury" size="lg" className="px-12 shadow-luxury hover:shadow-luxury-lg">
               View All Services

@@ -79,29 +79,23 @@ export default function NewGuestsPage() {
           {/* Content */}
           <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
             {/* Badge */}
-            <div className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-sm font-bold mb-8 shadow-lg border border-spa-gold-400 transition-all duration-700 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              <GiftIcon className="h-4 w-4" />
+            <div className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-8 border border-white/30 transition-all duration-700 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              <GiftIcon className="h-4 w-4 text-spa-gold-300" />
               <span className="uppercase tracking-wider">New Guest Welcome</span>
-              <GiftIcon className="h-4 w-4" />
             </div>
 
             {/* Headline */}
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 transition-all duration-700 delay-100 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              New to Head Spa?
+            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 transition-all duration-700 delay-100 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              <span className="text-shimmer-white-once">New to Head Spa?</span>
             </h1>
 
             {/* Subheadline */}
-            <p className={`text-2xl md:text-3xl font-display bg-gradient-to-r from-spa-gold-300 via-spa-gold-200 to-spa-gold-300 bg-clip-text text-transparent mb-6 transition-all duration-700 delay-200 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              Your First Visit Includes a Complimentary Enhancement
-            </p>
-
-            {/* Brief explanation */}
-            <p className={`text-lg text-white/80 mb-8 max-w-2xl mx-auto transition-all duration-700 delay-300 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              Head spa combines scalp massage, warm water therapy, and aromatherapy for the deepest relaxation you&apos;ve ever experienced.
+            <p className={`text-2xl md:text-3xl font-display mb-6 transition-all duration-700 delay-200 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              <span className="text-shimmer-white-once">Your First Visit Includes a Complimentary Enhancement</span>
             </p>
 
             {/* Trust Badge - Social Proof */}
-            <div className={`flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 mb-10 transition-all duration-700 delay-350 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <div className={`flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 mb-10 transition-all duration-700 delay-300 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
                 <span className="text-gold-300 font-bold">5.0</span>
                 <div className="flex gap-0.5">
@@ -120,19 +114,13 @@ export default function NewGuestsPage() {
             {/* CTA Button */}
             <a
               href="#services"
-              className={`inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 hover:from-spa-gold-600 hover:to-spa-gold-700 text-white rounded-full font-bold text-lg transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 border border-spa-gold-400 delay-400 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+              className={`inline-flex items-center gap-3 px-10 py-5 bg-spa-cream-300 hover:bg-spa-cream-400 text-spa-sage-800 rounded-full font-bold text-lg transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 border border-spa-cream-400 delay-400 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             >
               <CalendarDaysIcon className="h-6 w-6" />
               Explore Our Services
             </a>
           </div>
 
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
-            <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
-              <div className="w-1.5 h-3 bg-white/50 rounded-full animate-pulse" />
-            </div>
-          </div>
         </section>
       </VideoBackground>
 
