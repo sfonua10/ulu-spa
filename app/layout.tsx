@@ -9,6 +9,7 @@ import { AnimationProvider } from "./contexts/AnimationContext";
 import FeedbackWidget from "./components/ui/FeedbackWidget";
 import { OrganizationSchema, LocalBusinessSchema } from "./components/seo/JsonLd";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import ScrollDepthTracker from "./components/analytics/ScrollDepthTracker";
 import { COMPANY } from "./constants/config";
 
 const geistMono = Geist_Mono({
@@ -201,6 +202,7 @@ export default function RootLayout({
         />
         {/* Google Analytics */}
         <GoogleAnalytics />
+        <ScrollDepthTracker />
         <AnimationProvider>
           <ChatWidgetController />
           <Header />

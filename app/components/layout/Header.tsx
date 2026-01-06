@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { trackBookNowClick } from '@/app/lib/analytics'
+import { BookingButton } from '../ui/BookingButton'
 
 const navigation = [
   { name: 'Services', href: '/services' },
@@ -134,16 +134,17 @@ export default function Header() {
         </div>
 
         <div className="hidden lg:flex justify-self-end">
-          <button
-            type="button"
-            onClick={() => trackBookNowClick('header')}
-            className="mangomint-booking-button group relative overflow-hidden bg-transparent hover:bg-custom-gold/10 text-custom-gold px-8 py-4 rounded-full font-bold text-base transition-all duration-500 shadow-2xl hover:shadow-custom-gold/30 transform hover:scale-105 border-2 border-custom-gold hover:border-custom-gold backdrop-blur-sm"
+          <BookingButton
+            location="header"
+            variant="default"
+            size="md"
+            className="group relative overflow-hidden bg-transparent hover:bg-custom-gold/10 text-custom-gold px-8 py-4 rounded-full font-bold text-base transition-all duration-500 shadow-2xl hover:shadow-custom-gold/30 transform hover:scale-105 border-2 border-custom-gold hover:border-custom-gold backdrop-blur-sm"
           >
             <div className="absolute inset-0 bg-custom-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <span className="relative z-10">
               Book Now
             </span>
-          </button>
+          </BookingButton>
         </div>
       </nav>
 
@@ -213,15 +214,17 @@ export default function Header() {
           
           {/* Fixed Bottom Book Now Button */}
           <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent" style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}>
-            <button
-              type="button"
-              className="mangomint-booking-button w-full bg-gold-500 hover:bg-gold-600 text-black px-6 py-4 rounded-full font-bold text-center transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 border-2 border-gold-400 hover:border-gold-300"
-              onClick={() => { trackBookNowClick('mobile_menu'); setMobileMenuOpen(false); }}
+            <BookingButton
+              location="mobile_menu"
+              variant="default"
+              size="lg"
+              className="w-full bg-gold-500 hover:bg-gold-600 text-black px-6 py-4 rounded-full font-bold text-center transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 border-2 border-gold-400 hover:border-gold-300"
+              onClick={() => setMobileMenuOpen(false)}
             >
               <span>
                 Book Now
               </span>
-            </button>
+            </BookingButton>
           </div>
         </div>
       </div>

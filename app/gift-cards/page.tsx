@@ -19,7 +19,9 @@ import {
   StarIcon,
   CalendarDaysIcon
 } from '@heroicons/react/24/outline'
-import { trackGiftCardClick, trackBookNowClick } from '@/app/lib/analytics'
+import { trackGiftCardClick } from '@/app/lib/analytics'
+import { BookingLink } from '@/app/components/ui/BookingButton'
+import { PhoneLink } from '@/app/components/ui/PhoneLink'
 
 // Gift Card FAQ Accordion Item
 function GiftCardAccordionItem({
@@ -364,19 +366,26 @@ export default function GiftCardPage() {
                 </Button>
               </a>
 
-              <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="mangomint-booking-button" onClick={() => trackBookNowClick('gift_cards')}>
+              <BookingLink
+                location="gift_cards"
+                external
+                className=""
+              >
                 <Button variant="outline" size="lg" className="px-12">
                   <CalendarDaysIcon className="h-5 w-5 mr-2" />
                   Book Now
                 </Button>
-              </a>
+              </BookingLink>
             </div>
 
             <p className="text-sm text-spa-stone-600 mt-6">
               Have a gift card?{' '}
-              <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 underline font-medium">
+              <PhoneLink
+                location="gift_cards"
+                className="text-spa-gold-600 hover:text-spa-gold-700 underline font-medium"
+              >
                 Call (801) 528-7368
-              </a>{' '}
+              </PhoneLink>{' '}
               to book your appointment.
             </p>
           </GlassCard>

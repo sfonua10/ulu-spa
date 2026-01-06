@@ -2,10 +2,11 @@
 
 import Link from 'next/link'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
+import { StarIcon } from '@heroicons/react/24/solid'
 import { HeroPattern, LeafDecoration, RotatingElement } from '../ui/DecorativeElements'
 import { useInView } from '@/app/hooks/useInView'
 import VideoBackground from '../ui/VideoBackground'
-import { trackBookNowClick } from '@/app/lib/analytics'
+import { BookingLink } from '../ui/BookingButton'
 
 export default function HeroSection() {
   const { ref: heroRef, isInView } = useInView({ threshold: 0.2 })
@@ -65,31 +66,48 @@ export default function HeroSection() {
             </span>
           </h1>
 
+          {/* Trust Badge - Social Proof */}
+          <div className={`flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 ${
+            isInView ? 'animate-in animate-fade-in animate-delay-600' : 'opacity-0'
+          }`}>
+            <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+              <span className="text-gold-300 font-bold">5.0</span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} className="h-3.5 w-3.5 text-gold-300" />
+                ))}
+              </div>
+              <span className="text-white/80 text-sm">85+ Reviews</span>
+            </div>
+            <div className="hidden sm:block text-white/40">|</div>
+            <div className="bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+              <span className="text-white/90 text-sm font-medium">94% Return Clients</span>
+            </div>
+          </div>
+
           {/* Description */}
           <p className={`text-xl md:text-2xl text-white/95 leading-relaxed max-w-3xl mx-auto drop-shadow-sm font-light tracking-wide ${
             isInView ? 'animate-in animate-slide-up animate-delay-700' : 'opacity-0'
           }`}>
-            ULU is your escape into tranquility, specializing in luxurious scalp massage 
-            experiences that melt away stress and restore balance. Every session is designed to 
-            calm the nervous system, stimulate healthy hair growth, and awaken your inner glow.
+            Experience why 94% of our clients return. Utah&apos;s premier head spa specializing
+            in luxurious scalp massage that calms the nervous system, stimulates healthy hair
+            growth, and awakens your inner glow. From $70.
           </p>
 
           {/* CTA Buttons */}
           <div className={`flex flex-col sm:flex-row justify-center items-center gap-6 pt-8 pb-12 md:pb-8 ${
             isInView ? 'animate-in animate-slide-up animate-delay-900' : 'opacity-0'
           }`}>
-            <a
-              href={process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackBookNowClick('hero')}
-              className="mangomint-booking-button group relative overflow-hidden bg-transparent hover:bg-custom-gold/10 text-custom-gold px-12 py-6 rounded-full font-bold text-xl transition-all duration-500 cursor-pointer shadow-2xl hover:shadow-custom-gold/30 transform hover:scale-105 border-2 border-custom-gold hover:border-custom-gold backdrop-blur-sm inline-block"
+            <BookingLink
+              location="hero"
+              external
+              className="group relative overflow-hidden bg-transparent hover:bg-custom-gold/10 text-custom-gold px-12 py-6 rounded-full font-bold text-xl transition-all duration-500 cursor-pointer shadow-2xl hover:shadow-custom-gold/30 transform hover:scale-105 border-2 border-custom-gold hover:border-custom-gold backdrop-blur-sm inline-block"
             >
               <div className="absolute inset-0 bg-custom-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="relative z-10 flex items-center justify-center">
                 Book Now
               </span>
-            </a>
+            </BookingLink>
             
             <Link 
               href="/services"

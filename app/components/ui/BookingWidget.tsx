@@ -4,7 +4,9 @@ import {
   CalendarDaysIcon,
   SparklesIcon
 } from '@heroicons/react/24/outline'
-import { COMPANY, URLS } from '@/app/constants/config'
+import { BookingLink } from './BookingButton'
+import { PhoneLink } from './PhoneLink'
+import { COMPANY } from '@/app/constants/config'
 
 interface BookingWidgetProps {
   serviceName?: string
@@ -15,8 +17,6 @@ export default function BookingWidget({
   serviceName = 'Signature Scalp Massage',
   className = ''
 }: BookingWidgetProps) {
-  const bookingUrl = process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || URLS.BOOKING
-
   return (
     <div
       className={`bg-white rounded-3xl shadow-soft border border-spa-sage-100 p-8 max-w-md mx-auto animate-in animate-fade-in animate-slide-up ${className}`}
@@ -60,25 +60,25 @@ export default function BookingWidget({
         </div>
 
         {/* Booking Button */}
-        <a
-          href={bookingUrl}
-          className="mangomint-booking-button w-full text-base py-4 bg-gradient-to-r from-spa-sage-600 to-spa-sage-700 hover:from-spa-sage-700 hover:to-spa-sage-800 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center cursor-pointer"
+        <BookingLink
+          location="widget"
+          className="w-full text-base py-4 bg-gradient-to-r from-spa-sage-600 to-spa-sage-700 hover:from-spa-sage-700 hover:to-spa-sage-800 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center cursor-pointer"
         >
           <CalendarDaysIcon className="h-5 w-5 mr-2" />
           Book Your Appointment
-        </a>
+        </BookingLink>
 
         {/* Alternative Contact */}
         <div className="text-center">
           <p className="text-xs text-stone-500 mb-2">
             Prefer to speak with someone?
           </p>
-          <a
-            href={`tel:${COMPANY.PHONE_LINK}`}
+          <PhoneLink
+            location="widget"
             className="text-sm text-spa-sage-600 hover:text-spa-sage-700 transition-colors cursor-pointer"
           >
             Call us at {COMPANY.PHONE}
-          </a>
+          </PhoneLink>
         </div>
       </div>
 

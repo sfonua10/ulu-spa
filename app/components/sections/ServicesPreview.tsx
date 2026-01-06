@@ -11,20 +11,22 @@ import { services } from '@/app/data/services'
 import { CheckIcon } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 
-// Get featured experience from services data (single source of truth)
-const featuredExperience = services.find(s => s.id === 32)! // ULU Ultimate Escape
+// Get featured experience - Ocean Ritual (#1 best seller)
+const featuredExperience = services.find(s => s.id === 2)! // Ocean Ritual - #1 best seller
 
-// Get curated services from services data with component-specific badge types
-const curatedServiceIds = [4, 7, 10] // Royal Escape, Pure Unwind, Island Renewal
+// Get top sellers (Royal Escape #2) and entry point (Island Breeze)
+const curatedServiceIds = [4, 1] // Royal Escape (#2 seller), Island Breeze (entry point)
 const badgeTypes: Record<number, 'value' | 'signature'> = {
-  4: 'value',
-  7: 'signature',
-  10: 'signature'
+  4: 'value', // Royal Escape
+  1: 'signature' // Island Breeze - entry level
 }
 const curatedServices = curatedServiceIds.map(id => ({
   ...services.find(s => s.id === id)!,
   badgeType: badgeTypes[id]
 }))
+
+// Island Breeze for entry point section
+const entryPointService = services.find(s => s.id === 1)!
 
 type ServiceType = typeof services[number] & { badgeType?: 'value' | 'signature' }
 
@@ -92,11 +94,11 @@ export default function ServicesPreview() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
 
-                  {/* Premium Badge */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 rounded-full shadow-gold">
+                  {/* #1 Best Seller Badge */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full shadow-lg">
                     <StarIconSolid className="h-4 w-4 text-white" />
                     <span className="text-xs font-bold uppercase tracking-wider text-white">
-                      Ultimate ULU Experience
+                      #1 Best Seller
                     </span>
                   </div>
                 </div>
@@ -109,7 +111,7 @@ export default function ServicesPreview() {
                     </span>
                     <span className="text-sm text-stone-500">•</span>
                     <span className="text-sm font-semibold text-stone-600">
-                      Our Flagship Experience
+                      Most Booked Experience
                     </span>
                   </div>
 
@@ -166,7 +168,7 @@ export default function ServicesPreview() {
         </div>
 
         {/* Individual Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {curatedServices.map((service, index) => (
             <LuxuryServiceCard
               key={service.id}
@@ -179,6 +181,30 @@ export default function ServicesPreview() {
               }}
             />
           ))}
+        </div>
+
+        {/* First Time Visitor CTA */}
+        <div className="mt-12 max-w-4xl mx-auto bg-gradient-to-r from-spa-sage-50 to-spa-cream-50 rounded-2xl p-6 md:p-8 border border-spa-sage-200">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+            <div className="text-center sm:text-left">
+              <div className="inline-flex items-center gap-2 bg-spa-sage-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+                <span>First Visit?</span>
+              </div>
+              <h4 className="text-xl md:text-2xl font-display font-bold text-spa-sage-800 mb-1">
+                Try Island Breeze - ${entryPointService.price}
+              </h4>
+              <p className="text-sm md:text-base text-stone-600">
+                {entryPointService.duration} • {entryPointService.shortDesc}
+              </p>
+            </div>
+            <Button
+              variant="luxury"
+              className="whitespace-nowrap bg-spa-sage-600 hover:bg-spa-sage-700 border-spa-sage-600"
+              onClick={() => window.open(getMangoMintServiceUrl(entryPointService.name), '_blank')}
+            >
+              Book First Visit
+            </Button>
+          </div>
         </div>
 
         {/* View All Services CTA */}

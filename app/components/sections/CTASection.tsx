@@ -3,8 +3,10 @@
 import Link from 'next/link'
 import { useInView } from '@/app/hooks/useInView'
 import { GiftIcon } from '@heroicons/react/24/outline'
-import { COMPANY, URLS } from '@/app/constants/config'
-import { trackBookNowClick, trackPhoneClick, trackGiftCardClick } from '@/app/lib/analytics'
+import { COMPANY } from '@/app/constants/config'
+import { trackGiftCardClick } from '@/app/lib/analytics'
+import { BookingLink } from '../ui/BookingButton'
+import { PhoneLink } from '../ui/PhoneLink'
 
 export default function CTASection() {
   const { ref: leftRef, isInView: leftInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
@@ -46,22 +48,19 @@ export default function CTASection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6">
-              <a
-                href={URLS.BOOKING}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackBookNowClick('cta')}
-                className="mangomint-booking-button inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 bg-gradient-to-br from-spa-gold-500 to-spa-gold-600 text-white hover:from-spa-gold-600 hover:to-spa-gold-700 hover:shadow-lg relative overflow-hidden h-14 px-10 text-base transform hover:-translate-y-1 shadow-xl hover:shadow-2xl"
+              <BookingLink
+                location="cta"
+                external
+                className="inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 bg-gradient-to-br from-spa-gold-500 to-spa-gold-600 text-white hover:from-spa-gold-600 hover:to-spa-gold-700 hover:shadow-lg relative overflow-hidden h-14 px-10 text-base transform hover:-translate-y-1 shadow-xl hover:shadow-2xl"
               >
                 Book Now
-              </a>
-              <a
-                href={`tel:${COMPANY.PHONE_LINK}`}
-                onClick={() => trackPhoneClick('home_cta')}
+              </BookingLink>
+              <PhoneLink
+                location="home_cta"
                 className="inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spa-gold-500 focus-visible:ring-offset-2 text-spa-stone-600 hover:bg-spa-stone-50 hover:text-spa-stone-700 border border-spa-stone-300 hover:border-spa-stone-400 h-14 px-10 text-base transform hover:-translate-y-0.5 shadow-md backdrop-blur-sm"
               >
                 Call Us
-              </a>
+              </PhoneLink>
             </div>
           </div>
 

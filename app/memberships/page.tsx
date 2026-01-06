@@ -4,7 +4,9 @@ import { Button } from '../components/ui/Button'
 import { CheckIcon } from '@heroicons/react/24/outline'
 import VideoBackground from '../components/ui/VideoBackground'
 import { useInView } from '../hooks/useInView'
-import { trackMembershipClick, trackBookNowClick, trackPhoneClick } from '../lib/analytics'
+import { trackMembershipClick } from '../lib/analytics'
+import { BookingLink } from '../components/ui/BookingButton'
+import { PhoneLink } from '../components/ui/PhoneLink'
 
 const memberships = [
   {
@@ -301,11 +303,10 @@ export default function MembershipsPage() {
                       <p className="text-stone-600 text-sm mb-6 flex-grow">
                         {addOn.description}
                       </p>
-                      <a
-                        href="https://booking.mangomint.com/904811"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mangomint-booking-button block"
+                      <BookingLink
+                        location={`family_addon_${addOn.duration}min`}
+                        external
+                        className="block"
                       >
                         <Button
                           variant={addOn.duration === 90 ? "luxury" : "outline"}
@@ -313,7 +314,7 @@ export default function MembershipsPage() {
                         >
                           Add to Plan
                         </Button>
-                      </a>
+                      </BookingLink>
                     </div>
                   </div>
                 </div>
@@ -370,12 +371,9 @@ export default function MembershipsPage() {
               Not sure which plan is right for you? <a href="/faq" className="text-spa-gold-400 hover:text-spa-gold-300 underline">Check our FAQ</a> or call for a consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="https://booking.mangomint.com/904811"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mangomint-booking-button"
-                onClick={() => trackBookNowClick('memberships_cta')}
+              <BookingLink
+                location="memberships_cta"
+                external
               >
                 <Button
                   variant="luxury"
@@ -384,12 +382,12 @@ export default function MembershipsPage() {
                 >
                   Start Membership
                 </Button>
-              </a>
-              <a href="tel:+18015287368" onClick={() => trackPhoneClick('memberships')}>
+              </BookingLink>
+              <PhoneLink location="memberships">
                 <Button variant="ghost" size="lg" className="text-white border-2 border-white hover:bg-white/20 hover:text-white px-12 font-semibold">
                   Call for Consultation
                 </Button>
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>

@@ -10,6 +10,9 @@ import SignatureExperienceCard from '../components/ui/SignatureExperienceCard'
 import CategoryCard from '../components/ui/CategoryCard'
 import ServiceDetailModal from '../components/ui/ServiceDetailModal'
 import { getMangoMintServiceUrl } from '../utils/mangomint-urls'
+import { trackBookNowClick, trackOutboundClick } from '../lib/analytics'
+import { BookingLink } from '../components/ui/BookingButton'
+import { PhoneLink } from '../components/ui/PhoneLink'
 import { services } from '../data/services'
 import {
   ArrowLeftIcon,
@@ -243,7 +246,10 @@ export default function ServicesPage() {
                       <SignatureExperienceCard
                         service={service}
                         onBook={() => {
-                          window.open(getMangoMintServiceUrl(service.name), '_blank')
+                          const url = getMangoMintServiceUrl(service.name)
+                          trackBookNowClick('signature_experience_card')
+                          trackOutboundClick(url, 'signature_experience_card')
+                          window.open(url, '_blank')
                         }}
                         onViewDetails={() => {
                           setSelectedService(service)
@@ -255,7 +261,10 @@ export default function ServicesPage() {
                       <LuxuryServiceCard
                         service={service}
                         onBook={() => {
-                          window.open(getMangoMintServiceUrl(service.name), '_blank')
+                          const url = getMangoMintServiceUrl(service.name)
+                          trackBookNowClick('service_card')
+                          trackOutboundClick(url, 'service_card')
+                          window.open(url, '_blank')
                         }}
                         onViewDetails={() => {
                           setSelectedService(service)
@@ -300,6 +309,11 @@ export default function ServicesPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative bg-white hover:bg-spa-sage-50 border border-spa-sage-200 hover:border-spa-gold-300 rounded-2xl p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden"
+                  onClick={() => {
+                    const url = getMangoMintServiceUrl(addon.name)
+                    trackBookNowClick('addon_service')
+                    trackOutboundClick(url, 'addon_service')
+                  }}
                 >
                   {/* Subtle gradient overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-spa-gold-50/0 to-spa-gold-100/0 group-hover:from-spa-gold-50/50 group-hover:to-spa-gold-100/30 transition-all duration-300 rounded-2xl" />
@@ -352,21 +366,23 @@ export default function ServicesPage() {
               recommend the perfect service for your unique needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={process.env.NEXT_PUBLIC_MANGOMINT_BOOKING_URL || 'https://booking.mangomint.com/904811'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mangomint-booking-button inline-block"
+              <BookingLink
+                location="services_cta"
+                external
+                className="inline-block"
               >
                 <Button variant="luxury" size="lg" className="px-12 w-full">
                   Book Now
                 </Button>
-              </a>
-              <a href="tel:+18015287368" className="inline-block">
+              </BookingLink>
+              <PhoneLink
+                location="services"
+                className="inline-block"
+              >
                 <Button variant="outline" size="lg" className="px-12 w-full">
                   Call Us
                 </Button>
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>
@@ -379,7 +395,10 @@ export default function ServicesPage() {
         onClose={() => setSelectedService(null)}
         onBookNow={() => {
           if (selectedService) {
-            window.open(getMangoMintServiceUrl(selectedService.name), '_blank')
+            const url = getMangoMintServiceUrl(selectedService.name)
+            trackBookNowClick('service_detail_modal')
+            trackOutboundClick(url, 'service_detail_modal')
+            window.open(url, '_blank')
           }
         }}
       />

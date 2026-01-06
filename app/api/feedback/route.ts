@@ -64,9 +64,8 @@ export async function POST(request: NextRequest) {
       )
 
       if (uploadResponse.ok) {
-        const uploadResult = await uploadResponse.json()
         // Use the raw GitHub URL for the image
-        screenshotUrls.push(uploadResult.content.download_url)
+        screenshotUrls.push(`https://raw.githubusercontent.com/${githubRepo}/main/${filename}`)
       } else {
         console.error('Failed to upload screenshot:', await uploadResponse.text())
       }

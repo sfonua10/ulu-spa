@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { CalendarIcon } from '@heroicons/react/24/outline'
-import { trackBookNowClick } from '@/app/lib/analytics'
+import { BookingButton } from './BookingButton'
 
 interface FloatingBookingButtonProps {
   className?: string
@@ -25,14 +25,15 @@ export default function FloatingBookingButton({ className = '' }: FloatingBookin
 
   return (
     <div className={`fixed bottom-24 right-8 z-50 ${className}`}>
-      <button
-        type="button"
-        onClick={() => trackBookNowClick('floating')}
-        className="mangomint-booking-button inline-flex items-center justify-center bg-gradient-to-r from-spa-sage-600 to-spa-sage-700 text-white shadow-2xl hover:from-spa-sage-700 hover:to-spa-sage-800 hover:shadow-3xl transition-all duration-300 rounded-full px-6 py-4 font-semibold cursor-pointer"
+      <BookingButton
+        location="floating"
+        variant="default"
+        size="lg"
+        className="inline-flex items-center justify-center bg-gradient-to-r from-spa-sage-600 to-spa-sage-700 text-white shadow-2xl hover:from-spa-sage-700 hover:to-spa-sage-800 hover:shadow-3xl transition-all duration-300 rounded-full px-6 py-4 font-semibold cursor-pointer"
       >
         <CalendarIcon className="h-6 w-6 mr-2 stroke-2" />
         Book Now
-      </button>
+      </BookingButton>
 
       {/* Tooltip */}
       <div className="absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">

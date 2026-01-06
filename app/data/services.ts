@@ -172,8 +172,8 @@ export const services = [
     id: 1,
     icon: SparklesIcon,
     name: 'Island Breeze',
-    tagline: 'A refreshing reset for busy schedules',
-    shortDesc: 'Aromatherapy Scalp Massage',
+    tagline: 'Perfect first visit. 30 minutes of pure calm.',
+    shortDesc: 'The perfect introduction to our signature scalp therapy',
     fullDesc: 'A refreshing 30-minute escape delivering the essential benefits of scalp therapy and relaxation in a shorter session. Perfect for busy professionals, first-time guests, or maintenance between longer treatments.',
     duration: '30 min',
     price: 70,
@@ -199,15 +199,17 @@ export const services = [
       'Mid-week stress relief',
       'Maintenance between treatments'
     ],
-    popular: false,
+    popular: true,
+    salesRank: 3,
+    isEntryLevel: true,
     category: 'head-scalp'
   },
   {
     id: 2,
     icon: SparklesIcon,
     name: 'The Ocean Ritual',
-    tagline: 'A calming experience rooted in relaxation and renewal',
-    shortDesc: 'Comprehensive head and scalp treatment',
+    tagline: 'Our #1 best seller. 60 minutes of pure relaxation.',
+    shortDesc: 'Our most-loved experience. Deep relaxation meets scalp renewal.',
     fullDesc: 'A calming, restorative 60-minute experience designed to gently release tension, hydrate the scalp and hair, and restore balance through soothing touch and intentional care. The Ocean Ritual delivers relaxation with lasting results.',
     duration: '60 min',
     price: 145,
@@ -238,7 +240,8 @@ export const services = [
       'Thoughtful gifts',
       'Relaxation with lasting results'
     ],
-    popular: false,
+    popular: true,
+    salesRank: 1,
     category: 'head-scalp'
   },
   {
@@ -317,6 +320,7 @@ export const services = [
       'Celebrating milestones'
     ],
     popular: true,
+    salesRank: 2,
     category: 'head-scalp'
   },
 

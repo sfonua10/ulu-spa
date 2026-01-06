@@ -1,13 +1,5 @@
 // GA4 Event Tracking Utility
 
-type GTagEvent = {
-  action: string;
-  category?: string;
-  label?: string;
-  value?: number;
-  [key: string]: string | number | undefined;
-};
-
 declare global {
   interface Window {
     gtag?: (
@@ -50,4 +42,24 @@ export function trackGiftCardClick(page: string) {
 
 export function trackServiceView(serviceName: string) {
   trackEvent('service_view', { service_name: serviceName });
+}
+
+export function trackOutboundClick(url: string, location: string) {
+  trackEvent('outbound_click', { url, location });
+}
+
+export function trackScrollDepth(depth: number) {
+  trackEvent('scroll_depth', { depth_percentage: depth });
+}
+
+export function trackIntroOfferView() {
+  trackEvent('intro_offer_page_view');
+}
+
+export function trackPromoCodeCopy(code: string) {
+  trackEvent('intro_offer_code_copy', { code });
+}
+
+export function trackIntroOfferBooking(location: string) {
+  trackEvent('intro_offer_book_click', { location });
 }

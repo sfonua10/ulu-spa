@@ -6,6 +6,7 @@ import { Button } from '../ui/Button'
 import SignatureExperienceCard from '../ui/SignatureExperienceCard'
 import ServiceDetailModal from '../ui/ServiceDetailModal'
 import { getMangoMintServiceUrl } from '@/app/utils/mangomint-urls'
+import { trackBookNowClick, trackOutboundClick } from '@/app/lib/analytics'
 import { services } from '@/app/data/services'
 import { StarIcon } from '@heroicons/react/24/solid'
 
@@ -55,7 +56,10 @@ export default function SignatureExperiences() {
               priority={index === 0}
               onViewDetails={() => setSelectedService(service)}
               onBook={() => {
-                window.open(getMangoMintServiceUrl(service.name), '_blank')
+                const url = getMangoMintServiceUrl(service.name)
+                trackBookNowClick('home_signature_experience')
+                trackOutboundClick(url, 'home_signature_experience')
+                window.open(url, '_blank')
               }}
             />
           ))}
@@ -82,7 +86,10 @@ export default function SignatureExperiences() {
           isOpen={!!selectedService}
           onClose={() => setSelectedService(null)}
           onBookNow={() => {
-            window.open(getMangoMintServiceUrl(selectedService.name), '_blank')
+            const url = getMangoMintServiceUrl(selectedService.name)
+            trackBookNowClick('home_signature_modal')
+            trackOutboundClick(url, 'home_signature_modal')
+            window.open(url, '_blank')
           }}
         />
       )}

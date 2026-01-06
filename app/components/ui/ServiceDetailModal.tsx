@@ -7,9 +7,11 @@ import {
   ClockIcon,
   CheckIcon,
   SparklesIcon,
-  ArrowRightIcon
+  ArrowRightIcon,
+  ChevronDownIcon
 } from '@heroicons/react/24/outline'
 import { trackServiceView, trackBookNowClick } from '@/app/lib/analytics'
+import { PhoneLink } from './PhoneLink'
 
 interface Service {
   id: number
@@ -47,6 +49,7 @@ export default function ServiceDetailModal({
   onBookNow
 }: ServiceDetailModalProps) {
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [showFullDetails, setShowFullDetails] = useState(false)
 
   // Handle escape key
   useEffect(() => {
@@ -209,32 +212,90 @@ export default function ServiceDetailModal({
             </div>
           </div>
 
-          {/* What's Included */}
-          <div className="mb-10">
+          {/* Your Journey - Simplified 3-Step View */}
+          <div className="mb-8">
             <h3 className="text-2xl font-display font-bold text-spa-sage-900 mb-4">
-              What&apos;s Included
+              Your Journey
             </h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {service.includes.map((item, index) => (
-                <li
-                  key={item}
-                  className="flex items-start space-x-3 animate-in slide-right"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <CheckIcon className="h-6 w-6 text-spa-gold-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-stone-700 text-lg">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-full bg-spa-gold-100 flex items-center justify-center text-spa-gold-600 font-bold text-sm flex-shrink-0">
+                  1
+                </div>
+                <div>
+                  <h4 className="font-semibold text-spa-sage-800">Arrive & Unwind</h4>
+                  <p className="text-sm text-stone-600">Warm welcome, aromatherapy, settle into relaxation</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-full bg-spa-gold-100 flex items-center justify-center text-spa-gold-600 font-bold text-sm flex-shrink-0">
+                  2
+                </div>
+                <div>
+                  <h4 className="font-semibold text-spa-sage-800">Deep Restoration</h4>
+                  <p className="text-sm text-stone-600">Scalp therapy, massage, and nourishing treatments</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-full bg-spa-gold-100 flex items-center justify-center text-spa-gold-600 font-bold text-sm flex-shrink-0">
+                  3
+                </div>
+                <div>
+                  <h4 className="font-semibold text-spa-sage-800">Leave Renewed</h4>
+                  <p className="text-sm text-stone-600">Light styling, farewell beverage, refreshed glow</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial Snippet */}
+          <div className="mb-8 bg-spa-sage-50 rounded-xl p-4 border border-spa-sage-100">
+            <p className="text-sm text-stone-700 italic mb-2">
+              &ldquo;This was the most relaxing experience I&apos;ve ever had. I left feeling like a completely new person.&rdquo;
+            </p>
+            <p className="text-xs text-stone-500">— Verified Client</p>
+          </div>
+
+          {/* Collapsible What's Included */}
+          <div className="mb-10">
+            <button
+              onClick={() => setShowFullDetails(!showFullDetails)}
+              className="flex items-center justify-between w-full text-left py-3 border-b border-spa-sage-200 hover:border-spa-gold-300 transition-colors"
+            >
+              <span className="text-lg font-semibold text-spa-sage-800">
+                See Full Treatment Details
+              </span>
+              <ChevronDownIcon
+                className={`h-5 w-5 text-spa-sage-600 transition-transform duration-300 ${showFullDetails ? 'rotate-180' : ''}`}
+              />
+            </button>
+
+            {showFullDetails && (
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4 animate-in slide-in-from-top-2 duration-200">
+                {service.includes.map((item, index) => (
+                  <li
+                    key={item}
+                    className="flex items-start space-x-2"
+                    style={{ animationDelay: `${index * 30}ms` }}
+                  >
+                    <CheckIcon className="h-5 w-5 text-spa-gold-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-stone-600 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           {/* CTA Button */}
           <div className="pt-6 border-t-2 border-spa-sage-100">
             <p className="text-sm text-stone-500 text-center mb-4">
               Have a gift card?{' '}
-              <a href="tel:+18015287368" className="text-spa-gold-600 hover:text-spa-gold-700 underline font-medium">
+              <PhoneLink
+                location="service_modal"
+                className="text-spa-gold-600 hover:text-spa-gold-700 underline font-medium"
+              >
                 Call (801) 528-7368
-              </a>{' '}
+              </PhoneLink>{' '}
               to book.
             </p>
             <button

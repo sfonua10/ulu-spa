@@ -15,6 +15,8 @@ import ContactCard from '@/app/components/ui/ContactCard';
 import ParticleField from '@/app/components/ui/ParticleField';
 import FloatingElements from '@/app/components/ui/FloatingElements';
 import { COMPANY } from '@/app/constants/config';
+import { BookingButton } from '@/app/components/ui/BookingButton';
+import { PhoneLink } from '@/app/components/ui/PhoneLink';
 
 export default function ContactPage() {
   const contactInfo = {
@@ -147,13 +149,13 @@ export default function ContactPage() {
               }
             >
               <div className="space-y-3">
-                <a
-                  href={`tel:+18015287368`}
+                <PhoneLink
+                  location="contact"
                   className="flex items-center gap-3 text-spa-gold-600 hover:text-spa-gold-700 font-medium transition-colors duration-300"
                 >
                   <Phone className="w-4 h-4" />
                   {contactInfo.phone}
-                </a>
+                </PhoneLink>
                 <a
                   href={`mailto:${contactInfo.email}`}
                   className="flex items-center gap-3 text-spa-gold-600 hover:text-spa-gold-700 font-medium transition-colors duration-300"
@@ -192,13 +194,15 @@ export default function ContactPage() {
           {/* CTA Section */}
           <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '300ms' }}>
             <p className="text-stone-600 font-montserrat mb-4">Ready to relax?</p>
-            <button
-              type="button"
-              className="mangomint-booking-button inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white font-montserrat font-semibold rounded-full hover:from-spa-gold-600 hover:to-spa-gold-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+            <BookingButton
+              location="contact"
+              variant="default"
+              size="lg"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white font-montserrat font-semibold rounded-full hover:from-spa-gold-600 hover:to-spa-gold-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 cursor-pointer"
             >
               Book Your Appointment
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </BookingButton>
           </div>
         </div>
       </section>
