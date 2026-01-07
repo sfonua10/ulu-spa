@@ -12,7 +12,7 @@ interface LuxuryServiceCardProps {
   onViewDetails?: () => void
   className?: string
   priority?: boolean
-  badgeType?: 'popular' | 'value' | 'signature'
+  badgeType?: 'popular' | 'value' | 'signature' | 'booked'
 }
 
 export default function LuxuryServiceCard({
@@ -90,13 +90,14 @@ export default function LuxuryServiceCard({
         {badgeType && (
           <div className="absolute top-0 right-0 overflow-hidden w-32 h-32 pointer-events-none z-20 rounded-3xl">
             <div className={`absolute top-6 right-[-32px] w-40 text-center py-2 text-xs font-bold text-white shadow-lg transform rotate-45 ${
-              badgeType === 'popular'
+              badgeType === 'popular' || badgeType === 'booked'
                 ? 'bg-gradient-to-r from-spa-gold-500 to-spa-gold-600'
                 : badgeType === 'value'
                 ? 'bg-gradient-to-r from-spa-sage-600 to-spa-sage-700'
                 : 'bg-gradient-to-r from-spa-gold-600 to-spa-gold-700'
             }`}>
               {badgeType === 'popular' ? 'MOST POPULAR' :
+               badgeType === 'booked' ? 'MOST BOOKED' :
                badgeType === 'value' ? 'BEST VALUE' : 'SIGNATURE'}
             </div>
           </div>

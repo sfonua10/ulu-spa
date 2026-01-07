@@ -14,9 +14,10 @@ import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 // Get featured experience - ULU Ultimate Escape
 const featuredExperience = services.find(s => s.id === 32)! // ULU Ultimate Escape
 
-// Get curated services: Royal Escape, Pure Unwind, Island Renewal
-const curatedServiceIds = [4, 7, 10] // Royal Escape, Pure Unwind, Island Renewal
-const badgeTypes: Record<number, 'popular' | 'value' | 'signature'> = {
+// Get curated services: Ocean Ritual, Royal Escape, Pure Unwind, Island Renewal
+const curatedServiceIds = [2, 4, 7, 10] // Ocean Ritual, Royal Escape, Pure Unwind, Island Renewal
+const badgeTypes: Record<number, 'popular' | 'value' | 'signature' | 'booked'> = {
+  2: 'booked',    // Ocean Ritual - Most Booked
   4: 'popular',   // Royal Escape - Most Popular
   7: 'value',     // Pure Unwind - Best Value
   10: 'signature' // Island Renewal
@@ -26,7 +27,7 @@ const curatedServices = curatedServiceIds.map(id => ({
   badgeType: badgeTypes[id]
 }))
 
-type ServiceType = typeof services[number] & { badgeType?: 'popular' | 'value' | 'signature' }
+type ServiceType = typeof services[number] & { badgeType?: 'popular' | 'value' | 'signature' | 'booked' }
 
 export default function ServicesPreview() {
   const [selectedService, setSelectedService] = useState<ServiceType | null>(null)
@@ -158,7 +159,7 @@ export default function ServicesPreview() {
         </div>
 
         {/* Individual Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {curatedServices.map((service, index) => (
             <LuxuryServiceCard
               key={service.id}

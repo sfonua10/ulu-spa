@@ -174,7 +174,7 @@ export const services = [
     name: 'Island Breeze',
     tagline: 'Perfect first visit. 30 minutes of pure calm.',
     shortDesc: 'The perfect introduction to our signature scalp therapy',
-    fullDesc: 'A refreshing 30-minute escape delivering the essential benefits of scalp therapy and relaxation in a shorter session. Perfect for busy professionals, first-time guests, or maintenance between longer treatments.',
+    fullDesc: 'Drift into calm with Island Breeze, our signature 30-minute scalp therapy designed to refresh your mind and restore your sense of balance. Warm aromatherapy oils meet skilled fingertips as tension melts away from your scalp, neck, and shoulders. A gentle detox and cleanse revitalizes your hair, while a soothing halo rinse with light décolleté massage completes the experience. In just half an hour, you\'ll leave feeling lighter, clearer, and ready to take on whatever comes next.',
     duration: '30 min',
     price: 70,
     imageUrl: '/images/services/island-breeze.JPG',
@@ -250,7 +250,7 @@ export const services = [
     name: 'Tropical Indulge',
     tagline: 'From scalp to soul — our most luxurious scalp ritual',
     shortDesc: 'Luxurious extended scalp experience',
-    fullDesc: 'Our most elevated scalp experience, designed for guests who want to slow down completely and be fully immersed in comfort, care, and relaxation. Every detail is curated to feel indulgent, nurturing, and deeply restorative.',
+    fullDesc: 'Our most indulgent ritual—a head to hand rejuvenation that melts away stress and restores shine.',
     duration: '75 min',
     price: 180,
     imageUrl: '/images/services/tropical-indulge.jpg',
@@ -290,7 +290,7 @@ export const services = [
     name: 'Royal Escape',
     tagline: 'A complete head-to-toe reset designed to melt stress',
     shortDesc: 'Ultimate premium scalp massage experience',
-    fullDesc: 'Indulge in 90 minutes of pure relaxation. This immersive experience blends advanced scalp care with full-body relaxation elements, calming the nervous system and leaving you refreshed, grounded, and glowing from head to toe.',
+    fullDesc: 'Indulge in 90 minutes of pure relaxation. This experience combines a deep scalp cleanse, nourishing massage, and soothing scratch therapy with a rejuvenating foot spa ritual. It\'s the perfect head-to-toe escape designed to melt away stress, restore balance, and leave you glowing with refreshed energy.',
     duration: '90 min',
     price: 210,
     imageUrl: '/images/services/royal-escape.png',
@@ -329,17 +329,29 @@ export const services = [
     id: 5,
     icon: HeartIcon,
     name: 'Island Drift',
+    tagline: 'A quick but powerful reset — in just 30 minutes',
     shortDesc: 'Gentle rhythmic scratch patterns',
-    fullDesc: 'A relaxing 30-minute scratch therapy session featuring gentle rhythmic scratch patterns focused on back and shoulders with optional oil infusion (+$10) for enhanced comfort and stress relief.',
+    fullDesc: 'Escape into tranquility with our Island Drift Scratch Therapy, a focused 30-minute session designed to relax, reset, and reawaken your senses. Gentle scratch therapy flows across the back, scalp, arms, and legs in soothing wave-like rhythms inspired by island traditions. Feather-light brushes and sensory tools add depth to the experience, helping your body release tension and your mind drift into calm. In just 30 minutes, you\'ll leave feeling lighter, calmer, and ready to take on the rest of your day.',
     duration: '30 min',
     price: 70,
     imageUrl: '/images/services/scratch-therapy.png',
     focusArea: 'center 50%',
     benefits: ['Stress Relief', 'Comfort', 'Relaxation'],
+    highlights: [
+      'Gentle rhythmic scratch patterns',
+      'Back and shoulder focus',
+      'Optional oil infusion (+$10)'
+    ],
     includes: [
       'Gentle rhythmic scratch patterns',
       'Back and shoulder focus',
       'Optional oil infusion (+$10)'
+    ],
+    perfectFor: [
+      'A quick but powerful reset during a busy day',
+      'Relieving stress, tension, or restlessness',
+      'Experiencing the benefits of scratch therapy for the first time',
+      'Anyone seeking a sensory-rich escape without committing to a full session'
     ],
     popular: false,
     category: 'scratch-therapy'
@@ -348,18 +360,30 @@ export const services = [
     id: 6,
     icon: HeartIcon,
     name: 'Heavenly Glide',
+    tagline: 'A 60-minute sensory journey for full-body calm',
     shortDesc: 'Full-body sensory restoration',
-    fullDesc: 'A comprehensive 60-minute full-body sensory restoration experience using soft fan brushes and scratch tools with optional Polynesian oil (+$15) for ultimate therapeutic touch.',
+    fullDesc: 'Float into a state of pure serenity with our Heavenly Glide Scratch Therapy, a 60-minute sensory journey designed to calm your nervous system and melt away stress. Gentle scratch rhythms flow seamlessly across your scalp, back, arms, and legs—mimicking the soothing pulse of ocean waves. Soft brushes, feather touches, and delicate scratch tools elevate the experience, creating a full-body escape that feels both grounding and ethereal. Immerse yourself in a blissful hour where every stroke is designed to restore balance, recharge your energy, and leave you feeling renewed from head to toe.',
     duration: '60 min',
     price: 145,
     imageUrl: '/images/services/scalp-claw.png',
     focusArea: 'center %',
     benefits: ['Deep Relaxation', 'Sensory Restoration', 'Therapeutic Touch'],
+    highlights: [
+      'Full-body sensory therapy',
+      'Soft fan brushes & scratch tools',
+      'Optional Polynesian oil (+$15)'
+    ],
     includes: [
       'Full-body treatment',
       'Soft fan brushes & scratch tools',
       'Sensory restoration',
       'Optional Polynesian oil (+$15)'
+    ],
+    perfectFor: [
+      'Deep stress relief and nervous system reset',
+      'Those seeking more than a quick refresh, but not a full extended session',
+      'Enhancing sleep, focus, and overall relaxation',
+      'Anyone looking to indulge in a longer, more immersive sensory therapy'
     ],
     popular: false,
     category: 'scratch-therapy'
@@ -369,7 +393,8 @@ export const services = [
     icon: HeartIcon,
     name: 'Pure Unwind',
     shortDesc: 'Extended signature scratching',
-    fullDesc: 'A 75-minute extended signature scratching experience with hand and arm ritual extension and optional oil infusion (+$15) for ultimate relaxation and stress relief.',
+    tagline: 'Step into serenity — this is relaxation redefined.',
+    fullDesc: 'Experience the ultimate reset with Pure Unwind, ULU Spa\'s signature 75-minute scratch therapy. Gentle, rhythmic scratching techniques paired with calming touch patterns melt away stress, ease tension, and quiet the mind. This deeply soothing ritual is designed to restore balance, release restlessness, and leave you feeling lighter, calmer, and completely refreshed.',
     duration: '75 min',
     price: 180,
     imageUrl: '/images/services/scratch-therapy-claw2.png',
@@ -386,6 +411,13 @@ export const services = [
       'Deep relaxation',
       'Optional oil infusion (+$15)'
     ],
+    perfectFor: [
+      'Stress relief and anxiety reduction',
+      'Easing restlessness and improving sleep quality',
+      'Calming overstimulated minds (great for busy professionals & students)',
+      'Athletes needing deep recovery after training or competition',
+      'Anyone seeking a one-of-a-kind relaxation experience'
+    ],
     popular: false,
     category: 'scratch-therapy'
   },
@@ -394,17 +426,28 @@ export const services = [
     icon: HeartIcon,
     name: 'ULU Trace',
     shortDesc: 'Immersive full-body ritual',
-    fullDesc: 'Our signature 90-minute immersive full-body scratch therapy ritual including Tongan brush technique and skin drumming, with optional oil (+$20) for the ultimate therapeutic experience.',
+    tagline: 'Let the rhythmic pulse of the islands carry you away. The ULU Trace is more than a treatment—it\'s a ritual of release, renewal, and reconnection.',
+    fullDesc: 'Step into the ultimate sensory escape with our ULU Trace Scratch Therapy, a deeply immersive 90-minute ritual inspired by Polynesian tradition and the rhythm of the sea. This full-body journey combines slow-wave scratch techniques, feather-light brushes, rhythmic tapping, and gentle skin drumming to awaken your senses and restore inner balance. From scalp to toes, each movement is designed to mimic ocean waves—relaxing the mind, soothing the body, and reconnecting your energy flow.',
     duration: '90 min',
     price: 210,
     imageUrl: '/images/services/scalp-massage.png',
     focusArea: 'center 40%',
     benefits: ['Premium Experience', 'Immersive Ritual', 'Ultimate Relaxation'],
     includes: [
-      'Immersive full-body ritual',
-      'Tongan brush technique',
-      'Skin drumming',
-      'Optional oil (+$20)'
+      'Full-body scratch therapy: scalp, back, arms, legs & feet',
+      'Slow-wave ocean-inspired technique for deep nervous system reset',
+      'Tongan "Malu" brush technique to stimulate circulation and energy flow',
+      'Rhythmic skin tapping & scratch sticks for grounding & renewal',
+      'Feather touch tools & fan brushes to elevate relaxation',
+      'Complimentary steam & hot towel wrap for ultimate comfort',
+      'Optional: Island Rain Mist Finish – refresh & uplift',
+      'Optional: Polynesian Oil Infusion (+$20)'
+    ],
+    perfectFor: [
+      'Couples or individuals seeking a luxurious escape',
+      'Stress relief, anxiety reduction, or nervous system reset',
+      'Those celebrating special occasions (anniversaries, birthdays, date nights)',
+      'Anyone craving a transformational sensory experience unlike anything else'
     ],
     popular: false,
     category: 'scratch-therapy'
@@ -416,17 +459,23 @@ export const services = [
     icon: StarIcon,
     name: 'Glow & Go Express',
     shortDesc: 'Quick refreshing facial treatment',
-    fullDesc: 'A fast-paced 30-minute facial designed for busy schedules featuring double cleanse, exfoliation, enzyme mask, and cooling globes ritual while delivering maximum glow.',
+    fullDesc: 'A quick but effective facial designed to deeply cleanse, hydrate, and revive dull or tired skin. Perfect for a radiant boost when you\'re short on time.',
     duration: '30 min',
     price: 65,
     imageUrl: '/images/services/glow-go-express.jpg',
     focusArea: 'center top',
     benefits: ['Quick Refresh', 'Skin Glow', 'Time Efficient'],
     includes: [
-      'Double cleanse',
-      'Exfoliation',
-      'Enzyme mask',
-      'Cooling globes ritual'
+      'Gentle double cleanse',
+      'Targeted exfoliation for instant radiance',
+      'Customized hydration mask',
+      'Facial massage',
+      'Finishing serum & moisturizer'
+    ],
+    perfectFor: [
+      'A quick refresh during a busy day',
+      'Lunchtime rejuvenation',
+      'Pre-event pick-me-up'
     ],
     popular: false,
     category: 'facial'
@@ -436,22 +485,23 @@ export const services = [
     icon: StarIcon,
     name: 'Island Renewal',
     shortDesc: 'Most popular facial',
-    fullDesc: 'Our most popular 60-minute facial combining customized exfoliation with deep hydration and choice of scalp or scratch therapy for complete skin renewal and rejuvenation.',
+    fullDesc: 'ULU Spa\'s signature rejuvenating facial. Blending tropical relaxation with targeted skincare, this facial deeply hydrates and restores radiance for a fresh, island-inspired glow.',
     duration: '60 min',
     price: 135,
     imageUrl: '/images/services/island-renewal.jpg',
     focusArea: 'center 50%',
-    benefits: ['Skin Renewal', 'Deep Cleansing', 'Most Popular'],
+    benefits: ['Deep Hydration', 'Skin Renewal', 'Natural Glow'],
     highlights: [
-      'Customized exfoliation',
-      'Deep hydration',
-      'Scalp or scratch therapy'
+      'Customized hydrating mask',
+      'Décolleté & scalp massage',
+      'Finishing serum & SPF'
     ],
     includes: [
-      'Customized exfoliation',
-      'Deep hydration',
-      'Scalp or scratch therapy',
-      'Full facial treatment'
+      'Double cleanse',
+      'Exfoliation',
+      'Customized hydrating mask',
+      'Décolleté, scalp, neck & shoulder massage',
+      'Finishing serum, moisturizer & SPF'
     ],
     popular: true,
     category: 'facial'
@@ -461,17 +511,20 @@ export const services = [
     icon: StarIcon,
     name: 'Island Escape Ritual',
     shortDesc: 'Advanced anti-aging treatment',
-    fullDesc: 'A 75-minute luxury facial ritual featuring advanced anti-aging exfoliant, professional extractions, high-frequency treatment, and LED light therapy for complete skin transformation.',
+    tagline: 'The perfect balance of results and indulgence — a tropical escape your skin will thank you for.',
+    fullDesc: 'Transport your senses with our signature 75-minute ritual designed to restore your skin\'s natural radiance while melting away stress.',
     duration: '75 min',
     price: 165,
     imageUrl: '/images/services/island-escape-ritual.png',
     focusArea: 'center 20%',
     benefits: ['Anti-Aging', 'Advanced Treatment', 'Skin Transformation'],
     includes: [
-      'Anti-aging exfoliant',
-      'Professional extractions',
-      'High-frequency treatment',
-      'LED light therapy'
+      'Deep double cleanse & gentle exfoliation',
+      'Targeted extractions & customized treatment for your skin\'s needs',
+      'Hydro jelly or glow-boosting mask for instant luminosity',
+      'Extended facial & décolleté massage with lymphatic drainage to contour and relieve tension',
+      'Soothing scalp massage for ultimate relaxation',
+      'Finishing skincare for long-lasting hydration and protection'
     ],
     popular: false,
     category: 'facial'
