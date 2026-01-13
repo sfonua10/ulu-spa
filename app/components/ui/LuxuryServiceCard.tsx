@@ -15,13 +15,6 @@ interface LuxuryServiceCardProps {
   badgeType?: 'popular' | 'value' | 'signature' | 'booked'
 }
 
-// Helper to determine price tier
-const getPriceTier = (price: number): 'entry' | 'mid' | 'premium' => {
-  if (price >= 200) return 'premium'
-  if (price >= 100) return 'mid'
-  return 'entry'
-}
-
 export default function LuxuryServiceCard({
   service,
   onBook,
@@ -32,9 +25,6 @@ export default function LuxuryServiceCard({
 }: LuxuryServiceCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
-
-  const priceTier = getPriceTier(service.price)
-  const isPremiumTier = priceTier === 'premium'
 
   return (
     <div
@@ -51,19 +41,8 @@ export default function LuxuryServiceCard({
         }
       }}
     >
-      {/* Premium Glow Effect */}
-      {isPremiumTier && (
-        <div className={`absolute -inset-0.5 bg-gradient-to-r from-spa-gold-400/40 via-spa-gold-300/20 to-spa-gold-400/40 rounded-3xl blur-sm transition-opacity duration-500 ${
-          isHovered ? 'opacity-100' : 'opacity-60'
-        }`} />
-      )}
-
       {/* Main Card */}
-      <div className={`relative h-full bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden transition-all duration-700 cursor-pointer flex flex-col hover:shadow-4xl ${
-        isPremiumTier
-          ? 'border-2 border-spa-gold-300/60 hover:border-spa-gold-400'
-          : 'border border-white/40 hover:border-spa-gold-200/60'
-      }`}>
+      <div className="relative h-full bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden transition-all duration-700 cursor-pointer flex flex-col border border-white/40 hover:shadow-4xl hover:border-spa-gold-200/60">
 
         {/* Glass Morphism Background */}
         <div className="absolute inset-0 bg-linear-to-br from-white/60 via-white/40 to-white/20 backdrop-blur-xl" />
@@ -143,9 +122,9 @@ export default function LuxuryServiceCard({
                   <span className="text-xs text-stone-600 leading-tight">{highlight}</span>
                 </div>
               ))}
-              {service.highlights && service.highlights.length > 3 && (
+              {service.includes.length > 3 && (
                 <p className="text-xs text-spa-gold-600 font-medium pl-6 pt-1 group-hover:text-spa-gold-700 transition-colors">
-                  +{service.highlights.length - 3} more included
+                  +{service.includes.length - 3} more included
                 </p>
               )}
             </div>
@@ -164,25 +143,17 @@ export default function LuxuryServiceCard({
         </div>
 
         {/* Action Button - Sticky Footer */}
-        <div className={`relative z-20 backdrop-blur-xl border-t p-4 sm:p-5 ${
-          isPremiumTier
-            ? 'bg-gradient-to-r from-spa-gold-50/95 to-white/95 border-spa-gold-200/50'
-            : 'bg-white/95 border-spa-sage-200/30'
-        }`}>
+        <div className="relative z-20 bg-white/95 backdrop-blur-xl border-t border-spa-sage-200/30 p-4 sm:p-5">
           <Button
             variant="luxury"
             size="md"
-            className={`w-full text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn ${
-              isPremiumTier
-                ? 'bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 hover:from-spa-gold-600 hover:to-spa-gold-700 border border-spa-gold-600'
-                : 'bg-gradient-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 border border-spa-gold-700'
-            }`}
+            className="w-full bg-linear-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn border border-spa-gold-700"
             onClick={(e) => {
               e.stopPropagation()
               onBook?.()
             }}
           >
-            <span>{isPremiumTier ? 'Reserve This Experience' : 'Book Now'}</span>
+            <span>Book Now</span>
             <ArrowRightIcon className="h-4 w-4 ml-1.5 group-hover/btn:translate-x-1 transition-transform duration-300" />
           </Button>
         </div>

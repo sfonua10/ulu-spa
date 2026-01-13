@@ -12,6 +12,7 @@ import ServiceDetailModal from '../components/ui/ServiceDetailModal'
 import { getMangoMintServiceUrl } from '../utils/mangomint-urls'
 import { trackBookNowClick, trackOutboundClick } from '../lib/analytics'
 import { BookingLink } from '../components/ui/BookingButton'
+import { PhoneLink } from '../components/ui/PhoneLink'
 import { services } from '../data/services'
 import {
   ArrowLeftIcon,
@@ -20,12 +21,9 @@ import {
   FireIcon,
   ScissorsIcon,
   HeartIcon,
-  UserIcon,
-  PhoneIcon,
-  CalendarIcon
+  UserIcon
 } from '@heroicons/react/24/outline'
-import { StarIcon, FireIcon as FireIconSolid } from '@heroicons/react/24/solid'
-import { COMPANY } from '../constants/config'
+import { StarIcon } from '@heroicons/react/24/solid'
 
 // Icon mapping for add-on services
 const addOnIcons: Record<string, React.ComponentType<{className?: string}>> = {
@@ -48,40 +46,35 @@ const categoryData = [
     name: 'Ultimate ULU Experiences',
     tagline: 'Curated wellness journeys',
     imageUrl: '/images/services/island-escape-ritual.png',
-    isPremium: true,
-    priceRange: 'From $210'
+    isPremium: true
   },
   {
     id: 'head-scalp',
     name: 'Head & Scalp Massage',
     tagline: 'Our signature head spa ritual',
     imageUrl: '/images/services/royal-escape.png',
-    isPremium: false,
-    priceRange: 'From $70'
+    isPremium: false
   },
   {
     id: 'scratch-therapy',
     name: 'Scratch Therapy',
     tagline: 'Gentle, rhythmic relaxation',
     imageUrl: '/images/services/scratch-therapy.png',
-    isPremium: false,
-    priceRange: 'From $65'
+    isPremium: false
   },
   {
     id: 'facial',
     name: 'Facial Services',
     tagline: 'Rejuvenate & restore your glow',
     imageUrl: '/images/services/island-renewal.jpg',
-    isPremium: false,
-    priceRange: 'From $85'
+    isPremium: false
   },
   {
     id: 'iv-therapy',
     name: 'IV Therapy',
     tagline: 'Wellness from within',
     imageUrl: '/images/services/model.jpg',
-    isPremium: false,
-    priceRange: 'From $199'
+    isPremium: false
   }
 ]
 
@@ -145,86 +138,29 @@ export default function ServicesPage() {
       <VideoBackground
         videoSrc="/videos/ulu-facial-site-optimized.mp4"
         fallbackImage="/images/hero-poster.jpg"
-        className="min-h-[60vh]"
+        className="min-h-[50vh]"
         priority={true}
       >
-        {/* Decorative floating orbs */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          <div className="absolute top-1/4 left-10 w-32 h-32 bg-spa-gold-400/20 rounded-full blur-2xl animate-float" />
-          <div className="absolute top-1/3 right-16 w-24 h-24 bg-spa-sage-300/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-white/10 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }} />
-        </div>
-
-        <div className="flex items-center justify-center min-h-[60vh] px-6 pt-24">
-          <div className="max-w-4xl mx-auto text-center text-white relative z-10">
-            {/* Trust badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <StarIcon key={i} className="w-4 h-4 text-spa-gold-400" />
-                ))}
-              </div>
-              <span className="text-sm font-medium text-white/90">5-Star Head Spa Experience</span>
-            </div>
-
-            {/* Main headline */}
+        <div className="flex items-center justify-center min-h-[50vh] px-6 pt-24">
+          <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
-              Escape Into
-              <br />
-              <span className="bg-gradient-to-r from-spa-gold-300 via-spa-gold-200 to-spa-gold-300 bg-clip-text text-transparent">
-                Pure Bliss
-              </span>
+              Our Services
             </h1>
-
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
-              Discover personalized treatments crafted to restore your mind, body, and spirit
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
+              Choose your experience and discover your perfect treatment
             </p>
-
-            {/* Hero CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <BookingLink
-                location="services_hero"
-                external
-                className="inline-block"
-              >
-                <Button variant="luxury" size="lg" className="px-8 py-4 text-base font-bold shadow-2xl hover:shadow-spa-gold-500/25 group">
-                  <CalendarIcon className="w-5 h-5 mr-2" />
-                  Reserve Your Escape
-                  <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </Button>
-              </BookingLink>
-              <a
-                href={`tel:${COMPANY.PHONE_LINK}`}
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-full border-2 border-white/40 bg-white/10 backdrop-blur-md text-white font-semibold hover:bg-white/20 hover:border-white/60 transition-all duration-300 group"
-              >
-                <PhoneIcon className="w-5 h-5 group-hover:animate-pulse" />
-                <span>{COMPANY.PHONE}</span>
-              </a>
-            </div>
           </div>
         </div>
       </VideoBackground>
 
       {/* Main Content Section */}
-      <section className="relative py-20 bg-gradient-to-br from-spa-sage-50/30 via-white to-spa-cream-50/40 overflow-hidden">
-        {/* Enhanced Floating Background Elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          {/* Liquid morph blob - top left */}
-          <div className="absolute -top-20 -left-20 w-96 h-96 bg-spa-gold-200/20 rounded-full blur-3xl liquid-morph" />
-          {/* Floating orb - right side */}
+      <section className="relative py-16 bg-gradient-to-br from-spa-sage-50/30 via-white to-spa-cream-50/40 overflow-hidden">
+        {/* Subtle Floating Background Orbs */}
+        <div className="absolute inset-0 opacity-[0.06] pointer-events-none" aria-hidden="true">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-spa-gold-200 rounded-full blur-3xl animate-float" />
           <div
-            className="absolute top-1/3 -right-10 w-72 h-72 bg-spa-sage-200/15 rounded-full blur-3xl animate-float"
-            style={{ animationDelay: '1s', animationDuration: '12s' }}
-          />
-          {/* Small accent orb - center */}
-          <div
-            className="absolute top-1/2 left-1/4 w-48 h-48 bg-spa-gold-300/10 rounded-full blur-2xl animate-float"
-            style={{ animationDelay: '3s', animationDuration: '8s' }}
-          />
-          {/* Bottom morph blob */}
-          <div
-            className="absolute -bottom-32 right-1/4 w-80 h-80 bg-spa-sage-300/15 rounded-full blur-3xl liquid-morph"
-            style={{ animationDelay: '4s' }}
+            className="absolute bottom-32 right-32 w-80 h-80 bg-spa-sage-200 rounded-full blur-3xl animate-float"
+            style={{ animationDelay: '2s', animationDuration: '10s' }}
           />
         </div>
 
@@ -242,148 +178,18 @@ export default function ServicesPage() {
                     : 'opacity-0'
               }`}
             >
-              {/* Featured Service - Most Popular */}
-              <div className="mb-12">
-                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-spa-gold-50 via-white to-spa-cream-50 border border-spa-gold-200/50 shadow-lg p-6 md:p-8">
-                  {/* Decorative background */}
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-spa-gold-200/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-spa-sage-200/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/4" />
-
-                  <div className="relative z-10 flex flex-col md:flex-row items-center gap-6">
-                    {/* Badge */}
-                    <div className="shrink-0">
-                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-sm font-bold shadow-lg">
-                        <FireIconSolid className="w-4 h-4" />
-                        Trending This Month
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 text-center md:text-left">
-                      <h3 className="text-xl md:text-2xl font-display font-bold text-spa-sage-800 mb-1">
-                        The Royal Escape
-                      </h3>
-                      <p className="text-stone-600 mb-2">
-                        90 minutes of pure relaxation with our signature head spa treatment
-                      </p>
-                      <div className="flex items-center justify-center md:justify-start gap-3 text-sm">
-                        <span className="font-medium text-spa-sage-700">90 min</span>
-                        <span className="text-spa-gold-500">•</span>
-                        <span className="font-bold text-spa-gold-600 text-lg">$145</span>
-                      </div>
-                    </div>
-
-                    {/* CTA */}
-                    <div className="shrink-0">
-                      <BookingLink
-                        location="featured_service"
-                        external
-                        className="inline-block"
-                      >
-                        <Button variant="luxury" size="md" className="px-6 py-3 shadow-lg hover:shadow-xl group whitespace-nowrap">
-                          Book Now
-                          <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-                        </Button>
-                      </BookingLink>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Signature Experiences - Full Width Featured */}
-              {(() => {
-                const signatureCategory = categoryData.find(c => c.id === 'signature-experience')
-                if (!signatureCategory) return null
-                return (
-                  <div
-                    className={`mb-10 ${
-                      hasViewedCategories
-                        ? ''
-                        : categoriesInView
-                          ? 'animate-in animate-fade-in'
-                          : 'opacity-0'
-                    }`}
-                  >
-                    <button
-                      onClick={() => handleCategorySelect(signatureCategory.id)}
-                      className="group relative w-full rounded-3xl overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-spa-gold-500 focus:ring-offset-2 ring-2 ring-spa-gold-400/50 shadow-xl shadow-spa-gold-500/20"
-                    >
-                      {/* Full-width image with taller aspect ratio */}
-                      <div className="relative aspect-[21/9] md:aspect-[3/1]">
-                        <img
-                          src={signatureCategory.imageUrl}
-                          alt={`${signatureCategory.name} at ULU Spa`}
-                          className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 brightness-90 group-hover:brightness-75"
-                        />
-
-                        {/* Gradient overlays */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-spa-gold-900/20" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
-
-                        {/* Shimmer on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-spa-gold-400/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
-                      </div>
-
-                      {/* Content overlay */}
-                      <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
-                        {/* Top badge */}
-                        <div className="absolute top-4 left-4 md:top-6 md:left-6">
-                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-spa-gold-500 to-spa-gold-600 text-white text-xs md:text-sm font-bold shadow-lg">
-                            <SparklesIcon className="w-4 h-4" />
-                            SIGNATURE COLLECTION
-                          </span>
-                        </div>
-
-                        {/* Service count badge */}
-                        <div className="absolute top-4 right-4 md:top-6 md:right-6">
-                          <span className="px-3 py-1.5 text-xs font-semibold rounded-full bg-spa-gold-500/30 backdrop-blur-md text-white border border-spa-gold-400/50">
-                            {getCategoryCount(signatureCategory.id)} curated experiences
-                          </span>
-                        </div>
-
-                        {/* Main content */}
-                        <div className="max-w-2xl">
-                          <h3 className="text-2xl md:text-4xl font-display font-bold text-white mb-2 group-hover:text-spa-gold-100 transition-colors">
-                            {signatureCategory.name}
-                          </h3>
-                          <p className="text-sm md:text-lg text-white/80 mb-3">
-                            {signatureCategory.tagline}
-                          </p>
-                          <div className="flex items-center gap-4">
-                            <span className="text-spa-gold-300 font-medium text-sm md:text-base">
-                              {signatureCategory.priceRange}
-                            </span>
-                            <span className="inline-flex items-center gap-2 text-spa-gold-400 font-medium text-sm md:text-base group-hover:translate-x-1 transition-transform">
-                              Explore Collection
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                              </svg>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Gold border effect */}
-                      <div className="absolute inset-0 rounded-3xl border-2 border-spa-gold-400/40 group-hover:border-spa-gold-400 transition-colors duration-500" />
-                    </button>
-                  </div>
-                )
-              })()}
-
-              <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl font-display font-bold text-spa-sage-800 mb-2">
-                  Explore By Category
+              <div className="text-center mb-14">
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-spa-sage-800 mb-3">
+                  Choose Your Experience
                 </h2>
-                <p className="text-stone-600">
-                  Find the perfect treatment for you
+                <p className="text-lg text-stone-600">
+                  Select a category to explore our treatments
                 </p>
               </div>
 
-              {/* Category Cards Grid - Remaining categories */}
+              {/* Category Cards Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                {categoryData
-                  .filter(category => category.id !== 'signature-experience')
-                  .map((category, index) => (
+                {categoryData.map((category, index) => (
                   <div
                     key={category.id}
                     className={`${
@@ -393,7 +199,7 @@ export default function ServicesPage() {
                           ? 'animate-in animate-slide-up'
                           : 'opacity-0'
                     }`}
-                    style={!hasViewedCategories ? { animationDelay: `${(index + 1) * 100}ms` } : undefined}
+                    style={!hasViewedCategories ? { animationDelay: `${index * 100}ms` } : undefined}
                   >
                     <CategoryCard
                       name={category.name}
@@ -401,8 +207,6 @@ export default function ServicesPage() {
                       serviceCount={getCategoryCount(category.id)}
                       imageUrl={category.imageUrl}
                       onClick={() => handleCategorySelect(category.id)}
-                      isPremium={category.isPremium}
-                      priceRange={category.priceRange}
                     />
                   </div>
                 ))}
@@ -483,29 +287,20 @@ export default function ServicesPage() {
       </section>
 
       {/* Elevate Your Experience - Add-Ons Section */}
-      <section className="relative py-16 bg-gradient-to-br from-spa-sage-50/50 via-spa-cream-50/30 to-spa-gold-50/40 overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute top-10 right-10 w-32 h-32 bg-spa-gold-200/20 rounded-full blur-2xl" />
-          <div className="absolute bottom-10 left-20 w-24 h-24 bg-spa-sage-200/20 rounded-full blur-xl" />
-        </div>
-
-        <div className="relative z-10 max-w-6xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider text-spa-gold-700 bg-spa-gold-100/80 rounded-full uppercase">
-              Enhance Your Visit
-            </span>
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-spa-sage-800 mb-3">
-              Make It Extra Special
+      <section className="py-12 bg-white border-t border-spa-sage-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-spa-sage-800 mb-2">
+              Elevate Your Experience
             </h2>
-            <p className="text-stone-600 max-w-xl mx-auto">
-              Add these luxurious extras to any service for the ultimate pampering experience
+            <p className="text-stone-600">
+              Add these extras to any service
             </p>
           </div>
 
           {/* Add-ons Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {addOnServices.map((addon, index) => {
+            {addOnServices.map((addon) => {
               const IconComponent = addOnIcons[addon.name] || SparklesIcon
               return (
                 <a
@@ -513,24 +308,20 @@ export default function ServicesPage() {
                   href={getMangoMintServiceUrl(addon.name)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative bg-white/80 backdrop-blur-sm hover:bg-white border border-spa-sage-200/60 hover:border-spa-gold-300 rounded-2xl p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 overflow-hidden"
+                  className="group relative bg-white hover:bg-spa-sage-50 border border-spa-sage-200 hover:border-spa-gold-300 rounded-2xl p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden"
                   onClick={() => {
                     const url = getMangoMintServiceUrl(addon.name)
                     trackBookNowClick('addon_service')
                     trackOutboundClick(url, 'addon_service')
                   }}
-                  style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  {/* Glass morphism effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-
-                  {/* Shimmer overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-spa-gold-200/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+                  {/* Subtle gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-spa-gold-50/0 to-spa-gold-100/0 group-hover:from-spa-gold-50/50 group-hover:to-spa-gold-100/30 transition-all duration-300 rounded-2xl" />
 
                   {/* Content */}
                   <div className="relative z-10">
-                    {/* Icon with glow on hover */}
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-spa-sage-100 to-spa-sage-50 group-hover:from-spa-gold-100 group-hover:to-spa-gold-50 flex items-center justify-center mb-3 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-spa-gold-200/50">
+                    {/* Icon */}
+                    <div className="w-10 h-10 rounded-full bg-spa-sage-100 group-hover:bg-spa-gold-100 flex items-center justify-center mb-3 transition-colors duration-300">
                       <IconComponent className="w-5 h-5 text-spa-sage-600 group-hover:text-spa-gold-600 transition-colors duration-300" />
                     </div>
 
@@ -542,13 +333,13 @@ export default function ServicesPage() {
                     {/* Duration & Price */}
                     <div className="flex items-center gap-2 text-xs">
                       <span className="text-stone-500">{addon.duration}</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-spa-gold-400 to-spa-gold-500" />
-                      <span className="font-bold text-spa-gold-600 group-hover:text-spa-gold-700 transition-colors">${addon.price}</span>
+                      <span className="w-1 h-1 rounded-full bg-spa-gold-400" />
+                      <span className="font-semibold text-spa-gold-600">${addon.price}</span>
                     </div>
                   </div>
 
-                  {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-spa-gold-400 via-spa-gold-500 to-spa-gold-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
+                  {/* Hover indicator */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-spa-gold-400 to-spa-gold-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </a>
               )
             })}
@@ -557,29 +348,12 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 bg-gradient-to-br from-spa-sage-50 to-spa-gold-50 overflow-hidden">
-        {/* Decorative floating orbs */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          <div className="absolute top-10 left-10 w-40 h-40 bg-spa-gold-300/20 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-10 right-20 w-32 h-32 bg-spa-sage-300/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-spa-gold-200/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }} />
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <section className="py-20 bg-gradient-to-br from-spa-sage-50 to-spa-gold-50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
           <div
             ref={ctaRef}
             className={`space-y-8 ${ctaInView ? 'animate-in animate-slide-up animate-slow' : 'opacity-0'}`}
           >
-            {/* Trust indicator */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-spa-gold-200/50 shadow-sm">
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <StarIcon key={i} className="w-4 h-4 text-spa-gold-500" />
-                ))}
-              </div>
-              <span className="text-sm font-medium text-spa-sage-700">Trusted by hundreds of guests</span>
-            </div>
-
             <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800">
               Ready to Begin Your
               <br />
@@ -587,37 +361,29 @@ export default function ServicesPage() {
                 Wellness Journey?
               </span>
             </h2>
-            <p className="text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-stone-600 leading-relaxed">
               Book your personalized consultation today and let our experts
               recommend the perfect service for your unique needs.
             </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <BookingLink
                 location="services_cta"
                 external
                 className="inline-block"
               >
-                <Button variant="luxury" size="lg" className="px-10 py-4 text-base font-bold shadow-xl hover:shadow-2xl group">
-                  <CalendarIcon className="w-5 h-5 mr-2" />
-                  Reserve Your Escape
-                  <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                <Button variant="luxury" size="lg" className="px-12 w-full">
+                  Book Now
                 </Button>
               </BookingLink>
-              <a
-                href={`tel:${COMPANY.PHONE_LINK}`}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-spa-sage-300 bg-white/80 backdrop-blur-sm text-spa-sage-700 font-semibold hover:bg-spa-sage-50 hover:border-spa-sage-400 transition-all duration-300 shadow-md hover:shadow-lg group"
+              <PhoneLink
+                location="services"
+                className="inline-block"
               >
-                <PhoneIcon className="w-5 h-5 group-hover:animate-pulse" />
-                <span>{COMPANY.PHONE}</span>
-              </a>
+                <Button variant="outline" size="lg" className="px-12 w-full">
+                  Call Us
+                </Button>
+              </PhoneLink>
             </div>
-
-            {/* Reassurance text */}
-            <p className="text-sm text-stone-500">
-              Free cancellation up to 24 hours before your appointment
-            </p>
           </div>
         </div>
       </section>

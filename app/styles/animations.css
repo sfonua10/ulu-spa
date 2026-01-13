@@ -87,23 +87,9 @@
   animation: float 6s ease-in-out infinite;
 }
 
-.animate-float {
-  animation: float 8s ease-in-out infinite;
-}
-
 .float-delay {
   animation: float 6s ease-in-out infinite;
   animation-delay: -3s;
-}
-
-/* Slow Shimmer Effect for Hero Text */
-.animate-shimmer-slow {
-  animation: shimmerSlowSweep 4s ease-in-out infinite;
-}
-
-@keyframes shimmerSlowSweep {
-  0%, 100% { transform: translateX(-200%) skewX(-12deg); opacity: 0; }
-  50% { transform: translateX(200%) skewX(-12deg); opacity: 1; }
 }
 
 /* Shimmer Effect */
