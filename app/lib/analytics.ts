@@ -63,3 +63,26 @@ export function trackPromoCodeCopy(code: string) {
 export function trackIntroOfferBooking(location: string) {
   trackEvent('intro_offer_book_click', { location });
 }
+
+// A/B Testing Analytics
+
+export function trackExperimentView(experimentName: string, variant: string) {
+  trackEvent('experiment_view', {
+    experiment_name: experimentName,
+    variant,
+  });
+}
+
+export function trackExperimentConversion(
+  experimentName: string,
+  variant: string,
+  action: string,
+  metadata?: Record<string, string | number | undefined>
+) {
+  trackEvent('experiment_conversion', {
+    experiment_name: experimentName,
+    variant,
+    action,
+    ...metadata,
+  });
+}

@@ -2,16 +2,16 @@
 
 import { useEffect, useState } from 'react'
 import { StarIcon, CalendarDaysIcon, GiftIcon, PhoneIcon } from '@heroicons/react/24/solid'
-import { CheckCircleIcon, BuildingOffice2Icon, UserGroupIcon, ClockIcon, SparklesIcon } from '@heroicons/react/24/outline'
+import { CheckCircleIcon, SparklesIcon } from '@heroicons/react/24/outline'
 import { useInView, useStaggeredInView } from '@/app/hooks/useInView'
 import { GlassCard } from '@/app/components/ui/GlassCard'
 import VideoBackground from '@/app/components/ui/VideoBackground'
 import LuxuryServiceCard from '@/app/components/ui/LuxuryServiceCard'
 import ServiceDetailModal from '@/app/components/ui/ServiceDetailModal'
-import { PhoneLink } from '@/app/components/ui/PhoneLink'
 import { testimonials } from '@/app/data/testimonials'
 import { services } from '@/app/data/services'
-import { trackEvent } from '@/app/lib/analytics'
+import { trackEvent, trackExperimentView, trackExperimentConversion } from '@/app/lib/analytics'
+import { EXPERIMENTS, getExperimentVariant, type NewGuestsHeroCTAVariant } from '@/app/lib/ab-testing'
 import { getMangoMintServiceUrl } from '@/app/utils/mangomint-urls'
 import { URLS, COMPANY } from '@/app/constants/config'
 
@@ -37,21 +37,44 @@ const recommendedServiceIds = [2, 4, 6]
 const recommendedServices = services.filter(s => recommendedServiceIds.includes(s.id))
 
 
+// CTA configuration for each variant
+const CTA_VARIANTS: Record<NewGuestsHeroCTAVariant, { text: string; icon: 'calendar' | 'sparkles' | 'gift' }> = {
+  'control': { text: 'Explore Our Services', icon: 'calendar' },
+  'first-timer': { text: 'See First-Timer Favorites', icon: 'sparkles' },
+  'claim-gift': { text: 'Claim Your Welcome Gift', icon: 'gift' },
+}
+
 export default function NewGuestsPage() {
   const { ref: heroRef, isInView: heroInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
   const { ref: servicesRef, visibleItems: visibleServices } = useStaggeredInView<HTMLDivElement>(3, 150)
   const { ref: offerRef, isInView: offerInView } = useInView<HTMLDivElement>({ threshold: 0.3 })
-  const { ref: corporateRef, isInView: corporateInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
   const [selectedService, setSelectedService] = useState<typeof services[number] | null>(null)
+  const [variant, setVariant] = useState<NewGuestsHeroCTAVariant>('control')
 
-  // Track page view
+  // Get A/B test variant and track views
   useEffect(() => {
+    const experimentVariant = getExperimentVariant(EXPERIMENTS.NEW_GUESTS_HERO_CTA)
+    if (experimentVariant) {
+      setVariant(experimentVariant)
+      trackExperimentView(EXPERIMENTS.NEW_GUESTS_HERO_CTA.name, experimentVariant)
+    }
     trackEvent('new_guest_page_view')
   }, [])
 
   const handleBookClick = () => {
     trackEvent('new_guest_book_click', { location: 'new_guests_page' })
+    trackExperimentConversion(EXPERIMENTS.NEW_GUESTS_HERO_CTA.name, variant, 'book_click')
   }
+
+  const handleHeroCTAClick = () => {
+    trackExperimentConversion(EXPERIMENTS.NEW_GUESTS_HERO_CTA.name, variant, 'hero_cta_click')
+  }
+
+  // Get the current CTA config based on variant
+  const ctaConfig = CTA_VARIANTS[variant]
+  const CTAIcon = ctaConfig.icon === 'calendar' ? CalendarDaysIcon
+    : ctaConfig.icon === 'sparkles' ? SparklesIcon
+    : GiftIcon
 
   return (
     <main className="min-h-screen">
@@ -111,13 +134,14 @@ export default function NewGuestsPage() {
               </div>
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button - A/B Tested */}
             <a
               href="#services"
+              onClick={handleHeroCTAClick}
               className={`inline-flex items-center gap-3 px-10 py-5 bg-spa-cream-300 hover:bg-spa-cream-400 text-spa-sage-800 rounded-full font-bold text-lg transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 border border-spa-cream-400 delay-400 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             >
-              <CalendarDaysIcon className="h-6 w-6" />
-              Explore Our Services
+              <CTAIcon className="h-6 w-6" />
+              {ctaConfig.text}
             </a>
           </div>
 
@@ -317,116 +341,6 @@ export default function NewGuestsPage() {
                 {COMPANY.PHONE}
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Corporate Wellness Section - Eye-Candy Redesign */}
-      <section
-        id="corporate-wellness"
-        ref={corporateRef}
-        className="py-32 relative overflow-hidden"
-      >
-        {/* Elegant Cream Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-spa-cream-50 via-spa-gold-50 to-spa-sage-100" />
-
-        {/* Floating Decorative Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Large blurred orbs for depth */}
-          <div className="absolute -top-20 -left-20 w-80 h-80 bg-spa-sage-200/30 rounded-full blur-3xl animate-float" />
-          <div className="absolute top-1/3 -right-32 w-96 h-96 bg-spa-sage-300/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-          <div className="absolute -bottom-20 left-1/4 w-72 h-72 bg-spa-gold-200/25 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
-          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-spa-gold-100/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-1/3 right-1/4 w-56 h-56 bg-spa-sage-200/25 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
-
-          {/* Small floating particles */}
-          <div className="hidden md:block absolute top-20 left-[15%] w-3 h-3 bg-spa-sage-400/30 rounded-full animate-float" />
-          <div className="hidden md:block absolute top-40 right-[20%] w-2 h-2 bg-spa-sage-400/40 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-          <div className="hidden md:block absolute bottom-32 left-[30%] w-4 h-4 bg-spa-gold-300/30 rounded-full animate-float" style={{ animationDelay: '3s' }} />
-          <div className="hidden md:block absolute top-1/2 right-[10%] w-2 h-2 bg-spa-gold-400/40 rounded-full animate-float" style={{ animationDelay: '2.5s' }} />
-          <div className="hidden md:block absolute top-1/4 left-[40%] w-2 h-2 bg-spa-gold-300/50 rounded-full animate-float" style={{ animationDelay: '0.5s' }} />
-          <div className="hidden md:block absolute bottom-1/4 right-[35%] w-3 h-3 bg-spa-sage-300/40 rounded-full animate-float" style={{ animationDelay: '1.5s' }} />
-          <div className="hidden md:block absolute top-[60%] left-[10%] w-2 h-2 bg-spa-gold-400/35 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-          <div className="hidden md:block absolute bottom-20 right-[25%] w-3 h-3 bg-spa-sage-400/30 rounded-full animate-float" style={{ animationDelay: '3.5s' }} />
-        </div>
-
-        {/* Content Container */}
-        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-          {/* Badge */}
-          <div
-            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-spa-sage-700/10 backdrop-blur-sm text-spa-sage-700 text-sm font-bold mb-8 border border-spa-sage-300/50 transition-all duration-700 ${corporateInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          >
-            <BuildingOffice2Icon className="h-4 w-4" />
-            <span className="uppercase tracking-wider">Corporate Wellness</span>
-          </div>
-
-          {/* Headline */}
-          <h2
-            className={`text-5xl md:text-6xl lg:text-7xl font-display font-bold text-spa-sage-800 mb-6 transition-all duration-700 delay-100 ${corporateInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          >
-            Bring ULU to Your Team
-          </h2>
-
-          {/* Short Subtext */}
-          <p
-            className={`text-xl md:text-2xl text-spa-sage-700/90 mb-16 max-w-2xl mx-auto font-light transition-all duration-700 delay-200 ${corporateInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          >
-            On-site head spa experiences that transform workplace wellness
-          </p>
-
-          {/* Icon Strip - Benefits at a Glance */}
-          <div
-            className={`flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 mb-16 transition-all duration-700 delay-300 ${corporateInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          >
-            {/* Benefit 1: On-Site */}
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/70 backdrop-blur-sm flex items-center justify-center border border-spa-sage-200/50 transition-transform duration-300 hover:scale-110">
-                <BuildingOffice2Icon className="h-7 w-7 sm:h-8 sm:w-8 text-spa-sage-700" />
-              </div>
-              <span className="text-spa-sage-700 font-medium text-xs sm:text-sm">We Come to You</span>
-            </div>
-
-            {/* Benefit 2: Team Size */}
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/70 backdrop-blur-sm flex items-center justify-center border border-spa-sage-200/50 transition-transform duration-300 hover:scale-110">
-                <UserGroupIcon className="h-7 w-7 sm:h-8 sm:w-8 text-spa-sage-700" />
-              </div>
-              <span className="text-spa-sage-700 font-medium text-xs sm:text-sm">Any Team Size</span>
-            </div>
-
-            {/* Benefit 3: Flexible */}
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/70 backdrop-blur-sm flex items-center justify-center border border-spa-sage-200/50 transition-transform duration-300 hover:scale-110">
-                <ClockIcon className="h-7 w-7 sm:h-8 sm:w-8 text-spa-sage-700" />
-              </div>
-              <span className="text-spa-sage-700 font-medium text-xs sm:text-sm">Flexible Scheduling</span>
-            </div>
-
-            {/* Benefit 4: Custom */}
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/70 backdrop-blur-sm flex items-center justify-center border border-spa-sage-200/50 transition-transform duration-300 hover:scale-110">
-                <SparklesIcon className="h-7 w-7 sm:h-8 sm:w-8 text-spa-sage-700" />
-              </div>
-              <span className="text-spa-sage-700 font-medium text-xs sm:text-sm">Custom Packages</span>
-            </div>
-          </div>
-
-          {/* Phone CTA - Primary Action */}
-          <div
-            className={`transition-all duration-700 delay-[400ms] ${corporateInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          >
-            <PhoneLink
-              location="corporate_wellness"
-              className="inline-flex items-center gap-3 sm:gap-4 px-8 sm:px-12 py-5 sm:py-6 bg-spa-sage-700 hover:bg-spa-sage-800 text-white rounded-full font-bold text-lg sm:text-xl transition-all duration-300 shadow-2xl hover:shadow-[0_25px_50px_rgba(0,0,0,0.15)] transform hover:-translate-y-1 group"
-            >
-              <PhoneIcon className="h-6 w-6 sm:h-7 sm:w-7 text-spa-gold-400 group-hover:animate-pulse" />
-              <span>Call: {COMPANY.PHONE}</span>
-            </PhoneLink>
-
-            {/* Supporting text */}
-            <p className="mt-6 text-spa-sage-600 text-sm">
-              Speak directly with our corporate wellness team
-            </p>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import HeroSection from './components/sections/HeroSection'
 import ServicesPreview from './components/sections/ServicesPreview'
 import TestimonialsSection from './components/sections/TestimonialsSection'
+import CorporateWellnessSection from './components/sections/CorporateWellnessSection'
 import CTASection from './components/sections/CTASection'
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function Home() {
       <HeroSection />
       <ServicesPreview />
       <TestimonialsSection />
+      <CorporateWellnessSection />
       <CTASection />
     </div>
   );
