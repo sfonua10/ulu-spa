@@ -293,7 +293,7 @@ export const services = [
     fullDesc: 'Indulge in 90 minutes of pure relaxation. This experience combines a deep scalp cleanse, nourishing massage, and soothing scratch therapy with a rejuvenating foot spa ritual. It\'s the perfect head-to-toe escape designed to melt away stress, restore balance, and leave you glowing with refreshed energy.',
     duration: '90 min',
     price: 210,
-    imageUrl: '/images/services/royal-escape.png',
+    imageUrl: '/images/new-guests/halo-spa.png',
     focusArea: 'center center',
     benefits: ['Ultimate Relaxation', 'Premium Experience', 'Complete Wellness'],
     highlights: [
@@ -365,8 +365,8 @@ export const services = [
     fullDesc: 'Float into a state of pure serenity with our Heavenly Glide Scratch Therapy, a 60-minute sensory journey designed to calm your nervous system and melt away stress. Gentle scratch rhythms flow seamlessly across your scalp, back, arms, and legs—mimicking the soothing pulse of ocean waves. Soft brushes, feather touches, and delicate scratch tools elevate the experience, creating a full-body escape that feels both grounding and ethereal. Immerse yourself in a blissful hour where every stroke is designed to restore balance, recharge your energy, and leave you feeling renewed from head to toe.',
     duration: '60 min',
     price: 145,
-    imageUrl: '/images/services/scalp-claw.png',
-    focusArea: 'center %',
+    imageUrl: '/images/new-guests/scratch-therapy.webp',
+    focusArea: 'center 60%',
     benefits: ['Deep Relaxation', 'Sensory Restoration', 'Therapeutic Touch'],
     highlights: [
       'Full-body sensory therapy',
