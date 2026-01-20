@@ -93,6 +93,16 @@
   --color-spa-sage-800: #4a503d;
   --color-spa-sage-900: #3e4435;
   
+  /* Valentine's palette - soft, luxury pinks */
+  --color-valentine-blush-50: #fdf8f9;
+  --color-valentine-blush-100: #fcf1f4;
+  --color-valentine-blush-200: #f9e3ea;
+  --color-valentine-blush-300: #f4ccd8;
+  --color-valentine-blush-400: #ecaabf;
+  --color-valentine-blush-500: #e085a3;
+  --color-valentine-rose-400: #f687a1;
+  --color-valentine-rose-500: #ec4874;
+
   /* Stone color palette */
   --color-stone-50: #fafaf9;
   --color-stone-100: #f4f4f3;
@@ -140,6 +150,7 @@
   --animate-rotate-slow: rotate 20s linear infinite;
   --animate-shimmer: shimmer 2s infinite;
   --animate-pulse-slow: pulse 3s ease-in-out infinite;
+  --animate-pulse-subtle: pulse-subtle 2s ease-in-out infinite;
   --animate-gradient-x: gradient-x 15s ease infinite;
   
   /* Custom shadows */

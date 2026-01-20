@@ -12,7 +12,7 @@ interface LuxuryServiceCardProps {
   onViewDetails?: () => void
   className?: string
   priority?: boolean
-  badgeType?: 'popular' | 'value' | 'signature' | 'booked'
+  badgeType?: 'popular' | 'value' | 'signature' | 'booked' | 'romantic' | 'couples' | 'gift'
 }
 
 export default function LuxuryServiceCard({
@@ -94,11 +94,18 @@ export default function LuxuryServiceCard({
                 ? 'bg-gradient-to-r from-spa-gold-500 to-spa-gold-600'
                 : badgeType === 'value'
                 ? 'bg-gradient-to-r from-spa-sage-600 to-spa-sage-700'
+                : badgeType === 'romantic' || badgeType === 'couples'
+                ? 'bg-gradient-to-r from-valentine-rose-400 to-valentine-blush-500'
+                : badgeType === 'gift'
+                ? 'bg-gradient-to-r from-spa-sage-500 to-spa-sage-600'
                 : 'bg-gradient-to-r from-spa-gold-600 to-spa-gold-700'
             }`}>
               {badgeType === 'popular' ? 'MOST POPULAR' :
                badgeType === 'booked' ? 'MOST BOOKED' :
-               badgeType === 'value' ? 'BEST VALUE' : 'SIGNATURE'}
+               badgeType === 'value' ? 'BEST VALUE' :
+               badgeType === 'romantic' ? 'MOST ROMANTIC' :
+               badgeType === 'couples' ? 'COUPLES FAVORITE' :
+               badgeType === 'gift' ? 'PERFECT GIFT' : 'SIGNATURE'}
             </div>
           </div>
         )}
