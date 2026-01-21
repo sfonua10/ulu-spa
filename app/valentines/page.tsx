@@ -8,7 +8,7 @@ import VideoBackground from '@/app/components/ui/VideoBackground'
 import LuxuryServiceCard from '@/app/components/ui/LuxuryServiceCard'
 import ServiceDetailModal from '@/app/components/ui/ServiceDetailModal'
 import { services } from '@/app/data/services'
-import { valentineEnhancements, valentineExtras, valentineRecommendedServiceIds, valentinePromo } from '@/app/data/valentines'
+import { valentineEnhancements, valentineRecommendedServiceIds, valentinePromo } from '@/app/data/valentines'
 import { trackEvent } from '@/app/lib/analytics'
 import { getMangoMintServiceUrl } from '@/app/utils/mangomint-urls'
 import { URLS, COMPANY } from '@/app/constants/config'
@@ -49,7 +49,7 @@ function useCountdown(targetDate: string) {
 export default function ValentinesPage() {
   const { ref: heroRef, isInView: heroInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
   const { ref: giftRef, isInView: giftInView } = useInView<HTMLDivElement>({ threshold: 0.3 })
-  const { ref: servicesRef, visibleItems: visibleServices } = useStaggeredInView<HTMLDivElement>(3, 150)
+  const { ref: servicesRef, visibleItems: visibleServices } = useStaggeredInView<HTMLDivElement>(4, 150)
   const { ref: ctaRef, isInView: ctaInView } = useInView<HTMLDivElement>({ threshold: 0.3 })
   const [selectedService, setSelectedService] = useState<typeof services[number] | null>(null)
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
@@ -90,7 +90,7 @@ export default function ValentinesPage() {
 
             {/* Subheadline */}
             <p className={`text-xl md:text-2xl text-white/90 mb-6 max-w-2xl mx-auto transition-all duration-700 delay-200 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              Book any service{' '}
+              Book any <span className="font-semibold text-white">60+ minute</span> service{' '}
               <span className="font-semibold text-white">Feb 7-14</span>
               {' '}and receive a complimentary enhancement —{' '}
               <span className="font-semibold text-white">up to ${valentinePromo.maxValue} value</span>
@@ -150,7 +150,7 @@ export default function ValentinesPage() {
 
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           {/* Section Header */}
-          <div className={`text-center mb-8 transition-all duration-700 ${giftInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className={`text-center mb-12 transition-all duration-700 ${giftInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full holiday-badge-gradient text-white text-sm font-bold mb-6 shadow-lg border border-[var(--holiday-primary-300)]/50">
               <HeartIcon className="h-4 w-4" />
               <span className="uppercase tracking-wider">Your Valentine&apos;s Gift</span>
@@ -159,32 +159,13 @@ export default function ValentinesPage() {
             <h2 className="text-4xl md:text-5xl font-display font-bold text-spa-sage-800 mb-4">
               Choose Your Enhancement
             </h2>
-            <p className="text-xl text-stone-600 max-w-2xl mx-auto">
-              Select one complimentary experience to elevate your visit
+            <p className="text-lg text-stone-500 mb-6">
+              With any 60, 75, or 90-minute service &nbsp;|&nbsp; Feb 7-14
             </p>
-          </div>
-
-          {/* Included With Every Visit Banner */}
-          <div className={`mb-12 transition-all duration-700 delay-100 ${giftInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="bg-gradient-to-r from-[var(--holiday-primary-50)] via-[var(--holiday-primary-100)]/50 to-[var(--holiday-primary-50)] rounded-2xl p-6 border border-[var(--holiday-primary-200)]/50">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-                <div className="flex items-center gap-2" style={{ color: 'var(--holiday-primary-600)' }}>
-                  <SparklesIcon className="h-5 w-5" />
-                  <span className="font-semibold">Included with Every Visit:</span>
-                </div>
-                <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-                  {valentineExtras.map((extra) => (
-                    <div key={extra.title} className="flex items-center gap-2 text-spa-sage-700">
-                      <HeartIcon className="h-4 w-4 holiday-text-accent" />
-                      <span className="text-sm font-medium">{extra.title}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <p className="text-center font-semibold mt-3 text-sm uppercase tracking-wide" style={{ color: 'var(--holiday-primary-500)' }}>
-                Plus choose one enhancement below
-              </p>
-            </div>
+            <p className="text-xl text-stone-600 max-w-3xl mx-auto">
+              Book any qualifying service and receive your choice of enhancement —<br className="hidden sm:block" />
+              <span className="font-semibold text-[var(--holiday-primary-600)]">PLUS gourmet chocolate, sparkling beverage, and rose petal ambiance</span>
+            </p>
           </div>
 
           {/* Enhancement Cards */}
@@ -280,12 +261,12 @@ export default function ValentinesPage() {
               Romantic Escapes
             </h2>
             <p className="text-xl text-stone-600 max-w-2xl mx-auto">
-              Our most beloved experiences for a romantic celebration — starting at $210
+              Our most beloved experiences for a romantic celebration — starting at $145
             </p>
           </div>
 
           {/* Services Grid */}
-          <div ref={servicesRef} className="grid md:grid-cols-3 gap-8 mb-12">
+          <div ref={servicesRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {recommendedServices.map((service, index) => (
               <div
                 key={service.id}
@@ -303,9 +284,10 @@ export default function ValentinesPage() {
                   priority={index < 2}
                   valentineMode={true}
                   badgeType={
-                    service.id === 31 ? 'romantic' :   // ULU Paradise Retreat - MOST ROMANTIC
-                    service.id === 30 ? 'couples' :    // Island Glow - COUPLES FAVORITE
+                    service.id === 2 ? 'popular' :     // Ocean Ritual - MOST POPULAR
                     service.id === 4 ? 'gift' :        // Royal Escape - PERFECT GIFT
+                    service.id === 30 ? 'couples' :    // Island Glow - COUPLES FAVORITE
+                    service.id === 31 ? 'romantic' :   // ULU Paradise Retreat - MOST ROMANTIC
                     undefined
                   }
                 />

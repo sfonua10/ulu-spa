@@ -38,12 +38,12 @@ export const valentineExtras = [
   }
 ]
 
-export const valentineRecommendedServiceIds = [31, 30, 4]
+export const valentineRecommendedServiceIds = [2, 4, 30, 31]
 
 export const valentinePromo = {
   startDate: '2026-02-07',
   endDate: '2026-02-14',
   maxValue: 40,
   headline: "Gift Yourself the Glow",
-  subheadline: "Book any service Feb 7-14 and receive a complimentary enhancement — up to $40 value"
+  subheadline: "Book any 60+ minute service Feb 7-14 and receive a complimentary enhancement — up to $40 value"
 }
