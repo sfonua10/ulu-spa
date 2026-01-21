@@ -13,6 +13,7 @@ interface LuxuryServiceCardProps {
   className?: string
   priority?: boolean
   badgeType?: 'popular' | 'value' | 'signature' | 'booked' | 'romantic' | 'couples' | 'gift'
+  valentineMode?: boolean
 }
 
 export default function LuxuryServiceCard({
@@ -21,7 +22,8 @@ export default function LuxuryServiceCard({
   onViewDetails,
   className = '',
   priority = false,
-  badgeType
+  badgeType,
+  valentineMode = false
 }: LuxuryServiceCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -42,13 +44,19 @@ export default function LuxuryServiceCard({
       }}
     >
       {/* Main Card */}
-      <div className="relative h-full bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden transition-all duration-700 cursor-pointer flex flex-col border border-white/40 hover:shadow-4xl hover:border-spa-gold-200/60">
+      <div className={`relative h-full bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden transition-all duration-700 cursor-pointer flex flex-col border border-white/40 hover:shadow-4xl ${
+        valentineMode ? 'hover:border-[var(--holiday-primary-200)]/60' : 'hover:border-spa-gold-200/60'
+      }`}>
 
         {/* Glass Morphism Background */}
         <div className="absolute inset-0 bg-linear-to-br from-white/60 via-white/40 to-white/20 backdrop-blur-xl" />
 
         {/* Hover Glow Effect */}
-        <div className={`absolute inset-0 bg-linear-to-br from-spa-gold-400/20 via-transparent to-spa-sage-400/20 transition-opacity duration-500 ${
+        <div className={`absolute inset-0 bg-linear-to-br ${
+          valentineMode
+            ? 'from-[var(--holiday-primary-400)]/20 via-transparent to-[var(--holiday-secondary-400)]/20'
+            : 'from-spa-gold-400/20 via-transparent to-spa-sage-400/20'
+        } transition-opacity duration-500 ${
           isHovered ? 'opacity-100' : 'opacity-0'
         }`} />
 
@@ -88,16 +96,16 @@ export default function LuxuryServiceCard({
 
         {/* Corner Ribbon Badge */}
         {badgeType && (
-          <div className="absolute top-0 right-0 overflow-hidden w-32 h-32 pointer-events-none z-20 rounded-3xl">
-            <div className={`absolute top-6 right-[-32px] w-40 text-center py-2 text-xs font-bold text-white shadow-lg transform rotate-45 ${
+          <div className="absolute top-0 right-0 overflow-hidden w-40 h-40 pointer-events-none z-20 rounded-3xl">
+            <div className={`absolute top-6 right-[-32px] w-40 text-center py-2 text-[10px] font-bold text-white shadow-lg transform rotate-45 ${
               badgeType === 'popular' || badgeType === 'booked'
-                ? 'bg-gradient-to-r from-spa-gold-500 to-spa-gold-600'
+                ? valentineMode
+                  ? 'bg-gradient-to-r from-[var(--holiday-primary-500)] to-[var(--holiday-secondary-500)]'
+                  : 'bg-gradient-to-r from-spa-gold-500 to-spa-gold-600'
                 : badgeType === 'value'
                 ? 'bg-gradient-to-r from-spa-sage-600 to-spa-sage-700'
-                : badgeType === 'romantic' || badgeType === 'couples'
-                ? 'bg-gradient-to-r from-valentine-rose-400 to-valentine-blush-500'
-                : badgeType === 'gift'
-                ? 'bg-gradient-to-r from-spa-sage-500 to-spa-sage-600'
+                : badgeType === 'romantic' || badgeType === 'couples' || badgeType === 'gift'
+                ? 'bg-gradient-to-r from-[var(--holiday-primary-500)] to-[var(--holiday-secondary-500)]'
                 : 'bg-gradient-to-r from-spa-gold-600 to-spa-gold-700'
             }`}>
               {badgeType === 'popular' ? 'MOST POPULAR' :
@@ -112,7 +120,9 @@ export default function LuxuryServiceCard({
 
         {/* Card Content */}
         <div className="relative z-10 flex-1 p-5 sm:p-6">
-          <h3 className="text-xl sm:text-2xl font-display font-bold text-spa-sage-900 mb-2 leading-tight group-hover:text-spa-gold-700 transition-colors duration-300">
+          <h3 className={`text-xl sm:text-2xl font-display font-bold text-spa-sage-900 mb-2 leading-tight transition-colors duration-300 ${
+            valentineMode ? 'group-hover:text-[var(--holiday-primary-600)]' : 'group-hover:text-spa-gold-700'
+          }`}>
             {service.name}
           </h3>
 
@@ -125,12 +135,18 @@ export default function LuxuryServiceCard({
             <div className="mb-4 space-y-1.5">
               {service.highlights.slice(0, 3).map((highlight) => (
                 <div key={highlight} className="flex items-start gap-2">
-                  <CheckIcon className="h-4 w-4 text-spa-gold-600 mt-0.5 flex-shrink-0" />
+                  <CheckIcon className={`h-4 w-4 mt-0.5 flex-shrink-0 ${
+                    valentineMode ? 'text-[var(--holiday-primary-500)]' : 'text-spa-gold-600'
+                  }`} />
                   <span className="text-xs text-stone-600 leading-tight">{highlight}</span>
                 </div>
               ))}
               {service.includes.length > 3 && (
-                <p className="text-xs text-spa-gold-600 font-medium pl-6 pt-1 group-hover:text-spa-gold-700 transition-colors">
+                <p className={`text-xs font-medium pl-6 pt-1 transition-colors ${
+                  valentineMode
+                    ? 'text-[var(--holiday-primary-500)] group-hover:text-[var(--holiday-primary-600)]'
+                    : 'text-spa-gold-600 group-hover:text-spa-gold-700'
+                }`}>
                   +{service.includes.length - 3} more included
                 </p>
               )}
@@ -142,8 +158,12 @@ export default function LuxuryServiceCard({
             <span className="text-base font-semibold text-spa-sage-700 transition-colors duration-300 group-hover:text-spa-sage-800">
               {service.duration}
             </span>
-            <span className="text-spa-gold-500 font-bold">•</span>
-            <span className="text-base font-bold text-spa-gold-600 transition-colors duration-300 group-hover:text-spa-gold-700">
+            <span className={`font-bold ${valentineMode ? 'text-[var(--holiday-primary-400)]' : 'text-spa-gold-500'}`}>•</span>
+            <span className={`text-base font-bold transition-colors duration-300 ${
+              valentineMode
+                ? 'text-[var(--holiday-primary-500)] group-hover:text-[var(--holiday-primary-600)]'
+                : 'text-spa-gold-600 group-hover:text-spa-gold-700'
+            }`}>
               ${service.price}
             </span>
           </div>
@@ -152,9 +172,13 @@ export default function LuxuryServiceCard({
         {/* Action Button - Sticky Footer */}
         <div className="relative z-20 bg-white/95 backdrop-blur-xl border-t border-spa-sage-200/30 p-4 sm:p-5">
           <Button
-            variant="luxury"
+            variant={valentineMode ? 'default' : 'luxury'}
             size="md"
-            className="w-full bg-linear-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn border border-spa-gold-700"
+            className={`w-full text-white font-bold shadow-lg hover:shadow-2xl transition-all duration-300 group/btn ${
+              valentineMode
+                ? 'bg-gradient-to-r from-[var(--holiday-primary-500)] to-[var(--holiday-secondary-500)] hover:from-[var(--holiday-primary-600)] hover:to-[var(--holiday-secondary-600)] border border-[var(--holiday-primary-400)]'
+                : 'bg-linear-to-r from-spa-gold-600 to-spa-gold-700 hover:from-spa-gold-700 hover:to-spa-gold-800 border border-spa-gold-700'
+            }`}
             onClick={(e) => {
               e.stopPropagation()
               onBook?.()

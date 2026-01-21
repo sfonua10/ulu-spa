@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useStaggeredInView } from '@/app/hooks/useInView'
+import { useHolidayTheme } from '@/app/contexts/HolidayThemeContext'
 import {
   MapPinIcon,
   PhoneIcon,
@@ -50,11 +51,12 @@ const socialLinks = [
 
 export default function Footer() {
   const { ref: footerRef, visibleItems } = useStaggeredInView<HTMLDivElement>(6, 100)
+  const { isHolidayTheme } = useHolidayTheme()
 
   return (
     <footer className="bg-spa-sage-900 text-spa-sage-50 relative">
       {/* Top border for better separation */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-spa-sage-700 to-transparent"></div>
+      <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent ${isHolidayTheme ? 'via-[var(--holiday-primary-400)]' : 'via-spa-sage-700'} to-transparent`}></div>
       <div ref={footerRef} className="max-w-7xl mx-auto px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Brand Section */}
@@ -78,7 +80,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit our ${social.name}`}
-                    className="text-spa-sage-200 hover:text-white transition-colors duration-200"
+                    className={`text-spa-sage-200 ${isHolidayTheme ? 'hover:text-[var(--holiday-text-accent)]' : 'hover:text-white'} transition-colors duration-200`}
                   >
                     <Icon className="w-5 h-5" />
                   </a>
@@ -95,9 +97,9 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link 
+                  <Link
                     href={link.href}
-                    className="text-spa-sage-200 hover:text-white transition-colors duration-200"
+                    className={`text-spa-sage-200 ${isHolidayTheme ? 'hover:text-[var(--holiday-text-accent)]' : 'hover:text-white'} transition-colors duration-200`}
                   >
                     {link.name}
                   </Link>
@@ -119,14 +121,14 @@ export default function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-spa-sage-200 hover:text-white transition-colors duration-200"
+                      className={`text-spa-sage-200 ${isHolidayTheme ? 'hover:text-[var(--holiday-text-accent)]' : 'hover:text-white'} transition-colors duration-200`}
                     >
                       {link.name}
                     </a>
                   ) : (
                     <Link
                       href={link.href}
-                      className="text-spa-sage-200 hover:text-white transition-colors duration-200"
+                      className={`text-spa-sage-200 ${isHolidayTheme ? 'hover:text-[var(--holiday-text-accent)]' : 'hover:text-white'} transition-colors duration-200`}
                     >
                       {link.name}
                     </Link>
@@ -146,7 +148,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-spa-sage-200 hover:text-white transition-colors duration-200"
+                    className={`text-spa-sage-200 ${isHolidayTheme ? 'hover:text-[var(--holiday-text-accent)]' : 'hover:text-white'} transition-colors duration-200`}
                   >
                     {link.name}
                   </Link>
@@ -185,7 +187,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className={`mt-12 pt-8 border-t border-spa-sage-800 ${
+        <div className={`mt-12 pt-8 border-t ${isHolidayTheme ? 'border-[var(--holiday-primary-700)]/30' : 'border-spa-sage-800'} ${
           visibleItems.has(5) ? 'animate-in animate-fade-in animate-delay-600' : 'opacity-0'
         }`}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -194,10 +196,10 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6 text-sm text-spa-sage-300">
               {footerLinks.support.slice(2).map((link) => (
-                <Link 
+                <Link
                   key={link.name}
                   href={link.href}
-                  className="hover:text-white transition-colors duration-200"
+                  className={`${isHolidayTheme ? 'hover:text-[var(--holiday-text-accent)]' : 'hover:text-white'} transition-colors duration-200`}
                 >
                   {link.name}
                 </Link>

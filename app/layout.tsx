@@ -6,6 +6,7 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import ChatWidgetController from "./components/ui/ChatWidgetController";
 import { AnimationProvider } from "./contexts/AnimationContext";
+import { HolidayThemeProvider } from "./contexts/HolidayThemeContext";
 import FeedbackWidget from "./components/ui/FeedbackWidget";
 import { OrganizationSchema, LocalBusinessSchema } from "./components/seo/JsonLd";
 import GoogleAnalytics from "./components/GoogleAnalytics";
@@ -204,13 +205,15 @@ export default function RootLayout({
         {/* Google Analytics */}
         <GoogleAnalytics />
         <ScrollDepthTracker />
-        <AnimationProvider>
-          <ChatWidgetController />
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <FeedbackWidget />
-        </AnimationProvider>
+        <HolidayThemeProvider>
+          <AnimationProvider>
+            <ChatWidgetController />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <FeedbackWidget />
+          </AnimationProvider>
+        </HolidayThemeProvider>
       </body>
     </html>
   );

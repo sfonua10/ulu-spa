@@ -177,6 +177,41 @@
     --light: #f8f5f0;
     --cream: #FFF8E7;
     --shadow: rgba(0,0,0,0.1);
+
+    /* Holiday Theme Variables (defaults to gold/spa theme) */
+    /* These are dynamically updated by HolidayThemeProvider */
+    --holiday-primary-50: #fefdf9;
+    --holiday-primary-100: #fdfaf0;
+    --holiday-primary-200: #faf5e0;
+    --holiday-primary-300: #f5ebc2;
+    --holiday-primary-400: #eddc8a;
+    --holiday-primary-500: #D4AF37;
+    --holiday-primary-600: #B8941F;
+    --holiday-primary-700: #9a7a1a;
+
+    --holiday-secondary-300: #f5ebc2;
+    --holiday-secondary-400: #eddc8a;
+    --holiday-secondary-500: #D4AF37;
+    --holiday-secondary-600: #B8941F;
+
+    --holiday-text-light: #f5ebc2;
+    --holiday-text-dark: #9a7a1a;
+    --holiday-text-accent: #D4AF37;
+
+    --holiday-gradient-button: linear-gradient(to right, #D4AF37, #B8941F);
+    --holiday-gradient-button-hover: linear-gradient(to right, #B8941F, #9a7a1a);
+    --holiday-gradient-badge: linear-gradient(to right, #D4AF37, #B8941F);
+    --holiday-gradient-shimmer: linear-gradient(90deg, #f5ebc2 0%, #f5ebc2 30%, #FFFFFF 50%, #f5ebc2 70%, #f5ebc2 100%);
+    --holiday-gradient-background: linear-gradient(to bottom, #fefdf9, #faf5e0);
+
+    --holiday-glow-color: rgba(212, 175, 55, 0.3);
+    --holiday-logo-filter: none;
+
+    /* Logo gradient colors (defaults to gold) */
+    /* These are dynamically updated by HolidayThemeProvider */
+    --logo-gradient-light: #FFF8D5;
+    --logo-gradient-mid: #DCC96E;
+    --logo-gradient-dark: #AC760D;
   }
 
   body {
@@ -193,24 +228,6 @@
 }
 
 @layer components {
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--light);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--gold-dark);
-  }
-
 /* Video Performance Optimizations */
 video {
   /* Enable hardware acceleration */
@@ -287,6 +304,90 @@ video::-webkit-media-controls {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Valentine logo pink tint filter - Legacy, use holiday-logo-tint instead */
+.valentine-logo-tint {
+  filter: sepia(20%) saturate(150%) hue-rotate(-10deg) brightness(1.05);
+}
+
+/* Holiday Theme Utility Classes */
+/* These use CSS custom properties set by HolidayThemeProvider */
+
+.holiday-logo-tint {
+  filter: var(--holiday-logo-filter);
+}
+
+.holiday-button-gradient {
+  background: var(--holiday-gradient-button);
+}
+
+.holiday-button-gradient:hover {
+  background: var(--holiday-gradient-button-hover);
+}
+
+.holiday-button-outline {
+  background: transparent;
+  color: var(--holiday-text-accent);
+  border-color: var(--holiday-text-accent);
+}
+
+.holiday-button-outline:hover {
+  background: color-mix(in srgb, var(--holiday-primary-400) 10%, transparent);
+  border-color: var(--holiday-primary-500);
+  box-shadow: 0 0 15px var(--holiday-glow-color);
+}
+
+.holiday-badge-gradient {
+  background: var(--holiday-gradient-badge);
+}
+
+.holiday-glow {
+  box-shadow: 0 0 20px var(--holiday-glow-color);
+}
+
+.holiday-glow-hover:hover {
+  box-shadow: 0 0 30px var(--holiday-glow-color);
+}
+
+.holiday-border {
+  border-color: var(--holiday-primary-300);
+}
+
+.holiday-border-accent {
+  border-color: var(--holiday-text-accent);
+}
+
+.holiday-text-accent {
+  color: var(--holiday-text-accent);
+}
+
+.holiday-text-accent-hover:hover {
+  color: var(--holiday-text-accent);
+}
+
+.holiday-text-light {
+  color: var(--holiday-text-light);
+}
+
+.holiday-text-dark {
+  color: var(--holiday-text-dark);
+}
+
+.holiday-bg-primary-50 {
+  background-color: var(--holiday-primary-50);
+}
+
+.holiday-bg-primary-500 {
+  background-color: var(--holiday-primary-500);
+}
+
+/* Valentine's themed MangoMint widget - shift bronze to softer rose pink */
+body[data-valentine-widget='true'] iframe[src*="mangomint"],
+body[data-valentine-widget='true'] [class*="mangomint"],
+body[data-valentine-widget='true'] #mangomint-widget,
+body[data-valentine-widget='true'] [id*="mangomint"] {
+  filter: hue-rotate(-45deg) saturate(0.95) brightness(1.0);
 }
 
 /* Prevent layout collisions on short viewports */

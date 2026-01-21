@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { BookingButton } from '../ui/BookingButton'
+import { UluLogo } from '../ui/UluLogo'
+import { useHolidayTheme } from '@/app/contexts/HolidayThemeContext'
 
 const navigation = [
   { name: 'Services', href: '/services' },
@@ -32,6 +33,9 @@ export default function Header() {
   // Pages that should use stone/cream text in default mode (not scrolled)
   const stoneTextPages = ['/memberships', '/group-bookings']
   const isStoneTextPage = stoneTextPages.includes(pathname)
+
+  // Holiday theme detection from context (auto-detected from URL)
+  const { isHolidayTheme } = useHolidayTheme()
 
   // Helper function to check if a navigation link is active
   const isActiveLink = (href: string) => {
@@ -67,8 +71,10 @@ export default function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 animate-in animate-slide-down py-3 md:py-4 lg:py-5 ${
-        useDarkStyling 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gold-200/20' 
+        useDarkStyling
+          ? (isHolidayTheme
+              ? 'bg-[var(--holiday-primary-50)]/95 backdrop-blur-md shadow-lg border-b border-[var(--holiday-primary-200)]/30'
+              : 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gold-200/20')
           : 'bg-transparent'
       }`}
     >
@@ -76,15 +82,7 @@ export default function Header() {
         <div className="flex justify-self-start">
           <Link href="/" className="-m-1.5 p-1.5">
             <div className="flex items-center gap-3 hover-scale">
-              <div className="relative w-16 h-16 md:w-20 md:h-20 lg:w-[121px] lg:h-[121px]">
-                <Image
-                  src="/images/logo/ulu-logo.png"
-                  alt="ULU Spa Logo"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
+              <UluLogo className="w-16 h-16 md:w-20 md:h-20 lg:w-[121px] lg:h-[121px]" />
             </div>
           </Link>
         </div>
@@ -94,8 +92,12 @@ export default function Header() {
             type="button"
             className={`-m-2.5 inline-flex items-center justify-center rounded-md p-3 min-h-[44px] min-w-[44px] transition-colors duration-300 ${
               useDarkText
-                ? 'text-dark hover:text-gold-600'
-                : (isStoneTextPage ? 'text-stone-100 hover:text-gold-200' : 'text-white hover:text-gold-300')
+                ? isHolidayTheme
+                  ? 'text-[var(--holiday-text-accent)] hover:text-[var(--holiday-primary-600)]'
+                  : 'text-dark hover:text-gold-600'
+                : isHolidayTheme
+                  ? (isStoneTextPage ? 'text-stone-100 hover:text-[var(--holiday-text-accent)]' : 'text-white hover:text-[var(--holiday-text-accent)]')
+                  : (isStoneTextPage ? 'text-stone-100 hover:text-gold-200' : 'text-white hover:text-gold-300')
             }`}
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open main menu"
@@ -113,15 +115,23 @@ export default function Header() {
               <Link
                 href={item.href}
                 aria-current={isActive ? 'page' : undefined}
-                className={`relative text-sm xl:text-base leading-6 whitespace-nowrap transition-all duration-300 after:absolute after:bottom-[-5px] after:left-0 after:h-0.5 after:bg-gold-300 after:transition-all after:duration-300 ${
+                className={`relative text-sm xl:text-base leading-6 whitespace-nowrap transition-all duration-300 after:absolute after:bottom-[-5px] after:left-0 after:h-0.5 after:transition-all after:duration-300 ${
+                  isHolidayTheme ? 'after:bg-[var(--holiday-text-accent)]' : 'after:bg-gold-300'
+                } ${
                   isActive
                     ? `after:w-full font-semibold ${
-                        useDarkText ? 'text-gold-600' : (isStoneTextPage ? 'text-gold-400' : 'text-gold-300')
+                        isHolidayTheme
+                          ? 'holiday-text-accent'
+                          : useDarkText ? 'text-gold-600' : (isStoneTextPage ? 'text-gold-400' : 'text-gold-300')
                       }`
                     : `after:w-0 hover:after:w-full font-medium ${
-                        useDarkText
-                          ? 'text-dark/90 hover:text-gold-600'
-                          : (isStoneTextPage ? 'text-stone-100 hover:text-gold-200' : 'text-white/90 hover:text-gold-300')
+                        isHolidayTheme
+                          ? (useDarkText
+                              ? 'holiday-text-dark holiday-text-accent-hover'
+                              : 'holiday-text-light holiday-text-accent-hover')
+                          : useDarkText
+                            ? 'text-dark/90 hover:text-gold-600'
+                            : (isStoneTextPage ? 'text-stone-100 hover:text-gold-200' : 'text-white/90 hover:text-gold-300')
                       }`
                 }`}
               >
@@ -138,9 +148,15 @@ export default function Header() {
             location="header"
             variant="default"
             size="md"
-            className="group relative overflow-hidden bg-transparent hover:bg-custom-gold/10 text-custom-gold px-8 py-4 rounded-full font-bold text-base transition-all duration-500 shadow-2xl hover:shadow-custom-gold/30 transform hover:scale-105 border-2 border-custom-gold hover:border-custom-gold backdrop-blur-sm"
+            className={`group relative overflow-hidden px-8 py-4 rounded-full font-bold text-base transition-all duration-500 shadow-2xl transform hover:scale-105 backdrop-blur-sm border-2 ${
+              isHolidayTheme
+                ? '!bg-transparent !text-[var(--holiday-text-accent)] holiday-button-outline holiday-glow-hover'
+                : 'bg-transparent hover:bg-custom-gold/10 text-custom-gold border-custom-gold hover:border-custom-gold hover:shadow-custom-gold/30'
+            }`}
           >
-            <div className="absolute inset-0 bg-custom-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+              isHolidayTheme ? 'bg-[var(--holiday-primary-400)]/5' : 'bg-custom-gold/5'
+            }`}></div>
             <span className="relative z-10">
               Book Now
             </span>
@@ -165,19 +181,16 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
               <div className="flex items-center gap-3">
-                <div className="relative w-12 h-12 md:w-14 md:h-14">
-                  <Image
-                    src="/images/logo/ulu-logo.png"
-                    alt="ULU Spa Logo"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+                <UluLogo className="w-12 h-12 md:w-14 md:h-14" />
               </div>
             </Link>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-3 text-dark hover:text-gold-500 min-h-[44px] min-w-[44px] transition-colors duration-300"
+              className={`-m-2.5 rounded-md p-3 min-h-[44px] min-w-[44px] transition-colors duration-300 ${
+                isHolidayTheme
+                  ? 'text-[var(--holiday-text-accent)] hover:text-[var(--holiday-primary-600)]'
+                  : 'text-dark hover:text-gold-500'
+              }`}
               onClick={() => setMobileMenuOpen(false)}
               aria-label="Close menu"
             >
@@ -185,7 +198,7 @@ export default function Header() {
             </button>
           </div>
           <div className="mt-6 flow-root pb-24">
-            <div className="-my-6 divide-y divide-gold-200">
+            <div className={`-my-6 divide-y ${isHolidayTheme ? 'divide-[var(--holiday-primary-300)]' : 'divide-gold-200'}`}>
               <div className="space-y-1 py-6">
                 {navigation.map((item, index) => {
                   const isActive = isActiveLink(item.href)
@@ -199,8 +212,12 @@ export default function Header() {
                       aria-current={isActive ? 'page' : undefined}
                       className={`-mx-3 flex rounded-lg px-3 py-3 text-base leading-7 transition-colors duration-200 min-h-[44px] items-center ${
                         isActive
-                          ? 'bg-gold-50 text-gold-600 font-semibold border-l-4 border-gold-500'
-                          : 'font-medium text-dark hover:bg-cream-50 hover:text-gold-500'
+                          ? isHolidayTheme
+                            ? 'bg-[var(--holiday-primary-100)] text-[var(--holiday-text-accent)] font-semibold border-l-4 border-[var(--holiday-secondary-400)]'
+                            : 'bg-gold-50 text-gold-600 font-semibold border-l-4 border-gold-500'
+                          : isHolidayTheme
+                            ? 'font-medium text-[var(--holiday-text-accent)] hover:bg-[var(--holiday-primary-50)] hover:text-[var(--holiday-primary-600)]'
+                            : 'font-medium text-dark hover:bg-cream-50 hover:text-gold-500'
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -219,7 +236,11 @@ export default function Header() {
               location="mobile_menu"
               variant="default"
               size="lg"
-              className="w-full bg-gold-500 hover:bg-gold-600 text-black px-6 py-4 rounded-full font-bold text-center transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 border-2 border-gold-400 hover:border-gold-300"
+              className={`w-full px-6 py-4 rounded-full font-bold text-center transition-all duration-300 hover:shadow-xl border-2 ${
+                isHolidayTheme
+                  ? 'holiday-button-gradient text-white hover:shadow-[var(--holiday-glow-color)] border-[var(--holiday-primary-400)]'
+                  : 'bg-gold-500 hover:bg-gold-600 text-black hover:shadow-gold/30 border-gold-400 hover:border-gold-300'
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               <span>

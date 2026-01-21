@@ -15,8 +15,7 @@ export const valentineEnhancements = [
     tagline: 'Let waves of calm wash over you as pressure melts from head to shoulders',
     icon: SparklesIcon,
     enhancements: ['Extended Scalp Ritual', 'Heavenly Hairplay'],
-    value: 40,
-    mostPopular: true
+    value: 40
   },
   {
     id: 'grounding-sensory',
@@ -42,8 +41,8 @@ export const valentineExtras = [
 export const valentineRecommendedServiceIds = [31, 30, 4]
 
 export const valentinePromo = {
-  startDate: '2025-02-07',
-  endDate: '2025-02-14',
+  startDate: '2026-02-07',
+  endDate: '2026-02-14',
   maxValue: 40,
   headline: "Gift Yourself the Glow",
   subheadline: "Book any service Feb 7-14 and receive a complimentary enhancement — up to $40 value"

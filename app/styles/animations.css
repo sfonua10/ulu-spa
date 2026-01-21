@@ -1179,6 +1179,29 @@
   animation: textShimmerOnce 3s ease-in-out 0.8s 3;
 }
 
+/* Text shimmer - Valentine soft blush pink with white highlight, runs 3 times */
+/* Legacy class - use .text-shimmer-holiday instead */
+.text-shimmer-valentine {
+  background: linear-gradient(90deg, #f4ccd8 0%, #f4ccd8 30%, #FFFFFF 50%, #f4ccd8 70%, #f4ccd8 100%);
+  background-size: 200% 100%;
+  background-position: 100% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmerOnce 3s ease-in-out 0.8s 3;
+}
+
+/* Holiday-themed text shimmer - uses CSS custom properties from HolidayThemeProvider */
+.text-shimmer-holiday {
+  background: var(--holiday-gradient-shimmer);
+  background-size: 200% 100%;
+  background-position: 100% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmerOnce 3s ease-in-out 0.8s 3;
+}
+
 @keyframes textShimmerOnce {
   0% { background-position: 100% 50%; }
   100% { background-position: -100% 50%; }
